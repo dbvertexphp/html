@@ -1,0 +1,224 @@
+[{
+  "_id": {
+    "$oid": "64eefc21130211ae63059b23"
+  },
+  "banner_images": {
+    "image1": "https://cdn.wallpapersafari.com/73/41/9duX3Q.jpg",
+    "image2": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C255%2C429%2C886-mustang.jpg",
+    "image3": "https://img3.wallspic.com/crops/7/4/6/5/35647/35647-bmw-personal_luxury_car-sportscar-sports_car-executive_car-3000x2000.jpg",
+    "image4": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C255%2C396%2C454-mustang.jpeg",
+    "image5": "https://cutewallpaper.org/21/hd-car-wallpapers-1080p/HD-Cars-Wallpapers-1080p-Wallpaper-Cave.jpg",
+    "image6": "https://cdn.wallpapersafari.com/38/5/puBL63.jpg"
+  },
+  "updatedAt": {
+    "$date": "2023-10-23T06:15:14.915Z"
+  },
+  "testimonials": [
+    {
+      "description": "They have delivered their commitment perfectly, perfect car delivered in almost brand new condition. Way better than Cars24, Spinny etc. Highly recommended.",
+      "image": "https://whizguru.com/assets/female-e7ffc77c.png",
+      "author": "Sameer Walia",
+      "designation": "Teacher",
+      "location": "Delhi",
+      "_id": {
+        "$oid": "64ef20e082799dbb718ceebc"
+      }
+    },
+    {
+      "description": "Nice clean car delivered. Perfect value for money. Completed satisfied and recommended",
+      "image": "https://whizguru.com/assets/male-d170c45e.png",
+      "author": "Neeti",
+      "designation": "Developer",
+      "location": "Delhi",
+      "_id": {
+        "$oid": "64ef20f082799dbb718ceec3"
+      }
+    },
+    {
+      "description": "Almost brand new car delivered at a faction of new car cost. Amazed!!!!! ",
+      "image": "https://whizguru.com/assets/female-e7ffc77c.png",
+      "author": "Kunal",
+      "designation": "Developer",
+      "location": "Delhi",
+      "_id": {
+        "$oid": "64ef2d304feff26a30127cc0"
+      }
+    }
+  ],
+  "about": {
+    "text": "Test Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi utaliquip ex ea commodo consequat. Duis aute irure dolor inreprehenderit in voluptate velit esse cillum dolore eu fugiat nullapariatur. Excepteur sint occaecat cupidatat non proident, sunt inculpa qui officia deserunt mollit anim id est laborum.Test Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi utaliquip ex ea commodo consequat. Duis aute irure dolor inreprehenderit in voluptate velit esse cillum dolore eu fugiat nullapariatur. Excepteur sint occaecat cupidatat non proident, sunt inculpa qui officia deserunt mollit anim id est laborum.",
+    "image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBUUFBcVFRUXGBcXGhkeHBkaHBkgGhwdGhoZIBwgGRoaICwkGh0pIRogJDYlKS0vMzMzGiI4PjgyPSwyMy8BCwsLDw4PHRISHjIpIikyMjIyMjI0LzIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIAKgBLAMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAFAgMEBgcAAQj/xABIEAACAQIEAgcEBggEBQMFAAABAgMAEQQSITEFQQYTIlFhcZEygaGxB0JScsHRFCNigpKi0vAzQ7LhFWNzwvFTk8Mkg6Oz4v/EABkBAAMBAQEAAAAAAAAAAAAAAAABAgMEBf/EACgRAAMAAQQCAgIBBQEAAAAAAAABAhEDEiExQVETIjJhBEJSkbHhBf/aAAwDAQACEQMRAD8AfKDkFv8AfX8VpSIO4X8HX8FqOJL6Zr/uD86UrnmxHmgrgPQwSQuy5R5lk592lLMRtYADxzL+C03hkaRrKWY9yoPjrpRjBcH7WV5VBG8YyF7eOpt8aEmyW0uyAq20sun7S/03pRBP2fO6/glTuJ4DI3ZYqpGmx8+VV/FYvKxXrGzDQiwFDTQ1yT3ktoTH7yP6KgSS5joIvUf0VGONB0Mjeg+d69Ein/MI9woQ8Dmt9Or/AIhb5UuKC51CX+8tv9NMB1DX6w+i/Kn1kF9JD/AKYYPTHZjfIR4Mn9NeIlj9X+JNP5acZk5yH+AU1JIl/wDEPnkH50hjk6WjaS1wNDqpPifZpuKAEFlTMAoPtx2t491TuDxdZmUOTGxsRksbka5eWUjz15a1bsHwyOJBGVAQahR8yTufE3NVMNkVakzjFPIXVjE5jjUBRoGLW7TWbW2rePaqC/G4g1njdCPL8r1pmOdF0AAqm8ewazgqQPBraqe8d47xWjhN8kq8LgEnEhgCouDzzp/d/OopjY3srW++lAsJiGgkZHUGxIKnUXGxHn8jVibjWG/ysO7k25W5je2lQ4aZpNpo8XCv+1/Gv9VJ6iT9vfcN+TUp+Iday/qI4lFyS1tdLWIFze9j7jXoZb7w28mH4VDyi0MvhnB2f+L/APqmUcsbAsTfTtE/C+tNcWxVuwMlyNWS+3dc1a/o74SB+vk5+wvh3+F6uYbWWRWok8COGdHcSyZiAEYi4a97C+o13sTp5ai1Q8Xw6aE5XLMD9ZSbe/tXB8x61qEmOB0t6VHx0EYjJdQ2YaAj41VRwTOpznBl2IwpWPrM727rnbQX9rv+VRXik/5v8La/GjvEeEFwerYlFN8h2NthfcD8qByhlNiovzBZ6yw0a5I7RuT/AJvof6q8McnMy6fsn86espN+zf7z6V6FBNiB/E1GQ2kJg53MnoQPnT2HgY85BbuDfnTjxJawy+eZvypoFRpcHxu35U85QYHXjI9rrNPBv6qjyYc7gye/b/VT4ZTvlW21y+vlS1UW+r/NSy0PaiGsFuT/AMQ1/mr0wX5H+JbfPepDAHkth3gmm2C6exa/caNzE5QhYQBfKPeyfiKXkQjZfVf6aWrqtzdPCyikmewuSfcAKMsMDDoh5r6r/TRjgmHTqzqPaPPwH7NDWxnZ0ze635UY4JI5jJyv7R+Q8KpNkUkGOHwSy36tiQDuQLDzJOlGMNweOPtYicEjUrmyqPMk5j8Kb4Hi2EgVi5D6aoqi/I3De731C6Z4DK6ygaP2W+8Bp6j/AE1elE28Mx1bqFlHvGekIsYsN2I+bgWLfd5geO5oJw3FmGVJB9U6+IOjD0JqLRXhHApMTqtlQHV228gPrGu9TETjwee6q6z5L7jkEkd110DA94IqlcVhYMHVlUHRr3921XXhGEaKNY2fPluAbW0Owtc7UE4thcpZdr7H5VwWvR6OnXsriKeUiD3GnI2N/wDEX3Lf41GbEkE6sCP+lv60/BMbe23/AOL8TWODYfdmvrIi+NvwFKWQnaRD5A/nTmdrXzG3iYfzpGdxz/mioGLd2G8i/wAJpXCUM8gBN1B5C39ioONnKRyMH7QU6Z4zy5AamjHQ0qkKNuefzqonLJp4ksCYQINNCKmwSrJGVJu4BsPwpjFzZtRzqq8Ux3UN1jvkUfMdwGrHwFdHRzN5JMkpZyvIa0I4rxGKIEE3YfVBGn3jsvz7gar/AB/pVJK94U6qPmxPbJI5W9hTr4+I2qr4jG33N/AEWHw+O9GBsNMnWyda5iLaZUGawA2zEjtHxPpU4ZjcARbHUH/beg/RuPrpVUwySRXszKWCp4syjbwuK1HD8PwaL+rhVrcwpf4nMazqXnk2ipS4KazlgCBDbztp/DTOUknSIe/5ErrVyURoLdQDv/ljvNt07qiYjqDfNhR59X+IUVGwvf8Aoo3EOFuxzo8YbmCwytba4I0PiKP8B6fJH+pxkJiYaCSMXXzZN7eK5vKgPHcQEf8AVRrl55SbjwK3JFAsRjVkFmWx8Tt77XFbQn5MdTa+U+T6B6P9VKvWpIkifaUgjx22NVbpTxwtKEjIF2CjwF6yzg008Dl8PKyC13ysLFRyddm7tRRTh3Ho3mzT9huTD2L+PNflVvrCMllPLNGgkVQB8arXSfCgjOAKnmewBBupGhGot7qGcRxRKld7ismjoi8PkAo8ZFyDfwqQjR20Bv8A340rqniC3bKGF7BlG1gb386Q81+Zt99DWVLk2TRzzRqNUbMfHT500k0VuY8mApEvV3F1ufvx/lVuwHRKNSiYiGQySpI19o4sqMVuyizSEgaHQVUxki9RSVYYqO21/NqdTFR7dWp/eNSOGcJikXrJGEUWZUz3VruxFlVQBc9+ugpGN4WY8S8CgySRsy2UgsQO4BCRoQffS28ZH8izgiviF5Rr3bm1NSSXAsi78iTSnRFbKTlIJBBZQQRuCMmlIky3FiB++PwWkkN0jlcjZR5WJ+JNeNK3ctvcKcsOR3/aY/8AbXPHtr6F/j2KAyIbEHa6/u7/AB/KiHBeJPkYZho5H8q1BXDgG9j59v8AoorwXApkbsn2z9r7K/sVU7TO8vosQQbgIPHKvuI7elWieEYvDFdMzLvyEi7bcr/A1SXxKgkWi88oo/0V4iokMV17eqhVA7Q327x8qmG0ydScob4H0ZjkRZHkYjnGBlswNmVjcnQjlarlHGqLlUAADQDQChMA6nFPH9ScF07hIv8AiD3ize40VxGISNc7sqqNyxAHxrpum3yc0SkuD1qg8YhzJm7vkaAcW6cRR3EQ6wj6x0QfifhVE4v0yllNi5I+yuij3Df33rPl9G2McsPcVhySZiwUN323G/1GqwYPgKmNDndWKgkjIRrqNCnl3VnPR/FTTYmKMu9nYCwOgB3OvcK1eHisTS9UrgtY7ezpbS/M2+VTsw+R1qJJcg88EkW9pAwtp7Kn4qRQ3FRvGbNmX93T16q1XJzoT4UGk6QwiRYw2bMQCw9kd2vPXupOEJ6yntlYmBYW7dj+y1j6IKZ4FijBO0THsSG48GJ/P5im+m/GDHiurTRVVAyiwux1J87EelQmi6zdDbe2YW8b21sRyvbfvoS2mr+ywWPivS5YwyQqZXFwXAJjQjvYe237IPmRVC4rxKSRi8jMSeZ0I8AAQAPAVKxUbuSiJ2UUkhSLKo8B6e+oPBuCS4uTYhNd9NBub/VUc29wua1l5MqjHA9wOQTK0bA9ymxOYMdV0uS31gBrVy4F0AgiAfEnO3JGAJ90Y7I/fzfdFO4GGLDLlgAz2sZba+IjH1F+J5k09nIHaYgHfck21JNuVtddKuZb66Ju0kk+WTMbjBGOrgjRQPrPZyPIeyvkAKC4jC4mb255Ldw0FH8Nw12DBEykeyzaqdBrob25ctqLxcHsczMbWtl0t53te/vtWi05XZk9WvBnj9EQxuZJb+a/lTZ6GsuqTyqfcfkRV6liwQiErTr1UTFDIXBGYMt1LMCS11AuDffWpeBiw2JR3w8wcMfbRw2Q5QNA1wu17EWvc21qts+id9ezN5uE41RYyRzr9mVbn+e/zoRjeFRubSI+Hk97Rn3E3Hua3hW0ScK13GW21tb3772tbwoVieHKwVXWxcDsML2vsGK3Cm+g11I0vUOF4LWo/wCrkyR0/RIHjaM5pGuJgcyOB7Kg2GU31se6gYYPuNf78K1zFcByAhVzIQc0Tagjwvv5VS+N9GcoMkF8o9pDcsn4snxHiNo5l8mnFLjoC4HiE8HsXdOaEGx93I+Io/wnEpipOycpUXKE9q/h3gd48KBLhJFj6woct7EjkeR8j300F1DAEMDowNiPeNaWQSaD+MxTyPbMewoXQGxIvc6DXUkX8AaaZGPNrjvDflUDDFhrk/mH51Lacj6rfxj8KwrOTonGCZ0fwjzY2CI3ymRWbxVO2fdZbe+to4w8wjBgRZHzLdWYLdNc1idM3des1+izDmTFyykaRR2H3pD8wFPrWr3rfTWEcmrWaA3FY41gjkxMKSMrRXyrojuyKzA/VVSbk32FQMT0fimjeSOWWFpmEjyowue4Xa9k2NlIqxRTo4ujKw/ZIPypniGCjnjeKRc0bizAFluLg7qQRqORq8IjlcFR4r0YkaabFxdVK7suSKS4jFgA5YbMxtpewF6Ace6NiGWWVkn/AEcFSkcVyxZxdlDC+VFN9bdwFabLhrxtGrFMysoYe0pYEZh4i96ThomjjCli7KoFzoWIFtbnnb40nCZS1KRkmO4Iyz5IpH6oxJKJJGICRuNOsa+4NxYC57qhcY4c8XVlX61JReN0Js1jYizahgeXjWswYL9IgC4yGMswXrEsCuYC+hudAb21oVwvh2FxECHDZolj60RN7RjMjkMyhydbqbX2BqHpotaz8mXzYWWNgsiOhIuA/ZJHhddaKcFfsNr9c8z9lfCra3RVmhSJpxiDDNI4J0YqUsY2a5y/rLE7aVN6M8LzRN+mYKJZRIwGTKFKWUqeydTqRc66VPxsr5kyuOXP1QK5HlVg62upBHmKHQCeTYOb+B/Kpq8OxJ+q1YtYOhNB/ivSYsA0cagrqGcBiptYlRyOu9UTjXGJJGuzFz3sbgeQ5Ubl4TiCCCp9V/GhGK4FPzT5fOqmvbJcpL6ldd2Y9pqbyG+9E5uESjTJ6EfnSoeBytyH8S/nW26fZjtr0H/o4wIbENLe4iQ8vrPoPhmoz0jwpgmEsegZswtycan139aY6JGXCB1aHMrkEsHQMLC1rE2I9NzVgm4xhJgYpGy6i6ydnUH7QNvjWbpMjX0Hc4XfgBy4rFY1iqg5earog+8efv8ASjPDujkUQzykSMNdfYHu5+/0o5hlQKBGFyDbLa1vC2lCelmL6rCSnmwyDzbT5X9KDPT/AIyTzXL/AGZFx3GdbO8hPtMze4nT4UT4acyqM7XOgG5J2FV7q3d+ypOuml60XoPwZ1czSxgLEt1uoBLna3lqfO1XaWEjph8th3B8NXCxdUBmml1c8/Bb8gov/MahZVUGOI9m/bcaZyOQ7kGwH4kkz+ITEL/zJb+5edvO3oB31BgisQotmNwoJtmb+/A1WnG5/onUvav2x6LCm4yoW1AsLaAkAnU8t/dpR0cJEcbu0ZmYXZY+xva2VS1h37nmam8K4csYzZRna2Y+Q769n4mIGYYiyoxJjkANm/5ZAuesHID2htqCK6OuDlKyvTOT/hhxy4cN23UKGsqAPlQvfVtbA5RueQp/FcRX9PhhmUNFj8KFKNqnWIWYCx7w5X+GqrhHt0fkw5SQTGQqI+rkzEmVHGmXbLz20tRvpdw9cRh8FOgfOkbrGe0jJL1OeMkGxB6yHJY83FSMF9H8HGeFwyyTNEuGxjyLlXOXYNlVFQ+0xvYb86s3RXByNjsTi5IxhxMiBICV61lUgdbIinsnS3mxHnHwvRTAPhokGImEbus0f65Qwdo2N0Nr3yqx0+yx5Gj/AALo3FhZHkjkmld1CEyyGSyg3sCdtfnQA70o4u2DwzzrE0uTcAqAose0xJ9kGwNgTrtUnBZZY4pWRc7Ro22xZQTYnlrQv6QJAOH4hbMWkQoiqrMWY7Cyg92+1T+jUwfBwMAR+qQEMCpBVQrAg6ixBoAVJhPZUhnvmu5y3Hde1u+wsOWtBeI8JIOdfaH8w/OrSwB0PPl4VFIVOwwRI7IqdqxJ17IUjSwAtYm9ztbUaysME2nlGaT4ZYSTlBw8vZkTlGzd3ch+B8xak8Y4YcPKUzXU9pCeanbXvGx8q2Hi+ACs1xdH0YctapHSDhxaF4yA0kHbjJFy0Z399h6pXO05eDqmlc5KUoXmTS2ZRsxt5D86j5j9lfSkyTWHsr6GjAbsGx/RPg8mCaU7zSsf3U7A+Ib1q4413ETlBmfK2Uaatbs7+NROj2B6jCwRc44kB+9YFv5iaIGtUuDn3fbJjU+DmgN3SSIj61mHo40+NWeDH4pQvUYgSAKuYSMri509oC4Hmdj52vxoXjOAYaTVoUv9pRlb1W1Z/G10z1X/AOjGrj5J/wBFcj6bsjFJ4dVNiY2/A/nRjCdLcJJp1mQ90gK/Hb40NxvQWNiTHK6k/b7Q9dD86r2N6F4pLlQsg/ZbX0a1XpqnWK6Of+W/43xqtL8s9Glxyq4urBh3qQR6iuCgbACs0wWFjijyy9bBPdrPaRBqQF7WgIAF9TbU09Nx/FYYKwxEc6MSAGAJ0sdSNdiOfOt9no8zf7Lvw7hccHWdWCOsdnYEk9pzdiL95pqDB4gNKevzK8hZRYjIpVQEGuoFib+NVjCfSAuglhI8UN/5Wt86seB6U4WRc3WEa2sVa+w8KlxS8FK5ZnkU1/ambyBfX3Cwp1BF9t/4B/VUtYEHsqq+ZufT/apKIx2I/wDbP4pXnOj0lwQEgiJspdidrIOe1tavnCuj8UcJjkVZDJYvmA17h4W8Dvc0FwWFeKKTEhQ7oOwMvO9i1gBcAX27jT3AOlmdurnspPsyDRfJu7z2pw0uxuLuW56X+QX0g6DlQXhuyjXL9dfL7Q+NVP8AQkS2ZpAfBQR8SK229BON9Ho5wWFkk+0Nj94fjWjT8GUX/cZp1EXNpf4V/qoRj8LFmuhktz7I39asfEf/AKZjHIIwV0Omby2/80tIWO0cfvjf8azVNGtJNFRw07RNeKSWM96kr6gHWpvEeNTTosckxdVNxdADfbUrv/vR5+HFvaSL/wBt/wABUKTgxvsnuWX8qv5ERsAGBwqFx+sy+Yb8K2HhfDxFgoYw1zKc7Nrs2oOuui29Ko3DeDsD7Ka6C6yc60LimIsSBtHGQPPRR8CaarOROcYSATMZJHe1gNFHcBoPhRfg3DQzZ3U9m2U30axvqB3EDehuCTQaE7nQXPuA3q3cPhCIAM1t+0STqb65tRvty2rrhYk47rdTZnvG+kGKwknEs0pcxRQiKyhVTrWGoXUFgG3O+UeVPT8OOCmwKGSWWPGDqp1kkd80hClZEJN0YMwII2sOetTcd0UnxWIxplSNIsVEiKwkzOjRZTGxXKLgkai9PYPgmMeXDS43qgmCQhFjYsZpCAqs2cKF2WwuO1bagQdw2PkikGHlOZmuIpjtJYE5ZNrSAC5A9sXI2YK30nwbHCyvdpJIiJk5dqF+sVQBpqBk8RRGbhyyRGOYK5cDOVuvaGoZDfMmU6qb3WwsdKhYHGPE4wuJOZmuIpSABMoGqtbRZgNxswGZfrKrAj9DJF/RzGtrQyOi2/8ATJzxesUietH2iU62F+8aH1FUToPi1jxc2CzWeOMArrf9S7Rq1zoc0RiOndV+FJAMpmTcl1J3tqoN9Db2gNBfU63NP3rqjw3VihIy7oBoQosGHta2JGwAAZRTAy3pJw4RfpZnIkx00ubBmFpDiFUmy3A/w0Ueva30rSMFhnaCLr9ZRGvWWNgXyjODbcEjyqtnonjVlxEsWPRDiHJY/o4ZwuyqHLXAVdBa3fVs4bhjHFFEzFzGiKXN7sVUAk3JOtr7mgBvGw9ZH2hYkai97X8edjVNx8JUpJzUlG8Vb/e3xq8KBd1Ab7RJzEXa/sk6aW2G1x31XeKwX6wd4uPOstRcZNdKsPBk+PwvVyyJ1xXKxtcMdDqvfyIpzgmCM+MgiMiuGkUkWOqp2m3HcpqR0nQdeGstnjRrksL2zLy8FFE/otwgfGSS2Foo7C17ZpDYb+Ct61jK5N7rEmuXrwb116aE6g5Sy5iL5bjNY+BroORIdrjXmavb0CEttQXimGd8VhcrShEMjuAW6shEKqGtoWLSKQDyjOm9GjyrqYCXUEWIBHcdqD43o1hZPaiUE807J/lowTSTTTwJpMovE+g0ShnSfq1UamW2UebaWpnh/RKcLoUYE3DK/ZIIFiKtPSDrjFaGJJWLAkNl7Kg3zIrkKziwsCQL61P4FghDAkahrKPr2zXOpzZdL3J207tKr5KJ2SZomJc7uF9R/qKg1MwciM6K81lzAMwtoPNVNvWo/wDw4jUIw8gv5XpxEkt7Eh8y34V5mUeoaZEoCgLbKALW2tytQbi3RmGa7AdXIfrKND95dj8DVc4fxefD2tHePmhv78pJ7Jq5cM4lHOuZCQeanRl8x+I0rVNVwZJ3pvKYJ4S2IwpKT2aFVJEt9EC8jfU+A+dSeLdIIosP1yMGzXEfi3iDrYc6KYoIUbrLZLHMDtltresZ6YcY6xwkYyxroijZVvv5k600n0gqpv7Nc/roCcUxbzSEkk3JJPeTVl4WpaMG0h0Guv5GqfDGxIAX4VaOHxyKoAVdP2Vo1MJYHp5bbDQiYHZx55h/8ZrwQXPP+Y//AB0wJpAPYT+H/elCeS3sJ6W+VYmuGTcDD+sTRvbXvt7Q/wCV+VH+LP8A4v8A9v4l/wAqqeGxEgdGsAAyk2LciL87VZ+Je1KP+kf/ANlXpmdof4cACTmy2UAG2axI+yN6k9MuLSQRRdU4Trpo4zLYHq0a92F9L25nTem+Fx3DdkMcqkKTa5+9yqZ0pwkkmHCRRRyrnQyRMBd4we0IySAr7WNxa1d76OAhrj5MNxKLCdc8sU8THLIQzxuoYghgAcrBToee1qtEx1QXtdvWyk6aj8fLmKZ0d6PL+mriFwsmHiijZUErZpZJG0LHttZVXQa86ukw1Q22b0uCO7xHdSGOVD4ngI54zHILqbHQkMpBurKw1VgdQRqCKmV4RTAzHh3D8dJipMZhkwztFngeSUsrYkxsAWCoLI4ChC1wCVvYDQXro9xZcVAkwUpmuGQ7q6kqyk87MCKrfHsNisJIFwkwSPGTMCjIGKSNE7s8RuLZurJsbjMb+FU7CYDi2CfLG8qwI92ZVEikOSWbqj2n8VBuCTbekBtQprEGxQ3t2gN97gi3tC+vn5X1FT4V00UoDiQgS9v0iEloL90gPbw7fsyDTvq0mVXEZUhlJzAg3BABNwRpvb1oAZ44k7QSrhmVZito2bYE89jqBe2h1tVRhxbxcRw+Hw2JkxCusn6UrydaI8trPm/y2vfQWG2gvVr6QDEHDv8AorATDKVuFNwGBYDNpmK3Avpc1XGjmxWNw00eFkwwhzGWWUIrSBhbqwEY9YL63Og5eLAtnWjrMufl7Nuepvm77A9nuF6F8RTte4/jRQxDrM2RfZ9u/avrpa3cd78yKG4/2vcai/xKj8kZL03ADxa27DDlyItvVx+ibB5MI8p3lla33Y+yNv2s1UD6QcVaaNbXyx5uf1mb+mtj6MYLqMHBFaxSJM33iLt/MTUQjTUrwFWoficD1sqmRFMcQDKdCWe535hVsNOZPhU/nSqtrJnNOXlHV5aurqZJFxuLSJS8j5Vuq6gklmNgAF1JJIFhS8PiVkRXQhkYXVlNwQedC+kfDpZ40WNh2XLMhd0Ddlsn6yMFlKOVfTfLap/DcL1UUUen6tFXsiwJAAJA5XOvvoAkXpLnSlGmnsPAbnyFAC6Wm1B+EcZjxIbqw62VHAcAFo5M3VuLH2WynfXTUCi8ZNtqAMm6uTfN868VZPtt604OJEDSMW7gWH402/FlA1Qe9j+JrgxR6OcDeIEh+tJfzNRBLNGwdJHRhsc2v9+BpT8eQfVB/eP4VCm46LGyke8W+Qq5m/RDuPIf4l01mlhETIob6zg2zDl2eXuPptVMlYklrm5qYnX4gjqoZJP+mjOPVQaJ4ToLxGT/ACCg75GRR6XJ+FbTPswq10gVgp3TXPY+78qJJx2Rd2UjxCflR/CfRViW/wASeJPBQ7n/ALRRvCfRVhl/xJpZPAZEHyJ+NDhPsPla6KzwnjcchbrZhEFAtZAc173A1FiPfvU2TpLgU0Bll8sqj/SD8aumG6CcPjFv0cNfm7O5/mbT3VUOl/RmHBFJIlAR2ylTrlPgTraj459CepTIOI43HNh5ZMPH1b4fK7hiXzxsSp9om1t9B3Va4mE0STDeSJSe64sT6HMKpPRtlbGtE2iYqKSMjldkuPinxo50Ex18P1DXzwEg37rkNb94H+KlUpdIqKbLLwM3FjfVSNDY6dxGoPjViwrgqLZrC47V79kka5tTtvz351VcC/VyFfG48e+rJ+kBWF2JD5cototyF1I7ywGtdEvMowtYpoGcS4xMcYmCw/Vo7RGVpJFZlChsoVEVlLNv9YWFOdG+MNi1njlVVlglaN2j1Riuzx5r21F7G9iBVd6WCL/iMTY66YRYW6uQZlHWltQ8sfaXTYXHzqZ9GqMseICKwwpmJw5dbMyG9zqLsvs2JpiLjhnJXtWDjRgNgfC+tjuL8qcpuSMnUEhgDbu8iO64G2vjTS4mwJkXJa+t7rYZtSw0HZW+u1wKABvSNe3gz3YpPjDMPxowYwdbUG6RyC2HNxpiouY/bU/j6Gi/Xrte57hqfhtrprQAE4p0XikYyRloZrW62I2JHdIvsyL4MDVZ4TwjiGEn62LqJYHPbiQdWCNLvEuqozWDdkhW5gaWvhcn/EIQX0XMLsBexY8hsbDUEbkaU5Nd0YI4BIIVhY5TbQ252OtqQFXx/S4jiEGDiVWVnKyyEE5WyFgiEG2cCxbe2YVbayTi/DcRg8RgYlmz9U8j9YuFkYI0uUF5SpPWsxuTqCLeVanPiBGqhibkbgd1rtY8rkaa70Aepa7sAwPsnMWt2b2KqTYA33A107hQzipyxu3OwUeZolK2VQCSSBqTa5tzNtLnwqn9NOM9TASfqgtbvY6IPebVFvjBcLnJl+MT9L4ssW69aifux2z/ACat7Q1iH0VYQy415W16tGa5+25tf0zVtqHSmhU8sbxmKSJGkkbKq76E7C+wFzS1xAslyBn9kHQnS9gDubcqax2F62Jo72Dix0voSMw94uPfUE8Lk/S1mLKyAPbMO0lwAFSx9m1ztzO+lpbZpExU8vD5/wCBjNXjNp/fOvaS9WYiq8NAk6RxhHkdJYwsvVKuXPI7WBOWNLk2udN+yaLwTZ0VxezAEXDKbHvVhcHwNADlNypmDAErcEZha4uNxfS/nSs1JQ3F++gAZwPgq4USWYM0hUsQoQWRQqhUXQAanzY7CwBmPamjS49qAMwwn0bY5/8AEkijHi7MfRVt8aMYT6Kox/i4l2+4gX4sW+VaNeuvUFZKnhfo7wEepjeQ/tu3ySwo3g+A4WLWLDxKe8Iub+Ii9Eb1yragD0V168r2mB1669eE116AOFVX6RcNnwUh5oVf0Iv8qtR3ofx3DdZBKh+tGw+FJgYVJiGjeKZPaRgR5qwIB8Dz8KLdG+JymSSYILPK7MijTtm7AE+d/OgeIF4/FWF/lXcGxpjZ1zOASDYGw2seY10qdRZng00n9jVJtQHXdbEHvXl+VHOG4hZEG2YA5GIBKsRr/fOs24J0iCsI5GazHss1rKx5Eg+yfhVsglMbZl9kntLzB7xRp1jsrVjPKLfFINVvdltm0tuKclXMrC9rgi/mKg4fEiRRZyDcG4tqAQSNQd7WPPU2tUl8UFuX7ADWBYjtCwOYWJsN97Wyk7a1ucxnGJ6J4dZ8LgVeR5mTrJ5utkv1ab5Uz2Uu3ZHcL89a1AVXY+jzDibY7OMrQ9X1dtQbrrfu7PqasINAyndI8a8836PhsMJnw0kMkrlkRVIJYRKSDmdlLeAza71YOAcWjxeHjnjVlVweywswKkqwI8CDrWe8P4LHJiuK/pU0kTJIZFyyPGFVgzLLoQHsLDW4FvGrb9HeOmm4fDJPcuQwzNuyqxCsb73HPnvzpAQOlfApMTjEYYSHEIIMoM0hRUbrCSbJd20sNBbXep/QTFRtDJFHhxh2gldHiViyh9DmRjqVP4GpHE+AO2JXGQSrFOI+rYunWIyZs3s5lKsDzBpXR/hEeCDq0hklnkMkkjC2Zm7lGiLuAL9+9MA6zWFR1s3bJDIQpUFbFTrrrrc3HIWt416hJyucyWDXQlTva2a19RbSx51ExmL1yjf5eJpN45BLPCGsdiQLknsrqfyrFvpA40ZpMg9lTdvvch+6PifCrT046UiNeqjN3O39R8O7vNZViZS2pv4/+ay7eTV/WcGq/RFgsuGklI1lksD+ygt/qLelaONvOq90PwHU4PDx2sRGC33n7TfFjVhtt61ZmOivb0Aj43ljleRLiMgAw5nViQbqCQBdbWLaC5tvpRwXpJplXp1PaFUkbmuzeFJRtKogr3FujAliESOoUtMzGWMSHNMSTIhuCkiljlI0F9jpawImUAXJsALnc2G58aVXlAHjnSgnEeLtFiFjZEEQilleTMc4WIKDZQNNXGpJvY6UabcVDx3DY5RIHW/WxGNjcg5GvcDu1N6AI3AuLDFRmRVKqDYdtHB0B3QmzC9iDsRz3oxCTblQ3hXDlgVwHd2kcu7vlzM2VV2UBRZVUWAG1EoTpQBOFcWFJy16LUhnuakFL/8AmlXr2gYHhneFzHI10J7DcwO5ieVFlNQuKYfOt+YqvR9JI8OyRyuLM+QG4ORrXs/2R48qz3NVhl7U5yi4C1e3pmOQGnb1ZB6aTKtxbv09dK9avG2pAYFxeDq5J4/su/zuPhQWB8snmCNNaufTnDZMdKLaOFf1Fv8Atqk3synuPdffTY0PoqXhkx7cw3vC/nR7gfSJ4ysUgdhsjZbkdysBuO47jy2Eix5bdyiimFRMKnXuvbYHqwRax+0w5f3tWLZ1bfJbsPxXIWKe0vtRn8KsHDuNRYlQrDUfUbRhpY7HtC2niN6xJOISK5kue3qb87899DRbB9JgD+sS/iNGH4H4VpN1JjcTXXDNxDEhyj3ZtVD+ypsBbQXtpfnuaeznNbKbWvmuLXvta9789rVm3CulKNYJMp/Zk0b1OtWbD8ca2qHzUgj41orlmT06RO4lBh5DE02GSRiez1kaFl1UW7et7tew5BjyokZLK2WNjk0C6Lm7IIyEkC2tuWoNC04yO5/QfnTy8SJ2VvQU9yJ216CRzZuWW3jmvf0tamREoy3u7KAMx3NubWsCee2lza1QZ+IKgzSvHEo5yOB86rfGfpOwcClYQ2If9kFY7+LkXYfdBpb14K2PyWnH4oqCSQqqLs7GyqPOs16T9N0ClMOCQxI6xgQG8fu/E+VVHpB0wxONP61wEvpGoIQe7mfE391QsO4kXIdb+z3g91Z02+zWElwgfiJmdi7tmZjck3pzg+D6/Ewxb55EB+7e7fC9M4lCjFTuPiO8VbPoqwPWY3rCNIo2b95uyPgW9KtGdG0QpTkkSurKwurCxGuotrt516q2pSNpTITxyQxwpBGIlLBA6NYsW0RlYKM2y9naiFdXlCSQ6uq7Z4+1V/EcQlfFiOB1kSPSZMoCRjI57Uu+ctksoGgvcbGj7HUVAxnBsPLnzxITIpRmAyuytbMC62axt30ySPwDiTzrIXVBkcKHiZmifsqWyMyjNlJKkjS49wKG9MYDBrDGIkLlV2zsWIHIZm1sOVPmgBObU6GuzVXulmPWONEJlDSMcrK7RxggGxllUdhLkaDUkAWOtIwmNlGJhhMySqYpOsOVR24QivYgk587AkEAAE8xQBZCaXHtTJXxNOQ3tuPSgAhauvXmldmpDFXrq8vXUDPHS4IPOsE6fcBfC4p3N2SUlg53JJuQT31vhFBuk/BY8ZA0TDXdW+y3KkJlT+jXpT10f6PIf1sY7JP10HzK/K3jWho9fNjrNgsTzSWJtPd8wR863Xotx1MZAsi2B2dfssNx+I8DQCLDXopCmvVNIZmf0n4e0kUlvaRlJ8iLfjWZ40EE+YPrY1sX0oYXNhlf/wBOQejafjWR8RGo8VHwvTQB7g8CMTLJ1ZiQZmsDfw1IqBj8UcVIXuBGNFBvaw2AFtu+oa8RDRRxXyqNXsNXI2vYbWp5MZH+yNNAE/2rDa0daqX5GcSh5lPTX5UPdOV1ohJi1tYW963+dQWcE8vQflVTkm9vhkcqdtKdixEkfsSOv3XYfAGua3h8KSSO4VRmEE6Q4tdsRJ/Gabm4/i30bES28JGHyNQf3RXZfAfGnwGX7PJHZjdiWPezEn1JpP8Ae9LC/sj41xW/1R8aBYGwfD40/FJY6A+tNFPD4mvSB3fGkxrgIY0rNGSvtoL+Y5/nWh/Q3gMuHmmI1kkCg96xr/U5HurK4sR1bXHLet/6GYEQ4KBMuU5M5Hc0hLke4tb3U4WOCNSt3PkNMNKAY3ilpnMcptED1iNlyCytZVUDOzFiuo0FreFWE7im5sOjghkVrgg3A1B3HlVNN9BpXMt7lkgcDxMkqMZFAZWy6AqbhVLArmNiGJG+oAPOiRB7/Wm8NhkjXKi5RcnnqTuSTqSe806aa65JulVNysIQCbnSuzCq70wl/Vxx9U79Yx/WASmOM2IDyiLtPbNotrXAJK2vUHhONlGNEHXPKiB1a/VlVSKONQXAGdZTKSbnQgm17aMkuBpLnSuKj/xSH5a+OvhQAq1R48HEsjSrGgkfRnCgMwH2mAua9w2KSRc0bLIuozIwYXG+opzOKAPTSb16aVANPfQAQuK7NXV1IDta9rq6gaOrwmurqQyg/SX0W/SI/wBIiX9bGNQPrKPxFZz0M6QtgpwST1T2WRfDkwHePzrq6hE+Te8JOrqGU3DAEEbEHYipIaurqRQE6Z4brMFOvPJmHmutYZjDdUPn8f8AxXldQgBqbkU5eva6mykJb3fGlxp5fGurqllIe08P4mptkHK3qa6uqTQbKjuHrST7vWurqaJZw93qK8AHh6j8q6uoEe5Oenqtelb938teV1A0OcLwHX4iKEa9ZIinbYntbeF6+jo1tpyG1dXVc9GN9jnOvM1dXUyT29Jfb++ddXUwOpOQAkgC53NtT5nnXldQBxqNjWfI5jVXcL2VY2Vj3E8r7V1dQBQuI8PmRSvVSr1v6Q8aoWJEzCKPD9a0XZQImYg6KMg1JF60BQQoBNyALnvNta9rqAEONNNKdiXTeurqAP/Z"
+  },
+  "brands": [
+    {
+      "image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C697%2C538%2C498%2C048-audi.png",
+      "brand_name": "",
+      "_id": {
+        "$oid": "652e61ec4c09e56a0d002df9"
+      }
+    },
+    {
+      "image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C697%2C538%2C546%2C245-bmw.png",
+      "brand_name": "",
+      "_id": {
+        "$oid": "652e61fe4c09e56a0d002e1b"
+      }
+    },
+    {
+      "image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C697%2C538%2C575%2C751-Ford.png",
+      "brand_name": "",
+      "_id": {
+        "$oid": "652e621c4c09e56a0d002e90"
+      }
+    },
+    {
+      "image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C697%2C538%2C596%2C352-Hyundai.png",
+      "brand_name": "",
+      "_id": {
+        "$oid": "652e622e4c09e56a0d002eba"
+      }
+    },
+    {
+      "image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C697%2C538%2C939%2C303-jaguar.png",
+      "brand_name": "",
+      "_id": {
+        "$oid": "652e626a4c09e56a0d00304a"
+      }
+    },
+    {
+      "image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C697%2C538%2C685%2C320-Jeep.png",
+      "brand_name": "",
+      "_id": {
+        "$oid": "652e62844c09e56a0d0030d4"
+      }
+    },
+    {
+      "image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C697%2C539%2C006%2C159-land%20rover.png",
+      "brand_name": "",
+      "_id": {
+        "$oid": "652e62904c09e56a0d00310a"
+      }
+    },
+    {
+      "image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C697%2C538%2C708%2C157-Mahindra.png",
+      "brand_name": "",
+      "_id": {
+        "$oid": "652e629d4c09e56a0d003144"
+      }
+    },
+    {
+      "image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C697%2C538%2C722%2C602-Maruti-Suzuki.png",
+      "brand_name": "",
+      "_id": {
+        "$oid": "652e62a74c09e56a0d003182"
+      }
+    },
+    {
+      "image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C697%2C538%2C731%2C657-merc.png",
+      "brand_name": "",
+      "_id": {
+        "$oid": "652e62b24c09e56a0d0031c4"
+      }
+    },
+    {
+      "image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C697%2C538%2C742%2C355-nissan.jpg",
+      "brand_name": "",
+      "_id": {
+        "$oid": "652e62bc4c09e56a0d00320a"
+      }
+    },
+    {
+      "image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C697%2C538%2C752%2C272-renault.png",
+      "brand_name": "",
+      "_id": {
+        "$oid": "652e62c54c09e56a0d003254"
+      }
+    },
+    {
+      "image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C697%2C538%2C761%2C621-skoda.png",
+      "brand_name": "",
+      "_id": {
+        "$oid": "652e62ce4c09e56a0d0032a2"
+      }
+    },
+    {
+      "image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C697%2C538%2C769%2C562-Tata-Motors.jpg",
+      "brand_name": "",
+      "_id": {
+        "$oid": "652e62d64c09e56a0d0032f4"
+      }
+    },
+    {
+      "image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C697%2C538%2C777%2C117-toyota.png",
+      "brand_name": "",
+      "_id": {
+        "$oid": "652e62de4c09e56a0d00334a"
+      }
+    },
+    {
+      "image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C697%2C538%2C785%2C909-volvo.png",
+      "brand_name": "",
+      "_id": {
+        "$oid": "652e62e74c09e56a0d0033a4"
+      }
+    },
+    {
+      "image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C697%2C538%2C805%2C959-vw.png",
+      "brand_name": "",
+      "_id": {
+        "$oid": "652e62ef4c09e56a0d003402"
+      }
+    }
+  ],
+  "services": [
+    {
+      "image": "https://www.shareicon.net/data/512x512/2016/05/27/771332_support_512x512.png",
+      "service_name": "Business Consulting",
+      "description": "Test Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi utaliquip ex ea commodo consequat. Duis aute irure dolor inreprehenderit in voluptate velit esse cillum dolore eu fugiat nullapariatur. Excepteur sint occaecat cupidatat non proident, sunt inculpa qui officia deserunt mollit anim id est laborum.",
+      "_id": {
+        "$oid": "64ef2c714feff26a30127c05"
+      }
+    },
+    {
+      "image": "https://www.shareicon.net/data/512x512/2016/05/27/771332_support_512x512.png",
+      "service_name": "Implementation Services",
+      "description": "Test Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi utaliquip ex ea commodo consequat. Duis aute irure dolor inreprehenderit in voluptate velit esse cillum dolore eu fugiat nullapariatur. Excepteur sint occaecat cupidatat non proident, sunt inculpa qui officia deserunt mollit anim id est laborum.",
+      "_id": {
+        "$oid": "64ef2ce44feff26a30127c4d"
+      }
+    },
+    {
+      "image": "https://www.shareicon.net/data/512x512/2016/05/27/771332_support_512x512.png",
+      "service_name": "Resource Augmentation",
+      "description": "Test Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi utaliquip ex ea commodo consequat. Duis aute irure dolor inreprehenderit in voluptate velit esse cillum dolore eu fugiat nullapariatur. Excepteur sint occaecat cupidatat non proident, sunt inculpa qui officia deserunt mollit anim id est laborum.",
+      "_id": {
+        "$oid": "64ef2cff4feff26a30127c70"
+      }
+    },
+    {
+      "image": "https://www.shareicon.net/data/512x512/2016/05/27/771332_support_512x512.png",
+      "service_name": "Managed Services",
+      "description": "Test Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi utaliquip ex ea commodo consequat. Duis aute irure dolor inreprehenderit in voluptate velit esse cillum dolore eu fugiat nullapariatur. Excepteur sint occaecat cupidatat non proident, sunt inculpa qui officia deserunt mollit anim id est laborum.",
+      "_id": {
+        "$oid": "64ef2e664feff26a30127e94"
+      }
+    },
+    {
+      "image": "https://www.shareicon.net/data/512x512/2016/05/27/771332_support_512x512.png",
+      "service_name": "Support Services",
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam ipsa laboriosam hic quae adipisci magnam harum non ratione aspernatur beatae. Neque dicta commodi, optio esse officia reiciendis necessitatibus id totam.",
+      "_id": {
+        "$oid": "64ef31d64feff26a301280d5"
+      }
+    },
+    {
+      "image": "https://www.shareicon.net/data/512x512/2016/05/27/771332_support_512x512.png",
+      "service_name": "Cloud Based Services",
+      "description": "Lorem fdsf ipsum dolor sit amet consectetur, adipisicing elit. Numquam ipsa laboriosam hic quae adipisci magnam harum non ratione aspernatur beatae. Neque dicta commodi, optio esse officia reiciendis necessitatibus id totam.",
+      "_id": {
+        "$oid": "64ef31ec4feff26a30128107"
+      }
+    }
+  ],
+  "logo": "http://localhost:5173/src/assets/Icons/logo.png"
+}]

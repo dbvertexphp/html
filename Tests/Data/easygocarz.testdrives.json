@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "6533c4e9ae57e6d10024ca9d"
+  },
+  "car_id": {
+    "$oid": "6533c21cae57e6d10024c6f7"
+  },
+  "vendor_id": {
+    "$oid": "6533bfdcae57e6d10024c5ce"
+  },
+  "customer_id": {
+    "$oid": "6533c35bae57e6d10024c8f8"
+  },
+  "name": "Sachin Goel",
+  "email": "sachin@easygocarz.com",
+  "phone_number": "9555998843",
+  "address": "A-1660 SF Greenfield Colony Faridabad",
+  "city": "FARIDABAD",
+  "pincode": "121010",
+  "prefered_date": "",
+  "test_drive_date": "2023-10-22",
+  "test_drive_slot": "11:00 AM - 1:00 PM",
+  "driving_license": "",
+  "status": "approved",
+  "isDrived": "0",
+  "createdAt": {
+    "$date": "2023-10-21T12:32:41.721Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-21T12:33:10.928Z"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,188 @@
+[{
+  "_id": {
+    "$oid": "6533bfdcae57e6d10024c5ce"
+  },
+  "vendor_code": "EGC-V/23-24/1",
+  "vendor_name": "Vijay Chaudhary",
+  "status": "active",
+  "email": "sachin@easygocarz.com",
+  "password": "$2b$10$NpTmCoymLKGlJWb06fwRG.57a/YlTGTIDFJGZYXBzs.n174vJWvfm",
+  "company_name": "Shri Ganesh Motors",
+  "gst_number": "123456789012345",
+  "gst_doc": "",
+  "pan_number": "AFJPC8089F",
+  "pan_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars2023-10-21-WhatsApp%20Image%202023-10-21%20at%2013.04.50%20%282%29.jpeg",
+  "mobile_number": "9818617323",
+  "phone_number": "9818617323",
+  "profile_photo": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars2023-10-21-WhatsApp%20Image%202023-10-21%20at%2013.04.49%20%281%29.jpeg",
+  "msme_number": "12345678",
+  "msme_doc": "",
+  "address": {
+    "address1": "I-191, GF, Karampura",
+    "address2": "Bharat Motors PP - P18678",
+    "state": "Delhi",
+    "landmark": "",
+    "district": "Delhi",
+    "city": "Delhi",
+    "pincode": 110015
+  },
+  "createdBy_admin": true,
+  "reference": {
+    "$oid": "6533b2fdae57e6d10024c439"
+  },
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T12:11:08.973Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T12:11:08.973Z"
+  },
+  "createdAt": {
+    "$date": "2023-10-21T12:11:08.974Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-21T12:11:56.357Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6534e346ae57e6d10024e10c"
+  },
+  "vendor_code": "EGC-V/23-24/4",
+  "vendor_name": "Pankaj Chanana",
+  "status": "active",
+  "email": "support@easygocarz.com",
+  "password": "$2b$10$IflvmhQPbPYLO9/xOoYk2ec.zAdJb7wTq8nxvuifa0j3E2U87Mre.",
+  "company_name": "Mahima Motors",
+  "gst_number": "07ABNFM3274E1Z5",
+  "gst_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars2023-10-22-GST.pdf",
+  "pan_number": "ABNFM3274E",
+  "pan_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars2023-10-22-WhatsApp%20Image%202023-10-21%20at%2014.43.50%20%281%29.jpeg",
+  "mobile_number": "9810091721",
+  "phone_number": "9810091721",
+  "profile_photo": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars2023-10-22-WhatsApp%20Image%202023-10-21%20at%2014.43.52.jpeg",
+  "msme_number": "asdaga",
+  "msme_doc": "",
+  "address": {
+    "address1": "I-143, Karampura Main Road",
+    "address2": "Moti Nagar",
+    "state": "Delhi",
+    "landmark": "V3s",
+    "district": "06",
+    "city": "South Delhi",
+    "pincode": 110015
+  },
+  "createdBy_admin": true,
+  "reference": {
+    "$oid": "6533b2fdae57e6d10024c439"
+  },
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-22T08:54:30.213Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-22T08:54:30.213Z"
+  },
+  "createdAt": {
+    "$date": "2023-10-22T08:54:30.214Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-22T08:54:47.250Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6538e1c05cdce97410dcbae0"
+  },
+  "vendor_code": "EGC-V/23-24/7",
+  "vendor_name": "KUNAL KUMAR",
+  "status": "active",
+  "email": "KUMARKUNAL7827@GMAIL.COM",
+  "password": "$2b$10$kwu8BlTpybAuEgjGsf5YYOXtRi/fwp9nzk.zPWcxYg3d4mKfhgC/C",
+  "company_name": "Kunal",
+  "gst_number": "123456789012345",
+  "gst_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars2023-10-25-WhatsApp%20Image%202023-10-25%20at%2012.38.10.jpeg",
+  "pan_number": "1234567890",
+  "pan_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars2023-10-25-WhatsApp%20Image%202023-10-25%20at%2012.38.09.jpeg",
+  "mobile_number": "9310556107",
+  "phone_number": "9310556107",
+  "profile_photo": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars2023-10-25-WhatsApp%20Image%202023-10-25%20at%2012.38.10.jpeg",
+  "msme_number": "1234567890",
+  "msme_doc": "",
+  "address": {
+    "address1": "Faridabad",
+    "address2": "Faridabad",
+    "state": "Haryana",
+    "landmark": "",
+    "district": "Faridabad",
+    "city": "Faridabad",
+    "pincode": 120001
+  },
+  "createdBy_admin": true,
+  "reference": {
+    "$oid": "6533b2fdae57e6d10024c439"
+  },
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-25T09:37:04.201Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-25T09:37:04.201Z"
+  },
+  "createdAt": {
+    "$date": "2023-10-25T09:37:04.203Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-25T09:37:49.634Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653cdf5634d1555cef496546"
+  },
+  "vendor_code": "EGC-V/23-24/8",
+  "vendor_name": "Chhabra Cars",
+  "status": "active",
+  "email": "chhabramotors@gmail.com",
+  "password": "$2b$10$JINhtqYqiZ5eHe8Ex3/qXu9Sc.J3xRbhNgH.ikeL1jkaqACaiEPBy",
+  "company_name": "Chhabra Cars",
+  "gst_number": "123456789012345",
+  "gst_doc": "",
+  "pan_number": "BDFPS4614B",
+  "pan_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars2023-10-28-PAN.jpeg",
+  "mobile_number": "9899034914",
+  "phone_number": "8800770888",
+  "profile_photo": "",
+  "msme_number": "1234567890",
+  "msme_doc": "",
+  "address": {
+    "address1": "Shop NO 41, Plot No 27-28 Crown Plaza, ",
+    "address2": "Neelam Bata Road",
+    "state": "Haryana",
+    "landmark": "Crown PLaza",
+    "district": "Faridabad",
+    "city": "Faridabad",
+    "pincode": 121001
+  },
+  "createdBy_admin": true,
+  "reference": {
+    "$oid": "6533b2fdae57e6d10024c439"
+  },
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-28T10:15:50.110Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-28T10:15:50.110Z"
+  },
+  "createdAt": {
+    "$date": "2023-10-28T10:15:50.116Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-28T11:17:21.682Z"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "6533b260ae57e6d10024c3ea"
+  },
+  "name": "HATCHBACK",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:13:36.791Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:13:36.791Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533b268ae57e6d10024c3ef"
+  },
+  "name": "SEDAN",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:13:44.177Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:13:44.177Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533b26dae57e6d10024c3f4"
+  },
+  "name": "SUV",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:13:49.251Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:13:49.251Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533b271ae57e6d10024c3f9"
+  },
+  "name": "MUV",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:13:53.790Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:13:53.790Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653d512c34d1555cef4987d2"
+  },
+  "name": "COUPE",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-28T18:21:32.865Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-28T18:21:32.865Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653d514234d1555cef4987df"
+  },
+  "name": "MUSCLE",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-28T18:21:54.191Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-28T18:21:54.191Z"
+  },
+  "__v": 0
+}]

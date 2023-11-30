@@ -1,0 +1,35 @@
+[{
+  "_id": {
+    "$oid": "6533b2fdae57e6d10024c439"
+  },
+  "employee_code": "EGC-E/23-24/1",
+  "email": "SACHIN@EASYGOCARZ.COM",
+  "employee_name": "Akil",
+  "gender": "male",
+  "phone_number": {
+    "$numberLong": "9711316833"
+  },
+  "status": "active",
+  "profile_pic": "",
+  "address": {
+    "address1": "386/76 Masoodpur",
+    "address2": "Vasant Kunj",
+    "city": "New Delhi",
+    "state": "Delhi",
+    "pincode": 110070,
+    "landmark": "",
+    "district": ""
+  },
+  "aadhar_number": "",
+  "aadhar_doc": "",
+  "pan_number": "",
+  "pan_doc": "",
+  "references": [],
+  "createdAt": {
+    "$date": "2023-10-21T11:16:13.857Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-21T11:21:29.801Z"
+  },
+  "__v": 0
+}]

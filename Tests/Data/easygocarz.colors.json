@@ -1,0 +1,144 @@
+[{
+  "_id": {
+    "$oid": "6533b0bfae57e6d10024c335"
+  },
+  "name": "WHITE",
+  "code": "#ffffff",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:06:39.204Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:06:39.204Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533b0d0ae57e6d10024c33f"
+  },
+  "name": "BLUE",
+  "code": "#005fa8",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:06:56.457Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:06:56.458Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533b0e4ae57e6d10024c344"
+  },
+  "name": "YELLOW",
+  "code": "#fbd260",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:07:16.245Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:07:16.245Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533b102ae57e6d10024c349"
+  },
+  "name": "GREY",
+  "code": "#838181",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:07:46.750Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:07:46.750Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533b10cae57e6d10024c34e"
+  },
+  "name": "RED",
+  "code": "#c20000",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:07:56.731Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:07:56.731Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533cc85ae57e6d10024cc96"
+  },
+  "name": "Silver",
+  "code": "#ebebeb",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T13:05:09.456Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T13:05:09.456Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6534e407ae57e6d10024e1c4"
+  },
+  "name": "Dark Brown",
+  "code": "#433838",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-22T08:57:43.957Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-22T08:57:43.957Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653f8f6b34d1555cef499ec5"
+  },
+  "name": "ORANGE",
+  "code": "#f45c2a",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-30T11:11:39.561Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-30T11:11:39.561Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653f8f8d34d1555cef499ed5"
+  },
+  "name": "BLACK",
+  "code": "#000000",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-30T11:12:13.639Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-30T11:12:13.639Z"
+  },
+  "__v": 0
+}]

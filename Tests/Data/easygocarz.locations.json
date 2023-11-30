@@ -1,0 +1,90 @@
+[{
+  "_id": {
+    "$oid": "6533b128ae57e6d10024c355"
+  },
+  "name": "DELHI",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:08:24.660Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:08:24.660Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533b12cae57e6d10024c35a"
+  },
+  "name": "NOIDA",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:08:28.814Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:08:28.814Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533b133ae57e6d10024c35f"
+  },
+  "name": "GURUGRAM",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:08:35.475Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:08:35.475Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533b138ae57e6d10024c364"
+  },
+  "name": "FARIDABAD",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:08:40.155Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:08:40.155Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533b13cae57e6d10024c369"
+  },
+  "name": "GHAZIABAD",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:08:44.806Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:08:44.806Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653d51e634d1555cef498818"
+  },
+  "name": "MEERUT",
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-28T18:24:38.433Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-28T18:24:38.433Z"
+  },
+  "__v": 0
+}]

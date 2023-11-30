@@ -1,0 +1,1242 @@
+[{
+  "_id": {
+    "$oid": "650436e3ce2962bfd7843d24"
+  },
+  "vendorID": {
+    "$oid": "6502f16a6d8657ebd6d6d3cd"
+  },
+  "make": {
+    "$oid": "64fb58fd13bc7ca18bcd1bd7"
+  },
+  "model": {
+    "$oid": "64fb591f13bc7ca18bcd1be1"
+  },
+  "body_type": {
+    "$oid": "64fd875b733d90aa2efad6e1"
+  },
+  "color": {
+    "$oid": "64f5f8757e5a1df28d9d5313"
+  },
+  "location": [
+    {
+      "$oid": "64fc38d8733d90aa2efacbef"
+    },
+    {
+      "$oid": "64f7829dc1157d6b142cb6db"
+    },
+    {
+      "$oid": "64f7828dc1157d6b142cb6d7"
+    },
+    {
+      "$oid": "64f78285c1157d6b142cb6d3"
+    },
+    {
+      "$oid": "64f7827dc1157d6b142cb6cf"
+    },
+    {
+      "$oid": "64f78277c1157d6b142cb6cb"
+    },
+    {
+      "$oid": "64f5f8857e5a1df28d9d5317"
+    }
+  ],
+  "name": {
+    "$oid": "65021e5aa3940c25992ab9ca"
+  },
+  "primary_image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C77%2C49%2C45%2C493-images.jpeg",
+  "regYear": "2023-05",
+  "regState": "MH",
+  "price": 2000000,
+  "engine_type": "Mid-Hybrid",
+  "mileage": 5000,
+  "condition": "damaged",
+  "transmission": "cvvt",
+  "fuel_type": "petrol",
+  "engine_displacment": 7800,
+  "license_number": "aa-1458",
+  "features": [
+    "ac"
+  ],
+  "safety_features": [
+    "abs",
+    "airbags",
+    "traction-control",
+    "electronicStability",
+    "blindSpot-monitoring",
+    "lane-departure-warning",
+    "forward-collision-warning",
+    "adaptive-cruise-control"
+  ],
+  "VIN": "14785236985214785",
+  "ownership_history": "145",
+  "warranty": "4",
+  "short_description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+  "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum veritatis eum eaque suscipit necessitatibus unde eos earum, magnam laborum rem ipsum dolorem error velit facilis ea explicabo quae vitae optio!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam, molestias voluptas incidunt aliquiamet autem esse, laborum dolor alias iusto reprehenderit doloribus aspernatur expedita quis, facere animi? Iste, fugiat in!",
+  "documents": [
+    {
+      "label": "Owner's Manual",
+      "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C77%2C49%2C94%2C909-D65526958.pdf",
+      "_id": {
+        "$oid": "650436e3ce2962bfd7843d25"
+      }
+    }
+  ],
+  "quantity": 10,
+  "ownership": "Second",
+  "km_driven": 25000,
+  "seats": "4",
+  "images": [],
+  "wheel_size": "15",
+  "status": "approved",
+  "createdAt": {
+    "$date": "2023-09-15T10:50:11.672Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-09T12:23:23.603Z"
+  },
+  "__v": 0,
+  "gallery_images": [
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C77%2C49%2C48%2C884-gate_models_og_01.webp",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C77%2C49%2C48%2C884-gate_models_og_01.webp",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C77%2C49%2C48%2C884-gate_models_og_01.webp",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C77%2C49%2C48%2C884-gate_models_og_01.webp",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C77%2C49%2C48%2C884-gate_models_og_01.webp",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C77%2C49%2C52%2C303-gate_models_s_02_m.webp"
+  ],
+  "cname": "Mustang GT",
+  "featured_car": 0,
+  "trending_car": 0,
+  "hotdeal_car": 0,
+  "upcoming_car": 1,
+  "cbody_type": "HatchBack",
+  "booking_status": "available"
+},
+{
+  "_id": {
+    "$oid": "650586fdf0b9494a863d9eae"
+  },
+  "vendorID": {
+    "$oid": "65058455f0b9494a863d9e17"
+  },
+  "make": {
+    "$oid": "64fb58fd13bc7ca18bcd1bd7"
+  },
+  "model": {
+    "$oid": "64fb591f13bc7ca18bcd1be1"
+  },
+  "body_type": {
+    "$oid": "65058619f0b9494a863d9ea0"
+  },
+  "color": {
+    "$oid": "651ab33c29a339fdc40ada9d"
+  },
+  "location": [
+    {
+      "$oid": "64fc38d8733d90aa2efacbef"
+    },
+    {
+      "$oid": "64f7829dc1157d6b142cb6db"
+    },
+    {
+      "$oid": "64f7828dc1157d6b142cb6d7"
+    },
+    {
+      "$oid": "64f78285c1157d6b142cb6d3"
+    },
+    {
+      "$oid": "64f7827dc1157d6b142cb6cf"
+    },
+    {
+      "$oid": "64f78277c1157d6b142cb6cb"
+    },
+    {
+      "$oid": "64f5f8857e5a1df28d9d5317"
+    }
+  ],
+  "name": {
+    "$oid": "650585cef0b9494a863d9e7d"
+  },
+  "primary_image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C860%2C879%2C735-2016-ford-mustang-gt-bbt-m.jpg",
+  "regYear": "2017-01",
+  "regState": "MH",
+  "price": 3000000,
+  "engine_type": "V8",
+  "mileage": 5000,
+  "condition": "like-new",
+  "transmission": "automatic",
+  "fuel_type": "petrol",
+  "engine_displacment": 7800,
+  "license_number": "aa-1458",
+  "features": [
+    "ac",
+    "power-windows",
+    "powerSteering",
+    "cruise-control",
+    "navigation",
+    "infotainment",
+    "sunroof",
+    "leatherSeats",
+    "heatedSeats",
+    "keyless-entry",
+    "backup-camera",
+    "parking-assist"
+  ],
+  "safety_features": [
+    "abs",
+    "airbags",
+    "traction-control",
+    "electronicStability",
+    "blindSpot-monitoring",
+    "lane-departure-warning",
+    "forward-collision-warning",
+    "adaptive-cruise-control"
+  ],
+  "VIN": "74589654125635214",
+  "ownership_history": "978645846",
+  "warranty": "4",
+  "short_description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+  "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum veritatis eum eaque suscipit necessitatibus unde eos earum, magnam laborum rem ipsum dolorem error velit facilis ea explicabo quae vitae optio!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam, molestias voluptas incidunt aliquiamet autem esse, laborum dolor alias iusto reprehenderit doloribus aspernatur expedita quis, facere animi? Iste, fugiat in!",
+  "documents": [
+    {
+      "label": "No Objection Certificate(NOC)",
+      "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C861%2C000%2C141-5741860996%20%283%29.pdf",
+      "_id": {
+        "$oid": "650586fdf0b9494a863d9eaf"
+      }
+    },
+    {
+      "label": "Registration Certificate(RC)",
+      "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C861%2C010%2C986-OD124845765259035000.pdf",
+      "_id": {
+        "$oid": "650586fdf0b9494a863d9eb0"
+      }
+    },
+    {
+      "label": "Road Tax Receipt",
+      "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C861%2C022%2C527-5741860996%20%282%29.pdf",
+      "_id": {
+        "$oid": "650586fdf0b9494a863d9eb1"
+      }
+    }
+  ],
+  "quantity": 6,
+  "ownership": "First",
+  "km_driven": 25000,
+  "seats": "4",
+  "images": [],
+  "wheel_size": "15",
+  "status": "approved",
+  "createdAt": {
+    "$date": "2023-09-16T10:44:13.370Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-11T06:27:33.775Z"
+  },
+  "__v": 0,
+  "gallery_images": [
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C860%2C882%2C430-2016-ford-mustang-gt-bbt-m-int1.jpg",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C860%2C882%2C430-2016-ford-mustang-gt-bbt-m-int1.jpg",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C860%2C882%2C430-2016-ford-mustang-gt-bbt-m-int1.jpg",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C860%2C882%2C430-2016-ford-mustang-gt-bbt-m-int1.jpg",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C860%2C882%2C430-2016-ford-mustang-gt-bbt-m-int1.jpg",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C860%2C882%2C430-2016-ford-mustang-gt-bbt-m-int1.jpg",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C860%2C882%2C430-2016-ford-mustang-gt-bbt-m-int1.jpg",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C860%2C882%2C430-2016-ford-mustang-gt-bbt-m-int1.jpg",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C860%2C884%2C839-2016-ford-mustang-gt-bbt-m-int101.jpg"
+  ],
+  "cname": "Mustang GT",
+  "featured_car": 0,
+  "trending_car": 1,
+  "hotdeal_car": 0,
+  "upcoming_car": 1,
+  "cbody_type": "SUV",
+  "booking_status": "available",
+  "payment_status": "pending",
+  "test_drives": [
+    {
+      "$oid": "65264055d5905b702be4fa92"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6509bafdb3246ef7e536483b"
+  },
+  "vendorID": {
+    "$oid": "65099113d09543c8becdac77"
+  },
+  "make": {
+    "$oid": "6509a50454bb26d1f5e5abfd"
+  },
+  "model": {
+    "$oid": "6509a54954bb26d1f5e5ac12"
+  },
+  "body_type": {
+    "$oid": "64d727415992291149a3b367"
+  },
+  "color": {
+    "$oid": "651ab32929a339fdc40ada97"
+  },
+  "location": [
+    {
+      "$oid": "64f7829dc1157d6b142cb6db"
+    },
+    {
+      "$oid": "64f78277c1157d6b142cb6cb"
+    },
+    {
+      "$oid": "64f7828dc1157d6b142cb6d7"
+    }
+  ],
+  "name": {
+    "$oid": "6509a51e54bb26d1f5e5ac0c"
+  },
+  "primary_image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C136%2C332%2C938-2021-Toyota-Fortuner-Facelift-Price-.jpg",
+  "regYear": "2023-06",
+  "regState": "Delhi",
+  "price": 200000,
+  "engine_type": "Electric",
+  "mileage": 100,
+  "condition": "like-new",
+  "transmission": "automatic",
+  "fuel_type": "electric",
+  "engine_displacment": 120,
+  "license_number": "wwwqqqtrr",
+  "features": [
+    "ac",
+    "power-windows",
+    "powerSteering",
+    "cruise-control",
+    "navigation",
+    "infotainment",
+    "sunroof",
+    "leatherSeats",
+    "heatedSeats",
+    "keyless-entry",
+    "backup-camera",
+    "parking-assist"
+  ],
+  "safety_features": [
+    "abs",
+    "airbags",
+    "traction-control",
+    "electronicStability",
+    "blindSpot-monitoring",
+    "lane-departure-warning",
+    "forward-collision-warning",
+    "adaptive-cruise-control"
+  ],
+  "VIN": "65432123456789876",
+  "ownership_history": "Toyota Fortuner, the top-selling SUV from the Japanese carmaker, will receive an update on 6th January 2021. This time around, the company will also bring in the sportier Fortuner Legender variant of the SUV.",
+  "warranty": "4",
+  "short_description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+  "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum veritatis eum eaque suscipit necessitatibus unde eos earum, magnam laborum rem ipsum dolorem error velit facilis ea explicabo quae vitae optio!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam, molestias voluptas incidunt aliquiamet autem esse, laborum dolor alias iusto reprehenderit doloribus aspernatur expedita quis, facere animi? Iste, fugiat in!",
+  "documents": [
+    {
+      "label": "Insurance Documents",
+      "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C136%2C457%2C753-file-sample_150kB.pdf",
+      "_id": {
+        "$oid": "6509bafdb3246ef7e536483c"
+      }
+    },
+    {
+      "label": "No Objection Certificate(NOC)",
+      "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C136%2C503%2C811-EasyGoCars1%2C695%2C119%2C718%2C881-file-sample_150kB.pdf",
+      "_id": {
+        "$oid": "6509bafdb3246ef7e536483d"
+      }
+    }
+  ],
+  "quantity": 10,
+  "ownership": "third",
+  "km_driven": 25000,
+  "seats": "5",
+  "images": [],
+  "wheel_size": "25",
+  "status": "approved",
+  "createdAt": {
+    "$date": "2023-09-19T15:15:09.141Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-17T07:29:05.475Z"
+  },
+  "__v": 0,
+  "gallery_images": [
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C136%2C336%2C530-roylti.jpg",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C136%2C341%2C666-2021-Toyota-Fortuner-Facelift-Price-.jpg"
+  ],
+  "cname": "Mustang GT",
+  "featured_car": 1,
+  "trending_car": 1,
+  "hotdeal_car": 1,
+  "upcoming_car": 0,
+  "cbody_type": "SUV",
+  "booking_status": "available",
+  "payment_status": "partially_paid"
+},
+{
+  "_id": {
+    "$oid": "6509ed86b3246ef7e5364dfb"
+  },
+  "vendorID": {
+    "$oid": "6502f16a6d8657ebd6d6d3cd"
+  },
+  "make": {
+    "$oid": "64fb58fd13bc7ca18bcd1bd7"
+  },
+  "model": {
+    "$oid": "64fb591f13bc7ca18bcd1be1"
+  },
+  "body_type": {
+    "$oid": "65058619f0b9494a863d9ea0"
+  },
+  "color": {
+    "$oid": "651ab32929a339fdc40ada97"
+  },
+  "location": [
+    {
+      "$oid": "6509b6ffb3246ef7e5364644"
+    },
+    {
+      "$oid": "64fc38d8733d90aa2efacbef"
+    },
+    {
+      "$oid": "64f7829dc1157d6b142cb6db"
+    },
+    {
+      "$oid": "64f7828dc1157d6b142cb6d7"
+    },
+    {
+      "$oid": "64f78285c1157d6b142cb6d3"
+    },
+    {
+      "$oid": "64f7827dc1157d6b142cb6cf"
+    },
+    {
+      "$oid": "64f78277c1157d6b142cb6cb"
+    },
+    {
+      "$oid": "64f5f8857e5a1df28d9d5317"
+    }
+  ],
+  "name": {
+    "$oid": "650585cef0b9494a863d9e7d"
+  },
+  "primary_image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C149%2C294%2C377-2016-ford-mustang-gt-bbt-m.jpg",
+  "regYear": "2023-01",
+  "regState": "MH",
+  "price": 2500000,
+  "engine_type": "TurboCharged",
+  "mileage": 5000,
+  "condition": "used",
+  "transmission": "automatic",
+  "fuel_type": "petrol",
+  "engine_displacment": 7800,
+  "license_number": "aa-1458",
+  "features": [
+    "ac",
+    "power-windows",
+    "powerSteering",
+    "cruise-control",
+    "navigation",
+    "infotainment",
+    "sunroof",
+    "leatherSeats",
+    "heatedSeats",
+    "keyless-entry",
+    "backup-camera",
+    "parking-assist"
+  ],
+  "safety_features": [
+    "abs",
+    "airbags",
+    "traction-control",
+    "electronicStability",
+    "blindSpot-monitoring",
+    "lane-departure-warning",
+    "forward-collision-warning",
+    "adaptive-cruise-control"
+  ],
+  "VIN": "78965412365478598",
+  "ownership_history": "saas",
+  "warranty": "4",
+  "short_description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+  "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum veritatis eum eaque suscipit necessitatibus unde eos earum, magnam laborum rem ipsum dolorem error velit facilis ea explicabo quae vitae optio!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam, molestias voluptas incidunt aliquiamet autem esse, laborum dolor alias iusto reprehenderit doloribus aspernatur expedita quis, facere animi? Iste, fugiat in!",
+  "documents": [
+    {
+      "label": "Insurance Documents",
+      "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C149%2C432%2C212-Labels-8_18_2023%20%288%29.pdf",
+      "_id": {
+        "$oid": "6509ed86b3246ef7e5364dfc"
+      }
+    }
+  ],
+  "quantity": 5,
+  "ownership": "First",
+  "km_driven": 25000,
+  "seats": "7",
+  "images": [],
+  "wheel_size": "15",
+  "status": "approved",
+  "createdAt": {
+    "$date": "2023-09-19T18:50:46.509Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-09T11:46:01.454Z"
+  },
+  "__v": 0,
+  "gallery_images": [
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C149%2C297%2C448-2016-ford-mustang-gt-bbt-m-int101.jpg"
+  ],
+  "cname": "Mustang GT",
+  "featured_car": 0,
+  "trending_car": 1,
+  "hotdeal_car": 1,
+  "upcoming_car": 0,
+  "cbody_type": "SUV",
+  "booking_status": "available"
+},
+{
+  "_id": {
+    "$oid": "6509ee8db3246ef7e5364e9d"
+  },
+  "vendorID": {
+    "$oid": "6502f16a6d8657ebd6d6d3cd"
+  },
+  "make": {
+    "$oid": "6509a50454bb26d1f5e5abfd"
+  },
+  "model": {
+    "$oid": "6509a54954bb26d1f5e5ac12"
+  },
+  "body_type": {
+    "$oid": "64d63b31c226c2d0ef3d71a8"
+  },
+  "color": {
+    "$oid": "651ab30929a339fdc40ada8b"
+  },
+  "location": [
+    {
+      "$oid": "64fc38d8733d90aa2efacbef"
+    }
+  ],
+  "name": {
+    "$oid": "6509a51e54bb26d1f5e5ac0c"
+  },
+  "primary_image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C149%2C637%2C949-gate_models_og_01.webp",
+  "regYear": "2023-02",
+  "regState": "MH",
+  "price": 1250000,
+  "engine_type": "TurboCharged",
+  "mileage": 5000,
+  "condition": "fair",
+  "transmission": "tiptronic",
+  "fuel_type": "hybrid",
+  "engine_displacment": 7800,
+  "license_number": "aa-1458",
+  "features": [
+    "ac"
+  ],
+  "safety_features": [
+    "abs",
+    "airbags",
+    "traction-control",
+    "electronicStability",
+    "blindSpot-monitoring",
+    "lane-departure-warning",
+    "forward-collision-warning",
+    "adaptive-cruise-control"
+  ],
+  "VIN": "78945632145874589",
+  "ownership_history": "wdada",
+  "warranty": "4",
+  "short_description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+  "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum veritatis eum eaque suscipit necessitatibus unde eos earum, magnam laborum rem ipsum dolorem error velit facilis ea explicabo quae vitae optio!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam, molestias voluptas incidunt aliquiamet autem esse, laborum dolor alias iusto reprehenderit doloribus aspernatur expedita quis, facere animi? Iste, fugiat in!",
+  "documents": [
+    {
+      "label": "Road Tax Receipt",
+      "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C149%2C699%2C713-EasyGoCars1%2C694%2C860%2C115%2C703-5741860996.pdf",
+      "_id": {
+        "$oid": "6509ee8db3246ef7e5364e9e"
+      }
+    }
+  ],
+  "quantity": 8,
+  "ownership": "First",
+  "km_driven": 25000,
+  "seats": "4",
+  "images": [],
+  "wheel_size": "15",
+  "status": "approved",
+  "createdAt": {
+    "$date": "2023-09-19T18:55:09.606Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-17T08:47:52.358Z"
+  },
+  "__v": 0,
+  "gallery_images": [
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C149%2C640%2C949-gate_models_s_02_m.webp"
+  ],
+  "cname": "Mustang GT",
+  "featured_car": 1,
+  "trending_car": 0,
+  "hotdeal_car": 1,
+  "upcoming_car": 1,
+  "cbody_type": "SUV",
+  "booking_status": "available",
+  "payment_status": "partially_paid"
+},
+{
+  "_id": {
+    "$oid": "6509f4e6b3246ef7e53650ec"
+  },
+  "vendorID": {
+    "$oid": "6502f16a6d8657ebd6d6d3cd"
+  },
+  "make": {
+    "$oid": "64fb58fd13bc7ca18bcd1bd7"
+  },
+  "model": {
+    "$oid": "64fb591f13bc7ca18bcd1be1"
+  },
+  "body_type": {
+    "$oid": "64d63b31c226c2d0ef3d71a8"
+  },
+  "color": {
+    "$oid": "64f5f9637e5a1df28d9d533e"
+  },
+  "location": [
+    {
+      "$oid": "6509b6ffb3246ef7e5364644"
+    },
+    {
+      "$oid": "64fc38d8733d90aa2efacbef"
+    },
+    {
+      "$oid": "64f7829dc1157d6b142cb6db"
+    },
+    {
+      "$oid": "64f7828dc1157d6b142cb6d7"
+    },
+    {
+      "$oid": "64f78285c1157d6b142cb6d3"
+    },
+    {
+      "$oid": "64f7827dc1157d6b142cb6cf"
+    },
+    {
+      "$oid": "64f78277c1157d6b142cb6cb"
+    },
+    {
+      "$oid": "64f5f8857e5a1df28d9d5317"
+    }
+  ],
+  "name": {
+    "$oid": "65021e5aa3940c25992ab9ca"
+  },
+  "primary_image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C151%2C270%2C955-gate_models_s_02_m.webp",
+  "regYear": "2023-01",
+  "regState": "MH",
+  "price": 1000000,
+  "engine_type": "Diseal",
+  "mileage": 5000,
+  "condition": "damaged",
+  "transmission": "cvvt",
+  "fuel_type": "electric",
+  "engine_displacment": 7800,
+  "license_number": "aa-1458",
+  "features": [
+    "powerSteering"
+  ],
+  "safety_features": [
+    "electronicStability"
+  ],
+  "VIN": "78945612358247145",
+  "ownership_history": "dasfafa",
+  "warranty": "4",
+  "short_description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+  "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum veritatis eum eaque suscipit necessitatibus unde eos earum, magnam laborum rem ipsum dolorem error velit facilis ea explicabo quae vitae optio!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam, molestias voluptas incidunt aliquiamet autem esse, laborum dolor alias iusto reprehenderit doloribus aspernatur expedita quis, facere animi? Iste, fugiat in!",
+  "documents": [
+    {
+      "label": "Road Tax Receipt",
+      "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C151%2C327%2C351-Labels-8_18_2023%20%288%29.pdf",
+      "_id": {
+        "$oid": "6509f4e6b3246ef7e53650ed"
+      }
+    }
+  ],
+  "quantity": 8,
+  "ownership": "First",
+  "km_driven": 25000,
+  "seats": "4",
+  "images": [],
+  "wheel_size": "15",
+  "status": "approved",
+  "createdAt": {
+    "$date": "2023-09-19T19:22:14.582Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-09T11:45:47.437Z"
+  },
+  "__v": 0,
+  "gallery_images": [
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C151%2C274%2C017-images.jpeg"
+  ],
+  "cname": "Mustang GT",
+  "featured_car": 0,
+  "trending_car": 1,
+  "hotdeal_car": 1,
+  "upcoming_car": 0,
+  "cbody_type": "HatchBack",
+  "booking_status": "available"
+},
+{
+  "_id": {
+    "$oid": "6509f4e6b3246ef7e53650f5"
+  },
+  "vendorID": {
+    "$oid": "6502f16a6d8657ebd6d6d3cd"
+  },
+  "make": {
+    "$oid": "64fb58fd13bc7ca18bcd1bd7"
+  },
+  "model": {
+    "$oid": "64fb591f13bc7ca18bcd1be1"
+  },
+  "body_type": {
+    "$oid": "64d63b31c226c2d0ef3d71a8"
+  },
+  "color": {
+    "$oid": "651ab32929a339fdc40ada97"
+  },
+  "location": [
+    {
+      "$oid": "6509b6ffb3246ef7e5364644"
+    },
+    {
+      "$oid": "64fc38d8733d90aa2efacbef"
+    },
+    {
+      "$oid": "64f7829dc1157d6b142cb6db"
+    },
+    {
+      "$oid": "64f7828dc1157d6b142cb6d7"
+    },
+    {
+      "$oid": "64f78285c1157d6b142cb6d3"
+    },
+    {
+      "$oid": "64f7827dc1157d6b142cb6cf"
+    },
+    {
+      "$oid": "64f78277c1157d6b142cb6cb"
+    },
+    {
+      "$oid": "64f5f8857e5a1df28d9d5317"
+    }
+  ],
+  "name": {
+    "$oid": "65021e5aa3940c25992ab9ca"
+  },
+  "primary_image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C151%2C270%2C955-gate_models_s_02_m.webp",
+  "regYear": "2023-01",
+  "regState": "MH",
+  "price": 600000,
+  "engine_type": "Diseal",
+  "mileage": 5000,
+  "condition": "damaged",
+  "transmission": "cvvt",
+  "fuel_type": "electric",
+  "engine_displacment": 7800,
+  "license_number": "aa-1458",
+  "features": [
+    "powerSteering"
+  ],
+  "safety_features": [
+    "electronicStability"
+  ],
+  "VIN": "78945612358247145",
+  "ownership_history": "dasfafa",
+  "warranty": "4",
+  "short_description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+  "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum veritatis eum eaque suscipit necessitatibus unde eos earum, magnam laborum rem ipsum dolorem error velit facilis ea explicabo quae vitae optio!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam, molestias voluptas incidunt aliquiamet autem esse, laborum dolor alias iusto reprehenderit doloribus aspernatur expedita quis, facere animi? Iste, fugiat in!",
+  "documents": [
+    {
+      "label": "Road Tax Receipt",
+      "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C151%2C327%2C351-Labels-8_18_2023%20%288%29.pdf",
+      "_id": {
+        "$oid": "6509f4e6b3246ef7e53650f6"
+      }
+    }
+  ],
+  "quantity": 8,
+  "ownership": "First",
+  "km_driven": 25000,
+  "seats": "2",
+  "images": [],
+  "wheel_size": "15",
+  "status": "approved",
+  "createdAt": {
+    "$date": "2023-09-19T19:22:14.621Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-02T14:17:06.052Z"
+  },
+  "__v": 0,
+  "gallery_images": [
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C151%2C274%2C017-images.jpeg"
+  ],
+  "cname": "Mustang GT",
+  "featured_car": 1,
+  "trending_car": 1,
+  "hotdeal_car": 0,
+  "upcoming_car": 0,
+  "cbody_type": "HatchBack",
+  "booking_status": "available"
+},
+{
+  "_id": {
+    "$oid": "650ad30846db5a63238004f4"
+  },
+  "vendorID": {
+    "$oid": "65099113d09543c8becdac77"
+  },
+  "make": {
+    "$oid": "6509a50454bb26d1f5e5abfd"
+  },
+  "model": {
+    "$oid": "6509a54954bb26d1f5e5ac12"
+  },
+  "body_type": {
+    "$oid": "64fb593213bc7ca18bcd1be7"
+  },
+  "color": {
+    "$oid": "651ab33c29a339fdc40ada9d"
+  },
+  "location": [
+    {
+      "$oid": "64fc38d8733d90aa2efacbef"
+    },
+    {
+      "$oid": "64f7828dc1157d6b142cb6d7"
+    }
+  ],
+  "name": {
+    "$oid": "6509a51e54bb26d1f5e5ac0c"
+  },
+  "primary_image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C208%2C005%2C873-roylti.jpg",
+  "gallery_images": [
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C208%2C011%2C127-2021-Toyota-Fortuner-Facelift-Price-.jpg"
+  ],
+  "regYear": "2023-06",
+  "regState": "Delhi",
+  "price": 200000,
+  "engine_type": "TurboCharged",
+  "mileage": 100,
+  "condition": "like-new",
+  "transmission": "manual",
+  "fuel_type": "petrol",
+  "engine_displacment": 120,
+  "license_number": "wwwqqqee",
+  "features": [
+    "power-windows"
+  ],
+  "safety_features": [
+    "airbags"
+  ],
+  "VIN": "13456998765432246",
+  "ownership_history": "Toyota Fortuner,  Japanese carmaker, will receive an update on 6th January 2021. This time around, the company will also bring in the sportier Fortuner Legender variant of the SUV.",
+  "warranty": "4",
+  "short_description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+  "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum veritatis eum eaque suscipit necessitatibus unde eos earum, magnam laborum rem ipsum dolorem error velit facilis ea explicabo quae vitae optio!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam, molestias voluptas incidunt aliquiamet autem esse, laborum dolor alias iusto reprehenderit doloribus aspernatur expedita quis, facere animi? Iste, fugiat in!",
+  "documents": [
+    {
+      "label": "Insurance Documents",
+      "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C208%2C082%2C567-EasyGoCars1%2C695%2C134%2C738%2C432-ticket-15-apr.pdf",
+      "_id": {
+        "$oid": "650ad30846db5a63238004f5"
+      }
+    },
+    {
+      "label": "Owner's Manual",
+      "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C292%2C538%2C995-EasyGoCars1%2C695%2C134%2C732%2C673-ticket-15-apr%20%281%29.pdf",
+      "_id": {
+        "$oid": "650c1c8d295eaa79067b88a9"
+      }
+    }
+  ],
+  "quantity": 12,
+  "ownership": "Second",
+  "km_driven": 25000,
+  "seats": "6",
+  "images": [
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C292%2C506%2C610-roylti.jpg"
+  ],
+  "wheel_size": "25",
+  "status": "approved",
+  "createdAt": {
+    "$date": "2023-09-20T11:10:00.051Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-09T11:45:43.185Z"
+  },
+  "__v": 0,
+  "cname": "Mustang GT",
+  "featured_car": 0,
+  "trending_car": 0,
+  "hotdeal_car": 1,
+  "upcoming_car": 1,
+  "cbody_type": "HatchBack",
+  "booking_status": "available"
+},
+{
+  "_id": {
+    "$oid": "650c23f58b2881a5f61ece58"
+  },
+  "vendorID": {
+    "$oid": "65099113d09543c8becdac77"
+  },
+  "make": {
+    "$oid": "6509a50454bb26d1f5e5abfd"
+  },
+  "model": {
+    "$oid": "6509a54954bb26d1f5e5ac12"
+  },
+  "body_type": {
+    "$oid": "64fb593213bc7ca18bcd1be7"
+  },
+  "color": {
+    "$oid": "651ab32929a339fdc40ada97"
+  },
+  "location": [
+    {
+      "$oid": "64f7829dc1157d6b142cb6db"
+    },
+    {
+      "$oid": "64f78285c1157d6b142cb6d3"
+    }
+  ],
+  "name": {
+    "$oid": "6509a51e54bb26d1f5e5ac0c"
+  },
+  "primary_image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C294%2C197%2C810-whatsapp-image-2023-09-19-at-4.12.02-pm.jpeg",
+  "gallery_images": [
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C294%2C229%2C753-whatsapp-image-2023-09-19-at-5.56.16-pm-1.jpeg",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C294%2C237%2C286-whatsapp-image-2023-09-19-at-5.56.16-pm-2.jpeg",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C294%2C245%2C949-add09932-edit.jpg",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C294%2C261%2C035-add09934-edit.jpg",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C294%2C272%2C561-add09927-edit.jpg",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C294%2C285%2C006-whatsapp-image-2023-09-19-at-4.12.02-pm.jpeg",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C294%2C296%2C880-roylti.jpg",
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C294%2C306%2C164-2021-Toyota-Fortuner-Facelift-Price-.jpg"
+  ],
+  "regYear": "2023-06",
+  "regState": "Delhi",
+  "price": 700000,
+  "engine_type": "V8",
+  "mileage": 100,
+  "condition": "collectible",
+  "transmission": "automatic",
+  "fuel_type": "diesel",
+  "engine_displacment": 120,
+  "license_number": "13131",
+  "features": [
+    "ac",
+    "power-windows",
+    "powerSteering",
+    "cruise-control",
+    "navigation",
+    "infotainment",
+    "sunroof",
+    "leatherSeats",
+    "heatedSeats",
+    "keyless-entry",
+    "backup-camera",
+    "parking-assist"
+  ],
+  "safety_features": [
+    "abs",
+    "airbags",
+    "traction-control",
+    "electronicStability",
+    "blindSpot-monitoring",
+    "lane-departure-warning",
+    "forward-collision-warning",
+    "adaptive-cruise-control"
+  ],
+  "VIN": "34568987654323586",
+  "ownership_history": "Toyota Fortuner, the top-selling SUV from the Japanese carmaker, will receive an update on 6th January 2021. This time around, the company will also bring in the sportier Fortuner Legender variant of the SUV.",
+  "warranty": "4",
+  "short_description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit.",
+  "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum veritatis eum eaque suscipit necessitatibus unde eos earum, magnam laborum rem ipsum dolorem error velit facilis ea explicabo quae vitae optio!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam, molestias voluptas incidunt aliquiamet autem esse, laborum dolor alias iusto reprehenderit doloribus aspernatur expedita quis, facere animi? Iste, fugiat in!",
+  "documents": [
+    {
+      "label": "Insurance Documents",
+      "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C294%2C433%2C724-EasyGoCars1%2C695%2C134%2C732%2C673-ticket-15-apr.pdf",
+      "_id": {
+        "$oid": "650c23f58b2881a5f61ece59"
+      }
+    }
+  ],
+  "quantity": 23,
+  "ownership": "Second",
+  "km_driven": 25000,
+  "seats": "4",
+  "images": [],
+  "wheel_size": "25",
+  "status": "approved",
+  "createdAt": {
+    "$date": "2023-09-21T11:07:33.157Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-17T06:54:09.772Z"
+  },
+  "__v": 0,
+  "cname": "Ford",
+  "featured_car": 1,
+  "trending_car": 1,
+  "hotdeal_car": 0,
+  "upcoming_car": 0,
+  "cbody_type": "HatchBack",
+  "booking_status": "available",
+  "payment_status": "partially_paid"
+},
+{
+  "_id": {
+    "$oid": "651ab792bab60f3b3f987b80"
+  },
+  "vendorID": {
+    "$oid": "6502f16a6d8657ebd6d6d3cd"
+  },
+  "make": {
+    "$oid": "651ab29229a339fdc40ada6d"
+  },
+  "model": {
+    "$oid": "651ab2d529a339fdc40ada7b"
+  },
+  "body_type": {
+    "$oid": "64d62a071dce251c2521d960"
+  },
+  "color": {
+    "$oid": "651ab2ec29a339fdc40ada83"
+  },
+  "location": [
+    {
+      "$oid": "6509b6ffb3246ef7e5364644"
+    },
+    {
+      "$oid": "64fc38d8733d90aa2efacbef"
+    },
+    {
+      "$oid": "64f7829dc1157d6b142cb6db"
+    },
+    {
+      "$oid": "64f7828dc1157d6b142cb6d7"
+    },
+    {
+      "$oid": "64f78285c1157d6b142cb6d3"
+    },
+    {
+      "$oid": "64f7827dc1157d6b142cb6cf"
+    },
+    {
+      "$oid": "64f78277c1157d6b142cb6cb"
+    },
+    {
+      "$oid": "64f5f8857e5a1df28d9d5317"
+    }
+  ],
+  "name": {
+    "$oid": "651ab2b929a339fdc40ada75"
+  },
+  "cname": "Audi S8",
+  "cmodel": "Audi S8 TW",
+  "cmake": "Audi",
+  "primary_image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C96%2C24%2C95%2C91%2C821-Audi.avif",
+  "gallery_images": [
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C96%2C24%2C95%2C99%2C968-Audi%201.avif"
+  ],
+  "regYear": "2023-01",
+  "regState": "JH",
+  "price": 4000000,
+  "engine_type": "V8",
+  "mileage": 150,
+  "condition": "like-new",
+  "transmission": "automatic",
+  "fuel_type": "hybrid",
+  "engine_displacment": 120,
+  "license_number": "789754624213",
+  "features": [
+    "ac",
+    "power-windows",
+    "powerSteering",
+    "cruise-control",
+    "navigation",
+    "infotainment",
+    "sunroof",
+    "leatherSeats",
+    "heatedSeats",
+    "keyless-entry",
+    "backup-camera",
+    "parking-assist"
+  ],
+  "safety_features": [
+    "abs",
+    "airbags",
+    "traction-control",
+    "electronicStability",
+    "blindSpot-monitoring",
+    "lane-departure-warning",
+    "forward-collision-warning",
+    "adaptive-cruise-control"
+  ],
+  "VIN": "78945612345678945",
+  "ownership_history": "qwqwqw",
+  "warranty": "4",
+  "short_description": "1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+  "documents": [
+    {
+      "label": "Registration Certificate(RC)",
+      "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C96%2C24%2C97%2C33%2C586-pickup.pdf",
+      "_id": {
+        "$oid": "651ab792bab60f3b3f987b81"
+      }
+    }
+  ],
+  "quantity": 156,
+  "ownership": "First",
+  "km_driven": 45945,
+  "seats": "2",
+  "images": [],
+  "wheel_size": "70",
+  "status": "approved",
+  "featured_car": 1,
+  "trending_car": 1,
+  "upcoming_car": 1,
+  "hotdeal_car": 0,
+  "createdAt": {
+    "$date": "2023-10-02T12:29:06.618Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-17T06:59:57.050Z"
+  },
+  "__v": 0,
+  "cbody_type": "HatchBack",
+  "booking_status": "available",
+  "payment_status": "partially_paid"
+},
+{
+  "_id": {
+    "$oid": "651ab95be083150acac81e36"
+  },
+  "vendorID": {
+    "$oid": "6502f16a6d8657ebd6d6d3cd"
+  },
+  "make": {
+    "$oid": "651ab29829a339fdc40ada71"
+  },
+  "model": {
+    "$oid": "651ab8d9e083150acac81e23"
+  },
+  "body_type": {
+    "$oid": "64fb593213bc7ca18bcd1be7"
+  },
+  "color": {
+    "$oid": "64f5f9637e5a1df28d9d533e"
+  },
+  "location": [
+    {
+      "$oid": "6509b6ffb3246ef7e5364644"
+    },
+    {
+      "$oid": "64f7829dc1157d6b142cb6db"
+    },
+    {
+      "$oid": "64f78285c1157d6b142cb6d3"
+    },
+    {
+      "$oid": "64f78277c1157d6b142cb6cb"
+    }
+  ],
+  "name": {
+    "$oid": "651ab8e6e083150acac81e29"
+  },
+  "cname": "7 Series ",
+  "cmodel": "X7 ",
+  "cmake": "BMW",
+  "primary_image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C96%2C25%2C01%2C01%2C421-BMW%207.jpg",
+  "gallery_images": [
+    "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C96%2C25%2C01%2C22%2C300-BMW%207.jpg"
+  ],
+  "regYear": "2023-01",
+  "regState": "GA",
+  "price": 250000,
+  "engine_type": "V8",
+  "mileage": 150,
+  "condition": "refurbished",
+  "transmission": "automatic",
+  "fuel_type": "diesel",
+  "engine_displacment": 120,
+  "license_number": "789456132",
+  "features": [
+    "ac",
+    "power-windows",
+    "powerSteering",
+    "cruise-control",
+    "navigation",
+    "infotainment",
+    "sunroof",
+    "leatherSeats",
+    "heatedSeats",
+    "keyless-entry",
+    "backup-camera",
+    "parking-assist"
+  ],
+  "safety_features": [
+    "abs",
+    "airbags",
+    "traction-control",
+    "electronicStability",
+    "blindSpot-monitoring",
+    "lane-departure-warning",
+    "forward-collision-warning",
+    "adaptive-cruise-control"
+  ],
+  "VIN": "78978945645612312",
+  "ownership_history": "12345",
+  "warranty": "4",
+  "short_description": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available",
+  "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+  "documents": [
+    {
+      "label": "Registration Certificate(RC)",
+      "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C96%2C25%2C02%2C00%2C015-One%20Point%20Corporation.pdf",
+      "_id": {
+        "$oid": "651ab95be083150acac81e37"
+      }
+    }
+  ],
+  "quantity": 156,
+  "ownership": "First",
+  "km_driven": 25,
+  "seats": "5",
+  "images": [],
+  "wheel_size": "70",
+  "status": "approved",
+  "featured_car": 0,
+  "trending_car": 1,
+  "upcoming_car": 1,
+  "hotdeal_car": 1,
+  "createdAt": {
+    "$date": "2023-10-02T12:36:43.828Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-17T07:03:49.797Z"
+  },
+  "__v": 0,
+  "cbody_type": "Sedan",
+  "booking_status": "available",
+  "payment_status": "partially_paid"
+}]

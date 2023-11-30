@@ -1,0 +1,52 @@
+[{
+  "_id": {
+    "$oid": "6533c35bae57e6d10024c8f8"
+  },
+  "customer_code": "EGC-C/23-24/1",
+  "email": "sachin@easygocarz.com",
+  "first_name": "Sachin",
+  "last_name": "Goel",
+  "address": "A-1660 SF Greenfield Colony Faridabad",
+  "city": "FARIDABAD",
+  "state": "Haryana",
+  "pin": "121010",
+  "phone_number": {
+    "$numberLong": "9555998843"
+  },
+  "status": "active",
+  "orders": [],
+  "password": "$2b$10$pD3IJtD6Fzlfp/nn.v3IAeWhwF60EfpwGzlL3xcszJs2f1D3sds0K",
+  "createdAt": {
+    "$date": "2023-10-21T12:26:03.695Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-21T12:26:03.695Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653e302734d1555cef498e27"
+  },
+  "customer_code": "EGC-C/23-24/2",
+  "email": "kumarkunal7827@gmail.com",
+  "first_name": "kunal",
+  "last_name": "Kumar",
+  "address": "Delhi",
+  "city": "Burari",
+  "state": "Delhi",
+  "pin": "110084",
+  "phone_number": {
+    "$numberLong": "919354311924"
+  },
+  "status": "active",
+  "orders": [],
+  "password": "$2b$10$8f6e8BHm5HvTUlKewtZSI.Ag8o2odaNE4wQlQ/G5vkD5VO23lxXpi",
+  "createdAt": {
+    "$date": "2023-10-29T10:12:55.378Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-29T10:12:55.378Z"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,900 @@
+[{
+  "_id": {
+    "$oid": "6533b15eae57e6d10024c372"
+  },
+  "name": "LXI",
+  "make_id": {
+    "$oid": "6533afbcae57e6d10024c2e3"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:09:18.299Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:09:18.299Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533b165ae57e6d10024c37a"
+  },
+  "name": "VXI",
+  "make_id": {
+    "$oid": "6533afbcae57e6d10024c2e3"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:09:25.596Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:09:25.596Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533b16cae57e6d10024c382"
+  },
+  "name": "ZXI",
+  "make_id": {
+    "$oid": "6533afbcae57e6d10024c2e3"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:09:32.401Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:09:32.401Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533b174ae57e6d10024c38a"
+  },
+  "name": "VXI+",
+  "make_id": {
+    "$oid": "6533afbcae57e6d10024c2e3"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:09:40.199Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:09:40.199Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533b17dae57e6d10024c392"
+  },
+  "name": "LDI",
+  "make_id": {
+    "$oid": "6533afbcae57e6d10024c2e3"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:09:49.921Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:09:49.921Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533b183ae57e6d10024c39a"
+  },
+  "name": "VDI",
+  "make_id": {
+    "$oid": "6533afbcae57e6d10024c2e3"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:09:55.185Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:09:55.185Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533b189ae57e6d10024c3a2"
+  },
+  "name": "ZDI",
+  "make_id": {
+    "$oid": "6533afbcae57e6d10024c2e3"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:10:01.351Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:10:01.351Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533b190ae57e6d10024c3aa"
+  },
+  "name": "ZDI+",
+  "make_id": {
+    "$oid": "6533afbcae57e6d10024c2e3"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:10:08.440Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:10:08.440Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533b19dae57e6d10024c3b2"
+  },
+  "name": "SMARTHYBRID",
+  "make_id": {
+    "$oid": "6533afbcae57e6d10024c2e3"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T11:10:21.903Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T11:10:21.903Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6534e3d8ae57e6d10024e1a0"
+  },
+  "name": "S",
+  "make_id": {
+    "$oid": "6534e3abae57e6d10024e15f"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-22T08:56:56.660Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-22T08:56:56.660Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6534e3ddae57e6d10024e1a8"
+  },
+  "name": "V",
+  "make_id": {
+    "$oid": "6534e3abae57e6d10024e15f"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-22T08:57:01.624Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-22T08:57:01.624Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6534e3e2ae57e6d10024e1b0"
+  },
+  "name": "ZX",
+  "make_id": {
+    "$oid": "6534e3abae57e6d10024e15f"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-22T08:57:06.912Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-22T08:57:06.912Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6534e3e9ae57e6d10024e1b8"
+  },
+  "name": "ivtec",
+  "make_id": {
+    "$oid": "6534e3abae57e6d10024e15f"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-22T08:57:13.769Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-22T08:57:13.769Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6534fbd6ae57e6d10024ed88"
+  },
+  "name": "LX",
+  "make_id": {
+    "$oid": "6533afbcae57e6d10024c2e3"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-22T10:39:18.172Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-22T10:39:18.172Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653661e7ca4e9bfe074be93d"
+  },
+  "name": "350d",
+  "make_id": {
+    "$oid": "6533afc6ae57e6d10024c2e8"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-23T12:07:03.541Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-23T12:07:03.541Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65366215ca4e9bfe074be95f"
+  },
+  "name": "2.8G",
+  "make_id": {
+    "$oid": "6533afddae57e6d10024c301"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-23T12:07:49.351Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-23T12:07:49.351Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6536623fca4e9bfe074be981"
+  },
+  "name": "GL350",
+  "make_id": {
+    "$oid": "6533afc6ae57e6d10024c2e8"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-23T12:08:31.916Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-23T12:08:31.916Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653677b25cdce97410dca867"
+  },
+  "name": "X",
+  "make_id": {
+    "$oid": "6533af8dae57e6d10024c2c0"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-23T13:40:02.761Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-23T13:40:02.761Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6536797a5cdce97410dca8f1"
+  },
+  "name": "Titanium",
+  "make_id": {
+    "$oid": "6533af92ae57e6d10024c2c5"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-23T13:47:38.637Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-23T13:47:38.637Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6538e2475cdce97410dcbc0b"
+  },
+  "name": "GLS",
+  "make_id": {
+    "$oid": "6533af98ae57e6d10024c2ca"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-25T09:39:19.031Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-25T09:39:19.031Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6538e2605cdce97410dcbc29"
+  },
+  "name": "GLE",
+  "make_id": {
+    "$oid": "6533af98ae57e6d10024c2ca"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-25T09:39:44.060Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-25T09:39:44.060Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6538e5095cdce97410dcbe6e"
+  },
+  "name": "2.4V",
+  "make_id": {
+    "$oid": "6533afddae57e6d10024c301"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-25T09:51:05.545Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-25T09:51:05.545Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6538f5005cdce97410dcc5fa"
+  },
+  "name": "ZXi+",
+  "make_id": {
+    "$oid": "6533afbcae57e6d10024c2e3"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-25T10:59:12.992Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-25T10:59:12.992Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653902a65cdce97410dcc74f"
+  },
+  "name": "THAR",
+  "make_id": {
+    "$oid": "6533afb4ae57e6d10024c2de"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-25T11:57:26.245Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-25T11:57:26.245Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653902de5cdce97410dcc794"
+  },
+  "name": "4X4",
+  "make_id": {
+    "$oid": "6533afb4ae57e6d10024c2de"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-25T11:58:22.522Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-25T11:58:22.522Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653ce19d34d1555cef496631"
+  },
+  "name": "X3",
+  "make_id": {
+    "$oid": "6533af8dae57e6d10024c2c0"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-28T10:25:33.416Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-28T10:25:33.416Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653ce64634d1555cef49678b"
+  },
+  "name": "3 Series",
+  "make_id": {
+    "$oid": "6533af8dae57e6d10024c2c0"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-28T10:45:26.028Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-28T10:45:26.028Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653d039b34d1555cef496b46"
+  },
+  "name": "Alto",
+  "make_id": {
+    "$oid": "6533afbcae57e6d10024c2e3"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-28T12:50:35.536Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-28T12:50:35.536Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653d049e34d1555cef496baf"
+  },
+  "name": "Zeta",
+  "make_id": {
+    "$oid": "6533afbcae57e6d10024c2e3"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-28T12:54:54.696Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-28T12:54:54.696Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653d057534d1555cef496c23"
+  },
+  "name": "2.8 Z",
+  "make_id": {
+    "$oid": "6533afddae57e6d10024c301"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-28T12:58:29.782Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-28T12:58:29.782Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653d063d34d1555cef496c8f"
+  },
+  "name": "Grand i10",
+  "make_id": {
+    "$oid": "6533af98ae57e6d10024c2ca"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-28T13:01:49.913Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-28T13:01:49.913Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653d078c34d1555cef496ce4"
+  },
+  "name": "Asta",
+  "make_id": {
+    "$oid": "6533af98ae57e6d10024c2ca"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-28T13:07:24.663Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-28T13:07:24.663Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653d08da34d1555cef496d39"
+  },
+  "name": "Urban Cruiser",
+  "make_id": {
+    "$oid": "6533afddae57e6d10024c301"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-28T13:12:58.811Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-28T13:12:58.811Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653d422834d1555cef497429"
+  },
+  "name": "F Type",
+  "make_id": {
+    "$oid": "6533af9fae57e6d10024c2cf"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-28T17:17:28.652Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-28T17:17:28.652Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653d44e034d1555cef497628"
+  },
+  "name": "4x4",
+  "make_id": {
+    "$oid": "6533afddae57e6d10024c301"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-28T17:29:04.928Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-28T17:29:04.928Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653f8dd834d1555cef499de4"
+  },
+  "name": "Magna",
+  "make_id": {
+    "$oid": "6533af98ae57e6d10024c2ca"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-30T11:04:56.713Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-30T11:04:56.713Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653f8df934d1555cef499dee"
+  },
+  "name": "E Plus",
+  "make_id": {
+    "$oid": "6533af98ae57e6d10024c2ca"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-30T11:05:29.765Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-30T11:05:29.765Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653f8e0634d1555cef499df8"
+  },
+  "name": "RXZ",
+  "make_id": {
+    "$oid": "6533afceae57e6d10024c2f2"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-30T11:05:42.665Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-30T11:05:42.665Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653f8e1434d1555cef499e02"
+  },
+  "name": "VX",
+  "make_id": {
+    "$oid": "6533afddae57e6d10024c301"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-30T11:05:56.403Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-30T11:05:56.403Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653f8e2034d1555cef499e0c"
+  },
+  "name": "XV",
+  "make_id": {
+    "$oid": "6533afcaae57e6d10024c2ed"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-30T11:06:08.515Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-30T11:06:08.515Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653f8e2a34d1555cef499e16"
+  },
+  "name": "XE",
+  "make_id": {
+    "$oid": "6533afd7ae57e6d10024c2fc"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-30T11:06:18.624Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-30T11:06:18.624Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653f8e3c34d1555cef499e20"
+  },
+  "name": "T8",
+  "make_id": {
+    "$oid": "6533afb4ae57e6d10024c2de"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-30T11:06:36.683Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-30T11:06:36.683Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653f8e6334d1555cef499e2a"
+  },
+  "name": "W10",
+  "make_id": {
+    "$oid": "6533afb4ae57e6d10024c2de"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-30T11:07:15.008Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-30T11:07:15.008Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653f8e9b34d1555cef499e42"
+  },
+  "name": "RXT",
+  "make_id": {
+    "$oid": "6533afceae57e6d10024c2f2"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-30T11:08:11.553Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-30T11:08:11.553Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653f932e34d1555cef499f44"
+  },
+  "name": "ZETA",
+  "make_id": {
+    "$oid": "6533afbcae57e6d10024c2e3"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-30T11:27:42.923Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-30T11:27:42.923Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653f935134d1555cef499f62"
+  },
+  "name": "SIGMA",
+  "make_id": {
+    "$oid": "6533afbcae57e6d10024c2e3"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-30T11:28:17.012Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-30T11:28:17.012Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653f989c34d1555cef49a08d"
+  },
+  "name": "4X2",
+  "make_id": {
+    "$oid": "6533afddae57e6d10024c301"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-30T11:50:52.916Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-30T11:50:52.916Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653f9c4634d1555cef49a15b"
+  },
+  "name": "DELTA",
+  "make_id": {
+    "$oid": "6533afbcae57e6d10024c2e3"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-30T12:06:30.294Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-30T12:06:30.294Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653fa0b434d1555cef49a278"
+  },
+  "name": "RAPID",
+  "make_id": {
+    "$oid": "6533afd2ae57e6d10024c2f7"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-30T12:25:24.653Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-30T12:25:24.653Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653fed7034d1555cef49b581"
+  },
+  "name": "IDTEC",
+  "make_id": {
+    "$oid": "6534e3abae57e6d10024e15f"
+  },
+  "status": "1",
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-30T17:52:48.520Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-30T17:52:48.520Z"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,128 @@
+[{
+  "_id": {
+    "$oid": "6533c461ae57e6d10024ca75"
+  },
+  "customer_id": {
+    "$oid": "6533c35bae57e6d10024c8f8"
+  },
+  "test_drive_id": {
+    "$oid": "6533c460ae57e6d10024ca72"
+  },
+  "car_id": {
+    "$oid": "6533c21cae57e6d10024c6f7"
+  },
+  "reference_id": "string",
+  "status": "PAYMENT_PENDING",
+  "transaction_type": "Test Drive Booking",
+  "amount_to_pay": 500,
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T12:30:25.070Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T12:30:25.070Z"
+  },
+  "createdAt": {
+    "$date": "2023-10-21T12:30:25.070Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-21T12:30:25.070Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533c4afae57e6d10024ca98"
+  },
+  "customer_id": {
+    "$oid": "6533c35bae57e6d10024c8f8"
+  },
+  "test_drive_id": {
+    "$oid": "6533c4aeae57e6d10024ca95"
+  },
+  "car_id": {
+    "$oid": "6533c21cae57e6d10024c6f7"
+  },
+  "reference_id": "string",
+  "status": "PAYMENT_SUCCESS",
+  "transaction_type": "Test Drive Booking",
+  "amount_to_pay": 500,
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T12:31:43.257Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T12:31:43.257Z"
+  },
+  "createdAt": {
+    "$date": "2023-10-21T12:31:43.258Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-21T12:32:41.510Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6533c5e0ae57e6d10024cb0e"
+  },
+  "customer_id": {
+    "$oid": "6533c35bae57e6d10024c8f8"
+  },
+  "test_drive_id": {
+    "$oid": "6533c4e9ae57e6d10024ca9d"
+  },
+  "car_id": {
+    "$oid": "6533c21cae57e6d10024c6f7"
+  },
+  "reference_id": "string",
+  "status": "PAYMENT_PENDING",
+  "transaction_type": "Booking Car 10% Pay",
+  "amount_to_pay": 43000,
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-21T12:36:48.771Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-21T12:36:48.771Z"
+  },
+  "createdAt": {
+    "$date": "2023-10-21T12:36:48.771Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-21T12:36:48.771Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "653d43cf34d1555cef497569"
+  },
+  "customer_id": {
+    "$oid": "6533c35bae57e6d10024c8f8"
+  },
+  "test_drive_id": {
+    "$oid": "653d43cf34d1555cef497566"
+  },
+  "car_id": {
+    "$oid": "653d42ff34d1555cef497446"
+  },
+  "reference_id": "string",
+  "status": "PAYMENT_PENDING",
+  "transaction_type": "Test Drive Booking",
+  "amount_to_pay": 500,
+  "deleted_at": null,
+  "created_at": {
+    "$date": "2023-10-28T17:24:31.799Z"
+  },
+  "updated_at": {
+    "$date": "2023-10-28T17:24:31.799Z"
+  },
+  "createdAt": {
+    "$date": "2023-10-28T17:24:31.799Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-28T17:24:31.799Z"
+  },
+  "__v": 0
+}]

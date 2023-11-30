@@ -1,0 +1,1683 @@
+[
+  {
+    "_id": "650c23f58b2881a5f61ece58",
+    "vendorID": {
+      "address": {
+        "address1": "janakpuri",
+        "address2": "Honda city",
+        "state": "Haryana",
+        "landmark": "ww",
+        "district": "gurugram",
+        "city": "Gurgaon",
+        "pincode": 122001
+      },
+      "_id": "65099113d09543c8becdac77",
+      "vendor_code": "EGC-V/23-24/4",
+      "vendor_name": "sujeet",
+      "status": "active",
+      "email": "sujeet@gmail.com",
+      "password": "$2b$10$KrwjOj3fuIL0TeJI16xS4OINBx.ic4AVt4VE1bslvF8QQqrFGXcZK",
+      "company_name": "sujeet car service",
+      "gst_number": "06q123456hdffgg",
+      "pan_number": "bwer1326vf",
+      "mobile_number": "9876545678",
+      "phone_number": "9876545678",
+      "msme_number": "asdfghjaa",
+      "createdBy_admin": false,
+      "reference": "65047068018c3ced0972a64e",
+      "deleted_at": null,
+      "created_at": "2023-09-19T12:16:19.233Z",
+      "updated_at": "2023-09-19T12:16:19.233Z",
+      "__v": 0,
+      "profile_photo": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C803%2C310%2C911-14.jpg"
+    },
+    "make": {
+      "_id": "6509a50454bb26d1f5e5abfd",
+      "name": "Toyota",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-19T13:41:24.547Z",
+      "updated_at": "2023-09-19T13:41:24.547Z",
+      "__v": 0
+    },
+    "model": {
+      "_id": "6509a54954bb26d1f5e5ac12",
+      "name": "TOYOTA FORTUNER FACELIFT",
+      "make_id": "6509a50454bb26d1f5e5abfd",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-19T13:42:33.499Z",
+      "updated_at": "2023-09-19T13:42:33.499Z",
+      "__v": 0
+    },
+    "body_type": {
+      "_id": "64fb593213bc7ca18bcd1be7",
+      "name": "Muscle Car",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-08T17:26:10.927Z",
+      "updated_at": "2023-09-08T17:26:10.927Z",
+      "__v": 0
+    },
+    "color": {
+      "_id": "64f8105577b7edb4762cba63",
+      "name": "GREEN",
+      "code": "#3baa1d",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-06T05:38:29.692Z",
+      "updated_at": "2023-09-06T05:38:29.692Z",
+      "__v": 0
+    },
+    "location": [
+      {
+        "_id": "64f7829dc1157d6b142cb6db",
+        "name": "Panvel",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:49.071Z",
+        "updated_at": "2023-09-05T19:33:49.071Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f78285c1157d6b142cb6d3",
+        "name": "Delhi",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:25.483Z",
+        "updated_at": "2023-09-05T19:33:25.483Z",
+        "__v": 0
+      }
+    ],
+    "name": {
+      "_id": "6509a51e54bb26d1f5e5ac0c",
+      "name": "Fortuner",
+      "make_id": "6509a50454bb26d1f5e5abfd",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-19T13:41:50.300Z",
+      "updated_at": "2023-09-19T13:41:50.300Z",
+      "__v": 0
+    },
+    "primary_image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C294%2C197%2C810-whatsapp-image-2023-09-19-at-4.12.02-pm.jpeg",
+    "gallery_images": [
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C294%2C229%2C753-whatsapp-image-2023-09-19-at-5.56.16-pm-1.jpeg",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C294%2C237%2C286-whatsapp-image-2023-09-19-at-5.56.16-pm-2.jpeg",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C294%2C245%2C949-add09932-edit.jpg",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C294%2C261%2C035-add09934-edit.jpg",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C294%2C272%2C561-add09927-edit.jpg",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C294%2C285%2C006-whatsapp-image-2023-09-19-at-4.12.02-pm.jpeg",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C294%2C296%2C880-roylti.jpg",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C294%2C306%2C164-2021-Toyota-Fortuner-Facelift-Price-.jpg"
+    ],
+    "regYear": "2023-06",
+    "regState": "Delhi",
+    "price": 700000,
+    "engine_type": "V8",
+    "mileage": 100,
+    "condition": "collectible",
+    "transmission": "automatic",
+    "fuel_type": "diesel",
+    "engine_displacment": 120,
+    "license_number": "13131",
+    "features": [
+      "ac",
+      "power-windows",
+      "powerSteering",
+      "cruise-control",
+      "navigation",
+      "infotainment",
+      "sunroof",
+      "leatherSeats",
+      "heatedSeats",
+      "keyless-entry",
+      "backup-camera",
+      "parking-assist"
+    ],
+    "safety_features": [
+      "abs",
+      "airbags",
+      "traction-control",
+      "electronicStability",
+      "blindSpot-monitoring",
+      "lane-departure-warning",
+      "forward-collision-warning",
+      "adaptive-cruise-control"
+    ],
+    "VIN": "34568987654323586",
+    "ownership_history": "Toyota Fortuner, the top-selling SUV from the Japanese carmaker, will receive an update on 6th January 2021. This time around, the company will also bring in the sportier Fortuner Legender variant of the SUV.",
+    "warranty": "4",
+    "short_description": "Toyota Fortuner, the top-selling SUV from the Japanese carmaker, will receive an update on 6th January 2021. This time around, the company will also bring in the sportier Fortuner Legender variant of the SUV.",
+    "description": "Toyota Fortuner, the top-selling SUV from the Japanese carmaker, will receive an update on 6th January 2021. This time around, the company will also bring in the sportier Fortuner Legender variant of the SUV.Toyota Fortuner, the top-selling SUV from the Japanese carmaker, will receive an update on 6th January 2021. This time around, the company will also bring in the sportier Fortuner Legender variant of the SUV.Toyota Fortuner, the top-selling SUV from the Japanese carmaker, will receive an update on 6th January 2021. This time around, the company will also bring in the sportier Fortuner Legender variant of the SUV.",
+    "documents": [
+      {
+        "label": "Insurance Documents",
+        "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C294%2C433%2C724-EasyGoCars1%2C695%2C134%2C732%2C673-ticket-15-apr.pdf",
+        "_id": "650c23f58b2881a5f61ece59"
+      }
+    ],
+    "quantity": 23,
+    "ownership": "Second",
+    "km_driven": 800000,
+    "seats": "4",
+    "images": [],
+    "wheel_size": "25",
+    "status": "approved",
+    "featured_in": [
+      "Upcoming Car",
+      "Featured Car",
+      "Trending Car"
+    ],
+    "createdAt": "2023-09-21T11:07:33.157Z",
+    "updatedAt": "2023-09-21T11:08:13.600Z",
+    "__v": 0
+  },
+  {
+    "_id": "650ad30846db5a63238004f4",
+    "vendorID": {
+      "address": {
+        "address1": "janakpuri",
+        "address2": "Honda city",
+        "state": "Haryana",
+        "landmark": "ww",
+        "district": "gurugram",
+        "city": "Gurgaon",
+        "pincode": 122001
+      },
+      "_id": "65099113d09543c8becdac77",
+      "vendor_code": "EGC-V/23-24/4",
+      "vendor_name": "sujeet",
+      "status": "active",
+      "email": "sujeet@gmail.com",
+      "password": "$2b$10$KrwjOj3fuIL0TeJI16xS4OINBx.ic4AVt4VE1bslvF8QQqrFGXcZK",
+      "company_name": "sujeet car service",
+      "gst_number": "06q123456hdffgg",
+      "pan_number": "bwer1326vf",
+      "mobile_number": "9876545678",
+      "phone_number": "9876545678",
+      "msme_number": "asdfghjaa",
+      "createdBy_admin": false,
+      "reference": "65047068018c3ced0972a64e",
+      "deleted_at": null,
+      "created_at": "2023-09-19T12:16:19.233Z",
+      "updated_at": "2023-09-19T12:16:19.233Z",
+      "__v": 0,
+      "profile_photo": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C803%2C310%2C911-14.jpg"
+    },
+    "make": {
+      "_id": "6509a50454bb26d1f5e5abfd",
+      "name": "Toyota",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-19T13:41:24.547Z",
+      "updated_at": "2023-09-19T13:41:24.547Z",
+      "__v": 0
+    },
+    "model": {
+      "_id": "6509a54954bb26d1f5e5ac12",
+      "name": "TOYOTA FORTUNER FACELIFT",
+      "make_id": "6509a50454bb26d1f5e5abfd",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-19T13:42:33.499Z",
+      "updated_at": "2023-09-19T13:42:33.499Z",
+      "__v": 0
+    },
+    "body_type": {
+      "_id": "64fb593213bc7ca18bcd1be7",
+      "name": "Muscle Car",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-08T17:26:10.927Z",
+      "updated_at": "2023-09-08T17:26:10.927Z",
+      "__v": 0
+    },
+    "color": {
+      "_id": "64f8105577b7edb4762cba63",
+      "name": "GREEN",
+      "code": "#3baa1d",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-06T05:38:29.692Z",
+      "updated_at": "2023-09-06T05:38:29.692Z",
+      "__v": 0
+    },
+    "location": [
+      {
+        "_id": "64fc38d8733d90aa2efacbef",
+        "name": "Gurgaon",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-09T09:20:24.406Z",
+        "updated_at": "2023-09-09T09:20:24.406Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f7828dc1157d6b142cb6d7",
+        "name": "Mumbai",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:33.882Z",
+        "updated_at": "2023-09-05T19:33:33.882Z",
+        "__v": 0
+      }
+    ],
+    "name": {
+      "_id": "6509a51e54bb26d1f5e5ac0c",
+      "name": "Fortuner",
+      "make_id": "6509a50454bb26d1f5e5abfd",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-19T13:41:50.300Z",
+      "updated_at": "2023-09-19T13:41:50.300Z",
+      "__v": 0
+    },
+    "primary_image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C208%2C005%2C873-roylti.jpg",
+    "gallery_images": [
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C208%2C011%2C127-2021-Toyota-Fortuner-Facelift-Price-.jpg"
+    ],
+    "regYear": "2023-06",
+    "regState": "Delhi",
+    "price": 200000,
+    "engine_type": "TurboCharged",
+    "mileage": 100,
+    "condition": "like-new",
+    "transmission": "manual",
+    "fuel_type": "petrol",
+    "engine_displacment": 120,
+    "license_number": "wwwqqqee",
+    "features": [
+      "power-windows"
+    ],
+    "safety_features": [
+      "airbags"
+    ],
+    "VIN": "13456998765432246",
+    "ownership_history": "Toyota Fortuner,  Japanese carmaker, will receive an update on 6th January 2021. This time around, the company will also bring in the sportier Fortuner Legender variant of the SUV.",
+    "warranty": "4",
+    "short_description": "Toyota Fortuner,  Japanese carmaker, will receive an update on 6th January 2021. This time around, the company will also bring in the sportier Fortuner Legender variant of the SUV.",
+    "description": "Toyota Fortuner,  Japanese carmaker, will receive an update on 6th January 2021. This time around, the company will also bring in the sportier Fortuner Legender variant of the SUV.",
+    "documents": [
+      {
+        "label": "Insurance Documents",
+        "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C208%2C082%2C567-EasyGoCars1%2C695%2C134%2C738%2C432-ticket-15-apr.pdf",
+        "_id": "650ad30846db5a63238004f5"
+      },
+      {
+        "label": "Owner's Manual",
+        "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C292%2C538%2C995-EasyGoCars1%2C695%2C134%2C732%2C673-ticket-15-apr%20%281%29.pdf",
+        "_id": "650c1c8d295eaa79067b88a9"
+      }
+    ],
+    "quantity": 12,
+    "ownership": "Second",
+    "km_driven": 400000,
+    "seats": "6",
+    "images": [
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C292%2C506%2C610-roylti.jpg"
+    ],
+    "wheel_size": "25",
+    "status": "deactivate",
+    "featured_in": [
+      "Upcoming Car",
+      "Trending Car"
+    ],
+    "createdAt": "2023-09-20T11:10:00.051Z",
+    "updatedAt": "2023-09-21T10:35:57.886Z",
+    "__v": 0
+  },
+  {
+    "_id": "6509f4e6b3246ef7e53650f5",
+    "vendorID": {
+      "address": {
+        "address1": "MU-56C, DDA Flats",
+        "address2": "Thagachaguppe village, Kumbalagodu Village",
+        "state": "Delhi",
+        "landmark": "gafbadsfbadbafbad",
+        "district": "06",
+        "city": "New Delhi",
+        "pincode": 500003
+      },
+      "_id": "6502f16a6d8657ebd6d6d3cd",
+      "vendor_code": "EGC-V/23-24/2",
+      "vendor_name": "Kunal Mehra",
+      "status": "active",
+      "email": "vendor@gmail.com",
+      "password": "$2b$10$yZ1p8YlGBVwa0FlXDHL0KO7a2pTOrQ48S6zSO1wDsB9d3wt2EYv5S",
+      "company_name": "My Own Company",
+      "gst_number": "36AAACZ2890G1Z4",
+      "gst_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C69%2C27%2C84%2C849-D65526958.pdf",
+      "pan_number": "AAACZ2890G",
+      "pan_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C69%2C27%2C88%2C295-5741860996%20%283%29.pdf",
+      "mobile_number": "1234567890",
+      "phone_number": "123123",
+      "msme_number": "asdasd",
+      "msme_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C69%2C27%2C81%2C144-Labels-8_18_2023%20%288%29.pdf",
+      "deleted_at": null,
+      "created_at": "2023-09-14T11:41:30.376Z",
+      "updated_at": "2023-09-14T11:41:30.376Z",
+      "__v": 0,
+      "createdBy_admin": true,
+      "reference": "65047068018c3ced0972a64e",
+      "profile_photo": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C95%2C63%2C52%2C88%2C268-Screenshot%20%286%29.png"
+    },
+    "make": {
+      "_id": "64fb58fd13bc7ca18bcd1bd7",
+      "name": "Ford",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-08T17:25:17.981Z",
+      "updated_at": "2023-09-08T17:25:17.981Z",
+      "__v": 0
+    },
+    "model": {
+      "_id": "64fb591f13bc7ca18bcd1be1",
+      "name": "Mustang GT",
+      "make_id": "64fb58fd13bc7ca18bcd1bd7",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-08T17:25:51.490Z",
+      "updated_at": "2023-09-08T17:25:51.490Z",
+      "__v": 0
+    },
+    "body_type": {
+      "deleted_at": null,
+      "_id": "64d63b31c226c2d0ef3d71a8",
+      "name": "Pickup Truck",
+      "status": "1",
+      "__v": 0,
+      "created_at": "2023-10-01T09:04:43.164Z",
+      "updated_at": "2023-10-01T09:04:43.164Z"
+    },
+    "color": {
+      "_id": "64f8105577b7edb4762cba63",
+      "name": "GREEN",
+      "code": "#3baa1d",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-06T05:38:29.692Z",
+      "updated_at": "2023-09-06T05:38:29.692Z",
+      "__v": 0
+    },
+    "location": [
+      {
+        "_id": "6509b6ffb3246ef7e5364644",
+        "name": "Lucknow",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-19T14:58:07.402Z",
+        "updated_at": "2023-09-19T14:58:07.402Z",
+        "__v": 0
+      },
+      {
+        "_id": "64fc38d8733d90aa2efacbef",
+        "name": "Gurgaon",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-09T09:20:24.406Z",
+        "updated_at": "2023-09-09T09:20:24.406Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f7829dc1157d6b142cb6db",
+        "name": "Panvel",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:49.071Z",
+        "updated_at": "2023-09-05T19:33:49.071Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f7828dc1157d6b142cb6d7",
+        "name": "Mumbai",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:33.882Z",
+        "updated_at": "2023-09-05T19:33:33.882Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f78285c1157d6b142cb6d3",
+        "name": "Delhi",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:25.483Z",
+        "updated_at": "2023-09-05T19:33:25.483Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f7827dc1157d6b142cb6cf",
+        "name": "New Delhi",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:17.762Z",
+        "updated_at": "2023-09-05T19:33:17.762Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f78277c1157d6b142cb6cb",
+        "name": "Jabalpur",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:11.953Z",
+        "updated_at": "2023-09-05T19:33:11.953Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f5f8857e5a1df28d9d5317",
+        "name": "Vasai",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-04T15:32:21.123Z",
+        "updated_at": "2023-09-04T15:32:21.123Z",
+        "__v": 0
+      }
+    ],
+    "name": {
+      "_id": "65021e5aa3940c25992ab9ca",
+      "name": "Mustang",
+      "make_id": "64fb58fd13bc7ca18bcd1bd7",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-13T20:40:58.969Z",
+      "updated_at": "2023-09-13T20:40:58.969Z",
+      "__v": 0
+    },
+    "primary_image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C151%2C270%2C955-gate_models_s_02_m.webp",
+    "regYear": "2023-01",
+    "regState": "MH",
+    "price": 600000,
+    "engine_type": "Diseal",
+    "mileage": 5000,
+    "condition": "damaged",
+    "transmission": "cvvt",
+    "fuel_type": "electric",
+    "engine_displacment": 7800,
+    "license_number": "aa-1458",
+    "features": [
+      "powerSteering"
+    ],
+    "safety_features": [
+      "electronicStability"
+    ],
+    "VIN": "78945612358247145",
+    "ownership_history": "dasfafa",
+    "warranty": "4",
+    "short_description": "dsgvadsfbadf",
+    "description": "dasdasd",
+    "documents": [
+      {
+        "label": "Road Tax Receipt",
+        "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C151%2C327%2C351-Labels-8_18_2023%20%288%29.pdf",
+        "_id": "6509f4e6b3246ef7e53650f6"
+      }
+    ],
+    "quantity": 8,
+    "ownership": "First",
+    "km_driven": 5000,
+    "seats": "2",
+    "images": [],
+    "wheel_size": "15",
+    "status": "approved",
+    "featured_in": [
+      "Upcoming Car",
+      "Featured Car",
+      "Hot Deal"
+    ],
+    "createdAt": "2023-09-19T19:22:14.621Z",
+    "updatedAt": "2023-09-20T11:32:21.474Z",
+    "__v": 0,
+    "gallery_images": [
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C151%2C274%2C017-images.jpeg"
+    ]
+  },
+  {
+    "_id": "6509f4e6b3246ef7e53650ec",
+    "vendorID": {
+      "address": {
+        "address1": "MU-56C, DDA Flats",
+        "address2": "Thagachaguppe village, Kumbalagodu Village",
+        "state": "Delhi",
+        "landmark": "gafbadsfbadbafbad",
+        "district": "06",
+        "city": "New Delhi",
+        "pincode": 500003
+      },
+      "_id": "6502f16a6d8657ebd6d6d3cd",
+      "vendor_code": "EGC-V/23-24/2",
+      "vendor_name": "Kunal Mehra",
+      "status": "active",
+      "email": "vendor@gmail.com",
+      "password": "$2b$10$yZ1p8YlGBVwa0FlXDHL0KO7a2pTOrQ48S6zSO1wDsB9d3wt2EYv5S",
+      "company_name": "My Own Company",
+      "gst_number": "36AAACZ2890G1Z4",
+      "gst_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C69%2C27%2C84%2C849-D65526958.pdf",
+      "pan_number": "AAACZ2890G",
+      "pan_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C69%2C27%2C88%2C295-5741860996%20%283%29.pdf",
+      "mobile_number": "1234567890",
+      "phone_number": "123123",
+      "msme_number": "asdasd",
+      "msme_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C69%2C27%2C81%2C144-Labels-8_18_2023%20%288%29.pdf",
+      "deleted_at": null,
+      "created_at": "2023-09-14T11:41:30.376Z",
+      "updated_at": "2023-09-14T11:41:30.376Z",
+      "__v": 0,
+      "createdBy_admin": true,
+      "reference": "65047068018c3ced0972a64e",
+      "profile_photo": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C95%2C63%2C52%2C88%2C268-Screenshot%20%286%29.png"
+    },
+    "make": {
+      "_id": "64fb58fd13bc7ca18bcd1bd7",
+      "name": "Ford",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-08T17:25:17.981Z",
+      "updated_at": "2023-09-08T17:25:17.981Z",
+      "__v": 0
+    },
+    "model": {
+      "_id": "64fb591f13bc7ca18bcd1be1",
+      "name": "Mustang GT",
+      "make_id": "64fb58fd13bc7ca18bcd1bd7",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-08T17:25:51.490Z",
+      "updated_at": "2023-09-08T17:25:51.490Z",
+      "__v": 0
+    },
+    "body_type": {
+      "deleted_at": null,
+      "_id": "64d63b31c226c2d0ef3d71a8",
+      "name": "Pickup Truck",
+      "status": "1",
+      "__v": 0,
+      "created_at": "2023-10-01T09:04:43.164Z",
+      "updated_at": "2023-10-01T09:04:43.164Z"
+    },
+    "color": {
+      "_id": "64f8105577b7edb4762cba63",
+      "name": "GREEN",
+      "code": "#3baa1d",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-06T05:38:29.692Z",
+      "updated_at": "2023-09-06T05:38:29.692Z",
+      "__v": 0
+    },
+    "location": [
+      {
+        "_id": "6509b6ffb3246ef7e5364644",
+        "name": "Lucknow",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-19T14:58:07.402Z",
+        "updated_at": "2023-09-19T14:58:07.402Z",
+        "__v": 0
+      },
+      {
+        "_id": "64fc38d8733d90aa2efacbef",
+        "name": "Gurgaon",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-09T09:20:24.406Z",
+        "updated_at": "2023-09-09T09:20:24.406Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f7829dc1157d6b142cb6db",
+        "name": "Panvel",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:49.071Z",
+        "updated_at": "2023-09-05T19:33:49.071Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f7828dc1157d6b142cb6d7",
+        "name": "Mumbai",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:33.882Z",
+        "updated_at": "2023-09-05T19:33:33.882Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f78285c1157d6b142cb6d3",
+        "name": "Delhi",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:25.483Z",
+        "updated_at": "2023-09-05T19:33:25.483Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f7827dc1157d6b142cb6cf",
+        "name": "New Delhi",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:17.762Z",
+        "updated_at": "2023-09-05T19:33:17.762Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f78277c1157d6b142cb6cb",
+        "name": "Jabalpur",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:11.953Z",
+        "updated_at": "2023-09-05T19:33:11.953Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f5f8857e5a1df28d9d5317",
+        "name": "Vasai",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-04T15:32:21.123Z",
+        "updated_at": "2023-09-04T15:32:21.123Z",
+        "__v": 0
+      }
+    ],
+    "name": {
+      "_id": "65021e5aa3940c25992ab9ca",
+      "name": "Mustang",
+      "make_id": "64fb58fd13bc7ca18bcd1bd7",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-13T20:40:58.969Z",
+      "updated_at": "2023-09-13T20:40:58.969Z",
+      "__v": 0
+    },
+    "primary_image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C151%2C270%2C955-gate_models_s_02_m.webp",
+    "regYear": "2023-01",
+    "regState": "MH",
+    "price": 1000000,
+    "engine_type": "Diseal",
+    "mileage": 5000,
+    "condition": "damaged",
+    "transmission": "cvvt",
+    "fuel_type": "electric",
+    "engine_displacment": 7800,
+    "license_number": "aa-1458",
+    "features": [
+      "powerSteering"
+    ],
+    "safety_features": [
+      "electronicStability"
+    ],
+    "VIN": "78945612358247145",
+    "ownership_history": "dasfafa",
+    "warranty": "4",
+    "short_description": "dsgvadsfbadf",
+    "description": "dasdasd",
+    "documents": [
+      {
+        "label": "Road Tax Receipt",
+        "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C151%2C327%2C351-Labels-8_18_2023%20%288%29.pdf",
+        "_id": "6509f4e6b3246ef7e53650ed"
+      }
+    ],
+    "quantity": 8,
+    "ownership": "First",
+    "km_driven": 5000,
+    "seats": "4",
+    "images": [],
+    "wheel_size": "15",
+    "status": "pending",
+    "featured_in": [],
+    "createdAt": "2023-09-19T19:22:14.582Z",
+    "updatedAt": "2023-09-19T19:22:14.582Z",
+    "__v": 0,
+    "gallery_images": [
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C151%2C274%2C017-images.jpeg"
+    ]
+  },
+  {
+    "_id": "6509ee8db3246ef7e5364e9d",
+    "vendorID": {
+      "address": {
+        "address1": "MU-56C, DDA Flats",
+        "address2": "Thagachaguppe village, Kumbalagodu Village",
+        "state": "Delhi",
+        "landmark": "gafbadsfbadbafbad",
+        "district": "06",
+        "city": "New Delhi",
+        "pincode": 500003
+      },
+      "_id": "6502f16a6d8657ebd6d6d3cd",
+      "vendor_code": "EGC-V/23-24/2",
+      "vendor_name": "Kunal Mehra",
+      "status": "active",
+      "email": "vendor@gmail.com",
+      "password": "$2b$10$yZ1p8YlGBVwa0FlXDHL0KO7a2pTOrQ48S6zSO1wDsB9d3wt2EYv5S",
+      "company_name": "My Own Company",
+      "gst_number": "36AAACZ2890G1Z4",
+      "gst_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C69%2C27%2C84%2C849-D65526958.pdf",
+      "pan_number": "AAACZ2890G",
+      "pan_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C69%2C27%2C88%2C295-5741860996%20%283%29.pdf",
+      "mobile_number": "1234567890",
+      "phone_number": "123123",
+      "msme_number": "asdasd",
+      "msme_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C69%2C27%2C81%2C144-Labels-8_18_2023%20%288%29.pdf",
+      "deleted_at": null,
+      "created_at": "2023-09-14T11:41:30.376Z",
+      "updated_at": "2023-09-14T11:41:30.376Z",
+      "__v": 0,
+      "createdBy_admin": true,
+      "reference": "65047068018c3ced0972a64e",
+      "profile_photo": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C95%2C63%2C52%2C88%2C268-Screenshot%20%286%29.png"
+    },
+    "make": {
+      "_id": "6509a50454bb26d1f5e5abfd",
+      "name": "Toyota",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-19T13:41:24.547Z",
+      "updated_at": "2023-09-19T13:41:24.547Z",
+      "__v": 0
+    },
+    "model": {
+      "_id": "6509a54954bb26d1f5e5ac12",
+      "name": "TOYOTA FORTUNER FACELIFT",
+      "make_id": "6509a50454bb26d1f5e5abfd",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-19T13:42:33.499Z",
+      "updated_at": "2023-09-19T13:42:33.499Z",
+      "__v": 0
+    },
+    "body_type": {
+      "deleted_at": null,
+      "_id": "64d63b31c226c2d0ef3d71a8",
+      "name": "Pickup Truck",
+      "status": "1",
+      "__v": 0,
+      "created_at": "2023-10-01T09:04:43.164Z",
+      "updated_at": "2023-10-01T09:04:43.164Z"
+    },
+    "color": {
+      "_id": "64f8105577b7edb4762cba63",
+      "name": "GREEN",
+      "code": "#3baa1d",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-06T05:38:29.692Z",
+      "updated_at": "2023-09-06T05:38:29.692Z",
+      "__v": 0
+    },
+    "location": [
+      {
+        "_id": "64fc38d8733d90aa2efacbef",
+        "name": "Gurgaon",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-09T09:20:24.406Z",
+        "updated_at": "2023-09-09T09:20:24.406Z",
+        "__v": 0
+      }
+    ],
+    "name": {
+      "_id": "6509a51e54bb26d1f5e5ac0c",
+      "name": "Fortuner",
+      "make_id": "6509a50454bb26d1f5e5abfd",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-19T13:41:50.300Z",
+      "updated_at": "2023-09-19T13:41:50.300Z",
+      "__v": 0
+    },
+    "primary_image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C149%2C637%2C949-gate_models_og_01.webp",
+    "regYear": "2023-02",
+    "regState": "MH",
+    "price": 1250000,
+    "engine_type": "TurboCharged",
+    "mileage": 5000,
+    "condition": "fair",
+    "transmission": "tiptronic",
+    "fuel_type": "hybrid",
+    "engine_displacment": 7800,
+    "license_number": "aa-1458",
+    "features": [
+      "ac"
+    ],
+    "safety_features": [
+      "abs",
+      "airbags",
+      "traction-control",
+      "electronicStability",
+      "blindSpot-monitoring",
+      "lane-departure-warning",
+      "forward-collision-warning",
+      "adaptive-cruise-control"
+    ],
+    "VIN": "78945632145874589",
+    "ownership_history": "wdada",
+    "warranty": "4",
+    "short_description": "mustang",
+    "description": "dasda",
+    "documents": [
+      {
+        "label": "Road Tax Receipt",
+        "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C149%2C699%2C713-EasyGoCars1%2C694%2C860%2C115%2C703-5741860996.pdf",
+        "_id": "6509ee8db3246ef7e5364e9e"
+      }
+    ],
+    "quantity": 8,
+    "ownership": "First",
+    "km_driven": 5000,
+    "seats": "4",
+    "images": [],
+    "wheel_size": "15",
+    "status": "pending",
+    "featured_in": [],
+    "createdAt": "2023-09-19T18:55:09.606Z",
+    "updatedAt": "2023-09-19T18:55:09.606Z",
+    "__v": 0,
+    "gallery_images": [
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C149%2C640%2C949-gate_models_s_02_m.webp"
+    ]
+  },
+  {
+    "_id": "6509ed86b3246ef7e5364dfb",
+    "vendorID": {
+      "address": {
+        "address1": "MU-56C, DDA Flats",
+        "address2": "Thagachaguppe village, Kumbalagodu Village",
+        "state": "Delhi",
+        "landmark": "gafbadsfbadbafbad",
+        "district": "06",
+        "city": "New Delhi",
+        "pincode": 500003
+      },
+      "_id": "6502f16a6d8657ebd6d6d3cd",
+      "vendor_code": "EGC-V/23-24/2",
+      "vendor_name": "Kunal Mehra",
+      "status": "active",
+      "email": "vendor@gmail.com",
+      "password": "$2b$10$yZ1p8YlGBVwa0FlXDHL0KO7a2pTOrQ48S6zSO1wDsB9d3wt2EYv5S",
+      "company_name": "My Own Company",
+      "gst_number": "36AAACZ2890G1Z4",
+      "gst_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C69%2C27%2C84%2C849-D65526958.pdf",
+      "pan_number": "AAACZ2890G",
+      "pan_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C69%2C27%2C88%2C295-5741860996%20%283%29.pdf",
+      "mobile_number": "1234567890",
+      "phone_number": "123123",
+      "msme_number": "asdasd",
+      "msme_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C69%2C27%2C81%2C144-Labels-8_18_2023%20%288%29.pdf",
+      "deleted_at": null,
+      "created_at": "2023-09-14T11:41:30.376Z",
+      "updated_at": "2023-09-14T11:41:30.376Z",
+      "__v": 0,
+      "createdBy_admin": true,
+      "reference": "65047068018c3ced0972a64e",
+      "profile_photo": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C95%2C63%2C52%2C88%2C268-Screenshot%20%286%29.png"
+    },
+    "make": {
+      "_id": "64fb58fd13bc7ca18bcd1bd7",
+      "name": "Ford",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-08T17:25:17.981Z",
+      "updated_at": "2023-09-08T17:25:17.981Z",
+      "__v": 0
+    },
+    "model": {
+      "_id": "64fb591f13bc7ca18bcd1be1",
+      "name": "Mustang GT",
+      "make_id": "64fb58fd13bc7ca18bcd1bd7",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-08T17:25:51.490Z",
+      "updated_at": "2023-09-08T17:25:51.490Z",
+      "__v": 0
+    },
+    "body_type": {
+      "_id": "65058619f0b9494a863d9ea0",
+      "name": "Sports Coupe",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-16T10:40:25.688Z",
+      "updated_at": "2023-09-16T10:40:25.688Z",
+      "__v": 0
+    },
+    "color": {
+      "_id": "64f77d05721dee67e5882da0",
+      "name": "navy blue",
+      "code": "#0b25a8",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-05T19:09:57.644Z",
+      "updated_at": "2023-09-05T19:09:57.644Z",
+      "__v": 0
+    },
+    "location": [
+      {
+        "_id": "6509b6ffb3246ef7e5364644",
+        "name": "Lucknow",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-19T14:58:07.402Z",
+        "updated_at": "2023-09-19T14:58:07.402Z",
+        "__v": 0
+      },
+      {
+        "_id": "64fc38d8733d90aa2efacbef",
+        "name": "Gurgaon",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-09T09:20:24.406Z",
+        "updated_at": "2023-09-09T09:20:24.406Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f7829dc1157d6b142cb6db",
+        "name": "Panvel",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:49.071Z",
+        "updated_at": "2023-09-05T19:33:49.071Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f7828dc1157d6b142cb6d7",
+        "name": "Mumbai",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:33.882Z",
+        "updated_at": "2023-09-05T19:33:33.882Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f78285c1157d6b142cb6d3",
+        "name": "Delhi",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:25.483Z",
+        "updated_at": "2023-09-05T19:33:25.483Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f7827dc1157d6b142cb6cf",
+        "name": "New Delhi",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:17.762Z",
+        "updated_at": "2023-09-05T19:33:17.762Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f78277c1157d6b142cb6cb",
+        "name": "Jabalpur",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:11.953Z",
+        "updated_at": "2023-09-05T19:33:11.953Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f5f8857e5a1df28d9d5317",
+        "name": "Vasai",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-04T15:32:21.123Z",
+        "updated_at": "2023-09-04T15:32:21.123Z",
+        "__v": 0
+      }
+    ],
+    "name": {
+      "_id": "650585cef0b9494a863d9e7d",
+      "name": "FORD MUSTANG GT",
+      "make_id": "64fb58fd13bc7ca18bcd1bd7",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-16T10:39:10.192Z",
+      "updated_at": "2023-09-16T10:39:10.192Z",
+      "__v": 0
+    },
+    "primary_image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C149%2C294%2C377-2016-ford-mustang-gt-bbt-m.jpg",
+    "regYear": "2023-01",
+    "regState": "MH",
+    "price": 2500000,
+    "engine_type": "TurboCharged",
+    "mileage": 5000,
+    "condition": "used",
+    "transmission": "automatic",
+    "fuel_type": "petrol",
+    "engine_displacment": 7800,
+    "license_number": "aa-1458",
+    "features": [
+      "ac",
+      "power-windows",
+      "powerSteering",
+      "cruise-control",
+      "navigation",
+      "infotainment",
+      "sunroof",
+      "leatherSeats",
+      "heatedSeats",
+      "keyless-entry",
+      "backup-camera",
+      "parking-assist"
+    ],
+    "safety_features": [
+      "abs",
+      "airbags",
+      "traction-control",
+      "electronicStability",
+      "blindSpot-monitoring",
+      "lane-departure-warning",
+      "forward-collision-warning",
+      "adaptive-cruise-control"
+    ],
+    "VIN": "78965412365478598",
+    "ownership_history": "saas",
+    "warranty": "4",
+    "short_description": "mustang",
+    "description": "asdadadadasdasda",
+    "documents": [
+      {
+        "label": "Insurance Documents",
+        "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C149%2C432%2C212-Labels-8_18_2023%20%288%29.pdf",
+        "_id": "6509ed86b3246ef7e5364dfc"
+      }
+    ],
+    "quantity": 5,
+    "ownership": "First",
+    "km_driven": 5000,
+    "seats": "7",
+    "images": [],
+    "wheel_size": "15",
+    "status": "pending",
+    "featured_in": [
+      "Upcoming Car",
+      "Featured Car"
+    ],
+    "createdAt": "2023-09-19T18:50:46.509Z",
+    "updatedAt": "2023-09-19T19:35:15.686Z",
+    "__v": 0,
+    "gallery_images": [
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C149%2C297%2C448-2016-ford-mustang-gt-bbt-m-int101.jpg"
+    ]
+  },
+  {
+    "_id": "6509bafdb3246ef7e536483b",
+    "vendorID": {
+      "address": {
+        "address1": "janakpuri",
+        "address2": "Honda city",
+        "state": "Haryana",
+        "landmark": "ww",
+        "district": "gurugram",
+        "city": "Gurgaon",
+        "pincode": 122001
+      },
+      "_id": "65099113d09543c8becdac77",
+      "vendor_code": "EGC-V/23-24/4",
+      "vendor_name": "sujeet",
+      "status": "active",
+      "email": "sujeet@gmail.com",
+      "password": "$2b$10$KrwjOj3fuIL0TeJI16xS4OINBx.ic4AVt4VE1bslvF8QQqrFGXcZK",
+      "company_name": "sujeet car service",
+      "gst_number": "06q123456hdffgg",
+      "pan_number": "bwer1326vf",
+      "mobile_number": "9876545678",
+      "phone_number": "9876545678",
+      "msme_number": "asdfghjaa",
+      "createdBy_admin": false,
+      "reference": "65047068018c3ced0972a64e",
+      "deleted_at": null,
+      "created_at": "2023-09-19T12:16:19.233Z",
+      "updated_at": "2023-09-19T12:16:19.233Z",
+      "__v": 0,
+      "profile_photo": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C803%2C310%2C911-14.jpg"
+    },
+    "make": {
+      "_id": "6509a50454bb26d1f5e5abfd",
+      "name": "Toyota",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-19T13:41:24.547Z",
+      "updated_at": "2023-09-19T13:41:24.547Z",
+      "__v": 0
+    },
+    "model": {
+      "_id": "6509a54954bb26d1f5e5ac12",
+      "name": "TOYOTA FORTUNER FACELIFT",
+      "make_id": "6509a50454bb26d1f5e5abfd",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-19T13:42:33.499Z",
+      "updated_at": "2023-09-19T13:42:33.499Z",
+      "__v": 0
+    },
+    "body_type": {
+      "deleted_at": null,
+      "_id": "64d727415992291149a3b367",
+      "name": "Supercar",
+      "status": "1",
+      "__v": 0,
+      "created_at": "2023-10-01T09:04:43.164Z",
+      "updated_at": "2023-10-01T09:04:43.164Z"
+    },
+    "color": {
+      "_id": "64f630a77e5a1df28d9d5468",
+      "name": "yellow",
+      "code": "#dbbe00",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-04T19:31:51.102Z",
+      "updated_at": "2023-09-04T19:31:51.102Z",
+      "__v": 0
+    },
+    "location": [
+      {
+        "_id": "64f7829dc1157d6b142cb6db",
+        "name": "Panvel",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:49.071Z",
+        "updated_at": "2023-09-05T19:33:49.071Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f78277c1157d6b142cb6cb",
+        "name": "Jabalpur",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:11.953Z",
+        "updated_at": "2023-09-05T19:33:11.953Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f7828dc1157d6b142cb6d7",
+        "name": "Mumbai",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:33.882Z",
+        "updated_at": "2023-09-05T19:33:33.882Z",
+        "__v": 0
+      }
+    ],
+    "name": {
+      "_id": "6509a51e54bb26d1f5e5ac0c",
+      "name": "Fortuner",
+      "make_id": "6509a50454bb26d1f5e5abfd",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-19T13:41:50.300Z",
+      "updated_at": "2023-09-19T13:41:50.300Z",
+      "__v": 0
+    },
+    "primary_image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C136%2C332%2C938-2021-Toyota-Fortuner-Facelift-Price-.jpg",
+    "regYear": "2023-06",
+    "regState": "Delhi",
+    "price": 200000,
+    "engine_type": "Electric",
+    "mileage": 100,
+    "condition": "like-new",
+    "transmission": "automatic",
+    "fuel_type": "electric",
+    "engine_displacment": 120,
+    "license_number": "wwwqqqtrr",
+    "features": [
+      "ac",
+      "power-windows",
+      "powerSteering",
+      "cruise-control",
+      "navigation",
+      "infotainment",
+      "sunroof",
+      "leatherSeats",
+      "heatedSeats",
+      "keyless-entry",
+      "backup-camera",
+      "parking-assist"
+    ],
+    "safety_features": [
+      "abs",
+      "airbags",
+      "traction-control",
+      "electronicStability",
+      "blindSpot-monitoring",
+      "lane-departure-warning",
+      "forward-collision-warning",
+      "adaptive-cruise-control"
+    ],
+    "VIN": "65432123456789876",
+    "ownership_history": "Toyota Fortuner, the top-selling SUV from the Japanese carmaker, will receive an update on 6th January 2021. This time around, the company will also bring in the sportier Fortuner Legender variant of the SUV.",
+    "warranty": "4",
+    "short_description": "Toyota Fortuner, the top-selling SUV from the Japanese carmaker, will receive an update on 6th January 2021. This time around, the company will also bring in the sportier Fortuner Legender variant of the SUV.",
+    "description": "Toyota Fortuner, the top-selling SUV from the Japanese carmaker, will receive an update on 6th January 2021. This time around, the company will also bring in the sportier Fortuner Legender variant of the SUV.Toyota Fortuner, the top-selling SUV from the Japanese carmaker, will receive an update on 6th January 2021. This time around, the company will also bring in the sportier Fortuner Legender variant of the SUV.",
+    "documents": [
+      {
+        "label": "Insurance Documents",
+        "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C136%2C457%2C753-file-sample_150kB.pdf",
+        "_id": "6509bafdb3246ef7e536483c"
+      },
+      {
+        "label": "No Objection Certificate(NOC)",
+        "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C136%2C503%2C811-EasyGoCars1%2C695%2C119%2C718%2C881-file-sample_150kB.pdf",
+        "_id": "6509bafdb3246ef7e536483d"
+      }
+    ],
+    "quantity": 10,
+    "ownership": "third",
+    "km_driven": 800000,
+    "seats": "5",
+    "images": [],
+    "wheel_size": "25",
+    "status": "pending",
+    "featured_in": [
+      "Upcoming Car",
+      "Hot Deal",
+      "Trending Car",
+      "Featured Car"
+    ],
+    "createdAt": "2023-09-19T15:15:09.141Z",
+    "updatedAt": "2023-09-21T06:27:41.196Z",
+    "__v": 0,
+    "gallery_images": [
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C136%2C336%2C530-roylti.jpg",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C695%2C136%2C341%2C666-2021-Toyota-Fortuner-Facelift-Price-.jpg"
+    ]
+  },
+  {
+    "_id": "650586fdf0b9494a863d9eae",
+    "vendorID": null,
+    "make": {
+      "_id": "64fb58fd13bc7ca18bcd1bd7",
+      "name": "Ford",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-08T17:25:17.981Z",
+      "updated_at": "2023-09-08T17:25:17.981Z",
+      "__v": 0
+    },
+    "model": {
+      "_id": "64fb591f13bc7ca18bcd1be1",
+      "name": "Mustang GT",
+      "make_id": "64fb58fd13bc7ca18bcd1bd7",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-08T17:25:51.490Z",
+      "updated_at": "2023-09-08T17:25:51.490Z",
+      "__v": 0
+    },
+    "body_type": {
+      "_id": "65058619f0b9494a863d9ea0",
+      "name": "Sports Coupe",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-16T10:40:25.688Z",
+      "updated_at": "2023-09-16T10:40:25.688Z",
+      "__v": 0
+    },
+    "color": {
+      "_id": "64fc38c9733d90aa2efacbeb",
+      "name": "red",
+      "code": "#e61414",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-09T09:20:09.592Z",
+      "updated_at": "2023-09-09T09:20:09.592Z",
+      "__v": 0
+    },
+    "location": [
+      {
+        "_id": "64fc38d8733d90aa2efacbef",
+        "name": "Gurgaon",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-09T09:20:24.406Z",
+        "updated_at": "2023-09-09T09:20:24.406Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f7829dc1157d6b142cb6db",
+        "name": "Panvel",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:49.071Z",
+        "updated_at": "2023-09-05T19:33:49.071Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f7828dc1157d6b142cb6d7",
+        "name": "Mumbai",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:33.882Z",
+        "updated_at": "2023-09-05T19:33:33.882Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f78285c1157d6b142cb6d3",
+        "name": "Delhi",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:25.483Z",
+        "updated_at": "2023-09-05T19:33:25.483Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f7827dc1157d6b142cb6cf",
+        "name": "New Delhi",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:17.762Z",
+        "updated_at": "2023-09-05T19:33:17.762Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f78277c1157d6b142cb6cb",
+        "name": "Jabalpur",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:11.953Z",
+        "updated_at": "2023-09-05T19:33:11.953Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f5f8857e5a1df28d9d5317",
+        "name": "Vasai",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-04T15:32:21.123Z",
+        "updated_at": "2023-09-04T15:32:21.123Z",
+        "__v": 0
+      }
+    ],
+    "name": {
+      "_id": "650585cef0b9494a863d9e7d",
+      "name": "FORD MUSTANG GT",
+      "make_id": "64fb58fd13bc7ca18bcd1bd7",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-16T10:39:10.192Z",
+      "updated_at": "2023-09-16T10:39:10.192Z",
+      "__v": 0
+    },
+    "primary_image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C860%2C879%2C735-2016-ford-mustang-gt-bbt-m.jpg",
+    "regYear": "2017-01",
+    "regState": "MH",
+    "price": 3000000,
+    "engine_type": "V8",
+    "mileage": 5000,
+    "condition": "like-new",
+    "transmission": "automatic",
+    "fuel_type": "petrol",
+    "engine_displacment": 7800,
+    "license_number": "aa-1458",
+    "features": [
+      "ac",
+      "power-windows",
+      "powerSteering",
+      "cruise-control",
+      "navigation",
+      "infotainment",
+      "sunroof",
+      "leatherSeats",
+      "heatedSeats",
+      "keyless-entry",
+      "backup-camera",
+      "parking-assist"
+    ],
+    "safety_features": [
+      "abs",
+      "airbags",
+      "traction-control",
+      "electronicStability",
+      "blindSpot-monitoring",
+      "lane-departure-warning",
+      "forward-collision-warning",
+      "adaptive-cruise-control"
+    ],
+    "VIN": "74589654125635214",
+    "ownership_history": "978645846",
+    "warranty": "4",
+    "short_description": "The Mustang is a flawless series of American sports cars from the renowned automobile manufacturer Ford. In 2017, the company has launched a fleet of 11 models of Mustang that are sure to conquer the roads in style.",
+    "description": "The mustang is a free-roaming horse of the Western United States, descended from horses brought to the Americas by the Spanish. Mustangs are often referred to as wild horses, but because they are descended from once-domesticated animals, they are actually feral horses.",
+    "documents": [
+      {
+        "label": "No Objection Certificate(NOC)",
+        "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C861%2C000%2C141-5741860996%20%283%29.pdf",
+        "_id": "650586fdf0b9494a863d9eaf"
+      },
+      {
+        "label": "Registration Certificate(RC)",
+        "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C861%2C010%2C986-OD124845765259035000.pdf",
+        "_id": "650586fdf0b9494a863d9eb0"
+      },
+      {
+        "label": "Road Tax Receipt",
+        "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C861%2C022%2C527-5741860996%20%282%29.pdf",
+        "_id": "650586fdf0b9494a863d9eb1"
+      }
+    ],
+    "quantity": 6,
+    "ownership": "First",
+    "km_driven": 5000,
+    "seats": "4",
+    "images": [],
+    "wheel_size": "15",
+    "status": "pending",
+    "featured_in": [
+      "Upcoming Car"
+    ],
+    "createdAt": "2023-09-16T10:44:13.370Z",
+    "updatedAt": "2023-09-27T09:56:53.539Z",
+    "__v": 0,
+    "gallery_images": [
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C860%2C882%2C430-2016-ford-mustang-gt-bbt-m-int1.jpg",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C860%2C882%2C430-2016-ford-mustang-gt-bbt-m-int1.jpg",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C860%2C882%2C430-2016-ford-mustang-gt-bbt-m-int1.jpg",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C860%2C882%2C430-2016-ford-mustang-gt-bbt-m-int1.jpg",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C860%2C882%2C430-2016-ford-mustang-gt-bbt-m-int1.jpg",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C860%2C882%2C430-2016-ford-mustang-gt-bbt-m-int1.jpg",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C860%2C882%2C430-2016-ford-mustang-gt-bbt-m-int1.jpg",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C860%2C882%2C430-2016-ford-mustang-gt-bbt-m-int1.jpg",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars1%2C694%2C860%2C884%2C839-2016-ford-mustang-gt-bbt-m-int101.jpg"
+    ]
+  },
+  {
+    "_id": "650436e3ce2962bfd7843d24",
+    "vendorID": {
+      "address": {
+        "address1": "MU-56C, DDA Flats",
+        "address2": "Thagachaguppe village, Kumbalagodu Village",
+        "state": "Delhi",
+        "landmark": "gafbadsfbadbafbad",
+        "district": "06",
+        "city": "New Delhi",
+        "pincode": 500003
+      },
+      "_id": "6502f16a6d8657ebd6d6d3cd",
+      "vendor_code": "EGC-V/23-24/2",
+      "vendor_name": "Kunal Mehra",
+      "status": "active",
+      "email": "vendor@gmail.com",
+      "password": "$2b$10$yZ1p8YlGBVwa0FlXDHL0KO7a2pTOrQ48S6zSO1wDsB9d3wt2EYv5S",
+      "company_name": "My Own Company",
+      "gst_number": "36AAACZ2890G1Z4",
+      "gst_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C69%2C27%2C84%2C849-D65526958.pdf",
+      "pan_number": "AAACZ2890G",
+      "pan_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C69%2C27%2C88%2C295-5741860996%20%283%29.pdf",
+      "mobile_number": "1234567890",
+      "phone_number": "123123",
+      "msme_number": "asdasd",
+      "msme_doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C69%2C27%2C81%2C144-Labels-8_18_2023%20%288%29.pdf",
+      "deleted_at": null,
+      "created_at": "2023-09-14T11:41:30.376Z",
+      "updated_at": "2023-09-14T11:41:30.376Z",
+      "__v": 0,
+      "createdBy_admin": true,
+      "reference": "65047068018c3ced0972a64e",
+      "profile_photo": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C95%2C63%2C52%2C88%2C268-Screenshot%20%286%29.png"
+    },
+    "make": {
+      "_id": "64fb58fd13bc7ca18bcd1bd7",
+      "name": "Ford",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-08T17:25:17.981Z",
+      "updated_at": "2023-09-08T17:25:17.981Z",
+      "__v": 0
+    },
+    "model": {
+      "_id": "64fb591f13bc7ca18bcd1be1",
+      "name": "Mustang GT",
+      "make_id": "64fb58fd13bc7ca18bcd1bd7",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-08T17:25:51.490Z",
+      "updated_at": "2023-09-08T17:25:51.490Z",
+      "__v": 0
+    },
+    "body_type": null,
+    "color": {
+      "_id": "64f5f9637e5a1df28d9d533e",
+      "name": "Decent Blue",
+      "code": "#0a79f0",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-04T15:36:03.413Z",
+      "updated_at": "2023-09-04T15:36:03.413Z",
+      "__v": 0
+    },
+    "location": [
+      {
+        "_id": "64fc38d8733d90aa2efacbef",
+        "name": "Gurgaon",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-09T09:20:24.406Z",
+        "updated_at": "2023-09-09T09:20:24.406Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f7829dc1157d6b142cb6db",
+        "name": "Panvel",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:49.071Z",
+        "updated_at": "2023-09-05T19:33:49.071Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f7828dc1157d6b142cb6d7",
+        "name": "Mumbai",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:33.882Z",
+        "updated_at": "2023-09-05T19:33:33.882Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f78285c1157d6b142cb6d3",
+        "name": "Delhi",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:25.483Z",
+        "updated_at": "2023-09-05T19:33:25.483Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f7827dc1157d6b142cb6cf",
+        "name": "New Delhi",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:17.762Z",
+        "updated_at": "2023-09-05T19:33:17.762Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f78277c1157d6b142cb6cb",
+        "name": "Jabalpur",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-05T19:33:11.953Z",
+        "updated_at": "2023-09-05T19:33:11.953Z",
+        "__v": 0
+      },
+      {
+        "_id": "64f5f8857e5a1df28d9d5317",
+        "name": "Vasai",
+        "status": "1",
+        "deleted_at": null,
+        "created_at": "2023-09-04T15:32:21.123Z",
+        "updated_at": "2023-09-04T15:32:21.123Z",
+        "__v": 0
+      }
+    ],
+    "name": {
+      "_id": "65021e5aa3940c25992ab9ca",
+      "name": "Mustang",
+      "make_id": "64fb58fd13bc7ca18bcd1bd7",
+      "status": "1",
+      "deleted_at": null,
+      "created_at": "2023-09-13T20:40:58.969Z",
+      "updated_at": "2023-09-13T20:40:58.969Z",
+      "__v": 0
+    },
+    "primary_image": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C77%2C49%2C45%2C493-images.jpeg",
+    "regYear": "2023-05",
+    "regState": "MH",
+    "price": 2000000,
+    "engine_type": "Mid-Hybrid",
+    "mileage": 5000,
+    "condition": "damaged",
+    "transmission": "cvvt",
+    "fuel_type": "petrol",
+    "engine_displacment": 7800,
+    "license_number": "aa-1458",
+    "features": [
+      "ac"
+    ],
+    "safety_features": [
+      "abs",
+      "airbags",
+      "traction-control",
+      "electronicStability",
+      "blindSpot-monitoring",
+      "lane-departure-warning",
+      "forward-collision-warning",
+      "adaptive-cruise-control"
+    ],
+    "VIN": "14785236985214785",
+    "ownership_history": "145",
+    "warranty": "4",
+    "short_description": "asdada",
+    "description": "asdasd",
+    "documents": [
+      {
+        "label": "Owner's Manual",
+        "doc": "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C77%2C49%2C94%2C909-D65526958.pdf",
+        "_id": "650436e3ce2962bfd7843d25"
+      }
+    ],
+    "quantity": 10,
+    "ownership": "Second",
+    "km_driven": 25000,
+    "seats": "4",
+    "images": [],
+    "wheel_size": "15",
+    "status": "approved",
+    "createdAt": "2023-09-15T10:50:11.672Z",
+    "updatedAt": "2023-09-19T19:34:33.421Z",
+    "__v": 0,
+    "featured_in": [
+      "Hot Deal",
+      "Trending Car",
+      "Upcoming Car",
+      "Featured Car"
+    ],
+    "gallery_images": [
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C77%2C49%2C48%2C884-gate_models_og_01.webp",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C77%2C49%2C48%2C884-gate_models_og_01.webp",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C77%2C49%2C48%2C884-gate_models_og_01.webp",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C77%2C49%2C48%2C884-gate_models_og_01.webp",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C77%2C49%2C48%2C884-gate_models_og_01.webp",
+      "https://easygocarz-prod-bucket.s3.ap-south-1.amazonaws.com/EasyGoCars16%2C94%2C77%2C49%2C52%2C303-gate_models_s_02_m.webp"
+    ]
+  }
+]
