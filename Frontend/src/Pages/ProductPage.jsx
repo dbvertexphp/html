@@ -253,7 +253,7 @@ export default function ProductPage() {
       let url = window.location.pathname;
       localStorage.setItem("previous_url", url);
 
-      return navigate("/customer-login");
+      return navigate("/customer-email-login");
     } else {
       return setIsOpenModal(true);
     }

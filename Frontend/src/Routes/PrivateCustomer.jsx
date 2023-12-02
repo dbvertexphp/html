@@ -10,7 +10,7 @@ const PrivateCustomer = ({ children }) => {
 
   useEffect(() => {
     if (!isAuth || !Customer_detail || !token) {
-      navigate("/customer-login");
+      navigate("/customer-email-login");
     }
   }, [isAuth, Customer_detail, token, navigate]);
 

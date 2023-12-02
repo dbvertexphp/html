@@ -57,7 +57,7 @@ export default function Footer() {
         <GridItem colSpan={{ base: "11", sm: "5", md: "2" }}>
           <Stack>
             <Heading size="md">JOIN US</Heading>
-            <Link to={"/customer-login"}>As a Buyer</Link>
+            <Link to={"/customer-email-login"}>As a Buyer</Link>
             <Link to={"/vendor-register"}>As a Seller</Link>
           </Stack>
         </GridItem>
