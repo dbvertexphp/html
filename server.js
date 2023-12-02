@@ -59,16 +59,16 @@ app.use("/api/report", ReportRouter);
 app.use("/api/contact-us", contactUs);
 // app.use("/api/instamojo", PaymentRouter)
 
-app.get("/", (req, res) => {
-  try {
-    res.status(200).json({ Message: "Welcome to Vendor App" });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ Error: err });
-  }
-});
+// app.get("/", (req, res) => {
+//   try {
+//     res.status(200).json({ Message: "Welcome to Vendor App" });
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).json({ Error: err });
+//   }
+// });
 //? HTML Request
-app.get("/*", (req, res) => {
+app.get("/", (req, res) => {
   console.log(`Inside /* - URL : ${req.url}`);
   res.setHeader("Content-Type", "text/html");
   res.status(200).sendFile(__dirname + "/Frontend/dist/index.html");
