@@ -71,7 +71,7 @@ export default BrandSliderComponent;
 const settings = {
   infinite: false,
   speed: 500,
-  slidesToShow: 4,
+  slidesToShow: 5,
   slidesToScroll: 1,
   initialSlide: 0,
   responsive: [

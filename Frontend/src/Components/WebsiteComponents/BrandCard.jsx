@@ -5,22 +5,17 @@ function BrandCard(props) {
   const { name, imageURL } = props;
 
   return (
-    <Flex p="3" w="full" alignItems="center" justifyContent="center">
+    <Flex w="full" alignItems="center" justifyContent="center">
       <Box
-        bg={useColorModeValue("white", "gray.800")}
         maxW="sm"
-        borderWidth="1px"
-        rounded="lg"
-        shadow="lg"
         position="relative"
         textAlign="center"
-        p="5"
+        p="2"
       >
         <Image
           src={imageURL}
-          roundedTop="lg"
-          w="250px"
-          h={"250px"}
+          w="150px"
+          h={"150px"}
           objectFit={"contain"}
           objectPosition={"center"}
         />

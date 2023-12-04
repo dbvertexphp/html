@@ -69,13 +69,13 @@ body {
 
 .auth_hending {
   color: #2f3367;
-  font-family: Poppins !important; 
+  font-family: Poppins !important;
   font-size: 28px !important;
   font-style: normal !important;
   font-weight: 700 !important;
   line-height: normal !important;
 }
-.auth_hending_content{
+.auth_hending_content {
   color: #303468;
   font-family: Poppins;
   font-size: 16px;
@@ -83,18 +83,56 @@ body {
   font-weight: 500;
   line-height: normal;
 }
-.auth_buttons{
+.auth_buttons {
   border-radius: 8px;
-  background: #1097B1;
+  background: #1097b1;
   width: 158px;
   height: 50px;
 }
-.auth_buttons_text{
-  background: #1097B1;
-  color: #FFF;
+.auth_buttons_text {
+  background: #1097b1;
+  color: #fff;
   font-family: Poppins;
   font-size: 22px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+.home_page_car_name {
+  color: #1097b1;
+  font-family: Poppins;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.home_page_car_price {
+  color: #1097b1;
+  font-family: Roboto;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.home_page_car_details {
+  color: #1097b1;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.more_details_home {
+  background-color:#1097b1;
+  color: #fff;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-transform: uppercase;
 }

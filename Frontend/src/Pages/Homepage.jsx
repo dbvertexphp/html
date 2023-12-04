@@ -40,6 +40,14 @@ export default function Homepage() {
   return (
     <>
       <Carousel />
+
+      <Card border='0px' background="#F5F4F9" mb={{ base: "5", md: "10" }} pb="5">
+        <CardHeader>
+          <Heading size="lg"></Heading>
+        </CardHeader>
+        <BrandSliderComponent />
+      </Card>
+
       <Card mx={{ base: "5", md: "10" }} my={{ base: "5", md: "10" }} pb="5">
         <CardHeader>
           <Flex align={"center"} justify={"space-between"}>
@@ -112,12 +120,7 @@ export default function Homepage() {
         <SliderComponent data={upcoming} />
       </Card>
 
-      <Card mx={{ base: "5", md: "10" }} mb={{ base: "5", md: "10" }} pb="5">
-        <CardHeader>
-          <Heading size="lg">Popular Brands</Heading>
-        </CardHeader>
-        <BrandSliderComponent />
-      </Card>
+      
 
       <Card mx={{ base: "5", md: "10" }} mb={{ base: "5", md: "10" }} p="5">
         <Testemonials />
