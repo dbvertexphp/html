@@ -11,11 +11,16 @@ import {
   Text,
   useToast,
   InputLeftElement,
-  InputGroup
+  InputGroup,
+  HStack,
+  Icon,
+  InputRightElement
 } from '@chakra-ui/react';
-import { EmailIcon, UnlockIcon, PhoneIcon } from '@chakra-ui/icons';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { RiLockPasswordFill } from 'react-icons/ri';
+import { IoIosMail } from 'react-icons/io';
+import { FaMobile, FaUser } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
 import { useDispatch } from 'react-redux';
 import { signupCustomer } from '../Redux/Auth/Auth.action';
@@ -28,13 +33,13 @@ export default function CustomerRegister() {
     first_name: '',
     last_name: '',
     email: '',
-    address: '',
-    city: '',
-    state: '',
-    pin: '',
     password: ''
   });
   const [confirmPass, setConfirmPass] = useState('');
+  const [show, setShow] = React.useState(false);
+  const [passshow, setPassShow] = React.useState(false);
+  const handleClick = () => setShow(!show);
+  const handleClickPass = () => setPassShow(!passshow);
 
   const handleInputChange = e => {
     const value = e.target.value;
@@ -47,10 +52,6 @@ export default function CustomerRegister() {
       userDetails.first_name == '' ||
       userDetails.last_name == '' ||
       userDetails.email == '' ||
-      userDetails.address == '' ||
-      userDetails.city == '' ||
-      userDetails.state == '' ||
-      userDetails.pin == '' ||
       userDetails.password == '' ||
       confirmPass == ''
     ) {
@@ -97,128 +98,136 @@ export default function CustomerRegister() {
         />
       </Flex>
       <Flex p={5} flex={1} align={'center'} justify={'center'}>
-        <Card border="1px solid #fffff" boxShadow={' rgba(0, 100, 0, 0) 0px 0px 0px 0px'}>
+        <Card border="1px solid #fffff" boxShadow={' rgba(0, 100, 0, 0) 0px 0px 0px 0px'} width="50%">
           <Text fontWeight={'bold'} className="auth_hending">
             Sign Up
           </Text>
           <Text fontWeight={'semibold'} className="auth_hending_content" mt="5">
             {'Please fill your information below'}
           </Text>
-          <Flex gap="3" flexDirection={{ base: 'column', md: 'row' }} mb="3" mt="10">
-            <InputGroup mt="10">
-              <FormControl>
-                <InputLeftElement pointerEvents="none">
-                  <EmailIcon color="gray.700" />
-                </InputLeftElement>
-                <Input
-                  style={{ height: '50px' }}
-                  placeholder="Enter first name"
-                  name="first_name"
-                  isRequired={true}
-                  size="sm"
-                  value={userDetails.first_name}
-                  onChange={handleInputChange}
-                />
-              </FormControl>
-            </InputGroup>
-            <FormControl>
-              <FormLabel> Last name :</FormLabel>
-              <Input
-                placeholder="Enter last name"
-                name="last_name"
-                isRequired={true}
-                size="sm"
-                value={userDetails.last_name}
-                onChange={handleInputChange}
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel>Phone Number :</FormLabel>
-              <Input
-                placeholder="Enter Phone Number"
-                name="phone_number"
-                isRequired={true}
-                size="sm"
-                value={userDetails.phone_number}
-                onChange={handleInputChange}
-              />
-            </FormControl>
-          </Flex>
-          <Flex gap="3" flexDirection={{ base: 'column', md: 'row' }} mb="3">
-            <FormControl>
-              <FormLabel>Email :</FormLabel>
-              <Input
-                type="email"
-                placeholder="Enter email id"
-                name="email"
-                isRequired={true}
-                size="sm"
-                value={userDetails.email}
-                onChange={handleInputChange}
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel> Address :</FormLabel>
-              <Input
-                placeholder="Enter address"
-                name="address"
-                isRequired={true}
-                size="sm"
-                value={userDetails.address}
-                onChange={handleInputChange}
-              />
-            </FormControl>
-          </Flex>
-          <Flex gap="3" flexDirection={{ base: 'column', md: 'row' }} mb="3">
-            <FormControl>
-              <FormLabel> City :</FormLabel>
-              <Input placeholder="Enter city" name="city" isRequired={true} size="sm" value={userDetails.city} onChange={handleInputChange} />
-            </FormControl>
-            <FormControl>
-              <FormLabel>State :</FormLabel>
-              <Input placeholder="Enter state " name="state" isRequired={true} size="sm" value={userDetails.state} onChange={handleInputChange} />
-            </FormControl>
-            <FormControl>
-              <FormLabel>PIN :</FormLabel>
-              <Input
-                type="number"
-                placeholder="Enter pin code"
-                name="pin"
-                isRequired={true}
-                size="sm"
-                value={userDetails.pin}
-                onChange={handleInputChange}
-              />
-            </FormControl>
-          </Flex>
-          <Flex gap="3" flexDirection={{ base: 'column', md: 'row' }} mb="3">
-            <FormControl>
-              <FormLabel>Password :</FormLabel>
-              <Input
-                size="sm"
-                type="password"
-                placeholder="Enter password"
-                name="password"
-                isRequired={true}
-                value={userDetails.password}
-                onChange={handleInputChange}
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel> Confirm Password :</FormLabel>
-              <Input
-                size="sm"
-                placeholder="Confirm password"
-                type="password"
-                isRequired={true}
-                value={confirmPass}
-                onChange={e => setConfirmPass(e.target.value)}
-              />
-            </FormControl>
-          </Flex>
-          <Button w={{ md: '30%' }} m="5" bg="#30829c" color="white" alignSelf={'center'} onClick={submitHandler}>
+
+          <InputGroup mt="10">
+            <InputLeftElement pointerEvents="none" pt="10px">
+              <h1 style={{ fontSize: '20px' }}>
+                <FaUser />
+              </h1>
+            </InputLeftElement>
+            <Input
+              style={{ height: '50px' }}
+              placeholder="Enter first name"
+              name="first_name"
+              isRequired={true}
+              size="lg"
+              value={userDetails.first_name}
+              onChange={handleInputChange}
+            />
+          </InputGroup>
+
+          <InputGroup mt="10">
+            <InputLeftElement pointerEvents="none" pt="10px">
+              <h1 style={{ fontSize: '20px' }}>
+                <FaUser />
+              </h1>
+            </InputLeftElement>
+            <Input
+              style={{ height: '50px' }}
+              placeholder="Enter last name"
+              name="last_name"
+              isRequired={true}
+              size="lg"
+              value={userDetails.last_name}
+              onChange={handleInputChange}
+            />
+          </InputGroup>
+
+          <InputGroup mt="10">
+            <InputLeftElement pointerEvents="none" pt="10px">
+              <h1 style={{ fontSize: '20px' }}>
+                <FaMobile />
+              </h1>
+            </InputLeftElement>
+            <Input
+              style={{ height: '50px' }}
+              placeholder="Enter Phone Number"
+              name="phone_number"
+              isRequired={true}
+              size="lg"
+              value={userDetails.phone_number}
+              onChange={handleInputChange}
+            />
+          </InputGroup>
+
+          <InputGroup mt="10">
+            <InputLeftElement pointerEvents="none" pt="10px">
+              <h1 style={{ fontSize: '20px' }}>
+                <IoIosMail />
+              </h1>
+            </InputLeftElement>
+            <Input
+              style={{ height: '50px' }}
+              placeholder="Enter email id"
+              name="email"
+              isRequired={true}
+              size="lg"
+              value={userDetails.email}
+              onChange={handleInputChange}
+            />
+          </InputGroup>
+
+          <InputGroup mt="10">
+            <InputLeftElement pointerEvents="none" pt="10px">
+              <h1 style={{ fontSize: '20px' }}>
+                <RiLockPasswordFill />
+              </h1>
+            </InputLeftElement>
+            <Input
+              style={{ height: '50px' }}
+              size="lg"
+              type={passshow ? 'text' : 'password'}
+              placeholder="Enter password"
+              name="password"
+              isRequired={true}
+              value={userDetails.password}
+              onChange={handleInputChange}
+            />
+            <InputRightElement width="4.5rem">
+              <Button h="1.75rem" size="sm" onClick={handleClickPass}>
+                {passshow ? 'Hide' : 'Show'}
+              </Button>
+            </InputRightElement>
+          </InputGroup>
+
+          <InputGroup mt="10">
+            <InputLeftElement pointerEvents="none" pt="10px">
+              <h1 style={{ fontSize: '20px' }}>
+                <RiLockPasswordFill />
+              </h1>
+            </InputLeftElement>
+            <Input
+              style={{ height: '50px' }}
+              size="lg"
+              placeholder="Confirm password"
+              type={show ? 'text' : 'password'}
+              isRequired={true}
+              value={confirmPass}
+              onChange={e => setConfirmPass(e.target.value)}
+            />
+            <InputRightElement width="4.5rem">
+              <Button h="1.75rem" size="sm" onClick={handleClick}>
+                {show ? 'Hide' : 'Show'}
+              </Button>
+            </InputRightElement>
+          </InputGroup>
+
+          <Button m="5" bg="#30829c" color="white" alignSelf={'center'} onClick={submitHandler}>
             Submit Details
           </Button>
+          <Flex gap={'1'} mt="50px" justifyContent={'space-between'}>
+            <Text>Already have an account?</Text>
+            <Text color="blue.500" as={Link} to="/customer-email-login">
+            Login to your account
+            </Text>
+          </Flex>
         </Card>
       </Flex>
     </Stack>

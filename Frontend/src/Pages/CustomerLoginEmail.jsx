@@ -1,7 +1,22 @@
-import { Button, Card, Center, Flex, Image, Input, InputGroup, Spinner, Stack, Text, useToast, InputLeftElement } from '@chakra-ui/react';
-import { EmailIcon, UnlockIcon } from '@chakra-ui/icons';
+import {
+  Button,
+  Card,
+  Center,
+  Flex,
+  Image,
+  Input,
+  InputGroup,
+  Spinner,
+  Stack,
+  Text,
+  useToast,
+  InputLeftElement,
+  InputRightElement
+} from '@chakra-ui/react';
+import { RiLockPasswordFill } from 'react-icons/ri';
+import { IoIosMail } from 'react-icons/io';
 import axios from 'axios';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { BASE_URL } from '../utils/config';
 import { useDispatch } from 'react-redux';
@@ -15,6 +30,8 @@ export default function CustomerLoginEmail() {
   const navigate = useNavigate();
   const toast = useToast();
   const dispatch = useDispatch();
+  const [show, setShow] = React.useState(false);
+  const handleClick = () => setShow(!show);
 
   const handleInputChange = event => {
     setInputEmail(event.target.value);
@@ -80,7 +97,7 @@ export default function CustomerLoginEmail() {
   };
 
   return (
-    <Stack minH={"80vh"} direction={{ base: 'column', md: 'row' }}>
+    <Stack minH={'80vh'} direction={{ base: 'column', md: 'row' }}>
       <Flex flex={1}>
         <Image
           alt={'Login Image'}
@@ -105,21 +122,44 @@ export default function CustomerLoginEmail() {
 
           <InputGroup mt="10">
             <InputLeftElement pointerEvents="none" pt="10px">
-              <EmailIcon color="gray.700" />
+            <h1 style={{ fontSize: '20px' }}>
+            <IoIosMail />
+          </h1>
             </InputLeftElement>
             <Input style={{ height: '50px' }} isRequired type="email" placeholder="Enter Email ID" onChange={handleInputChange} />
           </InputGroup>
 
           <InputGroup mt="10">
             <InputLeftElement pointerEvents="none" pt="10px">
-              <UnlockIcon color="gray.700" />
+              <h1 style={{ fontSize: '20px' }}>
+                <RiLockPasswordFill />
+              </h1>
             </InputLeftElement>
-            <Input style={{ height: '50px' }} type="password" value={inputPass} placeholder="Enter Password" onChange={handleInputPass} />
+            <Input
+              style={{ height: '50px' }}
+              type={show ? 'text' : 'password'}
+              value={inputPass}
+              placeholder="Enter Password"
+              onChange={handleInputPass}
+            />
+            <InputRightElement width="4.5rem">
+              <Button h="1.75rem" size="sm" onClick={handleClick}>
+                {show ? 'Hide' : 'Show'}
+              </Button>
+            </InputRightElement>
           </InputGroup>
 
           <Center m="4" className="auth_buttons" alignSelf={'center'}>
             {!isLoading && (
-              <Button className="auth_buttons_text" bg="#1097B1" colorScheme="#1097B1" variant="ghost" color="white" type="submit" onClick={confirmPass}>
+              <Button
+                className="auth_buttons_text"
+                bg="#1097B1"
+                colorScheme="#1097B1"
+                variant="ghost"
+                color="white"
+                type="submit"
+                onClick={confirmPass}
+              >
                 Login
               </Button>
             )}
