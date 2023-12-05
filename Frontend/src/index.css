@@ -126,7 +126,7 @@ body {
   text-transform: capitalize;
 }
 .more_details_home {
-  background-color:#1097b1;
+  background-color: #1097b1;
   color: #fff;
   text-align: center;
   font-family: Poppins;
@@ -135,4 +135,14 @@ body {
   font-weight: 800;
   line-height: normal;
   text-transform: uppercase;
+}
+.serach_heading {
+  color: #000;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 135px; /* 337.5% */
+  text-transform: capitalize;
 }
