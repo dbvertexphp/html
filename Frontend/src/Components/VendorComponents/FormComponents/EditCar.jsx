@@ -503,7 +503,7 @@ const EditCar = () => {
                       flexDirection={"column"}
                       alignItems={"center"}
                       justifyContent={"start"}
-                      bg={"gray.100"}
+                      bg={"gray.50"}
                       borderRadius={"5px"}
                       p="5px"
                       border={"1px solid #ddd"}
@@ -542,7 +542,7 @@ const EditCar = () => {
                 {OneCar?.gallery_images?.length > 0 && (
                   <GridItem as="div" colSpan={{ base: 12, md: 9 }} px="10px">
                     <Flex
-                      bg={"gray.100"}
+                      bg={"gray.50"}
                       borderRadius={"5px"}
                       p="5px"
                       overflowX={"auto"}

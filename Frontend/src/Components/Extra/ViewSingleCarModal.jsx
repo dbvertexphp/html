@@ -141,7 +141,7 @@ const ViewSingleCarModal = ({
                   <GridItem
                     as="div"
                     colSpan={{ base: 12, md: 12 }}
-                    bg={"gray.100"}
+                    bg={"gray.50"}
                     p={2}
                   >
                     <Text pt={2}>

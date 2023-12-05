@@ -45,6 +45,9 @@ const AdminDash = () => {
         direction={{ base: "column", md: "row" }}
       >
         <Card
+        bg={"#d9aca7"}
+        color="white"
+        
           width={{ md: "24%" }}
           alignItems={"center"}
           justifyContent={"center"}
@@ -54,12 +57,14 @@ const AdminDash = () => {
             <Heading fontSize={"1.5rem"}>Total Bookings</Heading>
           </CardHeader>
           <CardBody>
-            <Heading color="#30829c" size={"2xl"}>
+            <Heading color="white" size={"2xl"}>
               {Dash?.Bookings ?? <Spinner />}
             </Heading>
           </CardBody>
         </Card>
         <Card
+         bg={"#bbe2eb"}
+         color="white"
           width={{ md: "24%" }}
           alignItems={"center"}
           justifyContent={"center"}
@@ -69,12 +74,15 @@ const AdminDash = () => {
             <Heading fontSize={"1.5rem"}>Total Cars</Heading>
           </CardHeader>
           <CardBody>
-            <Heading color="#30829c" size={"2xl"}>
+            
+            <Heading color="white" size={"2xl"}>
               {Dash?.Cars || <Spinner />}
             </Heading>
           </CardBody>
         </Card>
         <Card
+         bg={"#e8ca9b"}
+         color="white"
           width={{ md: "24%" }}
           alignItems={"center"}
           justifyContent={"center"}
@@ -84,12 +92,14 @@ const AdminDash = () => {
             <Heading fontSize={"1.5rem"}>Total Vendors</Heading>
           </CardHeader>
           <CardBody>
-            <Heading color="#30829c" size={"2xl"}>
+            <Heading color="white" size={"2xl"}>
               {Dash?.Vendors || <Spinner />}
             </Heading>
           </CardBody>
         </Card>
         <Card
+        color="white"
+        bg={"#accbde"}
           onClick={() => navigate("/admin/customer")}
           width={{ md: "24%" }}
           alignItems={"center"}
@@ -99,13 +109,16 @@ const AdminDash = () => {
             <Heading fontSize={"1.5rem"}>Total Customers</Heading>
           </CardHeader>
           <CardBody>
-            <Heading color="#30829c" size={"2xl"}>
+            
+            <Heading color="white" size={"2xl"}>
               {Dash?.Customers || <Spinner />}
             </Heading>
           </CardBody>
         </Card>
 
         <Card
+        bg={"#dcb2b2"}
+        color="white"
           width={{ md: "24%" }}
           alignItems={"center"}
           justifyContent={"center"}
@@ -115,12 +128,14 @@ const AdminDash = () => {
             <Heading fontSize={"1.5rem"}>Total Employees</Heading>
           </CardHeader>
           <CardBody>
-            <Heading color="#30829c" size={"2xl"}>
+            <Heading color="white" size={"2xl"}>
               {Dash?.Employees || <Spinner />}
             </Heading>
           </CardBody>
         </Card>
         <Card
+        bg={"#e3d4bd"}
+        color="white"
           width={{ md: "24%" }}
           alignItems={"center"}
           justifyContent={"center"}
@@ -130,13 +145,15 @@ const AdminDash = () => {
             <Heading fontSize={"1.5rem"}>Total Test Drives</Heading>
           </CardHeader>
           <CardBody>
-            <Heading color="#30829c" size={"2xl"}>
+            <Heading color="white" size={"2xl"}>
               {Dash?.Tdrives || <Spinner />}
             </Heading>
           </CardBody>
         </Card>
 
         <Card
+        color="white"
+        bg={"#a9ccbc"}
           width={{ md: "24%" }}
           alignItems={"center"}
           justifyContent={"center"}
@@ -146,7 +163,7 @@ const AdminDash = () => {
             <Heading fontSize={"1.5rem"}>Total Transactions</Heading>
           </CardHeader>
           <CardBody>
-            <Heading color="#30829c" size={"2xl"}>
+            <Heading color="white" size={"2xl"}>
               {Dash?.Transactions || <Spinner />}
             </Heading>
           </CardBody>

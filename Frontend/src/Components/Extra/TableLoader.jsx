@@ -9,8 +9,8 @@ const TableLoader = () => {
           <Spinner
             thickness="4px"
             speed="0.65s"
-            emptyColor="gray.200"
-            color="black.500"
+            emptyColor="gray.50"
+            color="black.100"
             size="xl"
           />
         </center>

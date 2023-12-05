@@ -16,7 +16,7 @@ exports.addCarModel = async (req, res) => {
 };
 
 exports.getAllCarModels = async (req, res) => {
-    let limit = req.query.limit || 10
+    let limit = req.query.limit || 50
     let page = req.query.page || 1
     page = page > 0 ? page : 1
     let skip = (page - 1) * limit || 0

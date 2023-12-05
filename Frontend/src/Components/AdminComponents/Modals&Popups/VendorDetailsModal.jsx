@@ -41,8 +41,8 @@ const VendorDetailsModal = ({ isOpen, onClose, vendor }) => {
         </ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <Flex gap={2} width={"100%"}>
-            <Box mb={2} width={"40%"} border={"none"}>
+          <Flex gap={6} width={"100%"}>
+            <Box mb={6} width={"40%"} border={"none"}>
               <Text>
                 <b>Vendor Code :</b>{" "}
                 <span style={{ color: "teal", fontWeight: "bold" }}>
@@ -72,7 +72,7 @@ const VendorDetailsModal = ({ isOpen, onClose, vendor }) => {
                 {new Date(vendor?.created_at).toLocaleString()}
               </Text>
             </Box>
-            <Box mb={2} width={"40%"} border={"none"}>
+            <Box mb={6} width={"40%"} border={"none"}>
               <Text>
                 <b>Status :</b>{" "}
                 <Badge colorScheme={getStatusBadgeColor()}>

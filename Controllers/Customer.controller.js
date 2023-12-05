@@ -10,11 +10,19 @@ const SetDatesFilter = require('../Config/SetDatesFilter');
 require('dotenv').config();
 
 exports.getAllCustomers = async (req, res) => {
+<<<<<<< Updated upstream
   const { filterByDays, status, searchQuery } = req.query;
   let limit = req.query.limit || 10;
   let page = req.query.page || 1;
   page = page > 0 ? page : 1;
   let skip = (page - 1) * limit || 0;
+=======
+    const { filterByDays, status, searchQuery } = req.query;
+    let limit = req.query.limit || 50
+    let page = req.query.page || 1
+    page = page > 0 ? page : 1
+    let skip = (page - 1) * limit || 0
+>>>>>>> Stashed changes
 
   let fromDate = req.query.fromDate || '2023-01-01';
   let toDate = req.query.toDate || '2023-12-31';

@@ -136,7 +136,7 @@ const VendorTransactions = () => {
   //   setSearchParams({ ...params, searchQuery: val });
   // };
 
-  const itemsPerPage = 10; //
+  const itemsPerPage = 50; //
   const startingSerialNumber = (page - 1) * itemsPerPage + 1;
   return (
     <>

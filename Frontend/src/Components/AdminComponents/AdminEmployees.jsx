@@ -303,7 +303,8 @@ const AdminEmployees = () => {
           )}
 
           <Button
-            colorScheme="blue"
+             bg="#30829c"
+             color="white"
             variant={"solid"}
             w={"20%"}
             onClick={refreshAll}
@@ -312,7 +313,8 @@ const AdminEmployees = () => {
           </Button>
           <Link to={"/admin/employees/add-employees"}>
             <Button
-              colorScheme="blue"
+               bg="#30829c"
+               color="white"
               variant={"solid"}
               leftIcon={<FiPlusCircle />}
             >

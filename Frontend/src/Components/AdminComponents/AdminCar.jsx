@@ -223,7 +223,8 @@ const AdminCar = () => {
         </Select>
 
         <Button
-          colorScheme="blue"
+           bg="#30829c"
+           color="white"
           variant={"solid"}
           onClick={() => {
             refreshAll();

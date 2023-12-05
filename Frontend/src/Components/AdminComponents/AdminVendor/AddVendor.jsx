@@ -592,7 +592,8 @@ const AddVendor = () => {
             </Button>
           </Link>
           <Button
-            colorScheme="blue"
+             bg="#30829c"
+             color="white"
             m="10px"
             type="submit"
             isLoading={loading}

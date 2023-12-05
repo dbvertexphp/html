@@ -321,7 +321,8 @@ const AdminVendor = () => {
             </HStack>
           )}
           <Button
-            colorScheme="blue"
+            bg="#30829c"
+            color="white"
             variant={"solid"}
             w={"22%"}
             onClick={refreshAll}
@@ -331,7 +332,8 @@ const AdminVendor = () => {
 
           <Link to={"/admin/vendor/add-vendor"}>
             <Button
-              colorScheme="blue"
+              bg="#30829c"
+              color="white"
               variant={"solid"}
               rightIcon={<FiPlusCircle />}
             >
@@ -355,6 +357,7 @@ const AdminVendor = () => {
                 <Th sx={headCellStyle}>Sr. no</Th>
                 <Th sx={headCellStyle}>Vendor Code</Th>
                 <Th sx={headCellStyle}>Name</Th>
+                <Th sx={headCellStyle}>Company Name</Th>
                 <Th sx={headCellStyle}>Email</Th>
                 <Th sx={headCellStyle}>Contact no.</Th>
                 <Th sx={headCellStyle}>Location</Th>
@@ -373,6 +376,7 @@ const AdminVendor = () => {
                       <Td sx={cellStyle}>{index + startingSerialNumber}</Td>
                       <Td sx={cellStyle}>{item?.vendor_code}</Td>
                       <Td sx={cellStyle}>{item?.vendor_name || "--"}</Td>
+                      <Td sx={cellStyle}>{item.company_name }</Td>
                       <Td sx={cellStyle}>{item?.email || "--"}</Td>
                       <Td sx={cellStyle}>{item?.phone_number || "--"}</Td>
                       <Td sx={cellStyle}>

@@ -93,7 +93,8 @@ exports.getAllCars = async (req, res) => {
 exports.getAllCarsAdmin = async (req, res) => {
   let { sortby, search } = req.body;
 
-  let limit = req.body.limit || 10
+  let limit = 50
+ 
   let page = req.body.page || 1
   page = page > 0 ? page : 1
   let skip = (page - 1) * limit || 0
@@ -110,6 +111,7 @@ exports.getAllCarsAdmin = async (req, res) => {
       return res.status(200).send({ message: "All Cars", Cars });
     } else {
       const Cars = await CarModel.find().limit(limit).skip(skip).populate(populateArr).sort(sortObj);
+     
       return res.status(200).send({ message: "All Cars Admin", Cars, totalCars });
     }
   } catch (error) {

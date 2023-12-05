@@ -245,7 +245,8 @@ const AdminTransactions = () => {
           )}
 
           <Button
-            colorScheme="blue"
+             bg="#30829c"
+             color="white"
             variant={"solid"}
             w={"20%"}
             onClick={refreshAll}

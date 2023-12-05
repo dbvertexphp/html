@@ -487,7 +487,8 @@ const AddEmployees = () => {
             sx={{ alignItems: "end" }}
           >
             <Button
-              colorScheme="green"
+            bg="#30829c"
+            color="white"
               onClick={() => {
                 setFormData((prev) => ({
                   ...prev,
@@ -547,7 +548,8 @@ const AddEmployees = () => {
             </Button>
           </Link>
           <Button
-            colorScheme="blue"
+            bg="#30829c"
+            color="white"
             m="10px"
             type="submit"
             isLoading={loading}

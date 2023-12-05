@@ -189,7 +189,7 @@ const SearchPage = () => {
               <Select
                 placeholder="All"
                 w={{ base: "40%", md: "20%" }}
-                bg="gray.100"
+                bg="gray.50"
                 value={sortby}
                 onChange={(e) => {
                   setsortby(e.target.value);

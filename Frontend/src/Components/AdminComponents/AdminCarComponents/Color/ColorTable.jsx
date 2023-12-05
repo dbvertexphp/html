@@ -134,7 +134,8 @@ const ColorTable = () => {
         </Text>
 
         <Button
-          colorScheme="blue"
+           bg="#30829c"
+           color="white"
           variant={"solid"}
           onClick={onOpen}
           leftIcon={<FiPlusCircle />}

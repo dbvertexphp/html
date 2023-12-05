@@ -58,14 +58,14 @@ export default function Login() {
               src={logo}
               display={"block"}
               margin={"auto"}
-              width="90%"
+              width="50%"
               h="147px"
               position={"center"}
               objectFit={"cover"}
             />
           </NavLink>
-          <Heading>Admin/User</Heading>
-          <Heading fontSize={"2xl"}>Sign in to your account</Heading>
+          <Heading size="lg" align={"center"}>Admin/User</Heading>
+         
           <form action="" onSubmit={handleSubmit}>
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
@@ -102,6 +102,8 @@ export default function Login() {
               <Button
                 bg={theme1}
                 color={"white"}
+                mx="auto"
+                width="50%"
                 variant={"solid"}
                 type="submit"
                 isLoading={loading}
@@ -112,19 +114,7 @@ export default function Login() {
           </form>
         </Stack>
       </Flex>
-      <Flex flex={1}>
-        <Image
-          alt={"Login Image"}
-          objectFit={"cover"}
-          objectPosition="center"
-          src={
-            "https://muneerlyati.com/wp-content/uploads/2021/07/Will-you-pay-full-price-for-extended-warranty-at-car-dealership.jpg"
-          }
-          style={{
-            boxShadow: "inset 67px - 76px 66px 10px rgba(255, 255, 255, 1)",
-          }}
-        />
-      </Flex>
+     
     </Stack>
   );
 }

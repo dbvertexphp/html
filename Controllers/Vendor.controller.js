@@ -12,7 +12,7 @@ require("dotenv").config();
 
 exports.getAllVendors = async (req, res) => {
     const { filterByDays, vendor, searchQuery } = req.query;
-    let limit = req.query.limit || 10
+    let limit = req.query.limit || 50
     let page = req.query.page || 1
     page = page > 0 ? page : 1
     let skip = (page - 1) * limit || 0
