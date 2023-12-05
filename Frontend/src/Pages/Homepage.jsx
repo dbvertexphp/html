@@ -13,6 +13,7 @@ import BrandSliderComponent from "../Components/WebsiteComponents/BrandSliderCom
 import Testemonials from "../Components/WebsiteComponents/Testemonials";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import BuyCard from "../Components/WebsiteComponents/BuyCard";
 import {
   getCars,
   getCarsHomePage,
@@ -48,28 +49,34 @@ export default function Homepage() {
         <BrandSliderComponent />
       </Card>
 
-      <Card mx={{ base: "5", md: "10" }} my={{ base: "5", md: "10" }} pb="5">
+      <Card shadow="none" mx={{ base: "5", md: "10" }} my={{ base: "5", md: "10" }} pb="5">
         <CardHeader>
-          <Flex align={"center"} justify={"space-between"}>
-            <Heading size="lg">Trending Cars</Heading>
-            <Text
-              color="#30829c"
-              cursor="pointer"
-              onClick={() => {
-                navigate("/collection?q=trending_car");
-              }}
-            >
-              View All Cars
-            </Text>
+          <Flex textAlign={'center'} justify={"space-between"}>
+            <Heading textAlign={'center'} size="lg">Why buy from us ?</Heading>
+           
+          </Flex>
+        </CardHeader>
+        <BuyCard />
+        
+      </Card>
+
+      <Card shadow="none" mx={{ base: "5", md: "10" }} my={{ base: "5", md: "10" }} pb="5">
+        <CardHeader>
+          <Flex>
+           
+          <Heading className="serach_heading" my="5">
+            Recently added cars
+          </Heading>
+           
           </Flex>
         </CardHeader>
         <SliderComponent data={trending} />
       </Card>
 
-      <Card mx={{ base: "5", md: "10" }} mb={{ base: "5", md: "10" }} pb="5">
+      <Card shadow="none" mx={{ base: "5", md: "10" }} mb={{ base: "5", md: "10" }} pb="5">
         <CardHeader>
           <Flex align={"center"} justify={"space-between"}>
-            <Heading size="lg">Featured Cars</Heading>
+           
             <Text
               color="#30829c"
               cursor="pointer"
@@ -77,17 +84,17 @@ export default function Homepage() {
                 navigate("/collection?q=featured_car");
               }}
             >
-              View All Cars
+             
             </Text>
           </Flex>
         </CardHeader>
         <SliderComponent data={featured} />
       </Card>
 
-      <Card mx={{ base: "5", md: "10" }} mb={{ base: "5", md: "10" }} pb="5">
+      <Card shadow="none" mx={{ base: "5", md: "10" }} mb={{ base: "5", md: "10" }} pb="5">
         <CardHeader>
           <Flex align={"center"} justify={"space-between"}>
-            <Heading size="lg">Hot Deals</Heading>
+            
             <Text
               color="#30829c"
               cursor="pointer"
@@ -95,14 +102,14 @@ export default function Homepage() {
                 navigate("/collection?q=hotdeal_car");
               }}
             >
-              View All Cars
+             
             </Text>
           </Flex>
         </CardHeader>
         <SliderComponent data={hotdeal} />
       </Card>
 
-      <Card mx={{ base: "5", md: "10" }} mb={{ base: "5", md: "10" }} pb="5">
+      {/* <Card mx={{ base: "5", md: "10" }} mb={{ base: "5", md: "10" }} pb="5">
         <CardHeader>
           <Flex align={"center"} justify={"space-between"}>
             <Heading size="lg">Upcoming cars</Heading>
@@ -118,7 +125,7 @@ export default function Homepage() {
           </Flex>
         </CardHeader>
         <SliderComponent data={upcoming} />
-      </Card>
+      </Card> */}
 
       
 

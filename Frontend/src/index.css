@@ -10,7 +10,7 @@ body {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.3);
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+ 
 }
 
 ::-webkit-scrollbar-thumb:window-inactive {
@@ -28,7 +28,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
@@ -116,6 +116,16 @@ body {
   line-height: normal;
   text-transform: capitalize;
 }
+.home_page_location{
+  color: #383838;
+
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+text-transform: capitalize;
+}
 .home_page_car_details {
   color: #1097b1;
   font-family: Poppins;
@@ -145,4 +155,26 @@ body {
   font-weight: 700;
   line-height: 135px; /* 337.5% */
   text-transform: capitalize;
+}
+.home_page_buy_heading{
+  color: #1D305E;
+
+font-family: Poppins;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+text-transform: capitalize;
+margin-top: 70px;
+}
+.home_page_buy_text{
+  color: #000;
+
+font-family: Poppins;
+font-size: 40px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-transform: capitalize;
+margin-bottom: 100px;
 }

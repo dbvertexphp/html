@@ -57,6 +57,18 @@ function ItemCard(props) {
           >
             <FaRegHeart />
           </Box>
+          <Box
+            position="absolute"
+            bottom="10px" // Adjust this value as needed
+            right="10px" // Adjust this value as needed
+            color={"white"}
+            bg="green"
+            fontSize="12"
+            rounded="30px"
+            padding="5px"
+          >
+            <Box>Trending Car</Box>
+          </Box>
         </Flex>
 
           <Box p="5">
@@ -70,6 +82,14 @@ function ItemCard(props) {
               </Box>
               {IndianNumberSystem(price)}
             </Box>
+            <Box  marginTop="10px" className="home_page_location"  display="flex" alignItems="center">
+  <Box as="span">
+    <Image  src="/src/assets/Icons/location.png" />
+  </Box>
+   Parsvnath City Mall, Faridabad
+</Box>
+           
+           
           </Box>
           <Flex justify={'space-evenly'} gap="1" mb="10" mx="5" fontSize={14} className="home_page_car_details">
             <Stack>
@@ -113,6 +133,7 @@ function ItemCard(props) {
                 {state}
               </Text>
             </Stack>
+            
           </Flex>
           <Box borderTop="1px" mx="5" borderColor="gray.200">
           </Box>
