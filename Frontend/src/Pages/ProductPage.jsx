@@ -340,7 +340,21 @@ export default function ProductPage() {
     setupcoming(data.Upcomings);
   };
   const HandleBookNowFn = () => {
-    onOpen();
+    const login = isAuth;
+    if (login == false) {
+      toast({
+        title: "Please Login First",
+        status: "error",
+        position: "top",
+      });
+      let url = window.location.pathname;
+      localStorage.setItem("previous_url", url);
+
+      return navigate("/customer-email-login");
+    } else {
+      return onOpen();
+    }
+ 
   };
   const bookingSuccessFun = () => {
     onClose();
@@ -476,7 +490,7 @@ export default function ProductPage() {
                     onClick={openModal}
                     isLoading={loading}
                   >
-                    Book Test Drive
+                    Book Test Drives
                   </Button>
                 ) : (
                   <Alert status="warning">
@@ -486,6 +500,7 @@ export default function ProductPage() {
                       wait for its approval.
                     </AlertTitle>
                   </Alert>
+
                 )}
               </>
             )}
@@ -1003,28 +1018,40 @@ export default function ProductPage() {
                           <AlertTitle>Your test drive was approved!</AlertTitle>
                         </Alert>
                         <Button
-                          colorScheme="green"
-                          ml="1"
-                          my={2}
-                          rightIcon={<BsBookmarkCheck />}
-                          onClick={HandleBookNowFn}
-                        >
-                          Book Now
-                        </Button>
+                      colorScheme="green"
+                      ml="1"
+                      my={2}
+                      rightIcon={<BsBookmarkCheck />}
+                      onClick={HandleBookNowFn}
+                    >
+                      Book Now
+                    </Button>
                       </>
                     ) : CanUserBookTestDrive() ? (
+                      <div>
                       <Button
                         color="white"
-                        w={{ md: "100%" }}
                         bg="#30829c"
                         colorScheme="teal"
                         leftIcon={<BsCarFrontFill />}
                         onClick={openModal}
                         isLoading={loading}
                       >
-                        Book Test Drive
+                        Book Test Drives
                       </Button>
+                      <Button
+                      colorScheme="green"
+                      ml="1"
+                      my={2}
+                      rightIcon={<BsBookmarkCheck />}
+                      onClick={HandleBookNowFn}
+                    >
+                      Book Now
+                    </Button>
+                    </div>
+                      
                     ) : (
+                      <>
                       <Alert status="warning">
                         <AlertIcon />
                         <AlertTitle fontSize={"15px"} fontWeight={"500"}>
@@ -1032,6 +1059,16 @@ export default function ProductPage() {
                           Please wait for its approval.
                         </AlertTitle>
                       </Alert>
+                      <Button
+                      colorScheme="green"
+                      ml="1"
+                      my={2}
+                      rightIcon={<BsBookmarkCheck />}
+                      onClick={HandleBookNowFn}
+                    >
+                      Book Now
+                    </Button>
+                    </>
                     )}
                   </>
                 )}

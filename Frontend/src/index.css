@@ -10,7 +10,6 @@ body {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.3);
- 
 }
 
 ::-webkit-scrollbar-thumb:window-inactive {
@@ -28,7 +27,6 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
@@ -77,7 +75,7 @@ body {
 }
 .auth_hending_content {
   color: #303468;
-  font-family: Poppins;
+  font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -92,7 +90,7 @@ body {
 .auth_buttons_text {
   background: #1097b1;
   color: #fff;
-  font-family: Poppins;
+  font-family: 'Poppins', sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 600;
@@ -100,7 +98,7 @@ body {
 }
 .home_page_car_name {
   color: #1097b1;
-  font-family: Poppins;
+  font-family: 'Poppins', sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 800;
@@ -116,19 +114,19 @@ body {
   line-height: normal;
   text-transform: capitalize;
 }
-.home_page_location{
+.home_page_location {
   color: #383838;
 
-font-family: Poppins;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-text-transform: capitalize;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
 }
 .home_page_car_details {
   color: #1097b1;
-  font-family: Poppins;
+  font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -139,7 +137,7 @@ text-transform: capitalize;
   background-color: #1097b1;
   color: #fff;
   text-align: center;
-  font-family: Poppins;
+  font-family: 'Poppins', sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 800;
@@ -149,32 +147,91 @@ text-transform: capitalize;
 .serach_heading {
   color: #000;
   text-align: center;
-  font-family: Poppins;
+  font-family: 'Poppins', sans-serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
   line-height: 135px; /* 337.5% */
   text-transform: capitalize;
 }
-.home_page_buy_heading{
-  color: #1D305E;
+.home_page_buy_heading {
+  color: #1d305e;
 
-font-family: Poppins;
-font-size: 20px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-text-transform: capitalize;
-margin-top: 70px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+  margin-top: 70px;
 }
-.home_page_buy_text{
+.home_page_buy_text {
   color: #000;
 
-font-family: Poppins;
-font-size: 40px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-text-transform: capitalize;
-margin-bottom: 100px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+  margin-bottom: 100px;
+}
+.centered-box {
+  height: 48px !important;
+  padding-left: 37px !important;
+  text-align: left;
+  -webkit-text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.left-aligned-box {
+  text-align: left;
+  padding-left: 20px;
+}
+.know_more_button {
+  background: #1097b1 !important;
+  color: #fff !important;
+  text-align: center !important;
+  font-family: 'Poppins' !important;
+  font-size: 16px !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  line-height: 135px !important; /* 843.75% */
+  text-transform: capitalize !important;
+}
+.know_more_text {
+  color: rgba(0, 0, 0, 0.67);
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.know_more_heading {
+  color: #1d305e;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.know_more_card {
+  border-radius: 20px !important;
+  background: #eaeaea !important;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) !important;
+  width: 339px !important;
+    height: auto !important;
+}
+.know_more_compontent_heading{
+  color: #000 !important;
+font-family: Poppins !important;
+font-size: 40px !important;
+font-style: normal !important;
+font-weight: 700 !important;
+line-height: normal !important;
+text-transform: capitalize !important;
 }
