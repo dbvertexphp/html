@@ -1,10 +1,13 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import Login from "../Pages/Login";
 import VendorLogin from "../Pages/VendorLogin";
+import EmployeeLogin from "../Pages/EmployeeLogin";
 import VendorDashboard from "../Pages/VendorDashboard";
+import EmployeeDashboard from "../Pages/EmployeeDashboard";
 import AdminDashboard from "../Pages/AdminDashboard";
 import PrivateAdminRoute from "./PrivateAdmin";
 import PrivateVendorRoute from "./PrivateVendor";
+import PrivateEmployeeRoute from "./PrivateEmployee";
 import WebsiteLayout from "../Components/WebsiteComponents/WebsiteLayout";
 import Homepage from "../Pages/Homepage";
 import Aboutpage from "../Pages/Aboutpage";
@@ -157,8 +160,17 @@ const AllRoutes = () => {
           </PrivateVendorRoute>
         }
       />
-
+ <Route path="/employee-login" element={<EmployeeLogin />} />
+ <Route
+        path="/employee/*"
+        element={
+          <PrivateEmployeeRoute>
+            <EmployeeDashboard />
+          </PrivateEmployeeRoute>
+        }
+      />
       <Route path="*" element={<ErrorPage />} />
+     
     </Routes>
   );
 };

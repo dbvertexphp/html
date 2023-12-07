@@ -152,6 +152,7 @@ export const postEmployee = (data, navigate, toast, token) => (dispatch) => {
             },
         })
         .then((res) => {
+           
             dispatch({ type: types.EMPLOYEE_POST_SUCCESS });
             toast({
                 title: "Employee Added Successfully!",

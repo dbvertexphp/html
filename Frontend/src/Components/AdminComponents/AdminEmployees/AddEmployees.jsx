@@ -38,6 +38,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pd
 const initial = {
   employee_name: "",
   email: "",
+  password: "",
   aadhar_number: "",
   aadhar_doc: "",
   pan_number: "",
@@ -167,6 +168,16 @@ const AddEmployees = () => {
               type="email"
               name="email"
               value={formData.email}
+              onChange={HandleDetailsChange}
+            />
+          </GridItem>
+          <GridItem as="div" colSpan={{ base: 12, md: 4 }} p="10px">
+            <FormLabel>Password</FormLabel>
+            <Input
+              placeholder="Enter Password"
+              type="password"
+              name="password"
+              value={formData.password}
               onChange={HandleDetailsChange}
             />
           </GridItem>

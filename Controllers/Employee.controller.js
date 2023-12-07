@@ -1,7 +1,39 @@
 const SetDatesFilter = require("../Config/SetDatesFilter");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const { getUniqueEmployeeCode } = require("../Middlewares/getUniqueCode");
 const EmployeeModel = require("../Models/EmployeeModel")
+require("dotenv").config();
+exports.EmployeeLogin = async (req, res) => {
+    const { email, password } = req.body;
+    const test = { email, password }
+    
+    for (const key in test) {
+        if (!test[key]) return res.status(401).json({ message: `Please Provide ${key}, Mandatory field missing: ${key}` })
+    }
+    try {
+        let employee = await EmployeeModel.findOne({ email })
+        
 
+
+        if (!employee) return res.status(404).send({ message: "Email Not Found, Please check entered email" });
+        bcrypt.compare(password, employee?.password).then(async (result) => {
+            if (!result) {
+                return res.status(404).send({ message: "Wrong Credentials" });
+            } else {
+                const token = jwt.sign({ _id: employee?._id }, process.env.JSON_SECRET);
+               
+                let instance = await EmployeeModel.findOne({ email }).select({ password: 0 }).populate("references")
+               
+                if (instance.status == "disabled") return res.status(400).json({ message: "Your Account is Temporarily Disabled By Admin. \n Please Contact through Email to review your account" });
+                return res.status(200).send({ message: "Login Successful", token, employee: instance });
+            }
+        });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({ message: error?.message || "Something went Wrong", error });
+    }
+};
 
 exports.getAllEmployees = async (req, res) => {
     const { filterByDays, status, searchQuery } = req.query;
@@ -80,17 +112,22 @@ exports.updateEmployeeByID = async (req, res) => {
 
 exports.addEmployee = async (req, res) => {
     const payload = req?.body;
+    let { email, password, phone_number } = req.body
     try {
         const employee = await EmployeeModel.findOne({ email: payload.email });
         if (employee) {
             return res.status(400).send({ message: "Email Already Registered, Please use different email to signup" });
         }
         const uniqueIdentifier = await getUniqueEmployeeCode();
+        bcrypt.hash(password, 10, async (err, hash) => {
+            if (err) return res.status(500).json({ message: "Something Went Wrong", Err: "Bcrypt Error" })
+            payload.password = hash
         payload.employee_code = uniqueIdentifier;
         const newEmployee = new EmployeeModel(payload);
         await newEmployee.save();
         return res.status(200).send({ message: "Employee Created Successfully", employee: newEmployee });
-    } catch (error) {
+   })
+ } catch (error) {
         console.log(error)
         return res.status(500).send({ message: "something went wrong", error });
     }

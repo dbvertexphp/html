@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const employeeSchema = new mongoose.Schema({
   employee_code: { type: String, required: true },
   email: { type: String, required: true },
+  password: { type: String, required: true },
   employee_name: { type: String, require: true },
   gender: { type: String, enum: ["male", "female", "others"], default: "male" },
   phone_number: { type: Number, require: true },

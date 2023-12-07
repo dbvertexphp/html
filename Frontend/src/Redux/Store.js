@@ -5,7 +5,7 @@ import {
     legacy_createStore,
 } from "redux";
 import thunk from "redux-thunk";
-import { VendorAuthReducer, UserAuthReducer, CustomerAuthReducer } from "./Auth/Auth.reducer";
+import { VendorAuthReducer, UserAuthReducer, CustomerAuthReducer,EmployeeAuthReducer } from "./Auth/Auth.reducer";
 import { WebsiteReducer, orderReducer, userReducer, vendorReducer, CustomerReducer, EmployeeReducer, TestDriveReducer, BookingReducer, TransactionReducer, ReportReducer } from "./App/App.reducer";
 import { carComponentReducer } from "./App/Reducers/CarComponent.reducer";
 import { carReducer } from "./App/Reducers/Vendors/Car.reducer";
@@ -13,6 +13,7 @@ import { carReducer } from "./App/Reducers/Vendors/Car.reducer";
 const rootReducer = combineReducers({
     UserAuthManager: UserAuthReducer,
     VendorAuthManager: VendorAuthReducer,
+    EmployeeAuthManager: EmployeeAuthReducer,
     CustomerAuthManager: CustomerAuthReducer,
     VendorManager: vendorReducer,
     CustomerManager: CustomerReducer,

@@ -102,6 +102,8 @@ export default function Login() {
               <Button
                 bg={theme2}
                 color={"white"}
+                mx="auto"
+                width="50%"
                 variant={"solid"}
                 type="submit"
                 isLoading={loading}
@@ -112,17 +114,7 @@ export default function Login() {
           </form>
         </Stack>
       </Flex>
-      <Flex flex={1}>
-        <Image
-          alt={"Login Image"}
-          objectFit={"cover"}
-          objectPosition="center"
-          src={"https://watermark.lovepik.com/photo/50760/8121.jpg_wh1200.jpg"}
-          style={{
-            boxShadow: "inset 67px - 76px 66px 10px rgba(255, 255, 255, 1)",
-          }}
-        />
-      </Flex>
+    
     </Stack>
   );
 }

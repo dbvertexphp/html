@@ -84,7 +84,55 @@ export const loginVendor = (payload, navigate, toast) => (dispatch) => {
         });
 };
 
+export const loginEmployee = (payload, navigate, toast) => (dispatch) => {
+    dispatch({ type: types.EMPLOYEE_AUTH_LOGIN_LOADING });
 
+    axios
+        .post(`${BASE_URL}/api/employee/login`, payload)
+        .then((res) => {
+            if (res?.data?.employee?.status == "pending") {
+                return toast({
+                    title: "Login Failed!",
+                    description: "Your profile is under review, kindly wait for the confirmation!",
+                    status: "warning",
+                    duration: 4000,
+                    isClosable: true,
+                });
+            } else if (res?.data?.employee?.status == "disabled") {
+                return toast({
+                    title: "Login Suspended!",
+                    description: "Your profile is suspended, kindly contact administrator!",
+                    status: "error",
+                    duration: 4000,
+                    isClosable: true,
+                });
+            } else {
+                dispatch({ type: types.EMPLOYEE_AUTH_LOGIN_SUCCESS, payload: res?.data });
+                toast({
+                    title: "Login Successfull!",
+                    description: "You have succesfully logged in as Employee",
+                    status: "success",
+                    duration: 4000,
+                    isClosable: true,
+                });
+                navigate("/employee");
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+            toast({
+                title: "Login Failed!",
+                description: err?.response?.data?.message,
+                status: "error",
+                duration: 4000,
+                isClosable: true,
+            });
+            dispatch({
+                type: types.EMPLOYEE_AUTH_LOGIN_ERROR,
+                payload: err?.response?.data?.message,
+            });
+        });
+};
 export const loginCustomer = (payload, navigate, toast) => (dispatch) => {
     dispatch({ type: types.CUSTOMER_AUTH_LOGIN_LOADING });
 
