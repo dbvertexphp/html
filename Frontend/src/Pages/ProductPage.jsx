@@ -572,7 +572,7 @@ export default function ProductPage() {
         p={{ md: "10" }}
         gap={{ base: "5", md: "10" }}
       >
-        <GridItem border=" 1px solid #1097B1 " colSpan={{ base: "8", md: "5" }}>
+        <GridItem border=" 1px solid #1097B1 " borderRadius="20px" colSpan={{ base: "8", md: "4" }}>
           <Card w="100%" p="2">
             {!isOneCarLoading ? (
               <Flex align={"stretch"} gap="2">
@@ -582,6 +582,7 @@ export default function ProductPage() {
                     src={displayImage}
                     w="full"
                     h="full"
+                    borderRadius="20px"
                     objectFit="cover"
                     cursor="pointer"
                     onClick={() => openImageModal(displayImage)}
@@ -593,15 +594,17 @@ export default function ProductPage() {
             )}
           </Card>
 
-<Card>
-
+<Card style={{ flexDirection: 'unset',  }} >
+<Flex>
            {data?.gallery_images?.length > 0 &&
                     data?.gallery_images?.slice(0, 4)?.map((el, index) => {
                       return (
+                       
                         <Image //Side Images
-                        w="20%"
+                        w="20%" 
                           key={index + "abcd23532"}
                           src={el}
+                          borderRadius="15px"
                           objectFit="contain"
                           cursor="pointer"
 
@@ -618,12 +621,13 @@ export default function ProductPage() {
                             }
                           }}
                         />
+                     
                       );
                     })}
-                  <Button variant={"ghost"} size="xs" onClick={galleryHandler}>
+                  <Button variant={"ghost"} size="xs" height="none" onClick={galleryHandler}>
                     View More
                   </Button>
-               
+                  </Flex>
              
 </Card>
           <Card w="100%" p="2" mt="5" display={{ base: "none", md: "flex" }}>
@@ -663,7 +667,7 @@ export default function ProductPage() {
          
         </GridItem>
 
-        <GridItem border=" 1px solid #1097B1 " colSpan={{ base: "8", md: "3" }} order={{ base: 2, md: 1 }}>
+        <GridItem border=" 1px solid #1097B1 " borderRadius="20px" colSpan={{ base: "8", md: "4" }} order={{ base: 2, md: 1 }}>
           {!isOneCarLoading ? (
             <Card
               display={{ base: "none", md: "flex" }}
