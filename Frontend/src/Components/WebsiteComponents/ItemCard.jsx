@@ -2,7 +2,7 @@ import { Flex, Box, Image, useColorModeValue, Center, Stack, Text, Divider, Butt
 import { FaRegHeart } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import IndianNumberSystem from '../../utils/IndianNumSystem';
-
+import { GrLocation } from "react-icons/gr";
 function ItemCard(props) {
   const { name, price, imageURL, year, km, fuel, state, _id, booking_status } = props;
 
@@ -83,9 +83,7 @@ function ItemCard(props) {
               {IndianNumberSystem(price)}
             </Box>
             <Box  marginTop="10px" className="home_page_location"  display="flex" alignItems="center">
-  <Box as="span">
-    <Image  src="/src/assets/Icons/location.png" />
-  </Box>
+            <GrLocation />
    Parsvnath City Mall, Faridabad
 </Box>
            

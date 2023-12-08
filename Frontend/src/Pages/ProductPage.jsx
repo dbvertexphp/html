@@ -70,6 +70,7 @@ import {
 } from "react-icons/bs";
 import { FiBookmark, FiDollarSign } from "react-icons/fi";
 import { GrLocation } from "react-icons/gr";
+import Carousel from '../Components/WebsiteComponents/CarouselDetail';
 import { useDispatch, useSelector } from "react-redux";
 import { Form, useNavigate, useParams } from "react-router-dom";
 import InputUpload from "../Components/Extra/InputUpload";
@@ -410,6 +411,7 @@ export default function ProductPage() {
 
   return (
     <>
+     <Carousel />
       {/**<!--*------- <Mobile View> ----------->*/}
       {!isOneCarLoading ? (
         <Card
@@ -570,19 +572,39 @@ export default function ProductPage() {
         p={{ md: "10" }}
         gap={{ base: "5", md: "10" }}
       >
-        <GridItem colSpan={{ base: "8", md: "5" }}>
+        <GridItem border=" 1px solid #1097B1 " colSpan={{ base: "8", md: "5" }}>
           <Card w="100%" p="2">
             {!isOneCarLoading ? (
               <Flex align={"stretch"} gap="2">
-                <Stack w="20%">
-                  {data?.gallery_images?.length > 0 &&
+               
+                <Box w="100%">
+                  <Image //Main Image
+                    src={displayImage}
+                    w="full"
+                    h="full"
+                    objectFit="cover"
+                    cursor="pointer"
+                    onClick={() => openImageModal(displayImage)}
+                  />
+                </Box>
+              </Flex>
+            ) : (
+              <Skeleton h="400px" />
+            )}
+          </Card>
+
+<Card>
+
+           {data?.gallery_images?.length > 0 &&
                     data?.gallery_images?.slice(0, 4)?.map((el, index) => {
                       return (
                         <Image //Side Images
+                        w="20%"
                           key={index + "abcd23532"}
                           src={el}
                           objectFit="contain"
                           cursor="pointer"
+
                           border={
                             el == displayImage
                               ? "6px solid #30829c"
@@ -601,23 +623,9 @@ export default function ProductPage() {
                   <Button variant={"ghost"} size="xs" onClick={galleryHandler}>
                     View More
                   </Button>
-                </Stack>
-                <Box w="80%">
-                  <Image //Main Image
-                    src={displayImage}
-                    w="full"
-                    h="full"
-                    objectFit="cover"
-                    cursor="pointer"
-                    onClick={() => openImageModal(displayImage)}
-                  />
-                </Box>
-              </Flex>
-            ) : (
-              <Skeleton h="400px" />
-            )}
-          </Card>
-
+               
+             
+</Card>
           <Card w="100%" p="2" mt="5" display={{ base: "none", md: "flex" }}>
             {!isOneCarLoading ? (
               <Flex
@@ -652,7 +660,65 @@ export default function ProductPage() {
             )}
           </Card>
 
+         
+        </GridItem>
+
+        <GridItem border=" 1px solid #1097B1 " colSpan={{ base: "8", md: "3" }} order={{ base: 2, md: 1 }}>
           {!isOneCarLoading ? (
+            <Card
+              display={{ base: "none", md: "flex" }}
+              p="5"
+              position={{ md: "sticky" }}
+              top={{ md: "55px" }}
+            >
+              <VStack
+                display={"flex"}
+                justifyContent={"start"}
+                gap={"0"}
+                alignItems={"center"}
+              >
+                <Text fontWeight={"bold"} fontSize={"24"} w="full">
+                  {data?.name?.name}
+                </Text>
+                <Text fontWeight={"semibold"} fontSize={"15"} w="full">
+                  {data?.make?.name}, {data?.model?.name}{" "}
+                </Text>
+              </VStack>
+              <Flex alignItems={"center"} gap="2" my="3">
+                <GrLocation />
+
+                {data?.location?.map((el) => el.name).join(", ")}
+              </Flex>
+              <Text fontSize={"26"} mb="5" fontWeight={"bold"}>
+                ₹ {IndianNumberSystem(data?.price)}
+              </Text>
+              <Text mb="5" textAlign={"justify"}>
+                {data?.short_description}
+              </Text>
+              <Flex
+                mb="5"
+                gap="1"
+                justifyContent={"start"}
+                alignItems={"center"}
+              >
+                <Tag
+                  border={"2px solid #ddd"}
+                  size={"md"}
+                  width={"30px"}
+                  height={"30px"}
+                  bg={data?.color?.code}
+                >
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                </Tag>
+                <Text
+                  fontSize={"15"}
+                  fontWeight={"bold"}
+                  textTransform={"capitalize"}
+                >
+                  {data?.color?.name}
+                </Text>
+              </Flex>
+              {!isOneCarLoading ? (
             <Tabs variant="line" colorScheme="blue" mt="10" isLazy>
               <TabList bg="white">
                 <Tab w="25%">Overview</Tab>
@@ -950,63 +1016,6 @@ export default function ProductPage() {
           ) : (
             <SkeletonText mt="10" noOfLines={"8"} />
           )}
-        </GridItem>
-
-        <GridItem colSpan={{ base: "8", md: "3" }} order={{ base: 2, md: 1 }}>
-          {!isOneCarLoading ? (
-            <Card
-              display={{ base: "none", md: "flex" }}
-              p="5"
-              position={{ md: "sticky" }}
-              top={{ md: "55px" }}
-            >
-              <VStack
-                display={"flex"}
-                justifyContent={"start"}
-                gap={"0"}
-                alignItems={"center"}
-              >
-                <Text fontWeight={"bold"} fontSize={"24"} w="full">
-                  {data?.name?.name}
-                </Text>
-                <Text fontWeight={"semibold"} fontSize={"15"} w="full">
-                  {data?.make?.name}, {data?.model?.name}{" "}
-                </Text>
-              </VStack>
-              <Flex alignItems={"center"} gap="2" my="3">
-                <GrLocation />
-
-                {data?.location?.map((el) => el.name).join(", ")}
-              </Flex>
-              <Text fontSize={"26"} mb="5" fontWeight={"bold"}>
-                ₹ {IndianNumberSystem(data?.price)}
-              </Text>
-              <Text mb="5" textAlign={"justify"}>
-                {data?.short_description}
-              </Text>
-              <Flex
-                mb="5"
-                gap="1"
-                justifyContent={"start"}
-                alignItems={"center"}
-              >
-                <Tag
-                  border={"2px solid #ddd"}
-                  size={"md"}
-                  width={"30px"}
-                  height={"30px"}
-                  bg={data?.color?.code}
-                >
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                </Tag>
-                <Text
-                  fontSize={"15"}
-                  fontWeight={"bold"}
-                  textTransform={"capitalize"}
-                >
-                  {data?.color?.name}
-                </Text>
-              </Flex>
               {!loading &&
                 data?.booking_status !== "booked" &&
                 data?.booking_status !== "sold" && (

@@ -111,6 +111,13 @@ export default function Homepage() {
       </Card> */}
 
       <Card mx={{ base: '5', md: '10' }} mb={{ base: '5', md: '10' }} p="5">
+      <CardHeader>
+          <Flex placeContent={'center'}>
+            <Heading textAlign={'center'} size="lg" className="know_more_compontent_heading">
+            Join Our Happy Clients
+            </Heading>
+          </Flex>
+        </CardHeader>
         <Testemonials />
       </Card>
     </>

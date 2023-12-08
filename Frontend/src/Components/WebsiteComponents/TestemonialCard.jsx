@@ -1,5 +1,14 @@
 import {
   Box,
+  Grid,
+  GridItem,
+  ButtonGroup,
+  Button,
+  Heading,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
   Center,
   Image,
   Stack,
@@ -17,20 +26,30 @@ export default function TestemonialCard(props) {
       direction={"column"}
       p="2"
     >
-      <Text fontSize={{ base: "md", md: "xl" }} textAlign={"center"}>
+     
+     
+      <Center>
+              <GridItem className="know_more_card_item">
+                <Card maxW="sm" className="know_more_card">
+                  <CardBody style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <Image src={image} mb={2} width={"80px"} alt="user" />
+                    <Stack textAlign="center">
+                    
+                    <Text  textAlign={"center"} color={"#656464"}>
         {description}
       </Text>
-      <Box textAlign={"center"}>
-        <Center>
-          <Image src={image} mb={2} width={"50px"} alt="user" />
-        </Center>
-        <Text fontWeight={600}>
+                      <Text color="#1097B1" font-weight="600">
           {author}, {`(${designation})`}
         </Text>
         <Text fontSize={"sm"} color={useColorModeValue("gray.400", "gray.400")}>
           {location}
         </Text>
-      </Box>
+                    </Stack>
+                  </CardBody>
+                 
+                </Card>
+              </GridItem>
+            </Center>
     </Stack>
   );
 }
