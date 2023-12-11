@@ -219,7 +219,7 @@ const BodyTypeTable = () => {
             </Box>
           </ModalBody>
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={handleSubmit}>
+            <Button colorScheme="#30829c" mr={3} onClick={handleSubmit}>
               Add
             </Button>
           </ModalFooter>

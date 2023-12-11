@@ -49,6 +49,77 @@ export const getVendorDashDetails = (id, setData, token) => (dispatch) => {
             });
         });
 };
+export const getEmployeeDashDetails = (id, setData, token) => (dispatch) => {
+
+    dispatch({ type: WebsiteTypes.WEBSITE_GET_LOADING });
+    axios
+        .get(`${BASE_URL}/api/test/get-employee-dashboard-data/${id}`, {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            },
+        })
+        .then((res) => {
+            dispatch({ type: WebsiteTypes.WEBSITE_GET_SUCCESS, payload: res?.data });
+            setData && setData(res?.data)
+
+        })
+        .catch((err) => {
+            console.log(err);
+            dispatch({
+                type: WebsiteTypes.WEBSITE_GET_SUCCESS,
+                payload: err?.response?.data?.message,
+            });
+        });
+};
+export const getAllVendorsByemployee = (id, page, data, setData, token) => (dispatch) => {
+    if (!page) page = 1
+    dispatch({ type: WebsiteTypes.WEBSITE_GET_LOADING });
+    axios
+        .get(`${BASE_URL}/api/test/get-all-employee-vendor/${id}?page=${page}`,  {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            },
+        })
+        .then((res) => {
+            dispatch({ type: WebsiteTypes.WEBSITE_GET_SUCCESS, payload: res?.data });
+            setData && setData(res?.data?.Cars)
+
+        })
+        .catch((err) => {
+            console.log(err);
+            dispatch({
+                type: WebsiteTypes.WEBSITE_GET_SUCCESS,
+                payload: err?.response?.data?.message,
+            });
+        });
+};
+
+export const getAllCarsByEmployeeID = (id, page, data, setData , token) => (dispatch) => {
+    if (!page) page = 1
+    dispatch({ type: WebsiteTypes.WEBSITE_GET_LOADING });
+    axios
+        .get(`${BASE_URL}/api/test/get-all-cars-employee/${id}?page=${page}`,  {
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            },
+        })
+        .then((res) => {
+          
+            dispatch({ type: WebsiteTypes.WEBSITE_GET_SUCCESS, payload: res?.data });
+
+            setData && setData(res?.data?.Cars)
+        })
+        .catch((err) => {
+            console.log(err);
+            dispatch({
+                type: WebsiteTypes.WEBSITE_GET_SUCCESS,
+                payload: err?.response?.data?.message,
+            });
+        });
+};
 export const getSalesDetails = (setData, token) => (dispatch) => {
 
     dispatch({ type: WebsiteTypes.WEBSITE_GET_LOADING });
@@ -144,3 +215,4 @@ export const UpdateWebsiteData = (Data, toast, toastTitle, getData, token) => (d
             });
         });
 };
+

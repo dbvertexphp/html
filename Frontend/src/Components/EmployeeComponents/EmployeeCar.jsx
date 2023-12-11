@@ -35,7 +35,7 @@ import PaginationBox from "../Extra/Pagination";
 import ViewSingleCarModal from "../Extra/ViewSingleCarModal";
 import TableLoader from "../Extra/TableLoader";
 
-const VendorCar = () => {
+const EmployeeCar  = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const toast = useToast();
@@ -149,7 +149,7 @@ const VendorCar = () => {
           </Select>
 
           <Button
-            colorScheme="#30829c"
+            colorScheme="blue"
             variant={"solid"}
             p={0}
             onClick={() => {
@@ -309,7 +309,7 @@ const VendorCar = () => {
                       <HStack w={"100%"} justifyContent={"center"}>
                         <Button
                           variant={"solid"}
-                          colorScheme={"#30829c"}
+                          colorScheme={"blue"}
                           size={"sm"}
                           p={0}
                           onClick={() => {
@@ -391,4 +391,4 @@ const headCellStyle = {
   wordWrap: "break-word",
 };
 
-export default VendorCar;
+export default EmployeeCar ;

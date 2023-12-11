@@ -146,3 +146,30 @@ exports.deleteEmployeeByID = async (req, res) => {
         return res.status(500).send({ message: error?.message || "Something went Wrong", error });
     }
 };
+exports.employeeChangePassword = async (req, res) => {
+
+    const id = req?.params?.id
+    let { providedPass: oldPassword, newPass: newPassword } = req.body
+    let temppass = newPassword
+
+    try {
+        if (!oldPassword || !newPassword) {
+            return res.status(401).json({ message: "Please provide both old password and new password. Mandatory fields missing." });
+        }
+        const employee = await EmployeeModel.findById(id);
+        if (!employee) {
+            return res.status(404).json({ message: "vendor not found" });
+        }
+        const passwordMatch = await bcrypt.compare(oldPassword, employee.password);
+        if (!passwordMatch) {
+            return res.status(401).json({ message: "Old Password is incorrect. Please enter the correct old password." });
+        }
+        const hashedNewPassword = await bcrypt.hash(newPassword, 10);
+        SendMail({ recipientEmail: employee.email, subject: "Password Changed", html: PasswordChangedEmail("vendor", employee, temppass) })
+        await EmployeeModel.updateOne({ _id: employee._id }, { password: hashedNewPassword });
+        res.status(200).json({ message: "Password changed successfully" });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: error?.message || "Something went wrong", error });
+    }
+};

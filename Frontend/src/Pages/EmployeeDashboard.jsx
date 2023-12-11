@@ -28,7 +28,7 @@ import {
 import { FiHome, FiMenu, FiFileText, FiInfo } from "react-icons/fi";
 import { AiOutlineCar } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import VendorRoutes from "../Routes/VendorRoutes";
+import EmployeeRoutes from "../Routes/EmployeeRoutes";
 import { BsFillMenuAppFill } from "react-icons/bs";
 
 export default function SideNav() {
@@ -55,7 +55,7 @@ export default function SideNav() {
       {/* mobilenav */}
       <MobileNav onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
-        <VendorRoutes />
+        <EmployeeRoutes />
       </Box>
     </Box>
   );
@@ -70,7 +70,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
     if (!tabopen) {
       navigate("dashboard");
     }
-    setActive("vendor/" + tabopen);
+    setActive("employee/" + tabopen);
   }, [location]);
   return (
     <Box
@@ -99,7 +99,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
       <NavItem
         key={"Dashboard"}
         icon={FiHome}
-        path={"Employee/dashboard"}
+        path={"employee/dashboard"}
         setActive={setActive}
         Active={Active}
       >
@@ -107,9 +107,19 @@ const SidebarContent = ({ onClose, ...rest }) => {
       </NavItem>
 
       <NavItem
+        key={"Vendor"}
+        icon={FiHome}
+        path={"employee/vendor"}
+        setActive={setActive}
+        Active={Active}
+      >
+        <Text size={"sm"}> Vendors</Text>
+      </NavItem>
+
+      <NavItem
         key={"Car"}
         icon={AiOutlineCar}
-        path={"Employee/cars"}
+        path={"employee/car"}
         setActive={setActive}
         Active={Active}
       >
@@ -119,7 +129,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
       <NavItem
         key={"Orders"}
         icon={BsFillMenuAppFill}
-        path={"Employee/bookings"}
+        path={"employee/booking"}
         setActive={setActive}
         Active={Active}
       >
@@ -129,7 +139,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
       <NavItem
         key={"TestDrivces"}
         icon={FiInfo}
-        path={"Employee/testdrives"}
+        path={"employee/testdrives"}
         setActive={setActive}
         Active={Active}
       >
@@ -206,14 +216,14 @@ const MobileNav = ({ onOpen, ...rest }) => {
     });
   };
 
-  let { Vendor_detail, token } = useSelector(
-    (store) => store?.VendorAuthManager
+  let { Employee_detail, token } = useSelector(
+    (store) => store?.EmployeeAuthManager
   );
-  const vendor =
-    Vendor_detail ||
-    JSON.parse(localStorage.getItem("vendor_detail_carvendor"));
-  let vendortoken =
-    token || JSON.parse(localStorage.getItem("vendor_token_carvendor"));
+  const employee =
+    Employee_detail ||
+    JSON.parse(localStorage.getItem("employee_detail_carvendor"));
+  let employeetoken =
+    token || JSON.parse(localStorage.getItem("employee_token_carvendor"));
 
   return (
     <Flex
@@ -258,12 +268,12 @@ const MobileNav = ({ onOpen, ...rest }) => {
                   spacing="1px"
                   ml="2"
                 >
-                  <Text fontSize="sm">{vendor?.vendor_name}</Text>
+                  <Text fontSize="sm">{employee?.employee_name}</Text>
                   <Text fontSize="xs" color="gray.600">
-                    {vendor?.email}
+                    {employee?.email}
                   </Text>
                 </VStack>
-                <Avatar size={"sm"} src={vendor?.profile_photo || avatar} />
+                <Avatar size={"sm"} src={employee?.profile_photo || avatar} />
               </HStack>
             </MenuButton>
             <MenuList
@@ -271,11 +281,11 @@ const MobileNav = ({ onOpen, ...rest }) => {
               borderColor={useColorModeValue("gray.200", "gray.700")}
             >
               <MenuItem
-                onClick={() => navigate("/Employee/dashboard/edit-profile")}
+                onClick={() => navigate("/employee/dashboard/edit-profile")}
               >
                 Profile
               </MenuItem>
-              <NavLink to="/Employee/dashboard/change-password">
+              <NavLink to="/employee/dashboard/change-password">
                 <MenuItem>Change Password</MenuItem>
               </NavLink>
               <MenuDivider />

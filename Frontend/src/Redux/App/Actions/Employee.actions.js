@@ -72,6 +72,44 @@ export const getEmployeeByID = (id, setData, toast, navigate, token) => (dispatc
             navigate("/admin/employees")
         });
 };
+
+export const getVendorByID = (id, setData, toast, navigate, token) => (dispatch) => {
+    if (!id)
+      return dispatch({
+        type: types.EMPLOYEE_GET_BY_ID_ERROR,
+      });
+    dispatch({ type: types.EMPLOYEE_GET_BY_ID_LOADING });
+    axios
+      .get(`${BASE_URL}/api/employee/get-vendor/${id}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        },
+      })
+      .then((res) => {
+        dispatch({
+          type: types.EMPLOYEE_GET_BY_ID_SUCCESS,
+          payload: res?.data?.Vendor,
+        });
+  
+        setData(res?.data?.Vendor);
+      })
+      .catch((err) => {
+        console.log(err);
+        dispatch({
+          type: types.EMPLOYEE_GET_BY_ID_ERROR,
+          payload: err?.response?.data?.message,
+        });
+        toast({
+          title: "Cannot Find Vendor By Provided ID!",
+          status: "error",
+          position: "top",
+          duration: 4000,
+        });
+        
+      });
+  };
+
 export const UpdateEmployeeByID = (id, data, toast, navigate, title, token) => (dispatch) => {
 
     dispatch({ type: types.EMPLOYEE_UPDATE_LOADING });

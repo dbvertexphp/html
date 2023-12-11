@@ -80,7 +80,7 @@ export const getVendorByID = (id, setData, toast, navigate, token) => (dispatch)
         position: "top",
         duration: 4000,
       });
-      navigate("/admin/vendor");
+      
     });
 };
 export const UpdateVendorByID = (id, data, toast, navigate, navigateTo, getData, title, token) => (dispatch) => {
@@ -176,4 +176,29 @@ export const postVendor = (data, navigate, toast) => (dispatch) => {
         payload: err?.response?.data?.message,
       });
     });
+};
+
+export const getVendorsByEmployeeID = (id, page, data, setData, token) => (dispatch) => {
+  if (!page) page = 1
+  dispatch({ type: types.CAR_GET_LOADING });
+  axios
+      .post(`${BASE_URL}/api/employee/get-all-employee-vendor/${id}?page=${page}`, data, {
+          headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`
+          },
+      })
+      .then((res) => {
+
+          dispatch({ type: types.CAR_GET_SUCCESS, payload: res?.data });
+          setData && setData(res?.data?.Cars)
+
+      })
+      .catch((err) => {
+          console.log(err);
+          dispatch({
+              type: types.CAR_GET_ERROR,
+              payload: err?.response?.data?.message,
+          });
+      });
 };

@@ -152,7 +152,7 @@ export const EmployeeAuthReducer = (state = EmployeeInitState, { type, payload }
             };
         }
 
-        case types.EMPLOYEE_LOGOUT: {
+        case types.CARVENDOR_LOGOUT: {
             localStorage.removeItem("employee_token_carvendor");
             localStorage.removeItem("employee_detail_carvendor");
             return {

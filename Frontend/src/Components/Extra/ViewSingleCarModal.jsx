@@ -324,7 +324,7 @@ const ViewSingleCarModal = ({
             )} */}
 
             <Button
-              colorScheme="blue"
+              colorScheme="#30829c"
               mr={3}
               onClick={() => {
                 onViewClose();

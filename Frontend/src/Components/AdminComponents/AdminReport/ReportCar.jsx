@@ -256,7 +256,7 @@ const ReportCar = () => {
       <HStack>
         <Button
           onClick={handleDateSelector}
-          colorScheme="blue"
+          colorScheme="#30829c"
           variant="solid"
           isLoading={reportDataLoading || loading}
         >
@@ -266,7 +266,7 @@ const ReportCar = () => {
           onClick={() => {
             handleExport();
           }}
-          colorScheme="blue"
+          colorScheme="#30829c"
           isDisabled={data?.length > 0 ? false : true}
           m={"20px"}
           ml={"0"}

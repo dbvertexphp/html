@@ -251,7 +251,7 @@ const AdminEmployees = () => {
           </InputGroup>
 
           {searchQuery && (
-            <Button color={"blue.500"} onClick={handleSearchQuery}>
+            <Button color={"#30829c"} onClick={handleSearchQuery}>
               <Search2Icon />
             </Button>
           )}
@@ -377,7 +377,7 @@ const AdminEmployees = () => {
                                 ? "green.500"
                                 : item.status === "disabled"
                                 ? "red.500"
-                                : "blue.500"
+                                : "#30829c"
                             }
                             color={"white"}
                             size={"xs"}

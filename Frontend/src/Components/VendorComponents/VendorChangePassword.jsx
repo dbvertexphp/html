@@ -113,7 +113,7 @@ const VendorChangePassword = () => {
               ref={confirmPassInput}
             />
           </CardBody>
-          <Button colorScheme="green" width="50%" mx="auto" onClick={changePassHandler}>
+          <Button bg="#30829c" colorScheme="green" width="50%" mx="auto" onClick={changePassHandler}>
             Submit
           </Button>
         </Card>

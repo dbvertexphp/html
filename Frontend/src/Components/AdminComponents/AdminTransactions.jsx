@@ -352,7 +352,7 @@ const AdminTransactions = () => {
                                   ? "green.500"
                                   : item.status === "PAYMENT_ERROR"
                                   ? "red.500"
-                                  : "blue.500"
+                                  : "#30829c"
                               }
                               color={"white"}
                               size={"xs"}

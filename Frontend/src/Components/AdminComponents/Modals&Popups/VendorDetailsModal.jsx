@@ -135,7 +135,7 @@ const VendorDetailsModal = ({ isOpen, onClose, vendor }) => {
             </Button>
           </Box>
           <Button
-            colorScheme="blue"
+            colorScheme="#30829c"
             mx={2}
             onClick={() => {
               onClose();

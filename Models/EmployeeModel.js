@@ -22,6 +22,7 @@ const employeeSchema = new mongoose.Schema({
     landmark: { type: String },
     district: { type: String },
   },
+  role: { type: String, default: "Employee" },
   aadhar_number: { type: String },
   profile_photo: { type: String },
   aadhar_doc: { type: String },

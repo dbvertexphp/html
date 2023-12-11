@@ -33,15 +33,15 @@ import { UpdateVendorByID } from "../../Redux/App/Actions/Vendor.action";
 import InputUpload from "../Extra/InputUpload";
 import DocumentModal from "../Extra/DocumentModal";
 
-const VendorProfile = () => {
-  let { Vendor_detail, token } = useSelector(
-    (store) => store?.VendorAuthManager
-  );
-  const vendor =
-    Vendor_detail ||
-    JSON.parse(localStorage.getItem("vendor_detail_carvendor"));
-  let vendortoken =
-    token || JSON.parse(localStorage.getItem("vendor_token_carvendor"));
+const EmployeeProfile = () => {
+    let { Employee_detail, token } = useSelector(
+        (store) => store?.EmployeeAuthManager
+      );
+      const employee =
+      Employee_detail ||
+        JSON.parse(localStorage.getItem("employee_detail_carvendor"));
+      let employeetoken =
+        token || JSON.parse(localStorage.getItem("employee_token_carvendor"));
 
   const [ProfileDetails, setProfileDetails] = useState({});
 
@@ -80,20 +80,20 @@ const VendorProfile = () => {
     let title = "Vendor Profile Updated Successfully";
     dispatch(
       UpdateVendorByID(
-        vendor?._id,
+        employee?._id,
         ProfileDetails,
         toast,
         navigate,
-        "/vendor/dashboard",
+        "/employee/dashboard",
         title,
-        vendortoken
+        employeetoken
       )
     );
   };
   useEffect(() => {
     setrefresh(!refresh);
-    setProfileDetails(vendor);
-    setSubjects(vendor?.subjects);
+    setProfileDetails(employee);
+    setSubjects(employee?.subjects);
   }, []);
 
   return (
@@ -609,4 +609,4 @@ const VendorProfile = () => {
   );
 };
 
-export default VendorProfile;
+export default EmployeeProfile;

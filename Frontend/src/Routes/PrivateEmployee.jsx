@@ -6,6 +6,7 @@ const PrivateEmployeeRoute = ({ children }) => {
   const { isAuth, EmployeeDetail, token } = useSelector(
     (store) => store.EmployeeAuthManager
   );
+ 
   const navigate = useNavigate();
 
   useEffect(() => {

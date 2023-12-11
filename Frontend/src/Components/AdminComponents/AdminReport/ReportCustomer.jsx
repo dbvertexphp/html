@@ -182,7 +182,7 @@ const ReportCustomer = () => {
       <HStack>
         <Button
           onClick={handleDateSelector}
-          colorScheme="blue"
+          colorScheme="#30829c"
           variant="solid"
           isLoading={loading || reportDataLoading}
         >
@@ -192,7 +192,7 @@ const ReportCustomer = () => {
           onClick={() => {
             handleExport();
           }}
-          colorScheme="blue"
+          colorScheme="#30829c"
           isDisabled={data?.length > 0 ? false : true}
           m={"20px"}
           ml={"0"}

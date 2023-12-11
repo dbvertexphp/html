@@ -119,7 +119,7 @@ const BrandSection = () => {
             Total: {BrandData?.length}{" "}
           </Text>
           <Button
-            bg={"blue.400"}
+            bg={"#30829c"}
             colorScheme={"blue"}
             variant={"solid"}
             onClick={() => {

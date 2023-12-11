@@ -403,7 +403,7 @@ const AdminTestdrive = () => {
                         size={"xs"}
                         rightIcon={<FiEye />}
                         variant={"solid"}
-                        colorScheme="blue"
+                        colorScheme="#30829c"
                         onClick={() => {
                           onOpen();
                           setSelectedDocument(item?.driving_license);

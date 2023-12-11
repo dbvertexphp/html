@@ -426,7 +426,7 @@ const AdminBookings = () => {
                                 ? "green.500"
                                 : item.payment_status === "pending"
                                 ? "orange.500"
-                                : "blue.500"
+                                : "#30829c"
                             }
                             color={"white"}
                             size={"xs"}

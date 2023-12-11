@@ -216,12 +216,12 @@ export default function EditProfile() {
         </Flex>
         <Flex gap="3" mb="3" justifyContent={"end"} mt="5">
           {!isEditing && (
-            <Button bg="#30829c" color="white" onClick={editHandler}>
+            <Button  color="white" onClick={editHandler}>
               EDIT DETAILS
             </Button>
           )}
           {isEditing && (
-            <Button colorScheme="green" onClick={submitHandler}>
+            <Button  bg="#30829c" colorScheme="green" onClick={submitHandler}>
               SUBMIT
             </Button>
           )}

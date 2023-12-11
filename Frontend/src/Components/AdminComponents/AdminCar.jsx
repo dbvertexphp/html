@@ -59,6 +59,7 @@ const AdminCar = () => {
   const q = queryParams.get("vendor") || "";
   const [page, setPage] = useState(1);
   const [cars, setcars] = useState([]);
+  console.log(cars);
   const [Tdrives, setTdrives] = useState({});
 
   const { totalCars, loading, error } = useSelector(

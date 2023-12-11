@@ -361,7 +361,7 @@ const AdminCustomer = () => {
                               ? "green.500"
                               : item.status === "disabled"
                               ? "red.500"
-                              : "blue.500"
+                              : "#30829c"
                           }
                           w={"60%"}
                           color={"white"}

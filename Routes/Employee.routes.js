@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { getAllEmployees, getEmployeeByID,EmployeeLogin, addEmployee, updateEmployeeByID, deleteEmployeeByID, getEmployeeList } = require("../Controllers/Employee.controller");
+const { getAllEmployees, getEmployeeByID,EmployeeLogin, addEmployee, updateEmployeeByID, deleteEmployeeByID, getEmployeeList ,employeeChangePassword} = require("../Controllers/Employee.controller");
 const Authentication = require("../Middlewares/Authentication.middleware");
 const Authorization = require("../Middlewares/Authorization.middleware");
 
@@ -16,5 +16,6 @@ EmployeeRouter.post("/add-employee", Authentication, Authorization(["Admin"]), a
 EmployeeRouter.patch("/update/:id", Authentication, Authorization(["Admin"]), updateEmployeeByID);
 
 EmployeeRouter.delete("/delete/:id", Authentication, Authorization(["Admin"]), deleteEmployeeByID);
+EmployeeRouter.patch("/change-pass/:id", Authentication, Authorization(["Admin", "Employee"]), employeeChangePassword);
 
 module.exports = EmployeeRouter;

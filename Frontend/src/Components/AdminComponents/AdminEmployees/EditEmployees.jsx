@@ -494,7 +494,7 @@ const EditEmployees = () => {
             </Button>
           </Link>
           <Button
-            colorScheme="blue"
+            colorScheme="#30829c"
             m="10px"
             rightIcon={<FiCheckCircle />}
             onClick={SaveEmployeeDetails}

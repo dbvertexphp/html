@@ -6,6 +6,7 @@ const PrivateVendorRoute = ({ children }) => {
   const { isAuth, VendorDetail, token } = useSelector(
     (store) => store.VendorAuthManager
   );
+  
   const navigate = useNavigate();
 
   useEffect(() => {

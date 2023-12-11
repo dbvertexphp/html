@@ -1,20 +1,28 @@
 import { Routes, Route } from "react-router-dom";
 import EmployeeDash from "../Components/EmployeeComponents/EmployeeDash";
 import VendorTransactions from "../Components/VendorComponents/VendorTransactions";
-import VendorCar from "../Components/VendorComponents/VendorCar";
+import EmployeeCar from "../Components/EmployeeComponents/EmployeeCar";
+import EmployeeVendor from "../Components/EmployeeComponents/EmployeeVendor";
 import AddCar from "../Components/VendorComponents/FormComponents/AddCar";
-import VendorProfile from "../Components/VendorComponents/VendorProfile";
+import EmployeeProfile from "../Components/EmployeeComponents/EmployeeProfile";
 import EditCar from "../Components/VendorComponents/FormComponents/EditCar";
-import VendorBooking from "../Components/VendorComponents/VendorBooking";
-import VendorTestDrive from "../Components/VendorComponents/VendorTestDrive";
-import VendorChangePassword from "../Components/VendorComponents/VendorChangePassword";
+import EmployeeBooking from "../Components/EmployeeComponents/EmployeeBooking";
+import EmployeeTestDrive from "../Components/EmployeeComponents/EmployeeTestDrive";
+import EmployeeChangePassword from "../Components/EmployeeComponents/EmployeeChangePassword";
 
 const EmployeeRoutes = () => {
   return (
     <Routes>
       <Route path="/dashboard" element={<EmployeeDash />} />
-     
-    
+      <Route
+        path="/dashboard/change-password"
+        element={<EmployeeChangePassword />}
+      />
+      <Route path="/dashboard/edit-profile" element={<EmployeeProfile />} />
+      <Route path="/vendor" element={<EmployeeVendor />} />
+      <Route path="/car" element={<EmployeeCar />} />
+      <Route path="/booking" element={<EmployeeBooking />} />
+      <Route path="/testdrives" element={<EmployeeTestDrive />} />
     </Routes>
   );
 };
