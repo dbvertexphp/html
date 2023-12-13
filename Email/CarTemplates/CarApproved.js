@@ -135,7 +135,7 @@ const CarApprovedVendor = (car) => {
                                                                         Car Brand:  ${car_brand} <br>
                                                                         Car Model:  ${car_model} <br>
                                                                         </p>
-                                                                         <a href="https://easygocarz.com/vendor/cars" style="display: inline-block; padding: 10px 20px; background-color: #3182ce; color: #FFFFFF; text-decoration: none; border: 1px solid #3182ce; border-radius: 5px; text-align: center;">View Car</a>
+                                                                         <a href="http://13.126.25.103/vendor/cars" style="display: inline-block; padding: 10px 20px; background-color: #3182ce; color: #FFFFFF; text-decoration: none; border: 1px solid #3182ce; border-radius: 5px; text-align: center;">View Car</a>
 <br><br>
 <br>
                                                                        <p style="margin: 0; margin-bottom: 16px;">Please contact to Support Team.</p>
@@ -519,7 +519,7 @@ const CarApprovedEmployee = (car, employee) => {
                                                                         Car Brand:  ${car_brand} <br>
                                                                         Car Model:  ${car_model} <br>
                                                                         </p>
-                                                                         <a href="https://easygocarz.com/vendor/cars" style="display: inline-block; padding: 10px 20px; background-color: #3182ce; color: #FFFFFF; text-decoration: none; border: 1px solid #3182ce; border-radius: 5px; text-align: center;">View Car</a>
+                                                                         <a href="http://13.126.25.103/vendor/cars" style="display: inline-block; padding: 10px 20px; background-color: #3182ce; color: #FFFFFF; text-decoration: none; border: 1px solid #3182ce; border-radius: 5px; text-align: center;">View Car</a>
 <br><br>
 <br>
                                                                        <p style="margin: 0; margin-bottom: 16px;">Please contact to Support Team.</p>

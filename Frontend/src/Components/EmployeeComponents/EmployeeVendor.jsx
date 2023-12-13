@@ -247,7 +247,9 @@ const EmployeeVendor = () => {
                             colorScheme="green"
                             style={{ padding: "0px" }}
                             size={"xs"}
-                           
+                            onClick={() =>
+                              navigate(`/employee/vendor/edit/${item._id}`)
+                            }
                           >
                             <FiEdit3 />
                           </Button>
@@ -260,7 +262,7 @@ const EmployeeVendor = () => {
                             <FiTrash2 />
                           </Button>
                           <Button
-                            colorScheme="#30829c"
+                            colorScheme="blue"
                             size={"xs"}
                             p={0}
                             onClick={() => {

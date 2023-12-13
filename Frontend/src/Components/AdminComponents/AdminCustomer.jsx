@@ -238,7 +238,9 @@ const AdminCustomer = () => {
         </InputGroup>
 
         {searchQuery && (
-          <Button color={"blue.500"} onClick={handleSearchQuery}>
+          
+          <Button 
+          bg="#30829c" color={"blue.500"} onClick={handleSearchQuery}>
             <Search2Icon />
           </Button>
         )}

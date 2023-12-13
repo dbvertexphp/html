@@ -938,6 +938,7 @@ const AdminCarEdit = () => {
                       })}
                     </Select>
                     <Button
+                     bg="#30829c"
                       leftIcon={<FiPlusSquare />}
                       colorScheme="blue"
                       onClick={handlefeatures}
@@ -996,6 +997,7 @@ const AdminCarEdit = () => {
                       })}
                     </Select>
                     <Button
+                     bg="#30829c"
                       leftIcon={<FiPlusSquare />}
                       colorScheme="blue"
                       onClick={handleSafetyFeatures}
@@ -1145,6 +1147,7 @@ const AdminCarEdit = () => {
                         />
                       )}
                       <Button
+                       bg="#30829c"
                         leftIcon={<FiPlusSquare />}
                         colorScheme={"blue"}
                         onClick={handleAddDocument}
@@ -1215,6 +1218,7 @@ const AdminCarEdit = () => {
                         })}
                     </Select>
                     <Button
+                     bg="#30829c"
                       leftIcon={<FiPlusSquare />}
                       colorScheme={"blue"}
                       onClick={handleLocation}
@@ -1282,6 +1286,7 @@ const AdminCarEdit = () => {
             </Button>
           </Link>
           <Button
+           bg="#30829c"
             colorScheme="blue"
             m="10px"
             type="submit"

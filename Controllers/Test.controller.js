@@ -46,9 +46,13 @@ exports.getEmployeeDashboardDataByID = async (req, res) => {
     let id = req.params.id
    
     try {
-        const Vendors = await VendorModel.find({ reference: id }).count()
        
-        return res.status(200).send({ message: "Vendor Dashboard", Vendors });
+        const Vendors = await VendorModel.find({ reference: id }).count()
+        const Vendor = await VendorModel.find({ reference: id })
+        const Bookings = await BookingModel.find({ vendor_id: Vendor._id }).count()
+        const Tdrives = await TestDriveModel.find({ vendor_id: Vendor._id }).count()
+        const Cars = await CarModel.find({ vendorID: Vendor._id }).count()
+        return res.status(200).send({ message: "Vendor Dashboard", Vendors ,Tdrives, Bookings,Cars});
     } catch (error) {
         console.log(error);
         return res.status(500).send({ message: error?.message || "Something went Wrong", error });
@@ -121,36 +125,178 @@ exports.getAllVendorsByEmployee = async (req, res) => {
   };
 
   
-exports.getAllCarsByEmployeeID = async (req, res) => {
-  const { id } = req.params;
-  let sortby = req.body.sortby || "createdAt";
-  let sort_index =
-  sortby === "low_to_high" ? 1 : sortby === "high_to_low" ? -1 : 0;
-  let sortObj = {};
-  sortby = sortby || "createdAt";
-
-   sort_index == 0
-  ? (sortObj = { [sortby]: -1 })
-  : (sortObj = { price: sort_index });
-
-  let limit = req.query.limit || 10
-  let page = req.query.page || 1
-  page = page > 0 ? page : 1
-  let skip = (page - 1) * limit || 0
-
+  exports.getAllCarsByEmployeeID = async (req, res) => {
+    const { id } = req.params;
+    let sortby = req.body.sortby || "createdAt";
+    let sort_index =
+      sortby === "low_to_high" ? 1 : sortby === "high_to_low" ? -1 : 0;
+    let sortObj = {};
+    sortby = sortby || "createdAt";
   
-  try {
-    if (!id) return res.status(401).send({ message: "Vendor ID not Provided" });
-      const Vendors = await VendorModel.find({ reference: id }).select({ _id: 1 })
-     
-      let query = { vendorID: Vendors };
-      const cars = await CarModel.find(query).sort({ createdAt: -1 }).limit(limit).skip(skip).sort(sortObj);
+    sort_index == 0
+      ? (sortObj = { [sortby]: -1 })
+      : (sortObj = { price: sort_index });
+  
+    let limit = req.query.limit || 50;
+    let page = req.query.page || 1;
+    page = page > 0 ? page : 1;
+    let skip = (page - 1) * limit || 0;
+  
+    try {
+      if (!id) return res.status(401).send({ message: "Vendor ID not Provided" });
+  
+      const Vendors = await VendorModel.find({ reference: id }).select({ _id: 1 });
+  
+      const allCars = [];
+      for (const vendor of Vendors) {
+        const query = { vendorID: vendor._id };
+        console.log(query);
         
-      const totalCars = await CarModel.find(query).count();
-      return res.status(200).send({ message: "All Cars", cars, Count: cars.length, totalCars });
-  } catch (error) {
-      console.log(error)
-      return res.status(500).send({ message: error?.message || "Something went wrong", error })
+        const cars = await CarModel.find(query)
+          .limit(limit)
+          .skip(skip)
+          .sort(sortObj);
+  
+        allCars.push(...cars);
+      }
+  
+      const totalCars = allCars.length;
+      return res.status(200).send({
+        message: "All Cars",
+        cars: allCars,
+        Count: totalCars,
+        totalCars,
+      });
+    } catch (error) {
+      console.log(error);
+      return res
+        .status(500)
+        .send({ message: error?.message || "Something went wrong", error });
+    }
+  };
+  exports.getAllTestdriveByEmployeeID = async (req, res) => {
+    const { id } = req.params;
+    let sortby = req.body.sortby || "createdAt";
+    let sort_index =
+      sortby === "low_to_high" ? 1 : sortby === "high_to_low" ? -1 : 0;
+    let sortObj = {};
+    sortby = sortby || "createdAt";
+  
+    sort_index == 0
+      ? (sortObj = { [sortby]: -1 })
+      : (sortObj = { price: sort_index });
+  
+    let limit = req.query.limit || 50;
+    let page = req.query.page || 1;
+    page = page > 0 ? page : 1;
+    let skip = (page - 1) * limit || 0;
+  
+    try {
+      if (!id) return res.status(401).send({ message: "Vendor ID not Provided" });
+  
+      const Vendors = await VendorModel.find({ reference: id }).select({ _id: 1 });
+  
+      const allCars = [];
+      for (const vendor of Vendors) {
+        const query = { vendor_id: vendor._id };
+        console.log(query);
+        
+        const cars = await TestDriveModel.find(query)
+          .limit(limit)
+          .skip(skip)
+          .sort(sortObj);
+  
+        allCars.push(...cars);
+      }
+  
+      const totalCars = allCars.length;
+      return res.status(200).send({
+        message: "All Cars",
+        cars: allCars,
+        Count: totalCars,
+        totalCars,
+      });
+    } catch (error) {
+      console.log(error);
+      return res
+        .status(500)
+        .send({ message: error?.message || "Something went wrong", error });
+    }
+  };
 
-  }
-}
+  exports.getAllBookingByEmployeeID = async (req, res) => {
+    const { id } = req.params;
+    let sortby = req.body.sortby || "createdAt";
+    let sort_index =
+      sortby === "low_to_high" ? 1 : sortby === "high_to_low" ? -1 : 0;
+    let sortObj = {};
+    sortby = sortby || "createdAt";
+  
+    sort_index == 0
+      ? (sortObj = { [sortby]: -1 })
+      : (sortObj = { price: sort_index });
+  
+    let limit = req.query.limit || 50;
+    let page = req.query.page || 1;
+    page = page > 0 ? page : 1;
+    let skip = (page - 1) * limit || 0;
+  
+    try {
+      if (!id) return res.status(401).send({ message: "Vendor ID not Provided" });
+  
+      const Vendors = await VendorModel.find({ reference: id }).select({ _id: 1 });
+  
+      const allCars = [];
+      for (const vendor of Vendors) {
+        const query = { vendor_id: vendor._id };
+        console.log(query);
+        
+        const cars = await BookingModel.find(query)
+          .limit(limit)
+          .skip(skip)
+          .sort(sortObj);
+  
+        allCars.push(...cars);
+      }
+  
+      const totalCars = allCars.length;
+      return res.status(200).send({
+        message: "All Cars",
+        cars: allCars,
+        Count: totalCars,
+        totalCars,
+      });
+    } catch (error) {
+      console.log(error);
+      return res
+        .status(500)
+        .send({ message: error?.message || "Something went wrong", error });
+    }
+  };
+
+  exports.getCarByID = async (req, res) => {
+    let id = req?.params?.id;
+    let populateArr = [
+      "name",
+      "color",
+      "make",
+      "body_type",
+      "location",
+      "model",
+      "vendorID",
+    ]
+    try {
+      const Car = await CarModel.findById(id).populate(populateArr);
+      let similarCars = await CarModel.find({ make: Car?.make?._id }).populate(populateArr);
+  
+      similarCars = similarCars.filter((el) => {
+  
+        return (el._id).toString() !== id
+      })
+  
+      return res.status(200).send({ message: "Car By ID", Car, similarCars });
+    } catch (error) {
+      console.log(error);
+      return res.status(500).send({ message: error?.message || "Something went Wrong", error });
+    }
+  };

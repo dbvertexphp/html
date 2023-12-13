@@ -99,7 +99,9 @@ const EmployeeDash = () => {
                   alignItems={"center"}
                   height={40}
                 >
-                 
+                  <Heading mx={"auto"} size={"3xl"} color="#30829c">
+                  {Dash?.Cars >= 0 ? Dash?.Cars : <Spinner />}
+                </Heading>
                   <AbsoluteCenter
                     left={4}
                     top={"78%"}
@@ -153,7 +155,7 @@ const EmployeeDash = () => {
             </CardHeader>
             <CardBody>
               <Heading color="#30829c" size={"2xl"}>
-               
+              {Dash?.Bookings >= 0 ? Dash?.Bookings : <Spinner />}
               </Heading>
             </CardBody>
           </Card>
@@ -168,7 +170,7 @@ const EmployeeDash = () => {
             </CardHeader>
             <CardBody>
               <Heading color="#30829c" size={"2xl"}>
-                
+              {Dash?.Tdrives >= 0 ? Dash?.Tdrives : <Spinner />}
               </Heading>
             </CardBody>
           </Card>

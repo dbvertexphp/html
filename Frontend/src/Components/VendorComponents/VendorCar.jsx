@@ -53,7 +53,7 @@ const VendorCar = () => {
   const [sortby, setsortby] = useState("");
   const [refresh, setrefresh] = useState(false);
 
-  const itemsPerPage = 5; //
+  const itemsPerPage = 50; //
   const startingSerialNumber = (page - 1) * itemsPerPage + 1;
 
   const { totalCars, loading, error } = useSelector(

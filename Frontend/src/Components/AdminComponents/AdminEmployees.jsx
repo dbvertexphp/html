@@ -475,6 +475,7 @@ const AdminEmployees = () => {
                 Cancel
               </Button>
               <Button
+               bg="#30829c"
                 colorScheme="blue"
                 onClick={() => {
                   DeleteOrderFunction(editingID);

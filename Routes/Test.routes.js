@@ -1,5 +1,5 @@
 const UploadFunction = require("../Config/AWS-Upload");
-const { getDashboardData, getSales, getVendorDashboardDataByID,getEmployeeDashboardDataByID,getAllVendorsByEmployee ,getAllCarsByEmployeeID} = require("../Controllers/Test.controller");
+const { getDashboardData, getSales, getVendorDashboardDataByID,getEmployeeDashboardDataByID,getAllTestdriveByEmployeeID,getAllBookingByEmployeeID,getAllVendorsByEmployee ,getAllCarsByEmployeeID,getCarByID} = require("../Controllers/Test.controller");
 const Authentication = require("../Middlewares/Authentication.middleware");
 const Authorization = require("../Middlewares/Authorization.middleware");
 const TestRouter = require("express").Router();
@@ -10,8 +10,11 @@ TestRouter.get("/get-vendor-dashboard-data/:id", Authentication, getVendorDashbo
 TestRouter.get("/get-employee-dashboard-data/:id", Authentication, getEmployeeDashboardDataByID);
 TestRouter.get("/get-all-employee-vendor/:id", Authentication, getAllVendorsByEmployee);
 TestRouter.get("/get-all-cars-employee/:id", getAllCarsByEmployeeID);
-TestRouter.get("/get-sales-data", Authentication, Authorization(["Admin"]), getSales);
+TestRouter.get("/get-all-booking-employee/:id", getAllBookingByEmployeeID);
+TestRouter.get("/get-all-testdrive-employee/:id", getAllTestdriveByEmployeeID);
 
+TestRouter.get("/get-sales-data", Authentication, Authorization(["Admin"]), getSales);
+TestRouter.get("/get-car/:id", getCarByID);
 TestRouter.post("/upload-to-s3", UploadFunction.single("file"), (req, res) => {
     if (!req.file) return res.status(400).json({ error: 'No file uploaded' });
     const fileUrl = req.file.location;

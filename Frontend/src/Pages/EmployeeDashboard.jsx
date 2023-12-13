@@ -145,15 +145,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
       >
         <Text size={"sm"}> Test Drives</Text>
       </NavItem>
-      <NavItem
-        key={"transactions"}
-        icon={FiFileText}
-        path={"Employee/transactions"}
-        setActive={setActive}
-        Active={Active}
-      >
-        <Text size={"sm"}> Transactions</Text>
-      </NavItem>
+     
     </Box>
   );
 };

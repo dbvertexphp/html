@@ -25,10 +25,9 @@ import { FiPlusCircle, FiRefreshCcw, FiTrash2 } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  DeleteCarByID,
   getCarByID,
-  getCarsByVendorID,
-} from "../../Redux/App/Actions/Vendors/Car.action";
+  getAllCarsByEmployeeID,
+} from "../../Redux/App/Actions/Admin/Website/Website.action";
 import { BsFillEyeFill } from "react-icons/bs";
 import { AiFillEdit } from "react-icons/ai";
 import PaginationBox from "../Extra/Pagination";
@@ -40,14 +39,14 @@ const EmployeeCar  = () => {
   const navigate = useNavigate();
   const toast = useToast();
 
-  let { Vendor_detail, token } = useSelector(
-    (store) => store?.VendorAuthManager
+  let { Employee_detail, token } = useSelector(
+    (store) => store?.EmployeeAuthManager
   );
-  const vendor =
-    Vendor_detail ||
-    JSON.parse(localStorage.getItem("vendor_detail_carvendor"));
-  let vendortoken =
-    token || JSON.parse(localStorage.getItem("vendor_token_carvendor"));
+  const employee =
+  Employee_detail ||
+    JSON.parse(localStorage.getItem("employee_detail_carvendor"));
+  let employeetoken =
+    token || JSON.parse(localStorage.getItem("employee_token_carvendor"));
 
   const [page, setPage] = useState(1);
   const [sortby, setsortby] = useState("");
@@ -60,7 +59,7 @@ const EmployeeCar  = () => {
     (state) => state?.CarManager
   );
   const [VendorCars, setVendorCars] = useState([]);
-  console.log(VendorCars);
+ 
   const {
     isOpen: isViewOpen,
     onOpen: onViewOpen,
@@ -77,25 +76,25 @@ const EmployeeCar  = () => {
   const getData = () => {
     let data = { sortby };
     dispatch(
-      getCarsByVendorID(
-        Vendor_detail?._id,
+      getAllCarsByEmployeeID(
+        Employee_detail?._id,
         page,
         data,
         setVendorCars,
-        vendortoken
+        employeetoken
       )
     );
   };
-
+ 
   useEffect(() => {
     getData();
   }, [page, sortby]);
 
   const DeleteCarById = (id) => {
-    dispatch(DeleteCarByID(id, toast, getData, vendortoken));
+    dispatch(DeleteCarByID(id, toast, getData, employeetoken));
   };
   const GetCarByID = (id) => {
-    dispatch(getCarByID(id, toast, setViewSingleCar, vendortoken));
+    dispatch(getCarByID(id, toast, setViewSingleCar, employeetoken));
     onViewOpen();
   };
   const refreshAll = (e) => {
@@ -160,16 +159,7 @@ const EmployeeCar  = () => {
             <FiRefreshCcw />
           </Button>
         </HStack>
-        <Link to="/vendor/cars/add-car">
-          <Button
-          bg="#30829c"
-            colorScheme="blue"
-            variant={"solid"}
-            rightIcon={<FiPlusCircle />}
-          >
-            Add car
-          </Button>
-        </Link>
+       
       </HStack>
       <TableContainer
         position={"relative"}
@@ -190,7 +180,7 @@ const EmployeeCar  = () => {
               <Th sx={headCellStyle}>Image</Th>
               <Th sx={headCellStyle}>Car details</Th>
               <Th sx={headCellStyle}>Vendor detail</Th>
-              <Th sx={headCellStyle}>Location</Th>
+             
               <Th sx={headCellStyle}>Description</Th>
 
               <Th sx={headCellStyle}>Status</Th>
@@ -221,20 +211,20 @@ const EmployeeCar  = () => {
                     </Td>
                     <Td sx={cellStyle}>
                       <div>
-                        <b>Car Name : {row?.name?.name}</b>
+                        <b>Car Name : {row?.cname}</b>
                       </div>
                       <div>
-                        <b>Model : {row?.model?.name}</b>
+                        <b>Model : {row?.cmodel}</b>
                       </div>
                       <div>
-                        <b>Brand : {row?.make?.name}</b>
+                        <b>Brand : {row?.cmake}</b>
                       </div>
                       <div>Registered Year : {row?.regYear}</div>
                       <div>Ownership : {row?.ownership}</div>
                     </Td>
                     <Td sx={cellStyle}>
                       <div>
-                        <b>{row?.vendorID?.vendor_code}</b>
+                        <b>{row?.vendorID}</b>
                       </div>
                       <div>
                         <b>{row?.vendorID?.vendor_name}</b>
@@ -242,21 +232,13 @@ const EmployeeCar  = () => {
                       <div>{row?.vendorID?.email}</div>
                       <div>{row?.vendorID?.mobile_number}</div>
                     </Td>
-                    <Td sx={cellStyle}>
-                      <Flex flexWrap={"wrap"} width={"250px"} gap={"1"}>
-                        {row?.location?.map((el) => (
-                          <Text key={el._id} variant="solid" colorScheme="blue">
-                            {el.name},
-                          </Text>
-                        ))}
-                      </Flex>
-                    </Td>
+                    
                     <Td sx={cellStyle}>
                       <Flex alignItems={"center"} gap={"1"}>
                         <Text>
                           <b>Color : </b>
                         </Text>
-                        <Tag size={"sm"} bg={row?.color?.code}></Tag> <br />
+                        <Tag size={"sm"} bg={row?.ccolor}></Tag> <br />
                       </Flex>
 
                       <Text>

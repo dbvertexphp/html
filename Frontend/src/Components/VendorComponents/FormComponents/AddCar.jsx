@@ -912,6 +912,7 @@ const AddCar = () => {
                     })}
                   </Select>
                   <Button
+                   bg="#30829c"
                     leftIcon={<FiPlusSquare />}
                     colorScheme="blue"
                     onClick={handlefeatures}
@@ -967,6 +968,7 @@ const AddCar = () => {
                     })}
                   </Select>
                   <Button
+                   bg="#30829c"
                     leftIcon={<FiPlusSquare />}
                     colorScheme="blue"
                     onClick={handleSafetyFeatures}
@@ -1110,6 +1112,7 @@ const AddCar = () => {
                       />
                     )}
                     <Button
+                     bg="#30829c"
                       leftIcon={<FiPlusSquare />}
                       colorScheme={"blue"}
                       onClick={handleAddDocument}
@@ -1135,6 +1138,7 @@ const AddCar = () => {
                           p={"2"}
                         >
                           <Button
+                          
                             onClick={onOpen}
                             borderTopRightRadius={"0px"}
                             borderBottomRightRadius={"0px"}
@@ -1178,6 +1182,7 @@ const AddCar = () => {
                       })}
                   </Select>
                   <Button
+                   bg="#30829c"
                     leftIcon={<FiPlusSquare />}
                     colorScheme={"blue"}
                     onClick={handleLocation}
@@ -1243,6 +1248,7 @@ const AddCar = () => {
             </Button>
           </Link>
           <Button
+           bg="#30829c"
             colorScheme="blue"
             m="10px"
             isLoading={isCarLoading}

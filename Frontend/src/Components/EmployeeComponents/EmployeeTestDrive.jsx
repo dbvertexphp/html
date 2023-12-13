@@ -31,8 +31,11 @@ import {
   import { FiEdit3, FiRefreshCcw } from "react-icons/fi";
   import { useDispatch, useSelector } from "react-redux";
   import { Link, useNavigate } from "react-router-dom";
-  import {getAllCarsByEmployeeID,} from "../../Redux/App/Actions/Admin/Website/Website.action";
-  import { BsFillEyeFill } from "react-icons/bs";
+  import {
+    getCarByID,
+    getAllTestdriveByEmployeeID,
+  } from "../../Redux/App/Actions/Admin/Website/Website.action"; 
+   import { BsFillEyeFill } from "react-icons/bs";
   import { getVendors } from "../../Redux/App/Actions/Vendor.action";
   import { getTestDrivesCarIds } from "../../Redux/App/Actions/TestDrive.action";
   import ViewSingleCarModal from "../Extra/ViewSingleCarModal";
@@ -64,8 +67,8 @@ import {
   const { totalCars, loading, error } = useSelector(
     (state) => state?.VendorManager
   );
-  const [Cars, setCars] = useState([]);
-  console.log( Cars);
+  const [testDrives, setCars] = useState([]);
+
   
   const {
     isOpen: isViewOpen,
@@ -84,7 +87,7 @@ import {
      
     let data = { sortby };
    
-    dispatch(getAllCarsByEmployeeID(Employee_detail?._id, page, data, setCars, employeetoken));
+    dispatch(getAllTestdriveByEmployeeID(Employee_detail?._id, page, data, setCars, employeetoken));
    
  
 };
@@ -113,28 +116,7 @@ useEffect(() => {
         >
          Testdrive
         </Text>
-        <HStack
-          py={"10px"}
-          justifyContent={"space-between"}
-          alignContent={"center"}
-        >
-          
-          <Spacer />
-          <Text display={{ base: "none", md: "flex" }}>SORT BY:</Text>
-         
-  
-          <Button
-             bg="#30829c"
-             color="white"
-            variant={"solid"}
-            onClick={() => {
-              refreshAll();
-              return;
-            }}
-          >
-            Refresh
-          </Button>
-        </HStack>
+      
         <TableContainer
           position={"relative"}
           my={"10px"}
@@ -143,151 +125,116 @@ useEffect(() => {
           backgroundColor={"white"}
           // borderRadius={"5px"}
         >
-          <Table size={"sm"} variant="striped" border={"1px solid #ddd"}>
+          <Table variant="striped" size={"sm"}>
             <Thead
               backgroundColor={"white"}
               position={"sticky"}
               top="0"
-              border={"1px solid white"}
+              zIndex={"3"}
             >
               <Tr>
-                <Th sx={headCellStyle}> Sr. no</Th>
-  
-                <Th sx={headCellStyle}>Image</Th>
-                <Th sx={headCellStyle}>Car details</Th>
-                <Th sx={headCellStyle}>Vendor detail</Th>
-                <Th sx={headCellStyle}>Location</Th>
-                <Th sx={headCellStyle}>Description</Th>
-                <Th sx={headCellStyle}>Featured in</Th>
-  
-                <Th sx={headCellStyle}>Status/Action</Th>
+                <Th sx={headCellStyle}>Sr. no</Th>
+            
+                <Th sx={headCellStyle}>Car Details</Th>
+                <Th sx={headCellStyle}>Customer Details</Th>
+                <Th sx={headCellStyle}>Vendor Details</Th>
+                <Th sx={headCellStyle}>Payment Details</Th>
+                <Th sx={headCellStyle}>Status</Th>
+                {/* <Th sx={headCellStyle}>Actions</Th> */}
               </Tr>
             </Thead>
             <Tbody>
-          
               {loading ? (
                 <TableLoader />
-              ) : Cars && Cars?.length > 0 ? (
-                
-                Cars?.map((row, index) => {
+              ) : testDrives?.length > 0 ? (
+                testDrives?.map((item, index) => {
+                  console.log(item);
                   return (
-                    <Tr key={row?._id}>
-                      <Td sx={{ ...cellStyle, textAlign: "center" }}>
+                    <Tr key={item._id}>
+                      <Td sx={cellStyle} style={{ textAlign: "center" }}>
                         {index + startingSerialNumber}
                       </Td>
-                      <Td sx={cellStyle}>
-                        <Image
-                          src={row.primary_image}
-                          w={{ base: "60px", md: "200px" }}
-                          h={{ base: "40px", md: "100px" }}
-                          objectFit={"cover"}
-                          objectPosition={"center"}
-                        />
-                      </Td>
+                     
                       <Td sx={{ ...cellStyle, paddingLeft: "8px" }}>
                         <div>
-                          <b>Car Name : {row?.name?.name}</b>
+                          Booking : <b> {item?.booking_code}</b>
                         </div>
                         <div>
-                          <b>Model : {row?.model?.name}</b>
+                          Car Name :<b> {item.car_id?.name?.name}</b>
                         </div>
                         <div>
-                          <b>Brand : {row?.make?.name}</b>
+                          Model :<b> {item.car_id?.model?.name}</b>
                         </div>
-                        <div>Registered Year : {row?.regYear}</div>
-                        <div>Ownership : {row?.ownership}</div>
+                        <div>
+                          Brand :<b> {item.car_id?.make?.name}</b>
+                        </div>
+                        <div>
+                          Registered Year :<b>{item.car_id?.regYear}</b>{" "}
+                        </div>
+                        <div>
+                          Ownership :<b> {item.car_id?.ownership}</b>
+                        </div>
                       </Td>
-                     
-                      <Td sx={cellStyle} w={"180px"}>
-                       
+
+                      <Td sx={cellStyle}>
+                        <div>
+                          <b>{item?.customer_id?.customer_code}</b>
+                        </div>
+                        <div>
+                          <b>
+                            {item?.name}
+                          </b>
+                        </div>
+                        <div>{item?.email}</div>
+                        <div>{item?.phone_number}</div>
                       </Td>
                       <Td sx={cellStyle}>
-                       
-                        <Text>
-                          <b>Price : ₹ {row?.price}</b>
-                        </Text>
-                      
+                        <div>
+                          <b>{item?.vendor_id?.vendor_code}</b>
+                        </div>
+                        <div>
+                          <b>{item?.vendor_id?.vendor_name}</b>
+                        </div>
+                        <div>{item?.vendor_id?.email}</div>
+                        <div>{item?.vendor_id?.mobile_number}</div>
+                      </Td>
+
+                      <Td sx={cellStyle}>
+                        <div>
+                          <b>Total Amount : 500 </b>
+                        </div>
                       </Td>
                       <Td sx={cellStyle}>
-                        {/* <Box display={"flex"} flexDirection={"column"} w={"100%"}> */}
-                        
-                        {/* <Flex flexWrap={"wrap"} width={"210px"} gap={"1"}>
-                            {row?.trending_car == 1 && (
-                              <Tag
-                                sx={tagsStyle}
-                                size={"sm"}
-                                variant="solid"
-                                colorScheme="teal"
-                                onClick={() =>
-                                  handleFeaturedInDelete(row?._id, "trending_car")
-                                }
-                                style={{ cursor: "pointer" }}
-                              >
-                                Trending
-                              </Tag>
-                            )}
-                            {row?.upcoming_car == 1 && (
-                              <Tag
-                                sx={tagsStyle}
-                                size={"sm"}
-                                variant="solid"
-                                colorScheme="teal"
-                                onClick={() =>
-                                  handleFeaturedInDelete(row?._id, "upcoming_car")
-                                }
-                                style={{ cursor: "pointer" }}
-                              >
-                                Upcoming
-                              </Tag>
-                            )}
-                            {row?.featured_car == 1 && (
-                              <Tag
-                                sx={tagsStyle}
-                                size={"sm"}
-                                variant="solid"
-                                colorScheme="teal"
-                                onClick={() =>
-                                  handleFeaturedInDelete(row?._id, "featured_car")
-                                }
-                                style={{ cursor: "pointer" }}
-                              >
-                                Featured
-                              </Tag>
-                            )}
-                            {row?.hotdeal_car == 1 && (
-                              <Tag
-                                sx={tagsStyle}
-                                size={"sm"}
-                                variant="solid"
-                                colorScheme="teal"
-                                onClick={() =>
-                                  handleFeaturedInDelete(row?._id, "hotdeal_car")
-                                }
-                                style={{ cursor: "pointer" }}
-                              >
-                                Hot Deal
-                              </Tag>
-                            )}
-                          </Flex> */}
-                        {/* </Box> */}
-                      </Td>
-  
-                      <Td sx={{ ...cellStyle, textAlign: "center" }}>
-                        <Box display={"flex"} p={1}>
-                          
+                        <Box
+                          display={"flex"}
+                          justifyContent={"center"}
+                          ml={"-20px"}
+                        >
+                          <Button
+                            color={"white"}
+                            size={"xs"}
+                            variant={"ghost"}
+                            border={"1px solid"}
+                            bg={
+                              item.status === "approved"
+                                ? "green.500"
+                                : item.status === "pending"
+                                ? "orange.500"
+                                : "blue.500"
+                            }
+                          >
+                            {item.status.toUpperCase()}
+                          </Button>
                         </Box>
-  
-                        
                       </Td>
                     </Tr>
                   );
                 })
               ) : (
                 <Tr>
-                  <Td colSpan={"12"}>
-                    <center>
-                      <Text>No Cars Found dxfd</Text>
-                    </center>
+                  <Td colSpan={"15"}>
+                    {" "}
+                    <center>No Test Drives Found</center>
                   </Td>
                 </Tr>
               )}
