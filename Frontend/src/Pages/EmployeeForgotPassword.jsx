@@ -15,13 +15,13 @@ import {
   import { useDispatch, useSelector } from "react-redux";
   import { NavLink, useNavigate } from "react-router-dom";
   import logo from "../assets/Icons/logo.png";
-  import { loginEmployee } from "../Redux/Auth/Auth.action";
+  import { ForgotEmployee } from "../Redux/Auth/Auth.action";
   import { theme2 } from "../utils/colours";
   
-  export default function Login() {
+  export default function Forgot() {
     const [form, setForm] = useState({
       email: "",
-      password: "",
+      
     });
   
     const navigate = useNavigate();
@@ -38,7 +38,7 @@ import {
   
     const handleSubmit = (event) => {
       event.preventDefault();
-      dispatch(loginEmployee(form, navigate, toast));
+      dispatch(ForgotEmployee(form, navigate, toast));
     };
   
     return (
@@ -64,8 +64,8 @@ import {
                 objectFit={"cover"}
               />
             </NavLink>
-            <Heading>Employee</Heading>
-            <Heading fontSize={"2xl"}>Sign in to your account </Heading>
+          
+            <Heading fontSize={"2xl"}>Forgot Password </Heading>
             <form action="" onSubmit={handleSubmit}>
               <FormControl id="email">
                 <FormLabel>Email address</FormLabel>
@@ -78,27 +78,10 @@ import {
                   required
                 />
               </FormControl>
-              <FormControl id="password">
-                <FormLabel>Password</FormLabel>
-                <Input
-                  placeholder="Enter Password"
-                  type="password"
-                  value={form?.password}
-                  name="password"
-                  onChange={handleChange}
-                  required
-                />
-              </FormControl>
+            
               <br />
               <Stack spacing={6}>
-                <Stack
-                  direction={{ base: "column", sm: "row" }}
-                  align={"start"}
-                  justify={"space-between"}
-                >
-                  <Checkbox>Remember me</Checkbox>
-                  <Link color={"blue.500"} onClick={() => navigate("/forgot-password")}>Forgot password?</Link>
-                </Stack>
+               
                 <Button
                   bg={theme2}
                   color={"white"}
@@ -108,7 +91,7 @@ import {
                   type="submit"
                   isLoading={loading}
                 >
-                  Sign in
+                 Forgot
                 </Button>
               </Stack>
             </form>
@@ -118,4 +101,3 @@ import {
       </Stack>
     );
   }
-  

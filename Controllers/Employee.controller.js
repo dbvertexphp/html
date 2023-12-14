@@ -1,5 +1,6 @@
 const SetDatesFilter = require("../Config/SetDatesFilter");
 const bcrypt = require("bcrypt");
+const crypto = require('crypto');
 const jwt = require("jsonwebtoken");
 const { getUniqueEmployeeCode } = require("../Middlewares/getUniqueCode");
 const EmployeeModel = require("../Models/EmployeeModel")
@@ -32,6 +33,29 @@ exports.EmployeeLogin = async (req, res) => {
     } catch (error) {
         console.log(error);
         return res.status(500).send({ message: error?.message || "Something went Wrong", error });
+    }
+};
+
+exports.employeeForgotPassword = async (req, res) => {
+
+    const { email } = req.body;
+
+    try {
+       
+    let vendor = await EmployeeModel.findOne({ email })
+    
+    if (!vendor) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    const new_password = crypto.randomBytes(3).toString('hex');
+    const hashedNewPassword = await bcrypt.hash(new_password, 10);
+   
+        SendMail({ recipientEmail: email, subject: "Password Changed", html: PasswordChangedEmail("Employee", vendor, new_password) })
+        await EmployeeModel.updateOne({ _id: vendor._id }, { password: hashedNewPassword });
+        res.status(200).json({ message: "Password changed successfully" });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: error?.message || "Something went wrong", error });
     }
 };
 

@@ -97,7 +97,7 @@ export default function Login() {
                 justify={"space-between"}
               >
                 <Checkbox>Remember me</Checkbox>
-                <Link color={"blue.500"}>Forgot password?</Link>
+                <Link color={"blue.500"} onClick={() => navigate("/forgot-password")} >Forgot password?</Link>
               </Stack>
               <Button
                 bg={theme2}

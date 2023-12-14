@@ -1,6 +1,7 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import Login from "../Pages/Login";
 import VendorLogin from "../Pages/VendorLogin";
+import VendorForgotPassword from "../Pages/VendorForgotPassword";
 import EmployeeLogin from "../Pages/EmployeeLogin";
 import VendorDashboard from "../Pages/VendorDashboard";
 import EmployeeDashboard from "../Pages/EmployeeDashboard";
@@ -152,6 +153,7 @@ const AllRoutes = () => {
       />
 
       <Route path="/vendor-login" element={<VendorLogin />} />
+      <Route path="/forgot-password" element={<VendorForgotPassword />} />
       <Route
         path="/vendor/*"
         element={

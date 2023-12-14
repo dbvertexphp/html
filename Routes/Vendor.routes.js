@@ -1,4 +1,4 @@
-const { getAllVendors, addVendor, VendorLogin, getVendorByID, UpdateVendorByID, vendorChangePassword, DeleteVendorByID, getAllVendorNames} = require("../Controllers/Vendor.controller");
+const { getAllVendors, addVendor, VendorLogin, getVendorByID, UpdateVendorByID, vendorForgotPassword,vendorChangePassword, DeleteVendorByID, getAllVendorNames} = require("../Controllers/Vendor.controller");
 const Authentication = require("../Middlewares/Authentication.middleware");
 const Authorization = require("../Middlewares/Authorization.middleware");
 
@@ -14,6 +14,8 @@ VendorRouter.get("/get-vendor/:id", Authentication, Authorization(["Admin", "Ven
 
 VendorRouter.patch("/update/:id", Authentication, Authorization(["Admin", "Vendor","Employee"]), UpdateVendorByID);
 VendorRouter.patch("/change-pass/:id", Authentication, Authorization(["Admin", "Vendor"]), vendorChangePassword);
+VendorRouter.post("/forgot-pass", vendorForgotPassword);
+
 
 VendorRouter.delete("/delete/:id", Authentication, Authorization(["Admin", "Vendor"]), DeleteVendorByID);
 

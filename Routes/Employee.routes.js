@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { getAllEmployees, getEmployeeByID,EmployeeLogin, addEmployee, updateEmployeeByID, deleteEmployeeByID, getEmployeeList ,employeeChangePassword} = require("../Controllers/Employee.controller");
+const { getAllEmployees, getEmployeeByID,EmployeeLogin, addEmployee, employeeForgotPassword,updateEmployeeByID, deleteEmployeeByID, getEmployeeList ,employeeChangePassword} = require("../Controllers/Employee.controller");
 const Authentication = require("../Middlewares/Authentication.middleware");
 const Authorization = require("../Middlewares/Authorization.middleware");
 
@@ -7,6 +7,8 @@ const EmployeeRouter = Router();
 
 EmployeeRouter.get("/", (req, res) => res.status(200).send("Welcome to Employee Route"));
 EmployeeRouter.post("/login", EmployeeLogin);
+EmployeeRouter.post("/forgot-pass", employeeForgotPassword);
+
 EmployeeRouter.get("/get-all-employees-list", getEmployeeList);
 EmployeeRouter.get("/get-all-employees", Authentication, Authorization(["Admin", "Vendor"]), getAllEmployees);
 EmployeeRouter.get("/get-employee/:id", Authentication, Authorization(["Admin", "Vendor"]), getEmployeeByID);

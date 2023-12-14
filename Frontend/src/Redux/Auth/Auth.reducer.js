@@ -8,7 +8,7 @@ const UserInitState = {
     error: false,
 };
 const VendorInitState = {
-    token: JSON.parse(localStorage.getItem("vendor_token_carvendor")),
+    token: JSON.parse(localStorage.getItem("vendor_token_carvendor"))|| null,
     isAuth: JSON.parse(localStorage.getItem("vendor_token_carvendor")) ? true : false,
     Vendor_detail: JSON.parse(localStorage.getItem("vendor_detail_carvendor")) || null,
     loading: false,

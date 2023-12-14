@@ -1,6 +1,7 @@
 const VendorModel = require("../Models/Vendor.model");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const crypto = require('crypto');
 const { getUniqueVendorCode } = require("../Middlewares/getUniqueCode");
 const SendMail = require("../Config/Sendmail");
 const { PasswordChangedEmail } = require("../Email/PasswordChange");
@@ -149,6 +150,29 @@ exports.vendorChangePassword = async (req, res) => {
         return res.status(500).json({ message: error?.message || "Something went wrong", error });
     }
 };
+
+exports.vendorForgotPassword = async (req, res) => {
+
+    const { email } = req.body;
+
+    try {
+       
+    let vendor = await VendorModel.findOne({ email })
+    
+    if (!vendor) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    const new_password = crypto.randomBytes(3).toString('hex');
+    const hashedNewPassword = await bcrypt.hash(new_password, 10);
+        SendMail({ recipientEmail: email, subject: "Password Changed", html: PasswordChangedEmail("vendor", vendor, new_password) })
+        await VendorModel.updateOne({ _id: vendor._id }, { password: hashedNewPassword });
+        res.status(200).json({ message: "Password changed successfully" });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: error?.message || "Something went wrong", error });
+    }
+};
+
 exports.UpdateVendorByID = async (req, res) => {
     let id = req?.params?.id
     let payload = req.body
