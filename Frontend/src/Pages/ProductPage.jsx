@@ -76,7 +76,7 @@ import { Form, useNavigate, useParams } from "react-router-dom";
 import InputUpload from "../Components/Extra/InputUpload";
 import GallerySlider from "../Components/WebsiteComponents/GallerySlider";
 import ImageModal from "../Components/WebsiteComponents/ImageModal";
-import SliderComponent from "../Components/WebsiteComponents/SliderComponent";
+import DetailSliderComponent from "../Components/WebsiteComponents/DetailSliderComponent";
 import {
   getTestDrivesByCarID,
   postTestDrive,
@@ -411,7 +411,16 @@ export default function ProductPage() {
 
   return (
     <>
-     <Carousel />
+    <Card shadow="none" mx={{ base: '5', md: '5' }} my={{ base: '5', md: '5' }} >
+       
+          <Heading textAlign={'center'} size="lg" >
+              {' '}
+              What are you looking for today?
+            </Heading>
+      </Card>
+      <Box w="100%" bg="#D7F2F8" mb="20px">
+            <Text p="3">Homepage / Car  </Text>
+      </Box>
       {/**<!--*------- <Mobile View> ----------->*/}
       {!isOneCarLoading ? (
         <Card
@@ -571,8 +580,35 @@ export default function ProductPage() {
         mx={{ base: "3", md: "25px" }}
         p={{ md: "10" }}
         gap={{ base: "5", md: "10" }}
+        boxShadow=" 0px 4px 4px 0px rgba(0, 0, 0, 0.25)"
+        borderRadius="39px"
+        background="#F7FCFE" 
       >
-        <GridItem border=" 1px solid #1097B1 " borderRadius="20px" colSpan={{ base: "8", md: "4" }}>
+        <GridItem background="#fff"  border=" 1px solid #1097B1 " borderRadius="20px" colSpan={{ base: "8", md: "4" }}>
+       
+          <Flex
+                align={"center"}
+                fontWeight={"semibold"}
+                fontSize={"12"}
+                justifyContent="space-around"
+              >
+                <Flex align={"center"} color={"#1097B1"}  fontSize={"30"} gap={{ base: "1", md: "2" }}>
+                  
+                  {data?.name?.name}
+                </Flex>
+                <Flex align={"center"} color={"#1097B1"} fontSize={"30"} gap={{ base: "1", md: "1" }}>
+                  
+                  ₹ {IndianNumberSystem(data?.price)}
+                </Flex>
+                <Flex align={"center"} gap={{ base: "1", md: "1" }}>
+                  <BsGear />
+                 Share
+                </Flex>
+                <Flex align={"center"} gap={{ base: "1", md: "1" }}>
+                  <BsPerson />
+                  Report
+                </Flex>
+              </Flex>
           <Card w="100%" p="2">
             {!isOneCarLoading ? (
               <Flex align={"stretch"} gap="2">
@@ -667,13 +703,12 @@ export default function ProductPage() {
          
         </GridItem>
 
-        <GridItem border=" 1px solid #1097B1 " borderRadius="20px" colSpan={{ base: "8", md: "4" }} order={{ base: 2, md: 1 }}>
+        <GridItem  colSpan={{ base: "8", md: "4" }} order={{ base: 2, md: 1 }}>
           {!isOneCarLoading ? (
-            <Card
-              display={{ base: "none", md: "flex" }}
+            <Card border=" 1px solid #1097B1 " borderRadius="20px" mb={3}
+             
               p="5"
-              position={{ md: "sticky" }}
-              top={{ md: "55px" }}
+             
             >
               <VStack
                 display={"flex"}
@@ -681,9 +716,7 @@ export default function ProductPage() {
                 gap={"0"}
                 alignItems={"center"}
               >
-                <Text fontWeight={"bold"} fontSize={"24"} w="full">
-                  {data?.name?.name}
-                </Text>
+               
                 <Text fontWeight={"semibold"} fontSize={"15"} w="full">
                   {data?.make?.name}, {data?.model?.name}{" "}
                 </Text>
@@ -693,9 +726,7 @@ export default function ProductPage() {
 
                 {data?.location?.map((el) => el.name).join(", ")}
               </Flex>
-              <Text fontSize={"26"} mb="5" fontWeight={"bold"}>
-                ₹ {IndianNumberSystem(data?.price)}
-              </Text>
+             
               <Text mb="5" textAlign={"justify"}>
                 {data?.short_description}
               </Text>
@@ -722,12 +753,42 @@ export default function ProductPage() {
                   {data?.color?.name}
                 </Text>
               </Flex>
+             
+             
+             
+                  
+                    <Text  fontSize={"14"} mb="5">
+                      Description
+                    </Text>
+                    <Text fontSize={"14"}>{data?.description}</Text>
+                  </Card>
+               
+
+                
+             
+            
+            
+        
+            
+          ) : (
+            <Spinner
+              m="20"
+              thickness="4px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="blue.500"
+              size="xl"
+            />
+          )}
+           <Card border=" 1px solid #1097B1 " borderRadius="20px" p="5">
+             
+            
               {!isOneCarLoading ? (
-            <Tabs variant="line" colorScheme="blue" mt="10" isLazy>
+            <Tabs variant="line" colorScheme="blue"  isLazy>
               <TabList bg="white">
                 <Tab w="25%">Overview</Tab>
                 <Tab w="25%">Features</Tab>
-                <Tab w="25%">Description</Tab>
+              
                 <Tab w="25%" ref={galleryRef}>
                   Gallery
                 </Tab>
@@ -987,15 +1048,6 @@ export default function ProductPage() {
                 <TabPanel>
                   <Card w="100%" p="5">
                     <Text fontWeight={"bold"} fontSize={"22"} mb="5">
-                      Description
-                    </Text>
-                    <Text>{data?.description}</Text>
-                  </Card>
-                </TabPanel>
-
-                <TabPanel>
-                  <Card w="100%" p="5">
-                    <Text fontWeight={"bold"} fontSize={"22"} mb="5">
                       Gallery
                     </Text>
                     <SimpleGrid columns={3} spacing={2}>
@@ -1020,71 +1072,7 @@ export default function ProductPage() {
           ) : (
             <SkeletonText mt="10" noOfLines={"8"} />
           )}
-              {!loading &&
-                data?.booking_status !== "booked" &&
-                data?.booking_status !== "sold" && (
-                  <>
-                    {CanUserBookNow() ? (
-                      <>
-                        <Alert status="success">
-                          <AlertIcon />
-                          <AlertTitle>Your test drive was approved!</AlertTitle>
-                        </Alert>
-                        <Button
-                      colorScheme="green"
-                      ml="1"
-                      my={2}
-                      rightIcon={<BsBookmarkCheck />}
-                      onClick={HandleBookNowFn}
-                    >
-                      Book Now
-                    </Button>
-                      </>
-                    ) : CanUserBookTestDrive() ? (
-                      <div>
-                      <Button
-                        color="white"
-                        bg="#30829c"
-                        colorScheme="teal"
-                        leftIcon={<BsCarFrontFill />}
-                        onClick={openModal}
-                        isLoading={loading}
-                      >
-                        Book Test Drives
-                      </Button>
-                      <Button
-                      colorScheme="green"
-                      ml="1"
-                      my={2}
-                      rightIcon={<BsBookmarkCheck />}
-                      onClick={HandleBookNowFn}
-                    >
-                      Book Now
-                    </Button>
-                    </div>
-                      
-                    ) : (
-                      <>
-                      <Alert status="warning">
-                        <AlertIcon />
-                        <AlertTitle fontSize={"15px"} fontWeight={"500"}>
-                          You have booked a test drive for this car. <br />{" "}
-                          Please wait for its approval.
-                        </AlertTitle>
-                      </Alert>
-                      <Button
-                      colorScheme="green"
-                      ml="1"
-                      my={2}
-                      rightIcon={<BsBookmarkCheck />}
-                      onClick={HandleBookNowFn}
-                    >
-                      Book Now
-                    </Button>
-                    </>
-                    )}
-                  </>
-                )}
+              
               {data?.booking_status == "booked" &&
                 data?.booking_status !== "sold" &&
                 IsUserTheOneWhoBookedCar() && (
@@ -1135,19 +1123,26 @@ export default function ProductPage() {
                 </>
               )}
             </Card>
-          ) : (
-            <Spinner
-              m="20"
-              thickness="4px"
-              speed="0.65s"
-              emptyColor="gray.200"
-              color="blue.500"
-              size="xl"
-            />
-          )}
         </GridItem>
+        
       </Grid>
 
+
+
+
+
+
+
+      
+      <Box w="100%" mt="20px">
+                  <Image //Main Image
+                    src="/src/assets/Icons/image 27.png"
+                    w="full"
+                    objectFit="cover"
+                    cursor="pointer"
+                    
+                  />
+                </Box>
       <Card mx={{ base: "5", md: "10" }} mt="5" mb="20">
         <CardHeader>
           <Flex align={"center"} justify={"space-between"}>
@@ -1160,10 +1155,11 @@ export default function ProductPage() {
               }}
             >
               View All Cars
+              
             </Text>
           </Flex>
         </CardHeader>
-        <SliderComponent data={similarCars} />
+        <DetailSliderComponent data={similarCars} />
       </Card>
 
       {/*====================== Image Modal=================== */}
@@ -1569,3 +1565,11 @@ const TimeSlots = [
   "5:00 PM - 7:00 PM",
   "7:00 PM - 9:00 PM",
 ];
+
+
+
+
+
+
+ 
+            

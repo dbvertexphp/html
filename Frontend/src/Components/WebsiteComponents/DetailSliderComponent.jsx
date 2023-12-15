@@ -3,7 +3,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { Box, useBreakpointValue, IconButton, Card } from "@chakra-ui/react";
 import { Skeleton, SkeletonText } from "@chakra-ui/react";
 
-import ItemCard from "./ItemCard";
+import DetailItemCard from "./DetailItemCard";
 import { useState } from "react";
 import SkeletonCard from "../Extra/SkeletonCard";
 
@@ -38,7 +38,7 @@ const settings = {
   ],
 };
 
-const SliderComponent = ({ data }) => {
+const DetailSliderComponent = ({ data }) => {
   const [slider, setSlider] = useState();
 
   const top = useBreakpointValue({ base: "50%", md: "50%" });
@@ -48,39 +48,12 @@ const SliderComponent = ({ data }) => {
   return (
     <Box position={"relative"} width={"full"} overflow={"hidden"}>
     
-      <IconButton
-        aria-label="left-arrow"
-        position="absolute"
-        borderRadius="50%"
-        left={side}
-        top={top}
-        transform={"translate(0%, -50%)"}
-        zIndex={2}
-        onClick={() => slider?.slickPrev()}
-      >
-        <ChevronLeftIcon />
-      </IconButton>
-      <IconButton
-        aria-label="right-arrow"
-        position="absolute"
-        borderRadius="50%"
-        right={side}
-        top={top}
-        transform={"translate(0%, -50%)"}
-        zIndex={2}
-        onClick={() => slider?.slickNext()}
-      >
-        <ChevronRightIcon />
-      </IconButton>
-      <Slider {...settings} ref={(slider) => setSlider(slider)}>
-        {data.length == 0 &&
-          [1, 2, 3, 4].map((index) => {
-            return <SkeletonCard key={index + "fgd"} />;
-          })}
+     
+      
 
         {data.length !== 0 &&
           data?.map((card, index) => (
-            <ItemCard
+            <DetailItemCard
               key={card?._id}
               name={card?.cname}
               price={card?.price}
@@ -93,9 +66,9 @@ const SliderComponent = ({ data }) => {
               booking_status={card.booking_status}
             />
           ))}
-      </Slider>
+     
     </Box>
   );
 };
 
-export default SliderComponent;
+export default DetailSliderComponent;

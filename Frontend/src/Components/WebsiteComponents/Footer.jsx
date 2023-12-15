@@ -9,6 +9,7 @@ import {
   Image,
   Stack,
   Text,
+  Button,
 } from "@chakra-ui/react";
 import facebook from "../../assets/Icons/facebook.png";
 import insta from "../../assets/Icons/insta.png";
@@ -76,10 +77,12 @@ export default function Footer() {
             </HStack>
           </Stack>
         </GridItem>
-        <GridItem colSpan={{ base: "11", sm: "5", md: "2" }}>
+        <GridItem colSpan={{ base: "11", sm: "5", md: "3" }}>
           <Stack>
-          <Input bg="#fff" type="text"  placeholder="Enter Your Email Id" />
-
+            <Flex>
+          <Input bg="#fff" borderRadius="none" type="text"  placeholder="Enter Your Email Id" />
+          <Button borderRadius="none" bg="#10255A" colorScheme="blue">send</Button>
+        </Flex>
           </Stack>
         </GridItem>
        
@@ -115,6 +118,7 @@ export default function Footer() {
            <Link to={"/terms-conditions"}>Terms and Conditions</Link>
          </Stack>
        </GridItem>
+
        <GridItem colSpan={{ base: "11", sm: "5", md: "3" }}>
          <Stack>
            <Heading size="md">CONTACT INFO</Heading>
@@ -124,6 +128,43 @@ export default function Footer() {
             
              <Link to={"/vendor-register"}>We are thrilled to share with you very valuable vehicle related information for free. Sign up to our newsletter to get yourself in the exclusive list.</Link>  
              
+          
+         </Stack>
+       </GridItem>
+      
+     </Grid>
+   </Box>
+   <Box bg="#1097B1" color="#fff">
+     <Grid
+       templateColumns="repeat(11, 1fr)"
+       mx="5"
+       p="10"
+       gap={{ base: "5", md: "20" }}
+       spacing="2"
+     >
+       
+       <GridItem colSpan={{ base: "11", sm: "6", md: "4" }}>
+      
+       </GridItem>
+      
+       <GridItem colSpan={{ base: "11", sm: "5", md: "1" }}>
+         <Stack>
+         <Link to={"/terms-conditions"}>Terms</Link>
+         </Stack>
+       </GridItem>
+       <GridItem colSpan={{ base: "11", sm: "5", md: "1" }}>
+         <Stack>
+         <Link to={"/terms-conditions"}>Privacy</Link>
+         </Stack>
+       </GridItem>
+       <GridItem colSpan={{ base: "11", sm: "5", md: "1" }}>
+         <Stack>
+         <Link to={"/terms-conditions"}>Cookies</Link>
+         </Stack>
+       </GridItem>
+       <GridItem colSpan={{ base: "11", sm: "5", md: "2" }}>
+         <Stack>
+           
           
          </Stack>
        </GridItem>

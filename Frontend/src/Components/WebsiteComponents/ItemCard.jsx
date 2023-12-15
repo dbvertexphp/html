@@ -89,7 +89,7 @@ function ItemCard(props) {
            
            
           </Box>
-          <Flex justify={'space-evenly'} gap="1" mb="10" mx="5" fontSize={14} className="home_page_car_details">
+          <Flex justify={'space-evenly'} gap="1" mb="8" mx="5" fontSize={14} className="home_page_car_details">
             <Stack>
               <Text textAlign={'center'} textTransform="uppercase">
                 REG. YEAR

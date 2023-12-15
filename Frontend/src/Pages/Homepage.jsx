@@ -32,27 +32,13 @@ export default function Homepage() {
     <>
       <Carousel />
 
-      <Card border="0px" background="#F5F4F9" mb={{ base: '5', md: '10' }} pb="5">
-        <CardHeader>
-          <Heading size="lg"></Heading>
-        </CardHeader>
-        <BrandSliderComponent />
-      </Card>
+     
+
+     
 
       <Card shadow="none" mx={{ base: '5', md: '10' }} my={{ base: '5', md: '10' }} pb="5">
         <CardHeader>
           <Flex placeContent={'center'}>
-            <Heading textAlign={'center'} size="lg" className="know_more_compontent_heading">
-              Why buy from us ?
-            </Heading>
-          </Flex>
-        </CardHeader>
-        <BuyCard />
-      </Card>
-
-      <Card shadow="none" mx={{ base: '5', md: '10' }} my={{ base: '5', md: '10' }} pb="5">
-        <CardHeader>
-          <Flex placeContent={'center'} marginBottom={"100px"}>
             <Heading textAlign={'center'} size="lg" className="know_more_compontent_heading">
               {' '}
               Recently added cars
@@ -110,6 +96,25 @@ export default function Homepage() {
         <SliderComponent data={upcoming} />
       </Card> */}
 
+      
+
+      <Card border="0px" background="#F5F4F9" mb={{ base: '5', md: '10' }} pb="5">
+        <CardHeader>
+          <Heading size="lg"></Heading>
+        </CardHeader>
+        <BrandSliderComponent />
+      </Card>
+
+      <Card shadow="none" mx={{ base: '5', md: '10' }} my={{ base: '5', md: '10' }} pb="5">
+        <CardHeader>
+          <Flex placeContent={'center'}>
+            <Heading textAlign={'center'} size="lg" className="know_more_compontent_heading">
+              Why buy from us ?
+            </Heading>
+          </Flex>
+        </CardHeader>
+        <BuyCard />
+      </Card>
       <Card mx={{ base: '5', md: '10' }} mb={{ base: '5', md: '10' }} p="5">
       <CardHeader>
           <Flex placeContent={'center'}>

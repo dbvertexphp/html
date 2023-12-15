@@ -86,7 +86,7 @@ export default function Carousel() {
         </Slider>
       </Box>
 
-      <Box zIndex={1} left={{ base: '10px', md: '150px' }} marginBottom={'50px'} bottom={{ base: '40px', md: '120px' }}>
+      <Box zIndex={1} left={{ base: '10px', md: '150px' }}  bottom={{ base: '40px', md: '120px' }}>
         <Heading className="serach_heading" my="5">
           Select your car brand to get started
         </Heading>
