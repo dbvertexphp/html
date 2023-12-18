@@ -43,7 +43,7 @@ export default function Carousel() {
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
 
-        <Box zIndex={1} left={{ base: '15px', md: '60px' }} bottom={{ base: '10px', md: '350px' }} position={'absolute'}>
+        <Box zIndex={1} left={{ base: '15px', md: '60px' }} bottom={{ base: '10px', md: '150px' }} position={'absolute'}>
           <Heading fontWeight={'bold'} fontSize={'50'} color="White" whiteSpace="nowrap">
             find your dreams
           </Heading>
@@ -74,7 +74,7 @@ export default function Carousel() {
               <Box key={index} display="flex" justifyContent="center" alignItems="center" height="100%">
                 <Image
                   width="100%"
-                  h={{ base: '250px', md: '850px' }}
+                  h={{ base: '250px', md: '550px' }}
                   objectFit="cover"
                   objectPosition="center"
                   src={image}

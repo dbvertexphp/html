@@ -48,52 +48,54 @@ function DetailItemCard(props) {
 
 
           <Flex mt="2" fontSize="25" position="relative" marginTop="0px">
-          <Image zIndex={0} src={imageURL} p="5" roundedTop="lg" borderRadius="20px" roundedBottom="lg" w="400px" objectFit="cover" h={'265px'} maxW={'full'} />
+          <Box p="4">
+          <Image src={imageURL}  className="detail_page_car_name"   border="3px solid #1097B1" borderRadius="20px"  w="400px"  maxW={'full'} />
+          </Box>
           
-          
-          <Box p="5">
-            <Box className="home_page_car_name" fontSize="20" fontWeight="semibold" lineHeight="tight" isTruncated>
+          <Box pt="7">
+            <Box className="home_page_car_name" fontSize="25" fontWeight="semibold" lineHeight="tight" isTruncated>
               {name}
             </Box>
-            <Box className="home_page_car_name" fontSize="20" fontWeight="semibold" lineHeight="tight" isTruncated>
-            REG. YEAR {year.split('-')[0]}
-            </Box>
+          
            
            
             <Box  marginTop="10px" className="home_page_location"  display="flex" alignItems="center">
-            KILOMETERS
-  {km}
+            KILOMETERS : {km}
           </Box>
           <Box  marginTop="10px" className="home_page_location"  display="flex" alignItems="center">
-            REG. YEAR {year.split('-')[0]}
+          FUEL TYPE : {fuel}
+          </Box>
+          <Box  marginTop="10px" className="home_page_location"  display="flex" alignItems="center">
+            REG. YEAR : {year.split('-')[0]}
           </Box>
           <Box  marginTop="10px" className="home_page_location"  display="flex" alignItems="center">
             <GrLocation />
              Parsvnath City Mall, Faridabad
+
           </Box>
            
           </Box>
          
-          <Flex justifyContent={'center'} style={{ marginTop: '15px', marginBottom: '15px' }}>
+          <Box justifyContent={'center'} style={{ marginTop: '35px' }}>
          
-          <NavLink to={`/product/${_id}`}>
+         
           <Box fontSize="18"  mb="4">
           <Box>
              <FaRegHeart />
            </Box>
            </Box>
-           <Box fontSize="18" className="home_page_car_price" mb="4">
-              <Box as="span" fontSize="md">
+           <Box className="home_page_car_price" mb="5">
+              <Box as="span">
                 INR{' '}
               </Box>
               {IndianNumberSystem(price)}
             </Box>
-           
+            <NavLink to={`/product/${_id}`}>
             <Button style={{ backgroundColor: '#1097b1', color: '#fff' }} size="lg" className="more_details_home">
               More Details
             </Button>
             </NavLink>
-          </Flex>
+          </Box>
         </Flex>
 
           

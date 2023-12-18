@@ -1,5 +1,5 @@
 const UploadFunction = require("../Config/AWS-Upload");
-const { getDashboardData, getSales, getVendorDashboardDataByID,getEmployeeDashboardDataByID,getAllTestdriveByEmployeeID,getAllBookingByEmployeeID,getAllVendorsByEmployee ,getAllCarsByEmployeeID,getCarByID} = require("../Controllers/Test.controller");
+const { addWishlist, checkWishlist,getDashboardData, getSales, getVendorDashboardDataByID,getEmployeeDashboardDataByID,getAllTestdriveByEmployeeID,getAllBookingByEmployeeID,getAllVendorsByEmployee ,getAllCarsByEmployeeID,getCarByID} = require("../Controllers/Test.controller");
 const Authentication = require("../Middlewares/Authentication.middleware");
 const Authorization = require("../Middlewares/Authorization.middleware");
 const TestRouter = require("express").Router();
@@ -21,5 +21,7 @@ TestRouter.post("/upload-to-s3", UploadFunction.single("file"), (req, res) => {
     res.status(200).json({ message: 'File uploaded successfully', fileUrl });
 });
 
+TestRouter.post("/savewishlist", addWishlist);
+TestRouter.get("/checkisinwishlist", checkWishlist);
 
 module.exports = TestRouter;

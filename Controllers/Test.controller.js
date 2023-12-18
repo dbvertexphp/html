@@ -6,6 +6,8 @@ const TestDriveModel = require("../Models/TestDrive.model");
 const UserModel = require("../Models/User.model");
 const EmployeeModel = require("../Models/EmployeeModel");
 const TransactionModel = require("../Models/Transaction.model");
+const WishlistModel = require("../Models/Wishlist.model");
+
 
 exports.getDashboardData = async (req, res) => {
     try {
@@ -300,3 +302,40 @@ exports.getAllVendorsByEmployee = async (req, res) => {
       return res.status(500).send({ message: error?.message || "Something went Wrong", error });
     }
   };
+  exports.addWishlist = async (req, res) => {
+    let payload = req.body
+    let { carId, userId } = req.body
+    const test = { carId, userId}
+
+    for (const key in test) {
+        if (!test[key]) return res.status(401).json({ message: `Please Provide ${key}, Mandatory field missing: ${key}` })
+    }
+    try {
+       
+            const instance = new WishlistModel(payload)
+            await instance.save()
+            return res.status(200).json({ message: "Wishlist added Successfully", instance });
+       
+    } catch (error) {
+        console.log(error)
+        return res.status(500).send({ message: error?.message || "Something went wrong", error })
+    }
+}
+exports.checkWishlist = async (req, res) => {
+  try {
+    const car_id = req.params.carId;
+    const user_id = req.params.userId;
+
+    // Check if the item exists in the wishlist
+    const isInWishlist = await WishlistModel.findOne({ user_id, car_id });
+
+    if (isInWishlist) {
+      return res.status(200).json({ isInWishlist: true });
+    } else {
+      return res.status(200).json({ isInWishlist: false });
+    }
+  } catch (error) {
+    console.error('Error checking wishlist status:', error);
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+};

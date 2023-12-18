@@ -122,11 +122,11 @@ export const getAllCarsByEmployeeID = (id, page, data, setData , token) => (disp
         });
 };
 
-export const getAllBookingByEmployeeID = (id, page, data, setData , token) => (dispatch) => {
-    if (!page) page = 1
+export const checkisinwishlist = (id,carid, setData , token) => (dispatch) => {
+  
     dispatch({ type: WebsiteTypes.WEBSITE_GET_LOADING });
     axios
-        .get(`${BASE_URL}/api/test/get-all-booking-employee/${id}?page=${page}`,  {
+        .get(`${BASE_URL}/api/test/checkisinwishlist/${id}/${carid}`,  {
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`

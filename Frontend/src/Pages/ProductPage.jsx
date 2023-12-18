@@ -52,6 +52,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
+import banner from '../assets/Icons/image 27.png';
 import {
   BsBookmarkCheck,
   BsBuildingFill,
@@ -584,7 +585,7 @@ export default function ProductPage() {
         borderRadius="39px"
         background="#F7FCFE" 
       >
-        <GridItem background="#fff"  border=" 1px solid #1097B1 " borderRadius="20px" colSpan={{ base: "8", md: "4" }}>
+        <GridItem background="#fff"  border=" 1px solid #1097B1 " borderRadius="20px" colSpan={{ base: "7", md: "4" }}>
        
           <Flex
                 align={"center"}
@@ -703,7 +704,7 @@ export default function ProductPage() {
          
         </GridItem>
 
-        <GridItem  colSpan={{ base: "8", md: "4" }} order={{ base: 2, md: 1 }}>
+        <GridItem  colSpan={{ base: "7", md: "4" }} order={{ base: 2, md: 1 }}>
           {!isOneCarLoading ? (
             <Card border=" 1px solid #1097B1 " borderRadius="20px" mb={3}
              
@@ -762,15 +763,7 @@ export default function ProductPage() {
                     </Text>
                     <Text fontSize={"14"}>{data?.description}</Text>
                   </Card>
-               
-
-                
-             
-            
-            
-        
-            
-          ) : (
+                   ) : (
             <Spinner
               m="20"
               thickness="4px"
@@ -780,7 +773,9 @@ export default function ProductPage() {
               size="xl"
             />
           )}
-           <Card border=" 1px solid #1097B1 " borderRadius="20px" p="5">
+
+
+           <Card  border=" 1px solid #1097B1 " borderRadius="20px" p="5">
              
             
               {!isOneCarLoading ? (
@@ -796,7 +791,7 @@ export default function ProductPage() {
 
               <TabPanels w={"full"}>
                 <TabPanel>
-                  <Card w="100%" p="5">
+                  <Card w="100%" p="5" shadow="none">
                     <Text fontWeight={"bold"} fontSize={"22"} mb="5">
                       Car Overview
                     </Text>
@@ -1124,7 +1119,49 @@ export default function ProductPage() {
               )}
             </Card>
         </GridItem>
-        
+        <GridItem alignItems="center" colSpan={{ base: "7", md: "8" }} order={{ base: 3, md: 5 }}>
+        {/* ... (your existing code) */}
+
+        {!loading &&
+          data?.booking_status !== "booked" &&
+          data?.booking_status !== "sold" && (
+          
+              
+              <Flex justifyContent="center">
+                  {/* ... (your existing code) */}
+                  <Button
+                    bg="#30829c"
+                    color="white"
+                    ml="1"
+                  
+                    alignItems={"center"}
+                    onClick={HandleBookNowFn}
+                  >
+                    Book
+                  </Button>
+               
+               { CanUserBookTestDrive() ? (
+                <Button
+                  color="#30829c"
+                  w={{ md: "15%" }}
+                  border="2px solid #1097B1"
+                  bg="#fff"
+                  ml="1"
+                  alignItems={"center"}
+                  onClick={openModal}
+                  isLoading={loading}
+                >
+                  Book Test Drives
+                </Button>
+              ) : (
+                <Alert status="warning">
+                  {/* ... (your existing code) */}
+                </Alert>
+              )}
+              </Flex>
+           
+          )}
+      </GridItem>
       </Grid>
 
 
@@ -1136,7 +1173,7 @@ export default function ProductPage() {
       
       <Box w="100%" mt="20px">
                   <Image //Main Image
-                    src="/src/assets/Icons/image 27.png"
+                    src={banner}
                     w="full"
                     objectFit="cover"
                     cursor="pointer"
@@ -1147,7 +1184,12 @@ export default function ProductPage() {
         <CardHeader>
           <Flex align={"center"} justify={"space-between"}>
             <Heading size="lg">Similar cars</Heading>
-            <Text
+           
+          </Flex>
+        </CardHeader>
+        <DetailSliderComponent data={similarCars} />
+        <Text
+        align={"center"}
               color="#30829c"
               cursor="pointer"
               onClick={() => {
@@ -1157,9 +1199,6 @@ export default function ProductPage() {
               View All Cars
               
             </Text>
-          </Flex>
-        </CardHeader>
-        <DetailSliderComponent data={similarCars} />
       </Card>
 
       {/*====================== Image Modal=================== */}

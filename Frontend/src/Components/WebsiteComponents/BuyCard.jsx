@@ -19,7 +19,9 @@ import { Divider } from '@chakra-ui/react';
 import { FaRegHeart } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import IndianNumberSystem from '../../utils/IndianNumSystem';
-
+import image from '../../assets/Icons/buy2.png';
+import image2 from '../../assets/Icons/Rectangle.png';
+import image3 from '../../assets/Icons/image 1840.png';
 function BuyCard(props) {
   const { name, price, imageURL, year, km, fuel, state, _id, booking_status } = props;
 
@@ -34,7 +36,7 @@ function BuyCard(props) {
                   <Image
                     borderRadius="full"
                     boxSize="200px"
-                    src="/src/assets/Icons/buy2.png"
+                    src={image}
                     alt="Green double couch with wooden legs"
                     style={{ margin: '-40% 0 5%' }} // Adjust the margin to control the image position
                   />
@@ -65,7 +67,7 @@ function BuyCard(props) {
                   <Image
                     borderRadius="full"
                     boxSize="200px"
-                    src="/src/assets/Icons/Rectangle.png"
+                    src={image2}
                     alt="Green double couch with wooden legs"
                     style={{ margin: '-40% 0 5%' }} // Adjust the margin to control the image position
                   />
@@ -98,7 +100,7 @@ function BuyCard(props) {
                   <Image
                     borderRadius="full"
                     boxSize="200px"
-                    src="/src/assets/Icons/image 1840.png"
+                    src={image3}
                     alt="Green double couch with wooden legs"
                     style={{ margin: '-40% 0 5%' }} // Adjust the margin to control the image position
                   />
