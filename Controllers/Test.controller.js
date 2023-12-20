@@ -87,45 +87,30 @@ exports.getSales = async (req, res) => {
     }
 };
 
+
 exports.getAllVendorsByEmployee = async (req, res) => {
-    let id = req.params.id;
-    let sortby = req.body.sortby || "createdAt";
-    let sort_index =
-    sortby === "low_to_high" ? 1 : sortby === "high_to_low" ? -1 : 0;
-  let sortObj = {};
-  sortby = sortby || "createdAt";
+  let id = req.params.id;
+  
 
-  sort_index == 0
-    ? (sortObj = { [sortby]: -1 })
-    : (sortObj = { price: sort_index });
+  
+  let limit = req.query.limit || 50
+  let page = req.query.page || 1
+  page = page > 0 ? page : 1
+  let skip = (page - 1) * limit || 0
 
-  let limit = req.query.limit || 5;
-  let page = req.query.page || 1;
-  page = page > 0 ? page : 1;
-  let skip = (page - 1) * limit || 0;
-
+ 
+  
   try {
-    if (!id) return res.status(401).send({ message: "Vendor ID not Provided" });
-
-    const Cars = await VendorModel.find({ reference: id })
-      .limit(limit)
-      .skip(skip)
+    
      
-      .sort(sortObj);
-    const totalCars = await VendorModel.find({ reference: id }).count();
-    return res.status(200).send({
-      message: "All Cars By Vendor",
-      Cars,
-      Count: Cars.length,
-      totalCars,
-    });
+      const Cars = await VendorModel.find( {reference : id}).limit(limit).skip(skip).sort({ created_at: -1 });
+      const totalVendors = await VendorModel.find({reference : id}).count()
+      return res.status(200).send({ message: "All Vendors", Cars, Count: Cars.length, totalVendors });
   } catch (error) {
-
-    console.log(error);
-    return res.status(500).send({ message: error?.message || "Something went Wrong", error });
+      console.log(error);
+      return res.status(500).send({ message: error?.message || "Something went Wrong", error });
   }
-  };
-
+};
   
   exports.getAllCarsByEmployeeID = async (req, res) => {
     const { id } = req.params;
@@ -206,7 +191,14 @@ exports.getAllVendorsByEmployee = async (req, res) => {
         const cars = await TestDriveModel.find(query)
           .limit(limit)
           .skip(skip)
-          .sort(sortObj);
+          .sort(sortObj)
+          .populate(["name", "vendor_id", "customer_id"]).populate({
+            path: 'car_id', populate: [
+                { path: 'name', model: 'CarNameModel', },
+                { path: 'make', model: 'Brand' },
+                { path: 'model', model: 'CarModel' },
+            ]
+        });
   
         allCars.push(...cars);
       }
@@ -321,19 +313,15 @@ exports.getAllVendorsByEmployee = async (req, res) => {
         return res.status(500).send({ message: error?.message || "Something went wrong", error })
     }
 }
-exports.checkWishlist = async (req, res) => {
+exports.removeWishlist = async (req, res) => {
   try {
     const car_id = req.params.carId;
     const user_id = req.params.userId;
 
     // Check if the item exists in the wishlist
-    const isInWishlist = await WishlistModel.findOne({ user_id, car_id });
-
-    if (isInWishlist) {
-      return res.status(200).json({ isInWishlist: true });
-    } else {
-      return res.status(200).json({ isInWishlist: false });
-    }
+    //const isInWishlist = await WishlistModel.findOne({ user_id, car_id });
+    await WishlistModel.findOneAndDelete({ carId:car_id, userId:user_id });
+    return res.status(200).send({ message: "Remove Wishlist Successfully" });
   } catch (error) {
     console.error('Error checking wishlist status:', error);
     res.status(500).json({ message: 'Internal Server Error' });

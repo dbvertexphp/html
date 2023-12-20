@@ -1,4 +1,4 @@
-const { getAllVendors, addVendor, VendorLogin, getVendorByID, UpdateVendorByID, vendorForgotPassword,vendorChangePassword, DeleteVendorByID, getAllVendorNames} = require("../Controllers/Vendor.controller");
+const { getAllVendors, addVendor, VendorLogin, getVendorByID, UpdateVendorByID, getAllVendorsByEmployee,vendorForgotPassword,vendorChangePassword, DeleteVendorByID, getAllVendorNames} = require("../Controllers/Vendor.controller");
 const Authentication = require("../Middlewares/Authentication.middleware");
 const Authorization = require("../Middlewares/Authorization.middleware");
 

@@ -3,7 +3,7 @@ const SendMail = require("../Config/Sendmail");
 const { CarAddedVendor, CarAddedAdmin } = require("../Email/CarTemplates/CarAdded");
 const EmployeeModel = require("../Models/EmployeeModel");
 const { CarApprovedEmployee, CarApprovedVendor, CarApprovedAdmin } = require("../Email/CarTemplates/CarApproved");
-
+const WishlistModel = require('../Models/Wishlist.model');
 let populateArr = ["name", "color", "make", "body_type", "location", "model", "vendorID"];
 
 exports.addCar = async (req, res) => {
@@ -24,6 +24,7 @@ exports.addCar = async (req, res) => {
     return res.status(500).send({ message: error?.message || "Something went Wrong", error });
   }
 };
+
 
 exports.getCarsWithPagination = async (req, res) => {
   let { filters, sortby, search } = req.body;
@@ -122,42 +123,55 @@ exports.getAllCarsAdmin = async (req, res) => {
 
 exports.getAllCarsForHome = async (req, res) => {
   try {
-    const Trendings = await CarModel.aggregate([
-      { $match: { status: 'approved', trending_car: 1 } },
-      { $sample: { size: 15 } },
-      { $sort: { createdAt: -1 } },
-    ])
-
-    const HotDeals = await CarModel.aggregate([
-      { $match: { status: 'approved', hotdeal_car: 1 } },
-      { $sample: { size: 15 } },
-      { $sort: { createdAt: -1 } },
-    ])
-
-    const Featured = await CarModel.aggregate([
-      { $match: { status: 'approved', featured_car: 1 } },
-      { $sample: { size: 15 } },
-      { $sort: { createdAt: -1 } },
-    ])
-
-    const Upcomings = await CarModel.aggregate([
-      { $match: { status: 'approved', upcoming_car: 1 } },
-      { $sample: { size: 15 } },
-      { $sort: { createdAt: -1 } },
-    ])
+    const user_id =  req.params.id || null;
+    //const user_id = '65706f4edd84879558fce0a5' || null;
+    const Trendings = await getLikeStatus('approved', 1, 15, user_id, 'trending_car');
+    const HotDeals = await getLikeStatus('approved', 1, 15, user_id, 'hotdeal_car');
+    const Featured = await getLikeStatus('approved', 1, 15, user_id, 'featured_car');
+    const Upcomings = await getLikeStatus('approved', 1, 15, user_id, 'upcoming_car');
 
     return res.status(200).send({
-      message: "All Cars For HomePage",
+      message: 'All Cars For HomePage',
       Trendings,
       HotDeals,
       Featured,
-      Upcomings,
+      Upcomings
     });
   } catch (error) {
     console.log(error);
-    return res.status(500).send({ message: error?.message || "Something went Wrong", error });
+    return res.status(500).send({ message: error?.message || 'Something went Wrong', error });
   }
 };
+
+async function getLikeStatus(status, condition, size, user_id, flag) {
+  const cars = await CarModel.find({ status, [`${flag}`]: 1 })
+    .limit(size)
+    .sort({ createdAt: -1 });
+
+  // If user_id is null, set default Like_status to 'No'
+  if (!user_id) {
+    return cars.map(car => ({ ...car.toObject(), Like_status: 'No' }));
+  }
+
+  // For each car, check Like_status
+  const carsWithLikeStatus = await Promise.all(
+    cars.map(async car => {
+      car.Like_status = await checkWishlist(user_id, car._id);
+      return car;
+    })
+  );
+
+  // Include Like_status in response
+  return carsWithLikeStatus.map(car => ({
+    ...car.toObject(),
+    Like_status: car.Like_status
+  }));
+}
+
+async function checkWishlist(user_id, car_id) {
+  const wishlist = await WishlistModel.findOne({ userId: user_id, carId: car_id });
+  return wishlist ? 'Yes' : 'No';
+}
 exports.getAllCarsByVendor = async (req, res) => {
   let id = req.params.id;
 
@@ -234,16 +248,27 @@ exports.getCarByID = async (req, res) => {
 };
 exports.getSimilarCars = async (req, res) => {
   let id = req?.params?.id;
+  const user_id = '65706f4edd84879558fce0a5' || null;
   try {
     const Car = await CarModel.findById(id).populate(populateArr);
     let similarCars = await CarModel.find({ make: Car?.make?._id, status: "approved" }).populate(populateArr);
-    similarCars = similarCars.filter((el) => (el._id).toString() !== (id).toString())
-    return res.status(200).send({ message: "Car By ID", Car, similarCars });
+    similarCars = similarCars.filter((el) => (el._id).toString() !== (id).toString());
+
+    // Fetch likeStatus for each similar car and include it in the response
+    const similarCarsWithLikeStatus = await Promise.all(
+      similarCars.map(async (similarCar) => {
+        const likeStatus = await checkWishlist( user_id,similarCar._id); // Change the second parameter based on your criteria
+        return { ...similarCar._doc, likeStatus }; // Include likeStatus in the response
+      })
+    );
+
+    return res.status(200).send({ message: "Car By ID", Car, similarCars: similarCarsWithLikeStatus });
   } catch (error) {
     console.log(error);
     return res.status(500).send({ message: error?.message || "Something went Wrong", error });
   }
 };
+
 exports.UpdateCarByID = async (req, res) => {
   let id = req?.params?.id;
   let payload = req.body;

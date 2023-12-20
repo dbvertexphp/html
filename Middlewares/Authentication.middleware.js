@@ -5,12 +5,14 @@ const Authentication = async (req, res, next) => {
 
     try {
         const token = req.headers?.authorization?.split(" ")[1];
+       
         if (!token) {
             console.log(`Token Not Found - URL : ${req.url}`);
             return res.status(403).json({ Message: "Un-authorized. Token Not Found" })
         }
 
         jwt.verify(token, JWT_SECRET, (err, decoded) => {
+         
             if (err) return res.json({ Message: err.message, status: "error" })
             req.headers.userID = decoded.id;
             req.headers.role = decoded.role;

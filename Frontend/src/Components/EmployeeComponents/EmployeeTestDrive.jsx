@@ -134,7 +134,7 @@ useEffect(() => {
             >
               <Tr>
                 <Th sx={headCellStyle}>Sr. no</Th>
-            
+                <Th sx={headCellStyle}></Th>
                 <Th sx={headCellStyle}>Car Details</Th>
                 <Th sx={headCellStyle}>Customer Details</Th>
                 <Th sx={headCellStyle}>Vendor Details</Th>
@@ -154,7 +154,15 @@ useEffect(() => {
                       <Td sx={cellStyle} style={{ textAlign: "center" }}>
                         {index + startingSerialNumber}
                       </Td>
-                     
+                      <Td sx={cellStyle}>
+                        <Image
+                          src={item.car_id?.primary_image}
+                          w={{ base: "60px", md: "180px" }}
+                          h={{ base: "40px", md: "100px" }}
+                          objectFit={"cover"}
+                          objectPosition={"center"}
+                        />
+                      </Td>
                       <Td sx={{ ...cellStyle, paddingLeft: "8px" }}>
                         <div>
                           Booking : <b> {item?.booking_code}</b>

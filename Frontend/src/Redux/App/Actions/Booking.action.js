@@ -66,6 +66,31 @@ export const getBookingsByVendorId = (id, params, token) => (dispatch) => {
             });
         });
 };
+
+export const getBookingsByEmployeeId = (id, params, token) => (dispatch) => {
+
+    dispatch({ type: types.BOOKING_GET_LOADING });
+    axios
+        .get(`${BASE_URL}/api/booking/get-bookings-by-employeeid/${id}`, {
+            params,
+            headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`
+            },
+        })
+        .then((res) => {
+            console.log(res);
+            dispatch({ type: types.BOOKING_GET_SUCCESS, payload: res?.data });
+
+        })
+        .catch((err) => {
+            console.log(err);
+            dispatch({
+                type: types.BOOKING_GET_ERROR,
+                payload: err?.response?.data?.message,
+            });
+        });
+};
 export const getBookingsByCarId = (id, setData, token) => (dispatch) => {
 
     dispatch({ type: types.BOOKING_GET_LOADING });

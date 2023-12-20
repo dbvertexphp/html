@@ -18,6 +18,17 @@ export default function Homepage() {
   const [hotdeal, sethotdeal] = useState([]);
   const { loading, error } = useSelector(state => state?.CarManager);
 
+  
+  let { Customer_detail, token } = useSelector(
+    (store) => store?.CustomerAuthManager
+  );
+  const customer =
+    Customer_detail ||
+    JSON.parse(localStorage.getItem("customer_detail_carvendor"));
+  let customertoken =
+    token || JSON.parse(localStorage.getItem("customer_token_carvendor"));
+
+    
   const setData = data => {
     settrending(data.Trendings);
     setfeatured(data.Featured);
@@ -25,16 +36,12 @@ export default function Homepage() {
     sethotdeal(data.HotDeals);
   };
   useEffect(() => {
-    dispatch(getCarsHomePage(setData));
+    dispatch(getCarsHomePage(Customer_detail?._id,setData));
   }, []);
 
   return (
     <>
       <Carousel />
-
-     
-
-     
 
       <Card shadow="none" mx={{ base: '5', md: '10' }} my={{ base: '5', md: '10' }} pb="5">
         <CardHeader>

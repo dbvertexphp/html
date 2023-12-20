@@ -8,33 +8,21 @@ import { GrLocation } from "react-icons/gr";
 import { useEffect, useRef, useState } from "react";
 import { FaHeart } from 'react-icons/fa';
 import axios from 'axios';
+import { BASE_URL } from "../../utils/config";
+
 import {checkisinwishlist,
 } from "../../Redux/App/Actions/Admin/Website/Website.action";
 function ItemCard(props) {
   const dispatch = useDispatch();
       const toast = useToast();
-  const { name, price, imageURL, year, km, fuel, state, _id, booking_status } = props;
+  const { name, price, imageURL, year, km, fuel, state, _id, booking_status,like_status } = props;
 
   const { Customer_detail, token ,isAuth} = useSelector(state => state.CustomerAuthManager);
 
-  const [isFavorite, setIsFavorite] = useState(false);
 
-  useEffect(() => {
-    // Check the server if the item is already in the wishlist when the component mounts
-    checkWishlistStatus();
-  }, []); // Empty dependency array ensures the effect runs only once
+  const [isFavorite, setIsFavorite] = useState(like_status === 'Yes');
 
-  const checkWishlistStatus = async () => {
-    try {
-      // Make an API request to check if the item is in the wishlist
-      const response = await axios.get(`/api/test/checkisinwishlist/${userId}/${carId}`);
 
-      // Update the isFavorite state based on the response
-      setIsFavorite(response.data.isInWishlist);
-    } catch (error) {
-      console.error('Error checking wishlist status:', error);
-    }
-  };
 
   const handleToggleFavorite = async () => {
 
@@ -51,9 +39,8 @@ function ItemCard(props) {
       return navigate("/customer-email-login");
     } else {
       try {
-      // Toggle the favorite state
-      setIsFavorite(!isFavorite);
-
+     
+        setIsFavorite(!isFavorite);
       if (!isFavorite) {
         // Add logic to save to the wishlist table when adding to favorites
         await addToWishlist();
@@ -77,7 +64,7 @@ function ItemCard(props) {
       carId:_id
     };
     // Add logic to make an API request to add the item to the wishlist
-     const response =  axios.post('/api/test/savewishlist',body ,{  
+     const response =  axios.post(`${BASE_URL}/api/test/savewishlist`,body ,{  
       headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -87,7 +74,7 @@ function ItemCard(props) {
 
   const removeFromWishlist = async () => {
     // Add logic to make an API request to remove the item from the wishlist
-    await axios.delete(`/api/wishlist/${userId}/${carId}`);
+    await axios.delete(`${BASE_URL}/api/test/removeinwishlist/${Customer_detail. _id}/${_id}`);
   };
 
   
@@ -136,6 +123,7 @@ function ItemCard(props) {
           <Flex mt="2" fontSize="25" position="relative" marginTop="0px">
           <NavLink to={`/product/${_id}`}><Image zIndex={0} src={imageURL} roundedTop="lg" roundedBottom="lg" w="400px" objectFit="cover" h={'265px'} maxW={'full'} />
           </NavLink>
+         
           <Box
             position="absolute"
             top="10px" // Adjust this value as needed
@@ -144,17 +132,18 @@ function ItemCard(props) {
             onClick={handleToggleFavorite}
           >
             {isFavorite ? (
-        <FaHeart
-          style={{
-            fill: 'white', // Set the fill color to your desired color
-            width: '24px', // Optional: Adjust the width
-            height: '24px', // Optional: Adjust the height
-          }}
-        />
-      ) : (
-        <FaRegHeart />
-      )}
+              <FaHeart
+                style={{
+                  fill: 'white', // Set the fill color to your desired color
+                  width: '24px', // Optional: Adjust the width
+                  height: '24px', // Optional: Adjust the height
+                }}
+              />
+            ) : (
+              <FaRegHeart />
+            )}
           </Box>
+          
           
           <Box
             position="absolute"

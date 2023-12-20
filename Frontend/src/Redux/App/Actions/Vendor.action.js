@@ -84,6 +84,8 @@ export const getVendorByID = (id, setData, toast, navigate, token) => (dispatch)
       
     });
 };
+
+
 export const UpdateVendorByID = (id, data, toast, navigate, navigateTo, getData, title, token) => (dispatch) => {
   dispatch({ type: types.VENDOR_UPDATE_LOADING });
   axios

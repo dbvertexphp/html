@@ -1,4 +1,4 @@
-const { addBooking, getAllBookings, UpdateBookingByID, getBookingsByUserID, getBookingsByCarID, getBookingsByVendorID } = require("../Controllers/Booking.controller");
+const { addBooking, getAllBookings, UpdateBookingByID, getBookingsByUserID, getBookingsByCarID, getBookingsByEmployeeID,getBookingsByVendorID } = require("../Controllers/Booking.controller");
 const Authentication = require("../Middlewares/Authentication.middleware");
 
 const BookingRouter = require("express").Router();
@@ -7,6 +7,8 @@ BookingRouter.get("/", (req, res) => res.status(200).send({ message: "Welcome to
 BookingRouter.get("/get-all-bookings", getAllBookings);
 BookingRouter.get("/get-bookings-by-userid/:id", getBookingsByUserID);
 BookingRouter.get("/get-bookings-by-vendorid/:id", getBookingsByVendorID);
+BookingRouter.get("/get-bookings-by-employeeid/:id", getBookingsByEmployeeID);
+
 BookingRouter.get("/get-bookings-by-carid/:id", getBookingsByCarID);
 
 BookingRouter.post("/book-a-car", Authentication, addBooking);

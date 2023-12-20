@@ -91,6 +91,7 @@ const SliderComponent = ({ data }) => {
               state={card?.regState?.state_code}
               _id={card?._id}
               booking_status={card.booking_status}
+              like_status={card.Like_status}
             />
           ))}
       </Slider>

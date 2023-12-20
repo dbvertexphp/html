@@ -1,5 +1,7 @@
 const { getUniqueBookingCode } = require("../Middlewares/getUniqueCode")
 const BookingModel = require("../Models/Booking.model")
+const VendorModel = require("../Models/Vendor.model");
+
 const TransactionModel = require("../Models/Transaction.model");
 const { PhonepePaymentInitiater } = require("./PhonePe.controller");
 const SetDatesFilter = require("../Config/SetDatesFilter");
@@ -77,6 +79,44 @@ exports.getBookingsByVendorID = async (req, res) => {
 
         const bookings = await BookingModel.find(query).populate(populateArr).populate(populateObj).sort({ createdAt: -1 }).limit(limit).skip(skip);
         const totalbookings = await BookingModel.find().count()
+        return res.status(200).send({ message: "All Bookings", bookings, Count: bookings.length, totalbookings });
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({ message: "Something Went Wrong", error });
+    }
+}
+
+exports.getBookingsByEmployeeID = async (req, res) => {
+
+    const id = req?.params?.id;
+    const { filterByDays } = req.query;
+    let limit = req.query.limit || 10
+    let page = req.query.page || 1
+    page = page > 0 ? page : 1
+    let skip = (page - 1) * limit || 0
+
+    let fromDate = req.query.fromDate || "2023-01-01";
+    let toDate = req.query.toDate || "2023-12-31";
+    try {
+       
+
+        if (filterByDays) {
+            let { startDate, endDate } = SetDatesFilter(filterByDays, fromDate, toDate);
+            query.createdAt = { $gte: startDate, $lte: endDate };
+        }
+        const Vendors = await VendorModel.find({ reference: id }).select({ _id: 1 });
+  
+      const bookings = [];
+      for (const vendor of Vendors) {
+        const query = { vendor_id: vendor._id };
+       
+        const booking = await BookingModel.find(query).populate(populateArr).populate(populateObj).sort({ createdAt: -1 }).limit(limit).skip(skip);
+
+  
+        bookings.push(...booking);
+       
+      }
+      const totalbookings = await BookingModel.find().count();
         return res.status(200).send({ message: "All Bookings", bookings, Count: bookings.length, totalbookings });
     } catch (error) {
         console.log(error);

@@ -248,6 +248,7 @@ const SearchPage = () => {
                     _id={card._id}
                     state={card?.regState?.state_code}
                     booking_status={card.booking_status}
+                    like_status={card.Like_status}
                   />
                 ))}
               </SimpleGrid>

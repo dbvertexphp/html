@@ -58,11 +58,12 @@ export const getCarsAdmin = (setData, data, token) => (dispatch) => {
             });
         });
 };
-export const getCarsHomePage = (setData, data) => (dispatch) => {
+export const getCarsHomePage = (id, setData, data) => (dispatch) => {
+    console.log(id);
     dispatch({ type: types.CAR_GET_LOADING });
 
     axios
-        .post(`${BASE_URL}/api/vendor/car/get-all-cars-home`, data)
+        .get(`${BASE_URL}/api/vendor/car/get-all-cars-home/${id}`, data)
         .then((res) => {
 
             dispatch({ type: types.CAR_GET_SUCCESS, payload: res?.data?.Cars });

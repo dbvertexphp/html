@@ -69,7 +69,8 @@ import {
   BsShieldFill,
   BsSpeedometer2,
 } from "react-icons/bs";
-import { FiBookmark, FiDollarSign } from "react-icons/fi";
+
+import { FiBookmark, FiDollarSign ,FiShare ,FiFlag  } from "react-icons/fi";
 import { GrLocation } from "react-icons/gr";
 import Carousel from '../Components/WebsiteComponents/CarouselDetail';
 import { useDispatch, useSelector } from "react-redux";
@@ -409,7 +410,7 @@ export default function ProductPage() {
   useEffect(() => {
     dispatch(getCarsHomePage(setUpcomingSlider));
   }, []);
-
+ 
   return (
     <>
     <Card shadow="none" mx={{ base: '5', md: '5' }} my={{ base: '5', md: '5' }} >
@@ -529,6 +530,7 @@ export default function ProductPage() {
                 </Alert>
                 <Button
                   colorScheme="blue"
+                  bg="#30829c"
                   my={1}
                   fontWeight={"600"}
                   onClick={OpenPayRestAmount}
@@ -602,11 +604,11 @@ export default function ProductPage() {
                   ₹ {IndianNumberSystem(data?.price)}
                 </Flex>
                 <Flex align={"center"} gap={{ base: "1", md: "1" }}>
-                  <BsGear />
+                  <FiShare />
                  Share
                 </Flex>
                 <Flex align={"center"} gap={{ base: "1", md: "1" }}>
-                  <BsPerson />
+                  <FiFlag  />
                   Report
                 </Flex>
               </Flex>
@@ -1081,6 +1083,7 @@ export default function ProductPage() {
                     </Alert>
                     <Button
                       colorScheme="blue"
+                      bg="#30829c"
                       my={1}
                       fontWeight={"600"}
                       onClick={OpenPayRestAmount}
@@ -1155,7 +1158,11 @@ export default function ProductPage() {
                 </Button>
               ) : (
                 <Alert status="warning">
-                  {/* ... (your existing code) */}
+                  <AlertIcon />
+                    <AlertTitle fontSize={"15px"} fontWeight={"500"}>
+                      You have booked a test drive for this car. <br /> Please
+                      wait for its approval.
+                    </AlertTitle>
                 </Alert>
               )}
               </Flex>
@@ -1451,14 +1458,19 @@ export default function ProductPage() {
             <Text mb="3">
               Booking Charges Amount : ₹ {data?.price * 0.1 || 0}
             </Text>
-            <Text mb="3"> Amount Paid : ₹ 500/- (Test Drive Charge Incl.)</Text>
-            <Text>Amount Left to be Paid : ₹ {data?.price * 0.1 - 500}</Text>
+            
+            { CanUserBookTestDrive()? <Text>Amount Left to be Paid : ₹ {data?.price * 0.1}</Text>
+           : <><Text mb="3"> Amount Paid : ₹ 500/- (Test Drive Charge Incl.)</Text>
+           <Text>Amount Left to be Paid : ₹ {data?.price * 0.1 - 500}</Text></>
+             
+}
             <FormControl isRequired>
               <FormLabel>Payable Amount :</FormLabel>
+              { CanUserBookTestDrive()?
               <Input
                 type="number"
                 bg={"gray.200"}
-                defaultValue={data?.price * 0.1 - 500}
+                defaultValue={data?.price * 0.1}
                 name="amount_to_pay"
                 onChange={(e) =>
                   setBookingData((prev) => ({
@@ -1466,13 +1478,25 @@ export default function ProductPage() {
                     amount_to_pay: +e.target.value,
                   }))
                 }
-              />
+              /> : <Input
+              type="number"
+              bg={"gray.200"}
+              defaultValue={data?.price * 0.1 - 500}
+              name="amount_to_pay"
+              onChange={(e) =>
+                setBookingData((prev) => ({
+                  ...prev,
+                  amount_to_pay: +e.target.value,
+                }))
+              }
+            />
+}
             </FormControl>
           </ModalBody>
           <ModalFooter>
             <Button
               color="white"
-              bg="green"
+              bg="#30829c"
               colorScheme="green"
               mr="3"
               onClick={() => {
@@ -1541,7 +1565,7 @@ export default function ProductPage() {
           <ModalFooter>
             <Button
               color="white"
-              bg="blue.600"
+              bg="#30829c"
               colorScheme="blue"
               mr="3"
               onClick={() =>

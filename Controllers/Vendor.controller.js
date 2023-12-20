@@ -20,7 +20,7 @@ exports.getAllVendors = async (req, res) => {
 
     let fromDate = req.query.fromDate || "2023-01-01";
     let toDate = req.query.toDate || "2023-12-31";
-
+    
     try {
         let query = {};
         if (searchQuery) {
@@ -67,6 +67,7 @@ exports.getVendorByID = async (req, res) => {
         return res.status(500).send({ message: error?.message || "Something went Wrong", error });
     }
 };
+
 exports.VendorLogin = async (req, res) => {
     const { email, password } = req.body;
     const test = { email, password }
