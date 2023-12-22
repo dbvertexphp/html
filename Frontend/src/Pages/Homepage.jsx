@@ -83,6 +83,17 @@ export default function Homepage() {
           </Flex>
         </CardHeader>
         <SliderComponent data={hotdeal} />
+        <Text
+        align={"center"}
+              color="#30829c"
+              cursor="pointer"
+              onClick={() => {
+                navigate("/collection");
+              }}
+            >
+              View All Cars
+              
+            </Text>
       </Card>
 
       {/* <Card mx={{ base: "5", md: "10" }} mb={{ base: "5", md: "10" }} pb="5">

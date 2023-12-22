@@ -13,7 +13,7 @@ CarRouter.post("/get-all-cars", getAllCars);
 CarRouter.post("/get-all-cars-admin", getAllCarsAdmin);
 CarRouter.get("/get-all-cars-home/:id", getAllCarsForHome);
 CarRouter.post("/get-all-vendor-car/:id", getAllCarsByVendor);
-CarRouter.get("/get-similar-cars/:id", getSimilarCars);
+CarRouter.get("/get-similar-cars/:user_id/:id", getSimilarCars);
 CarRouter.post("/add-car", Authentication, addCar);
 
 CarRouter.patch("/update-car-admin/:id", Authentication, UpdateCarByID);

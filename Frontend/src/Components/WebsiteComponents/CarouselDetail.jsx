@@ -39,11 +39,67 @@ export default function Carousel() {
   }, []);
   return (
     <>
-   
       <Box position={'relative'} width={'100%'} maxHeight={{ base: '850px', md: '850px' }} overflow={'hidden'} margin="auto">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
 
+      
+ <Box zIndex={1}
+  left={{ base: '10px', md: '150px' }}
+  bottom={{ base: '40px', md: '120px' }}
+  position={{ base: 'absolute', md: 'absolute' }}
+  textAlign={{ base: 'left', md: 'left' }}
+  width={{ base: '100%', md: 'auto' }}
+>
+  <Heading
+    fontWeight="bold"
+    fontSize={{ base: '30px', md: '50px' }}
+    color="White"
+    whiteSpace="nowrap"
+  >
+    find your dreams
+  </Heading>
+  <Heading
+    fontWeight="bold"
+    fontSize={{ base: '30px', md: '50px' }}
+    color="White"
+    whiteSpace="nowrap"
+  >
+    car within a minute
+  </Heading>
+  <Text
+    fontWeight="bold"
+    fontSize={{ base: '16px', md: '20px' }} // Adjusted fontSize for mobile
+    color="White"
+    backdropFilter="blur(1px)"
+  >
+    Lorem Ipsum is simply dummy text of the printing and
+  </Text>
+  <Text
+    fontWeight="bold"
+    fontSize={{ base: '16px', md: '20px' }} // Adjusted fontSize for mobile
+    color="White"
+    backdropFilter="blur(1px)"
+  >
+    typesetting industry. Lorem Ipsum has been
+  </Text>
+  <Text
+    fontWeight="bold"
+    fontSize={{ base: '16px', md: '20px' }} // Adjusted fontSize for mobile
+    color="White"
+    backdropFilter="blur(1px)"
+  >
+    the industry's standard dummy
+  </Text>
+  <NavLink>
+  <Button
+    style={{ backgroundColor: '#1097b1', color: '#fff', width: { base: '80%', md: '100%' } }}
+    size={{ base: 'md', md: 'lg' }}
+  >
+    Book Now
+  </Button>
+</NavLink>
+</Box>
 
         <Slider {...settings} ref={slider => setSlider(slider)}>
           {cards.length == 0 ? (
@@ -53,7 +109,7 @@ export default function Carousel() {
               <Box key={index} display="flex" justifyContent="center" alignItems="center" height="100%">
                 <Image
                   width="100%"
-                  h={{ base: '250px', md: '650px' }}
+                  h={{ base: '250px', md: '550px' }}
                   objectFit="cover"
                   objectPosition="center"
                   src={image}
@@ -65,7 +121,7 @@ export default function Carousel() {
         </Slider>
       </Box>
 
-    
+  
     </>
   );
 }

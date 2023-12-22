@@ -248,7 +248,8 @@ exports.getCarByID = async (req, res) => {
 };
 exports.getSimilarCars = async (req, res) => {
   let id = req?.params?.id;
-  const user_id = '65706f4edd84879558fce0a5' || null;
+  const user_id =  req.params.user_id || null;
+  //const user_id = '65706f4edd84879558fce0a5' || null;
   try {
     const Car = await CarModel.findById(id).populate(populateArr);
     let similarCars = await CarModel.find({ make: Car?.make?._id, status: "approved" }).populate(populateArr);

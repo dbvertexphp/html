@@ -24,24 +24,23 @@ export default function TestemonialCard(props) {
       <Center>
         <GridItem className="know_more_card_item">
           <Card
-            maxW="sm"
-            maxH="300px" // Set your desired max height for the entire card
+            maxW={{ base: "sm", md: "md" }} // Adjust max width for different screen sizes
             className="know_more_card"
-            border="1px solid #e1e1e1" // Set border color
-            boxShadow="0 4px 8px rgba(0, 0, 0, 0.1)" // Set box shadow
+            border="1px solid #e1e1e1"
+            boxShadow="0 4px 8px rgba(0, 0, 0, 0.1)"
           >
             <CardBody
               style={{
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                maxH: '100%', // Set your desired max height for the card body content
-                overflow: 'hidden', // Hide any content that exceeds the max height
+                maxHeight: '100%', // Set your desired max height for the card body content
+                overflow: 'hidden',
               }}
             >
-              <Image src={image} mb={2} width={"80px"} alt="user" />
+              <Image src={image} mb={2} width={{ base: "40px", md: "80px" }} alt="user" /> {/* Adjust image size for different screen sizes */}
               <Stack textAlign="center">
-                <Text textAlign={"center"} color={"#656464"} maxH="50px" overflow="hidden">
+                <Text textAlign={"center"} color={"#656464"} maxH={{ base: "40px", md: "50px" }} overflow="hidden">
                   {description}
                 </Text>
                 <Text color="#1097B1" fontWeight="600" maxH="20px" overflow="hidden">

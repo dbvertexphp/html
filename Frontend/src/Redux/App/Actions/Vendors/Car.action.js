@@ -123,11 +123,11 @@ export const getCarByID = (id, toast, setData,) => (dispatch) => {
 
         });
 };
-export const getSimilarCars = (id, toast, setData) => (dispatch) => {
+export const getSimilarCars = (user_id,id, toast, setData) => (dispatch) => {
     if (!id) return
     dispatch({ type: types.CAR_GET_BY_ID_LOADING });
     axios
-        .get(`${BASE_URL}/api/vendor/car/get-similar-cars/${id}`)
+        .get(`${BASE_URL}/api/vendor/car/get-similar-cars/${user_id}/${id}`)
         .then((res) => {
             let similarCars = res?.data?.similarCars
             dispatch({ type: types.CAR_GET_BY_ID_SUCCESS, payload: res.data });

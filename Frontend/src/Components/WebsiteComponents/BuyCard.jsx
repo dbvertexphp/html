@@ -28,20 +28,20 @@ function BuyCard(props) {
   return (
     <>
       <Container maxW="xxl" marginTop={"100px"}>
-      <SimpleGrid minChildWidth='120px' spacing='40px'>
+      <SimpleGrid minChildWidth={['100%', '120px']} spacing={['20px', '40px']}>
           <Center>
             <GridItem className="know_more_card_item">
               <Card maxW="sm" className="know_more_card">
-                <CardBody style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <CardBody style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '0' }}>
                   <Image
                     borderRadius="full"
-                    boxSize="200px"
+                    boxSize="150px"
                     src={image}
                     alt="Green double couch with wooden legs"
                     style={{ margin: '-40% 0 5%' }} // Adjust the margin to control the image position
                   />
-                  <Stack textAlign="center">
-                    <Heading size="md" className="know_more_heading">
+                 <Stack textAlign="center" spacing={4}>
+                    <Heading size={["sm", "md"]} className="know_more_heading">
                       12-Month Warranty
                     </Heading>
                     <Text className="know_more_text">
@@ -63,17 +63,17 @@ function BuyCard(props) {
            
             <GridItem className="know_more_card_item">
               <Card maxW="sm" className="know_more_card">
-                <CardBody style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <CardBody style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '0' }}>
                   <Image
                     borderRadius="full"
-                    boxSize="200px"
+                    boxSize="150px"
                     src={image2}
                     alt="Green double couch with wooden legs"
                     style={{ margin: '-40% 0 5%' }} // Adjust the margin to control the image position
                   />
-                  <Stack textAlign="center">
+            <Stack textAlign="center" spacing={4}>
                     
-                    <Heading size="md" className="know_more_heading">
+                    <Heading size={["sm", "md"]} className="know_more_heading">
                       2-Years Warranty
                     </Heading>
                     
@@ -96,16 +96,16 @@ function BuyCard(props) {
           <Center>
             <GridItem className="know_more_card_item">
               <Card maxW="sm" className="know_more_card">
-                <CardBody style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <CardBody style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '0' }}>
                   <Image
                     borderRadius="full"
-                    boxSize="200px"
+                    boxSize="150px"
                     src={image3}
                     alt="Green double couch with wooden legs"
                     style={{ margin: '-40% 0 5%' }} // Adjust the margin to control the image position
                   />
-                  <Stack textAlign="center">
-                    <Heading size="md" className="know_more_heading">
+                <Stack textAlign="center" spacing={4}>
+                    <Heading size={["sm", "md"]} className="know_more_heading">
                       6-Month Warranty
                     </Heading>
                     <Text className="know_more_text">

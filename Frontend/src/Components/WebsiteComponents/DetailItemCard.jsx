@@ -148,15 +148,15 @@ const { Customer_detail, token ,isAuth} = useSelector(state => state.CustomerAut
           <Box fontSize="18"  mb="4">
           <Box
            
-            color={"red"}
+           
             onClick={handleToggleFavorite}
           >
             {isFavorite ? (
               <FaHeart
                 style={{
-                  fill: 'red', // Set the fill color to your desired color
-                  width: '24px', // Optional: Adjust the width
-                  height: '24px', // Optional: Adjust the height
+                  fill: 'black', // Set the fill color to your desired color
+                  width: '20px', // Optional: Adjust the width
+                  height: '20px', // Optional: Adjust the height
                 }}
               />
             ) : (

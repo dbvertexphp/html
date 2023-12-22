@@ -16,14 +16,15 @@ import {
   Text,
   Wrap,
   WrapItem,
+  Image,
 } from "@chakra-ui/react";
 import ItemCard from "../Components/WebsiteComponents/ItemCard";
-
+import Carousel from '../Components/WebsiteComponents/CarouselDetail';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState, useRef } from "react";
 import { getCars } from "../Redux/App/Actions/Vendors/Car.action";
 import Filters from "../Components/WebsiteComponents/Filters";
-
+import bannertop from '../assets/Icons/image 1833.png';
 import { useLocation } from "react-router-dom";
 import { FiRefreshCcw, FiX } from "react-icons/fi";
 import AsyncSelector from "../Components/Extra/AsyncSelect";
@@ -109,6 +110,15 @@ const SearchPage = () => {
 
   return (
     <>
+     <Box>
+                  <Image //Main Image
+                    src={bannertop}
+                   w="100%"
+                  
+                    cursor="pointer"
+                    
+                  />
+                </Box>
       <Box mt="3" mb="10" px={{ md: "5" }}>
         <Grid templateColumns="repeat(6, 1fr)" p="2" gap="5">
           <GridItem
@@ -196,11 +206,11 @@ const SearchPage = () => {
                 }}
               >
                 <option value={"trending_car"}>Trending</option>
-                <option value={"featured_car"}>Featured </option>
+                {/* <option value={"featured_car"}>Featured </option> */}
                 <option value={"hotdeal_car"}>Hot Deals</option>
-                <option value={"upcoming_car"}>Upcoming </option>
+                {/* <option value={"upcoming_car"}>Upcoming </option>
                 <option value={"low_to_high"}>Low to High</option>
-                <option value={"high_to_low"}>High to Low</option>
+                <option value={"high_to_low"}>High to Low</option> */}
               </Select>
             </Flex>
 

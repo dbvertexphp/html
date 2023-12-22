@@ -1,4 +1,6 @@
 import { CheckIcon } from "@chakra-ui/icons";
+import { FaRegHeart } from 'react-icons/fa';
+
 import {
   Accordion,
   AccordionButton,
@@ -51,8 +53,11 @@ import {
   useToast,
   VStack,
 } from "@chakra-ui/react";
+import axios from 'axios';
+import { BASE_URL } from "../utils/config";
 import { useEffect, useRef, useState } from "react";
 import banner from '../assets/Icons/image 27.png';
+import bannertop from '../assets/Icons/image 16.png';
 import {
   BsBookmarkCheck,
   BsBuildingFill,
@@ -147,6 +152,62 @@ export default function ProductPage() {
 
   const [galleryImageIndex, setGalleryImageIndex] = useState();
 
+  const [isFavorite, setIsFavorite] = useState();
+
+
+  const handleToggleFavorite = async () => {
+
+    const login = isAuth;
+    if (login == false) {
+      toast({
+        title: "Please Login First",
+        status: "error",
+        position: "top",
+      });
+      let url = window.location.pathname;
+      localStorage.setItem("previous_url", url);
+
+      return navigate("/customer-email-login");
+    } else {
+      try {
+     
+        setIsFavorite(isFavorite);
+      if (isFavorite) {
+        // Add logic to save to the wishlist table when adding to favorites
+        await addToWishlist();
+        console.log('Item added to wishlist!');
+      } else {
+        // Add logic to remove from the wishlist table when removing from favorites
+        await removeFromWishlist();
+        console.log('Item removed from wishlist!');
+      }
+    } catch (error) {
+      console.error('Error toggling wishlist status:', error);
+    }
+    }
+   
+  };
+
+  const addToWishlist = async () => {
+    
+    let body = {
+      userId: Customer_detail. _id,
+      carId:_id
+    };
+    // Add logic to make an API request to add the item to the wishlist
+     const response =  axios.post(`${BASE_URL}/api/test/savewishlist`,body ,{  
+      headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    }, });
+    console.log(response.data);
+  };
+
+  const removeFromWishlist = async () => {
+    // Add logic to make an API request to remove the item from the wishlist
+    await axios.delete(`${BASE_URL}/api/test/removeinwishlist/${Customer_detail. _id}/${_id}`);
+  };
+
   let galleryRef = useRef();
   const galleryHandler = () => {
     galleryRef.current.click();
@@ -240,7 +301,7 @@ export default function ProductPage() {
 
   const getData = () => {
     dispatch(getCarByID(id, toast, setDataAll));
-    dispatch(getSimilarCars(id, toast, setsimilarCars));
+    dispatch(getSimilarCars(Customer_detail?._id,id, toast, setsimilarCars));
     dispatch(getTestDrivesByCarID(id, setOtherTestDrives));
     dispatch(getBookingsByCarId(id, setBookings));
   };
@@ -419,9 +480,21 @@ export default function ProductPage() {
               {' '}
               What are you looking for today?
             </Heading>
+            <Box  p="20px" ml="20">
+                  <Image //Main Image
+                    src={bannertop}
+                   w="94%"
+                  
+                    cursor="pointer"
+                    
+                  />
+                </Box>
       </Card>
-      <Box w="100%" bg="#D7F2F8" mb="20px">
-            <Text p="3">Homepage / Car  </Text>
+    
+      <Box color="var(--C1-C, #A9A9A9)" display="flex"  w="100%" bg="#D7F2F8" mb="20px">
+            <Text p="3" ml="4">Homepage  /</Text>
+            <Text p="3" ml="3">  Car  /</Text>
+            <Text p="3" ml="3" color="#1097B1"> {data?.name?.name}  </Text>
       </Box>
       {/**<!--*------- <Mobile View> ----------->*/}
       {!isOneCarLoading ? (
@@ -589,17 +662,17 @@ export default function ProductPage() {
       >
         <GridItem background="#fff"  border=" 1px solid #1097B1 " borderRadius="20px" colSpan={{ base: "7", md: "4" }}>
        
-          <Flex
+          <Flex p="2"
                 align={"center"}
                 fontWeight={"semibold"}
-                fontSize={"12"}
+               
                 justifyContent="space-around"
               >
-                <Flex align={"center"} color={"#1097B1"}  fontSize={"30"} gap={{ base: "1", md: "2" }}>
+                <Flex align={"center"} color={"#1097B1"}  fontSize={"25"} gap={{ base: "1", md: "2" }}>
                   
                   {data?.name?.name}
                 </Flex>
-                <Flex align={"center"} color={"#1097B1"} fontSize={"30"} gap={{ base: "1", md: "1" }}>
+                <Flex align={"center"} color={"#1097B1"} fontSize={"25"} gap={{ base: "1", md: "1" }}>
                   
                   ₹ {IndianNumberSystem(data?.price)}
                 </Flex>
@@ -713,7 +786,7 @@ export default function ProductPage() {
               p="5"
              
             >
-              <VStack
+              <Flex
                 display={"flex"}
                 justifyContent={"start"}
                 gap={"0"}
@@ -723,7 +796,26 @@ export default function ProductPage() {
                 <Text fontWeight={"semibold"} fontSize={"15"} w="full">
                   {data?.make?.name}, {data?.model?.name}{" "}
                 </Text>
-              </VStack>
+               
+                <Box
+           
+           
+           onClick={handleToggleFavorite}
+         >
+           {isFavorite ? (
+             <FaHeart
+               style={{
+                 fill: 'black', // Set the fill color to your desired color
+                 width: '20px', // Optional: Adjust the width
+                 height: '20px', // Optional: Adjust the height
+               }}
+             />
+           ) : (
+             <FaRegHeart />
+           )}
+         </Box>
+              
+              </Flex>
               <Flex alignItems={"center"} gap="2" my="3">
                 <GrLocation />
 
