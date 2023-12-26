@@ -16,20 +16,20 @@ import {
   Text,
   Wrap,
   WrapItem,
-  Image,
-} from "@chakra-ui/react";
-import ItemCard from "../Components/WebsiteComponents/ItemCard";
+  Image
+} from '@chakra-ui/react';
+import ItemCard from '../Components/WebsiteComponents/ItemCard';
 import Carousel from '../Components/WebsiteComponents/CarouselDetail';
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState, useRef } from "react";
-import { getCars } from "../Redux/App/Actions/Vendors/Car.action";
-import Filters from "../Components/WebsiteComponents/Filters";
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState, useRef } from 'react';
+import { getCars } from '../Redux/App/Actions/Vendors/Car.action';
+import Filters from '../Components/WebsiteComponents/Filters';
 import bannertop from '../assets/Icons/image 1833.png';
-import { useLocation } from "react-router-dom";
-import { FiRefreshCcw, FiX } from "react-icons/fi";
-import AsyncSelector from "../Components/Extra/AsyncSelect";
-import { getAllCarNamess } from "../Redux/App/Actions/Admin/CarComponents/CarName.action";
-import PaginationBox from "../Components/Extra/Pagination";
+import { useLocation } from 'react-router-dom';
+import { FiRefreshCcw, FiX } from 'react-icons/fi';
+import AsyncSelector from '../Components/Extra/AsyncSelect';
+import { getAllCarNamess, getAllCar_Id } from '../Redux/App/Actions/Admin/CarComponents/CarName.action';
+import PaginationBox from '../Components/Extra/Pagination';
 
 const initFilters = {
   minPrice: 0,
@@ -42,7 +42,7 @@ const initFilters = {
   transmission: [],
   owners: [],
   colors: [],
-  seats: [],
+  seats: []
 };
 
 const SearchPage = () => {
@@ -51,9 +51,9 @@ const SearchPage = () => {
 
   const locat = useLocation();
   const queryParams = new URLSearchParams(locat.search);
-  const q = queryParams.get("q") || "";
+  const q = queryParams.get('q') || '';
 
-  const { location, loading } = useSelector((store) => store?.CarManager);
+  const { location, loading } = useSelector(store => store?.CarManager);
 
   const [cars, setcars] = useState([]);
   const [totalCars, settotalCars] = useState(0);
@@ -62,15 +62,15 @@ const SearchPage = () => {
   const [page, setPage] = useState(1);
 
   let tempfilters = {
-    status: "approved",
+    status: 'approved',
     minPrice: 0,
     location: location?._id || null,
     maxPrice: 5000000,
     minKms: 0,
-    maxKms: 500000,
+    maxKms: 500000
   };
 
-  const setPageData = (data) => {
+  const setPageData = data => {
     setcars(data?.Cars);
     settotalCars(data?.totalCars);
   };
@@ -81,7 +81,7 @@ const SearchPage = () => {
       filters: { ...filters, location: location?._id || null },
       sortby,
       page,
-      limit: 9,
+      limit: 9
     };
     dispatch(getCars(setPageData, data));
   };
@@ -90,42 +90,43 @@ const SearchPage = () => {
     getData();
   }, [filters, sortby, location, page]);
 
-  const refresh = (e) => {
+  const refresh = e => {
     setPage(1);
     window.location.reload();
   };
 
-  const handleSearchChange = (val) => {
+  const handleSearchChange = val => {
     let data = { search: { name: val._id } };
     setPage(1);
     dispatch(getCars(setPageData, data));
   };
+
+  const handleSearchChangeID = val => {
+    let data = { search: { carIds: val } };
+    setPage(1);
+    dispatch(getCars(setPageData, data));
+  };
+
   const callChildFunction = () => {
     childRef.current.clearFilter();
   };
 
-  const correctFilter = (newDisplay) => {
+  const correctFilter = newDisplay => {
     childRef.current.correctFilter(newDisplay);
   };
 
   return (
     <>
-     <Box>
-                  <Image //Main Image
-                    src={bannertop}
-                   w="100%"
-                  
-                    cursor="pointer"
-                    
-                  />
-                </Box>
-      <Box mt="3" mb="10" px={{ md: "5" }}>
+      <Box>
+        <Image //Main Image
+          src={bannertop}
+          w="100%"
+          cursor="pointer"
+        />
+      </Box>
+      <Box mt="3" mb="10" px={{ md: '5' }}>
         <Grid templateColumns="repeat(6, 1fr)" p="2" gap="5">
-          <GridItem
-            colSpan={{ base: "6", sm: "2", md: "1" }}
-            align="center"
-            textAlign={"left"}
-          >
+          <GridItem colSpan={{ base: '6', sm: '2', md: '1' }} align="center" textAlign={'left'}>
             <Filters
               ref={childRef}
               filters={filters}
@@ -135,18 +136,18 @@ const SearchPage = () => {
               callChildFunction={callChildFunction}
             />
           </GridItem>
-          <GridItem colSpan={{ base: "6", sm: "4", md: "5" }}>
-            <Stack aligh={"center"} m="2">
-              <Flex>
-                <AsyncSelector
-                  handleChangeFn={handleSearchChange}
-                  getItems={getAllCarNamess}
-                  placeholder={"Search Car by Name"}
-                />
+          <GridItem colSpan={{ base: '6', sm: '4', md: '5' }}>
+            <Stack align="center" m="2">
+              <Flex justify="space-between" w="100%">
+                <AsyncSelector handleChangeFn={handleSearchChange} getItems={getAllCarNamess} placeholder="Search Car by Name" />
+                <Spacer flex="1" mx={2} />
+                <AsyncSelector handleChangeFn={handleSearchChangeID} getItems={getAllCar_Id} placeholder="Search Car by Id" />
+                <Spacer flex="1" />
                 <Button
                   mx={2}
-                  bg={"teal"}
-                  color={"white"}
+                  flexShrink={0} // Prevent the button from shrinking
+                  bg="teal"
+                  color="white"
                   onClick={refresh}
                   rightIcon={<FiRefreshCcw />}
                 >
@@ -155,7 +156,7 @@ const SearchPage = () => {
               </Flex>
             </Stack>
             {!!displayFilters.length && (
-              <Wrap align={"start"} gap="2" m="5" width={"98%"}>
+              <Wrap align={'start'} gap="2" m="5" width={'98%'}>
                 <Button
                   colorScheme="orange"
                   size="sm"
@@ -167,7 +168,7 @@ const SearchPage = () => {
                   }}
                 >
                   CLEAR ALL
-                </Button>{" "}
+                </Button>{' '}
                 {!!displayFilters.length &&
                   displayFilters.map((item, i) => {
                     return (
@@ -176,9 +177,7 @@ const SearchPage = () => {
                           size="sm"
                           rightIcon={<FiX />}
                           onClick={() => {
-                            let newDisplay = displayFilters.filter(
-                              (fil) => fil != item
-                            );
+                            let newDisplay = displayFilters.filter(fil => fil != item);
                             setDisplayFilters(newDisplay);
                             correctFilter(newDisplay);
                           }}
@@ -190,24 +189,24 @@ const SearchPage = () => {
                   })}
               </Wrap>
             )}
-            <Flex align={"center"} gap="2" m="2">
-              <Text fontWeight={"bold"} m="3" fontSize={"20"}>
-                {totalCars || 0} Used Cars in {location?.name || "India"}
-              </Text>{" "}
+            <Flex align={'center'} gap="2" m="2">
+              <Text fontWeight={'bold'} m="3" fontSize={'20'}>
+                {totalCars || 0} Used Cars in {location?.name || 'India'}
+              </Text>{' '}
               <Spacer />
-              <Text display={{ base: "none", md: "flex" }}>SORT BY:</Text>
+              <Text display={{ base: 'none', md: 'flex' }}>SORT BY:</Text>
               <Select
                 placeholder="All"
-                w={{ base: "40%", md: "20%" }}
+                w={{ base: '40%', md: '20%' }}
                 bg="gray.50"
                 value={sortby}
-                onChange={(e) => {
+                onChange={e => {
                   setsortby(e.target.value);
                 }}
               >
-                <option value={"trending_car"}>Trending</option>
+                <option value={'trending_car'}>Trending</option>
                 {/* <option value={"featured_car"}>Featured </option> */}
-                <option value={"hotdeal_car"}>Hot Deals</option>
+                <option value={'hotdeal_car'}>Hot Deals</option>
                 {/* <option value={"upcoming_car"}>Upcoming </option>
                 <option value={"low_to_high"}>Low to High</option>
                 <option value={"high_to_low"}>High to Low</option> */}
@@ -216,25 +215,11 @@ const SearchPage = () => {
 
             {loading ? (
               <Grid templateColumns="repeat(12, 1fr)">
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((index) => {
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(index => {
                   return (
-                    <GridItem
-                      key={index}
-                      as="div"
-                      colSpan={{ base: 12, md: 4 }}
-                      p="5"
-                      borderRadius={"10px"}
-                      boxShadow="lg"
-                      bg="white"
-                      m={5}
-                    >
+                    <GridItem key={index} as="div" colSpan={{ base: 12, md: 4 }} p="5" borderRadius={'10px'} boxShadow="lg" bg="white" m={5}>
                       <Skeleton bg="white" h="250px" />
-                      <SkeletonText
-                        mt="4"
-                        noOfLines={6}
-                        spacing="4"
-                        skeletonHeight="2"
-                      />
+                      <SkeletonText mt="4" noOfLines={6} spacing="4" skeletonHeight="2" />
                     </GridItem>
                   );
                 })}
@@ -242,8 +227,8 @@ const SearchPage = () => {
             ) : cars?.length > 0 ? (
               <SimpleGrid
                 templateColumns={{
-                  base: "1fr",
-                  md: "1fr 1fr 1fr ",
+                  base: '1fr',
+                  md: '1fr 1fr 1fr '
                 }}
               >
                 {cars?.map((card, index) => (
@@ -259,33 +244,22 @@ const SearchPage = () => {
                     state={card?.regState?.state_code}
                     booking_status={card.booking_status}
                     like_status={card.Like_status}
+                    Car_id={card?.Car_id}
                   />
                 ))}
               </SimpleGrid>
             ) : (
-              <Box w={"full"} h={"full"} textAlign={"center"}>
-                <Heading
-                  as="h1"
-                  size="2xl"
-                  my={4}
-                  fontWeight="bold"
-                  color={"gray.400"}
-                >
+              <Box w={'full'} h={'full'} textAlign={'center'}>
+                <Heading as="h1" size="2xl" my={4} fontWeight="bold" color={'gray.400'}>
                   Total Results 0
                 </Heading>
 
-                <Text fontSize="sm" color={"gray"}>
+                <Text fontSize="sm" color={'gray'}>
                   No Cars Found.
                 </Text>
               </Box>
             )}
-            {totalCars > 9 && (
-              <PaginationBox
-                total={totalCars || 0}
-                page={page}
-                setpage={setPage}
-              />
-            )}
+            {totalCars > 9 && <PaginationBox total={totalCars || 0} page={page} setpage={setPage} />}
           </GridItem>
         </Grid>
       </Box>

@@ -4,17 +4,18 @@ const bcrypt = require('bcrypt');
 const { getUniqueCustomerCode } = require('../Middlewares/getUniqueCode');
 const SendMail = require('../Config/Sendmail');
 const { CustomerSignupUser, CustomerSignupAdmin } = require('../Email/CustomerTemplates/CustomerSignup');
+const { OtpTemplapes } = require('../Email//OtpTemplates/OtpTemplapes');
 const { PasswordChangedEmail } = require('../Email/PasswordChange');
 const { CustomerDisableAdmin, CustomerDisableCustomer } = require('../Email/CustomerTemplates/CustomerDisable');
 const SetDatesFilter = require('../Config/SetDatesFilter');
 require('dotenv').config();
 
 exports.getAllCustomers = async (req, res) => {
-    const { filterByDays, status, searchQuery } = req.query;
-    let limit = req.query.limit || 50
-    let page = req.query.page || 1
-    page = page > 0 ? page : 1
-    let skip = (page - 1) * limit || 0
+  const { filterByDays, status, searchQuery } = req.query;
+  let limit = req.query.limit || 50;
+  let page = req.query.page || 1;
+  page = page > 0 ? page : 1;
+  let skip = (page - 1) * limit || 0;
 
   let fromDate = req.query.fromDate || '2023-01-01';
   let toDate = req.query.toDate || '2023-12-31';
@@ -86,21 +87,50 @@ exports.CustomerLogin = async (req, res) => {
     if (!email || !password) {
       return res.status(401).json({ message: 'Please provide both email and password. Mandatory fields missing.' });
     }
-    const customer = await CustomerModel.findOne({ email });
+
+    let customer = await CustomerModel.findOne({ email });
+
     if (!customer) {
       return res.status(404).json({ message: 'Email not found. Please check the entered email.' });
     }
+
     if (customer.status === 'disabled') {
       return res.status(400).json({ message: 'Your account is temporarily disabled by the admin. Please contact us for assistance.' });
     }
+
     const passwordMatch = await bcrypt.compare(password, customer.password);
+
     if (!passwordMatch) {
       return res.status(401).json({ message: 'Wrong credentials. Please check your password.' });
     }
+
+    // Check if OTP is verified
+    if (!customer.otp_verified) {
+      // If not verified, generate OTP and send it to the user's email
+      const otp = generateOTP();
+
+      // Update customer with the new OTP
+      customer = await CustomerModel.findOneAndUpdate({ email }, { $set: { otp } }, { new: true });
+
+      // Send OTP verification email
+      SendMail({
+        recipientEmail: customer.email,
+        subject: 'Verify Your OTP!',
+        html: OtpTemplapes(customer)
+      });
+
+      return res.status(200).json({
+        message: 'OTP not verified. Please check your email for the OTP.',
+        customer: { _id: customer._id, email: customer.email, otp_verified: customer.otp_verified }
+      });
+    }
+
     const token = jwt.sign({ _id: customer._id }, process.env.JSON_SECRET);
+
     if (!token) {
       return res.status(401).json({ message: 'Wrong credentials. Please check your password.' });
     }
+
     const customerWithoutPassword = { ...customer._doc, password: undefined };
 
     res.json({ message: 'Login successful', token, customer: customerWithoutPassword });
@@ -134,18 +164,49 @@ exports.addCustomer = async (req, res) => {
   for (const key in test) {
     if (!test[key]) return res.status(401).json({ message: `Please Provide ${key}, Mandatory field missing: ${key}` });
   }
+
   try {
     let Customer = await CustomerModel.findOne({ email });
-    if (Customer) return res.status(404).send({ message: 'Email Already Registered, Please use different email to signup' });
+    if (Customer)
+      return res.status(404).send({
+        message: 'Email Already Registered, Please use a different email to sign up'
+      });
+
     const uniqueIdentifier = await getUniqueCustomerCode();
+
+    // Generate OTP
+    const otp = generateOTP();
+
     bcrypt.hash(password, 10, async (err, hash) => {
       if (err) return res.status(500).json({ message: 'Something Went Wrong', Err: 'Bcrypt Error' });
+
       payload.customer_code = uniqueIdentifier;
       payload.password = hash;
+      payload.otp = otp; // Add OTP to the payload
+      payload.otp_verified = false; // Set otp_verified to false by default
+
       const customer = new CustomerModel(payload);
-      const token = jwt.sign({ _id: customer?._id }, process.env.JSON_SECRET);
-      SendMail({ recipientEmail: customer.email, subject: 'Signup Successful!', html: CustomerSignupUser(customer, temppass) });
-      SendMail({ recipientEmail: '', subject: 'New Customer Signup ', html: CustomerSignupAdmin(customer) });
+      //const token = jwt.sign({ _id: customer?._id }, process.env.JSON_SECRET);
+      const token = '';
+      // Send OTP verification email
+      SendMail({
+        recipientEmail: customer.email,
+        subject: 'Verify Your OTP!',
+        html: OtpTemplapes(customer)
+      });
+
+      // Send other emails (removed sensitive information)
+      // SendMail({
+      //   recipientEmail: customer.email,
+      //   subject: 'Signup Successful!',
+      //   html: CustomerSignupUser(customer, temppass)
+      // });
+      // SendMail({
+      //   recipientEmail: '',
+      //   subject: 'New Customer Signup ',
+      //   html: CustomerSignupAdmin(customer)
+      // });
+
       await customer.save();
       return res.status(200).json({ message: 'New Customer Created Successfully', token, customer });
     });
@@ -176,6 +237,89 @@ exports.ChangePassword = async (req, res) => {
     await CustomerModel.updateOne({ _id: customer._id }, { password: hashedNewPassword });
     SendMail({ recipientEmail: customer.email, subject: 'Password Changed', html: PasswordChangedEmail('customer', customer, temppass) });
     res.status(200).json({ message: 'Password changed successfully' });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: error?.message || 'Something went Wrong', error });
+  }
+};
+exports.Otp_verified = async (req, res) => {
+  try {
+    const { email, otp } = req.body;
+
+    // Find the user by email and OTP
+    const user = await CustomerModel.findOne({ email, otp, otp_verified: false });
+
+    if (user) {
+      // If user found, update otp_verified to true
+      await CustomerModel.updateOne({ email, otp }, { $set: { otp_verified: true } });
+
+      const token = jwt.sign({ _id: user?._id }, process.env.JSON_SECRET);
+
+      // Include required data and token in the response
+      return res.status(200).json({
+        status: true,
+        message: 'OTP verified successfully',
+        customer: {
+          _id: user._id,
+          customer_code: user.customer_code,
+          email: user.email,
+          role: user.role,
+          first_name: user.first_name,
+          last_name: user.last_name,
+          createdAt: user.createdAt,
+          otp: user.otp,
+          otp_verified: true,
+          status: user.status,
+          orders: user.orders,
+          createdAt: user.createdAt,
+          updatedAt: user.updatedAt,
+          __v: user.__v
+        },
+        token
+      });
+    } else {
+      return res.status(400).json({ status: false, message: 'Invalid OTP' });
+    }
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ status: false, message: 'Something went wrong' });
+  }
+};
+exports.ResendOtp = async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    if (!email) {
+      return res.status(400).json({ message: 'Please provide an email address.' });
+    }
+
+    let customer = await CustomerModel.findOne({ email });
+
+    if (!customer) {
+      return res.status(404).json({ message: 'Email not found. Please check the entered email.' });
+    }
+
+    if (customer.status === 'disabled') {
+      return res.status(400).json({ message: 'Your account is temporarily disabled by the admin. Please contact us for assistance.' });
+    }
+
+    // Generate a new OTP
+    const otp = generateOTP();
+
+    // Update customer with the new OTP
+    customer = await CustomerModel.findOneAndUpdate({ email }, { $set: { otp } }, { new: true });
+
+    // Send OTP verification email
+    SendMail({
+      recipientEmail: customer.email,
+      subject: 'Verify Your OTP!',
+      html: OtpTemplapes(customer)
+    });
+
+    return res.status(200).json({
+      message: 'OTP resent successfully. Please check your email for the new OTP.',
+      customer: { _id: customer._id, email: customer.email, otp_verified: customer.otp_verified }
+    });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: error?.message || 'Something went Wrong', error });
@@ -213,4 +357,8 @@ exports.DeleteCustomerByID = async (req, res) => {
     console.log(error);
     return res.status(500).send({ message: error?.message || 'Something went Wrong', error });
   }
+};
+
+const generateOTP = () => {
+  return Math.floor(1000 + Math.random() * 9000).toString();
 };

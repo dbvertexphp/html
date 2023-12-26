@@ -23,7 +23,7 @@ import image from '../../assets/Icons/buy2.png';
 import image2 from '../../assets/Icons/Rectangle.png';
 import image3 from '../../assets/Icons/image 1840.png';
 function BuyCard(props) {
-  const { name, price, imageURL, year, km, fuel, state, _id, booking_status } = props;
+  const { name, price, imageURL, year, km, fuel, state, _id, booking_status,Car_id } = props;
 
   return (
     <>

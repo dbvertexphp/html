@@ -1,47 +1,48 @@
-import { Routes, Route, useLocation } from "react-router-dom";
-import Login from "../Pages/Login";
-import VendorLogin from "../Pages/VendorLogin";
-import VendorForgotPassword from "../Pages/VendorForgotPassword";
-import EmployeeLogin from "../Pages/EmployeeLogin";
-import VendorDashboard from "../Pages/VendorDashboard";
-import EmployeeDashboard from "../Pages/EmployeeDashboard";
-import AdminDashboard from "../Pages/AdminDashboard";
-import PrivateAdminRoute from "./PrivateAdmin";
-import PrivateVendorRoute from "./PrivateVendor";
-import PrivateEmployeeRoute from "./PrivateEmployee";
-import WebsiteLayout from "../Components/WebsiteComponents/WebsiteLayout";
-import Homepage from "../Pages/Homepage";
-import Aboutpage from "../Pages/Aboutpage";
-import ContactUs from "../Pages/ContactUs";
-import PrivacyPolicyX from "../Pages/PrivacyPolicyX";
-import Terms from "../Pages/Terms";
-import ProductPage from "../Pages/ProductPage";
-import SearchPage from "../Pages/SearchPage";
-import Faq from "../Pages/Faq";
-import CustomerLogin from "../Pages/CustomerLogin";
-import CustomerRegister from "../Pages/CustomerRegister";
-import Layout from "../Components/CustomerComponents/Layout";
-import Dashboard from "../Components/CustomerComponents/Dashboard";
-import EditProfile from "../Components/CustomerComponents/EditProfile";
-import Orders from "../Components/CustomerComponents/Orders";
-import ErrorPage from "../Pages/ErrorPage";
-import CustomerLoginEmail from "../Pages/CustomerLoginEmail";
-import VendorRegister from "../Pages/VendorRegister";
-import Transaction from "../Components/CustomerComponents/Transaction";
+import { Routes, Route, useLocation } from 'react-router-dom';
+import Login from '../Pages/Login';
+import VendorLogin from '../Pages/VendorLogin';
+import VendorForgotPassword from '../Pages/VendorForgotPassword';
+import EmployeeLogin from '../Pages/EmployeeLogin';
+import VendorDashboard from '../Pages/VendorDashboard';
+import EmployeeDashboard from '../Pages/EmployeeDashboard';
+import AdminDashboard from '../Pages/AdminDashboard';
+import PrivateAdminRoute from './PrivateAdmin';
+import PrivateVendorRoute from './PrivateVendor';
+import PrivateEmployeeRoute from './PrivateEmployee';
+import WebsiteLayout from '../Components/WebsiteComponents/WebsiteLayout';
+import Homepage from '../Pages/Homepage';
+import Aboutpage from '../Pages/Aboutpage';
+import ContactUs from '../Pages/ContactUs';
+import PrivacyPolicyX from '../Pages/PrivacyPolicyX';
+import Terms from '../Pages/Terms';
+import ProductPage from '../Pages/ProductPage';
+import SearchPage from '../Pages/SearchPage';
+import Faq from '../Pages/Faq';
+import CustomerLogin from '../Pages/CustomerLogin';
+import CustomerRegister from '../Pages/CustomerRegister';
+import Otp_verified from '../Pages/Otp_verified';
+import Layout from '../Components/CustomerComponents/Layout';
+import Dashboard from '../Components/CustomerComponents/Dashboard';
+import EditProfile from '../Components/CustomerComponents/EditProfile';
+import Orders from '../Components/CustomerComponents/Orders';
+import ErrorPage from '../Pages/ErrorPage';
+import CustomerLoginEmail from '../Pages/CustomerLoginEmail';
+import VendorRegister from '../Pages/VendorRegister';
+import Transaction from '../Components/CustomerComponents/Transaction';
 
-import PrivateCustomer from "./PrivateCustomer";
-import NoCustomer from "./NoCustomer";
-import TestDrive from "../Components/CustomerComponents/TestDrive";
-import ReturnPolicy from "../Pages/ReturnPolicy";
-import { useEffect } from "react";
-import PaymentSuccess from "../Components/Extra/PaymentSuccess";
-import PaymentFailed from "../Components/Extra/PaymentFailed";
-import CustomerChangePassword from "../Components/CustomerComponents/CustomerChangePassword";
+import PrivateCustomer from './PrivateCustomer';
+import NoCustomer from './NoCustomer';
+import TestDrive from '../Components/CustomerComponents/TestDrive';
+import ReturnPolicy from '../Pages/ReturnPolicy';
+import { useEffect } from 'react';
+import PaymentSuccess from '../Components/Extra/PaymentSuccess';
+import PaymentFailed from '../Components/Extra/PaymentFailed';
+import CustomerChangePassword from '../Components/CustomerComponents/CustomerChangePassword';
 
 const AllRoutes = () => {
   const Location = useLocation();
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [Location.pathname]);
 
   return (
@@ -79,6 +80,14 @@ const AllRoutes = () => {
           element={
             <NoCustomer>
               <CustomerRegister />
+            </NoCustomer>
+          }
+        />
+        <Route
+          path="/otp-verified"
+          element={
+            <NoCustomer>
+              <Otp_verified />
             </NoCustomer>
           }
         />
@@ -129,7 +138,7 @@ const AllRoutes = () => {
                 <TestDrive />
               </PrivateCustomer>
             }
-          />{" "}
+          />{' '}
           <Route
             path="/customer/transaction"
             element={
@@ -162,8 +171,8 @@ const AllRoutes = () => {
           </PrivateVendorRoute>
         }
       />
- <Route path="/employee-login" element={<EmployeeLogin />} />
- <Route
+      <Route path="/employee-login" element={<EmployeeLogin />} />
+      <Route
         path="/employee/*"
         element={
           <PrivateEmployeeRoute>
@@ -172,7 +181,6 @@ const AllRoutes = () => {
         }
       />
       <Route path="*" element={<ErrorPage />} />
-     
     </Routes>
   );
 };

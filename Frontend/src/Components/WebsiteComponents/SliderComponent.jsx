@@ -1,11 +1,11 @@
-import Slider from "react-slick";
-import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
-import { Box, useBreakpointValue, IconButton, Card } from "@chakra-ui/react";
-import { Skeleton, SkeletonText } from "@chakra-ui/react";
+import Slider from 'react-slick';
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
+import { Box, useBreakpointValue, IconButton, Card } from '@chakra-ui/react';
+import { Skeleton, SkeletonText } from '@chakra-ui/react';
 
-import ItemCard from "./ItemCard";
-import { useState } from "react";
-import SkeletonCard from "../Extra/SkeletonCard";
+import ItemCard from './ItemCard';
+import { useState } from 'react';
+import SkeletonCard from '../Extra/SkeletonCard';
 
 const settings = {
   infinite: false,
@@ -18,43 +18,42 @@ const settings = {
       breakpoint: 1024,
       settings: {
         slidesToShow: 2,
-        slidesToScroll: 1,
-      },
+        slidesToScroll: 1
+      }
     },
     {
       breakpoint: 600,
       settings: {
         slidesToShow: 1,
-        slidesToScroll: 1,
-      },
+        slidesToScroll: 1
+      }
     },
     {
       breakpoint: 480,
       settings: {
         slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-  ],
+        slidesToScroll: 1
+      }
+    }
+  ]
 };
 
 const SliderComponent = ({ data }) => {
   const [slider, setSlider] = useState();
 
-  const top = useBreakpointValue({ base: "50%", md: "50%" });
-  const side = useBreakpointValue({ base: "0px", md: "0px" });
+  const top = useBreakpointValue({ base: '50%', md: '50%' });
+  const side = useBreakpointValue({ base: '0px', md: '0px' });
   data = data.slice(0, 6);
 
   return (
-    <Box position={"relative"} width={"full"} overflow={"hidden"}>
-    
+    <Box position={'relative'} width={'full'} overflow={'hidden'}>
       <IconButton
         aria-label="left-arrow"
         position="absolute"
         borderRadius="50%"
         left={side}
         top={top}
-        transform={"translate(0%, -50%)"}
+        transform={'translate(0%, -50%)'}
         zIndex={2}
         onClick={() => slider?.slickPrev()}
       >
@@ -66,16 +65,16 @@ const SliderComponent = ({ data }) => {
         borderRadius="50%"
         right={side}
         top={top}
-        transform={"translate(0%, -50%)"}
+        transform={'translate(0%, -50%)'}
         zIndex={2}
         onClick={() => slider?.slickNext()}
       >
         <ChevronRightIcon />
       </IconButton>
-      <Slider {...settings} ref={(slider) => setSlider(slider)}>
+      <Slider {...settings} ref={slider => setSlider(slider)}>
         {data.length == 0 &&
-          [1, 2, 3, 4].map((index) => {
-            return <SkeletonCard key={index + "fgd"} />;
+          [1, 2, 3, 4].map(index => {
+            return <SkeletonCard key={index + 'fgd'} />;
           })}
 
         {data.length !== 0 &&
@@ -92,6 +91,7 @@ const SliderComponent = ({ data }) => {
               _id={card?._id}
               booking_status={card.booking_status}
               like_status={card.Like_status}
+              Car_id={card?.Car_id}
             />
           ))}
       </Slider>

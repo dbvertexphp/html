@@ -21,7 +21,7 @@ import {
   import IndianNumberSystem from '../../utils/IndianNumSystem';
   
   function BuyCard(props) {
-    const { name, price, imageURL, year, km, fuel, state, _id, booking_status } = props;
+    const { name, price, imageURL, year, km, fuel, state, _id, booking_status,Car_id } = props;
   
     return (
       <>
