@@ -676,13 +676,9 @@ export default function ProductPage() {
                   
                   ₹ {IndianNumberSystem(data?.price)}
                 </Flex>
-                <Flex align={"center"} gap={{ base: "1", md: "1" }}>
-                  <FiShare />
-                 Share
-                </Flex>
-                <Flex align={"center"} gap={{ base: "1", md: "1" }}>
-                  <FiFlag  />
-                  Report
+               <Flex align={"center"} color={"#1097B1"}  fontSize={"25"} gap={{ base: "1", md: "2" }}>
+                  
+                  {data?.Car_id}
                 </Flex>
               </Flex>
           <Card w="100%" p="2">

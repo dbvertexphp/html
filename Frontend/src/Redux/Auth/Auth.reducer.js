@@ -185,8 +185,12 @@ export const CustomerAuthReducer = (state = CustomerInitState, { type, payload }
     }
 
     case types.CUSTOMER_AUTH_LOGIN_SUCCESS: {
-      // localStorage.setItem("customer_token_carvendor", JSON.stringify(payload?.token));
-      // localStorage.setItem("customer_detail_carvendor", JSON.stringify(payload?.customer));
+      console.log(payload?.customer.otp_verified);
+      if (payload?.customer.otp_verified === true) {
+        localStorage.setItem('customer_token_carvendor', JSON.stringify(payload?.token));
+        localStorage.setItem('customer_detail_carvendor', JSON.stringify(payload?.customer));
+      }
+
       localStorage.setItem('customer_detail_email', JSON.stringify(payload?.customer.email));
       return {
         ...state,

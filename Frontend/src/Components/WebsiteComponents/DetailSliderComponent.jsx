@@ -65,6 +65,7 @@ const DetailSliderComponent = ({ data }) => {
               _id={card?._id}
               booking_status={card.booking_status}
               like_status={card.likestatus}
+              Car_id={card?.Car_id}
             />
           ))}
      

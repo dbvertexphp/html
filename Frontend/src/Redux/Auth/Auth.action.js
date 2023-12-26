@@ -303,7 +303,7 @@ export const signupCustomer = (payload, navigate, toast) => dispatch => {
   axios
     .post(`${BASE_URL}/api/customer/register`, payload)
     .then(res => {
-      dispatch({ type: types.CUSTOMER_AUTH_SIGNUP_SUCCESS, payload: res?.data });
+      // dispatch({ type: types.CUSTOMER_AUTH_SIGNUP_SUCCESS, payload: res?.data });
       // toast({
       //     title: "Signup Successfull!",
       //     description: "You have succesfully Signed Up as Customer",

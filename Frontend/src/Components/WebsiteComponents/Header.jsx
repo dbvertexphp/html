@@ -120,7 +120,7 @@ export default function Header() {
                     {' '}
                     Sell Cars{' '}
                   </NavLink>
-                
+
                   <NavLink className="navbar_option" to="/contactus">
                     {' '}
                     Contact{' '}
@@ -130,15 +130,40 @@ export default function Header() {
                     About{' '}
                   </NavLink>
                   <Link to="/customer-email-login" className="Navbar_link">
-                  <Button colorScheme="blue" className="Navbar_buuton">
+                    <Button colorScheme="blue" className="Navbar_buuton">
                       Login
-                  </Button>
+                    </Button>
                   </Link>
                 </div>
               </Flex>
             ) : (
               <Flex alignItems="center" display={{ base: 'none', lg: 'flex' }}>
-                <Text>{Customer_detail?.first_name}</Text>
+                <div>
+                  <NavLink className="navbar_option" to="/">
+                    {' '}
+                    Home{' '}
+                  </NavLink>
+                  <NavLink className="navbar_option" to="/collection">
+                    {' '}
+                    Buy Cars{' '}
+                  </NavLink>
+                  <NavLink className="navbar_option" to="/vendor-register">
+                    {' '}
+                    Sell Cars{' '}
+                  </NavLink>
+
+                  <NavLink className="navbar_option" to="/contactus">
+                    {' '}
+                    Contact{' '}
+                  </NavLink>
+                  <NavLink className="navbar_option" to="/about">
+                    {' '}
+                    About{' '}
+                  </NavLink>
+                </div>
+                <Text className="navbar_option_username" style={{ textTransform: 'capitalize' }}>
+                  {Customer_detail?.first_name}
+                </Text>
                 <Popover isLazy zIndex={4}>
                   <PopoverTrigger>
                     <Button variant={'ghost'}>
@@ -146,7 +171,13 @@ export default function Header() {
                     </Button>
                   </PopoverTrigger>
                   <PopoverContent mx="5" w="250px">
-                    <PopoverHeader fontWeight="semibold" fontSize={'18'} whiteSpace={'nowrap'}>
+                    <PopoverHeader
+                      fontWeight="semibold"
+                      fontSize={'18'}
+                      whiteSpace={'nowrap'}
+                      className="navbar_option"
+                      style={{ textTransform: 'capitalize' }}
+                    >
                       Hello, {Customer_detail?.first_name + ' ' + Customer_detail?.last_name}
                       <Text fontWeight="normal" fontSize={'13px'}>
                         {Customer_detail?.email}
@@ -219,12 +250,12 @@ export default function Header() {
             </NavLink>
             {!token && !Customer_detail ? (
               <Link to="/customer-email-login" className="Navbar_link">
-              <Button colorScheme="blue" className="Navbar_buuton">
+                <Button colorScheme="blue" className="Navbar_buuton">
                   Login
-              </Button>
+                </Button>
               </Link>
             ) : (
-              <NavLink className="navbar_option" to={'/customer'}>
+              <NavLink className="navbar_option" to={'/customer'} style={{ textTransform: 'capitalize' }}>
                 <Avatar size={'xs'} src={Customer_detail?.profile_pic} />
                 Hello {Customer_detail?.first_name + ' ' + Customer_detail?.last_name}
               </NavLink>

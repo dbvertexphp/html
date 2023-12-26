@@ -49,13 +49,12 @@ exports.getCarsWithPagination = async (req, res) => {
         totalCars = await CarModel.find(search).count();
         Cars = await CarModel.find(search).populate(populateArr).sort({ createdAt: -1 }).limit(limit).skip(skip);
       } else if (search.carIds) {
-        // If 'carIds' property is present in search, add criteria for searching by 'Car_id'
+        // If 'carIds' property is present in search, search by 'Car_id'
         search = {
-          $or: [
-            { ...search, status: 'approved' },
-            { Car_id: { $regex: new RegExp(search.carIds, 'i') }, status: 'approved' }
-          ]
+          Car_id: { $regex: new RegExp(search.carIds.label, 'i') },
+          status: 'approved'
         };
+
         totalCars = await CarModel.find(search).count();
         Cars = await CarModel.find(search).populate(populateArr).sort({ createdAt: -1 }).limit(limit).skip(skip);
       }

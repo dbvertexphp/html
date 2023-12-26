@@ -114,9 +114,9 @@ function DetailItemCard(props) {
               <Box className="home_page_car_name" fontSize="25" fontWeight="semibold" lineHeight="tight" isTruncated>
                 {name}
               </Box>
-              <Box className="home_page_car_name" fontSize="20" fontWeight="semibold" lineHeight="tight" isTruncated>
-                {Car_id ? Car_id : ''}
-              </Box>
+            </Box>
+            <Box className="home_page_car_name" fontSize="20" fontWeight="semibold" lineHeight="tight" isTruncated>
+              {Car_id ? Car_id : ''}
             </Box>
 
             <Box marginTop="10px" className="home_page_location" display="flex" alignItems="center">
