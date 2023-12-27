@@ -44,8 +44,8 @@ export const getAllCar_Id = setData => dispatch => {
     .get(`${BASE_URL}/api/admin/carname/get-all-carId`)
     .then(res => {
       dispatch({ type: types.CARNAME_GET_SUCCESS, payload: res?.data });
-      let carnames = res.data.carIds;
-      carnames = carnames.map(el => ({ label: el }));
+      let carnames = res.data.carDetails;
+      carnames = carnames.map(el => ({ label: el.Car_id, value: el._id }));
 
       setData && setData(carnames);
     })

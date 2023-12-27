@@ -103,6 +103,20 @@ export default function Header() {
           <Image src={logo} width="180px" marginLeft={{ lg: '30px' }} />
         </NavLink>
 
+        <Button
+          size={{ base: 'xs', md: 'sm' }}
+          leftIcon={<FiMapPin />}
+          rightIcon={<FiChevronDown />}
+          colorScheme="teal"
+          variant="ghost"
+          onClick={openModal}
+          marginLeft="50px"
+        >
+          {location?.name || 'Select Location'}
+        </Button>
+        <Spacer />
+
+        <Spacer />
         <div className="Navbar_header_all_optine">
           <div className="" style={{ display: 'inline-flex' }}>
             {!token && !Customer_detail ? (

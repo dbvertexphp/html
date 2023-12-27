@@ -46,14 +46,19 @@ exports.getAllCarNames = async (req, res) => {
 exports.getAllCar_Id = async (req, res) => {
   try {
     // Fetch all cars with Car_id field
-    const cars = await CarModel.find({ Car_id: { $exists: true } }, 'Car_id');
+    const cars = await CarModel.find({ Car_id: { $exists: true } }, '_id Car_id');
+
     // Check if there are no cars with Car_id
     if (!cars || cars.length === 0) {
       return res.status(404).send({ message: 'No cars with Car_id found' });
     }
 
-    const carIds = cars.map(car => car.Car_id);
-    return res.status(200).send({ message: 'Car_ids', carIds });
+    const carDetails = cars.map(car => ({
+      _id: car._id,
+      Car_id: car.Car_id
+    }));
+
+    return res.status(200).send({ message: 'Car details', carDetails });
   } catch (error) {
     console.error(error);
     return res.status(500).send({ message: error?.message || 'Something went wrong', error });

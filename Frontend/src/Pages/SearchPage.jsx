@@ -102,7 +102,6 @@ const SearchPage = () => {
   };
 
   const handleSearchChangeID = val => {
-    console.log(val);
     let data = { search: { carIds: val } };
     setPage(1);
     dispatch(getCars(setPageData, data));
