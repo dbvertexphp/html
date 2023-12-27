@@ -20,6 +20,8 @@ import SearchPage from '../Pages/SearchPage';
 import Faq from '../Pages/Faq';
 import CustomerLogin from '../Pages/CustomerLogin';
 import CustomerRegister from '../Pages/CustomerRegister';
+import CustomerForgetEmail from '../Pages/CustomerForget';
+import CustomerForgetPassword from '../Pages/CustomerForgetPassword';
 import Otp_verified from '../Pages/Otp_verified';
 import Layout from '../Components/CustomerComponents/Layout';
 import Dashboard from '../Components/CustomerComponents/Dashboard';
@@ -88,6 +90,22 @@ const AllRoutes = () => {
           element={
             <NoCustomer>
               <Otp_verified />
+            </NoCustomer>
+          }
+        />
+        <Route
+          path="/customer-forget-email"
+          element={
+            <NoCustomer>
+              <CustomerForgetEmail />
+            </NoCustomer>
+          }
+        />
+        <Route
+          path="/customer-forget-password"
+          element={
+            <NoCustomer>
+              <CustomerForgetPassword />
             </NoCustomer>
           }
         />

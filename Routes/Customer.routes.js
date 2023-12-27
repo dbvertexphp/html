@@ -10,7 +10,8 @@ const {
   CustomerEmailVerification,
   ChangePassword,
   getCustomerSList,
-  ResendOtp
+  ResendOtp,
+  forgetPassword
 } = require('../Controllers/Customer.controller');
 const Authentication = require('../Middlewares/Authentication.middleware');
 
@@ -26,6 +27,7 @@ CustomerRouter.post('/register', addCustomer);
 CustomerRouter.post('/verify', CustomerEmailVerification);
 CustomerRouter.post('/Otp_verified', Otp_verified);
 CustomerRouter.post('/resend_otp', ResendOtp);
+CustomerRouter.post('/forget-password', forgetPassword);
 CustomerRouter.post('/login', CustomerLogin);
 CustomerRouter.post('/phone-login', PhoneLogin);
 

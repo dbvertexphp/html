@@ -296,7 +296,7 @@ exports.ResendOtp = async (req, res) => {
     let customer = await CustomerModel.findOne({ email });
 
     if (!customer) {
-      return res.status(404).json({ message: 'Email not found. Please check the entered email.' });
+      return res.status(404).json({ message: 'Email not found.' });
     }
 
     if (customer.status === 'disabled') {
@@ -323,6 +323,43 @@ exports.ResendOtp = async (req, res) => {
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: error?.message || 'Something went Wrong', error });
+  }
+};
+exports.forgetPassword = async (req, res) => {
+  const { email, otp, password } = req.body;
+
+  try {
+    // Find the user by email
+    const customer = await CustomerModel.findOne({ email });
+
+    // Check if the user exists
+    if (!customer) {
+      return res.status(404).json({ message: 'User not found with this email' });
+    }
+
+    // Check if the provided OTP matches the stored OTP
+    if (customer.otp !== otp || !customer.otp_verified) {
+      return res.status(401).json({ message: 'Invalid OTP' });
+    }
+
+    // Hash the new password
+    bcrypt.hash(password, 10, async (err, hash) => {
+      if (err) {
+        return res.status(500).json({ message: 'Something Went Wrong', error: 'Bcrypt Error' });
+      }
+
+      // Update the user's password and set otp_verified to true
+      customer.password = hash;
+      customer.otp_verified = true;
+
+      // Save the updated user
+      await customer.save();
+
+      return res.status(200).json({ message: 'Password updated successfully' });
+    });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: 'Something went wrong', error });
   }
 };
 

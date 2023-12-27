@@ -47,6 +47,7 @@ export default function CustomerLoginEmail() {
     // } else {
     //   navigate("/customer-register");
     // }
+
     if (!inputEmail) {
       toast({
         title: 'Error',
@@ -57,43 +58,37 @@ export default function CustomerLoginEmail() {
       });
       return;
     }
+    localStorage.setItem('customer_detail_email', JSON.stringify(inputEmail));
     const data = {
       email: inputEmail
     };
     axios
-      .post(`${BASE_URL}/api/customer/verify`, data)
+      .post(`${BASE_URL}/api/customer/resend_otp`, data)
       .then(res => {
         if (res.status == 200) {
           setIsPass(true);
           toast({
             title: 'Success',
-            description: 'You are registered! please Enter your Password',
+            description: 'Otp Send Succesfully In Your Email',
             status: 'success',
             duration: 4000,
             isClosable: true
           });
+          navigate('/customer-forget-password');
         }
       })
       .catch(err => {
         console.log(err);
         toast({
           title: 'Oops',
-          description: 'You are not registered! please register yourself',
+          description: 'Server Error',
           status: 'error',
           duration: 4000,
           isClosable: true
         });
         setIsPass(false);
-        navigate('/customer-register');
+        // navigate('/customer-register');
       });
-  };
-
-  const confirmPass = () => {
-    const payload = {
-      email: inputEmail,
-      password: inputPass
-    };
-    dispatch(loginCustomer(payload, navigate, toast));
   };
 
   return (
@@ -114,7 +109,7 @@ export default function CustomerLoginEmail() {
       <Flex p={5} flex={1} align={'center'} justify={'center'}>
         <Card border="1px solid #fffff" boxShadow={' rgba(0, 100, 0, 0) 0px 0px 0px 0px'}>
           <Text fontWeight={'bold'} className="auth_hending">
-            Login
+            Forget Password
           </Text>
           <Text fontWeight={'semibold'} className="auth_hending_content" mt="5">
             {isPass ? `Enter password linked with ${inputEmail}` : 'Please fill your information below'}
@@ -129,29 +124,6 @@ export default function CustomerLoginEmail() {
             <Input style={{ height: '50px' }} isRequired type="email" placeholder="Enter Email ID" onChange={handleInputChange} />
           </InputGroup>
 
-          <InputGroup mt="10">
-            <InputLeftElement pointerEvents="none" pt="10px">
-              <h1 style={{ fontSize: '20px' }}>
-                <RiLockPasswordFill />
-              </h1>
-            </InputLeftElement>
-            <Input
-              style={{ height: '50px' }}
-              type={show ? 'text' : 'password'}
-              value={inputPass}
-              placeholder="Enter Password"
-              onChange={handleInputPass}
-            />
-            <InputRightElement width="4.5rem">
-              <Button h="1.75rem" size="sm" onClick={handleClick}>
-                {show ? 'Hide' : 'Show'}
-              </Button>
-            </InputRightElement>
-          </InputGroup>
-          <Link to={'/customer-forget-email'} style={{ color: 'var(--chakra-colors-blue-500)', textAlign: 'right', marginTop: '20px' }}>
-            Forgot password?
-          </Link>
-
           <Center m="4" className="auth_buttons" alignSelf={'center'}>
             {!isLoading && (
               <Button
@@ -161,30 +133,12 @@ export default function CustomerLoginEmail() {
                 variant="ghost"
                 color="white"
                 type="submit"
-                onClick={confirmPass}
+                onClick={nextHandler}
               >
-                Login
+                Send
               </Button>
             )}
           </Center>
-
-          <Flex gap={'1'}>
-            By continuing I agree with the
-            <Text color="blue.500" as={Link} to="/privacy-policy">
-              Privacy Policy
-            </Text>
-            and
-            <Text color="blue.500" as={Link} to="/terms-conditions">
-              Terms & Conditions
-            </Text>
-          </Flex>
-
-          <Flex gap={'1'} mt="50px" justifyContent={'space-between'}>
-            <Text>Don’t have an account?</Text>
-            <Text color="blue.500" as={Link} to="/customer-register">
-              Create your account
-            </Text>
-          </Flex>
           <Center mt="4">{isLoading && <Spinner />}</Center>
         </Card>
       </Flex>
