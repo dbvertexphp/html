@@ -56,11 +56,17 @@ export const getCarsAdmin = (setData, data, token) => dispatch => {
       });
     });
 };
-export const getCarsHomePage = (id, setData, data) => dispatch => {
+export const getCarsHomePage = (id, setData, locationData) => dispatch => {
   dispatch({ type: types.CAR_GET_LOADING });
+  const locationId = locationData?.location || null;
+
+  const requestData = {
+    ...locationData,
+    location: locationId // Set location to the extracted _id from the locationData
+  };
 
   axios
-    .get(`${BASE_URL}/api/vendor/car/get-all-cars-home/${id}`, data)
+    .post(`${BASE_URL}/api/vendor/car/get-all-cars-home/${id}`, requestData)
     .then(res => {
       dispatch({ type: types.CAR_GET_SUCCESS, payload: res?.data?.Cars });
       setData && setData(res?.data);
@@ -73,6 +79,7 @@ export const getCarsHomePage = (id, setData, data) => dispatch => {
       });
     });
 };
+
 export const getCarsByVendorID = (id, page, data, setData, token) => dispatch => {
   if (!page) page = 1;
   dispatch({ type: types.CAR_GET_LOADING });

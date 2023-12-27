@@ -72,11 +72,6 @@ const SliderComponent = ({ data }) => {
         <ChevronRightIcon />
       </IconButton>
       <Slider {...settings} ref={slider => setSlider(slider)}>
-        {data.length == 0 &&
-          [1, 2, 3, 4].map(index => {
-            return <SkeletonCard key={index + 'fgd'} />;
-          })}
-
         {data.length !== 0 &&
           data?.map((card, index) => (
             <ItemCard

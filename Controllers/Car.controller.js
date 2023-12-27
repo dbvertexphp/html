@@ -137,11 +137,17 @@ exports.getAllCarsAdmin = async (req, res) => {
 exports.getAllCarsForHome = async (req, res) => {
   try {
     const user_id = req.params.id || null;
-    //const user_id = '65706f4edd84879558fce0a5' || null;
-    const Trendings = await getLikeStatus('approved', 1, 15, user_id, 'trending_car');
-    const HotDeals = await getLikeStatus('approved', 1, 15, user_id, 'hotdeal_car');
-    const Featured = await getLikeStatus('approved', 1, 15, user_id, 'featured_car');
-    const Upcomings = await getLikeStatus('approved', 1, 15, user_id, 'upcoming_car');
+    const location_id = req.body.location || null; // Assuming location is in the request body
+    let locationFilter = {};
+    if (location_id) {
+      locationFilter = { location: location_id };
+    }
+
+    const Trendings = await getLikeStatus('approved', 1, 15, user_id, 'trending_car', locationFilter);
+    const HotDeals = await getLikeStatus('approved', 1, 15, user_id, 'hotdeal_car', locationFilter);
+    const Featured = await getLikeStatus('approved', 1, 15, user_id, 'featured_car', locationFilter);
+    const Upcomings = await getLikeStatus('approved', 1, 15, user_id, 'upcoming_car', locationFilter);
+    
 
     return res.status(200).send({
       message: 'All Cars For HomePage',
@@ -156,10 +162,9 @@ exports.getAllCarsForHome = async (req, res) => {
   }
 };
 
-async function getLikeStatus(status, condition, size, user_id, flag) {
-  const cars = await CarModel.find({ status, [`${flag}`]: 1 })
-    .limit(size)
-    .sort({ createdAt: -1 });
+async function getLikeStatus(status, condition, size, user_id, flag, locationFilter) {
+  const query = { status, [`${flag}`]: 1, ...locationFilter };
+  const cars = await CarModel.find(query).limit(size).sort({ createdAt: -1 });
 
   // If user_id is null, set default Like_status to 'No'
   if (!user_id) {

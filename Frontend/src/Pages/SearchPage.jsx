@@ -87,12 +87,25 @@ const SearchPage = () => {
   };
 
   useEffect(() => {
-    getData();
-  }, [filters, sortby, location, page]);
+    const urlParams = new URLSearchParams(window.location.search);
+    const nameParam = urlParams.get('name');
+    const labelParam = urlParams.get('label');
+    const valueParam = urlParams.get('value');
 
+    if (nameParam) {
+      const val = { _id: nameParam };
+      handleSearchChange(val);
+    } else if (labelParam && valueParam) {
+      const val = { label: labelParam, value: valueParam };
+      handleSearchChangeID(val);
+    } else {
+      getData();
+    }
+  }, [filters, sortby, location, page]);
   const refresh = e => {
+    localStorage.removeItem('location_carvendor');
     setPage(1);
-    window.location.reload();
+    window.location.href = '/collection';
   };
 
   const handleSearchChange = val => {

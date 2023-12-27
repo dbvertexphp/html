@@ -35,7 +35,7 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon, Search2Icon } from '@chakra-ui/icons';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-
+import { getCarsHomePage } from '../../Redux/App/Actions/Vendors/Car.action';
 import logo from '../../assets/Icons/logo.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { CUSTOMER_LOGOUT } from '../../Redux/Auth/Auth.types';
@@ -49,24 +49,41 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [trending, settrending] = useState([]);
+  const [featured, setfeatured] = useState([]);
+  const [upcoming, setupcoming] = useState([]);
+  const [hotdeal, sethotdeal] = useState([]);
 
   let { location } = useSelector(store => store?.CarManager);
   let deflocation = JSON.parse(localStorage.getItem('location_carvendor'))?._id;
-
-  const { Customer_detail, token } = useSelector(state => state.CustomerAuthManager);
-
+  let deflocationname = JSON.parse(localStorage.getItem('location_carvendor'))?.name;
   const openModal = () => {
     setIsModalOpen(true);
   };
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  let { Customer_detail, token } = useSelector(store => store?.CustomerAuthManager);
+  const customer = Customer_detail || JSON.parse(localStorage.getItem('customer_detail_carvendor'));
+  let customertoken = token || JSON.parse(localStorage.getItem('customer_token_carvendor'));
+
+  const setData = data => {
+    settrending(data.Trendings);
+    setfeatured(data.Featured);
+    setupcoming(data.Upcomings);
+    sethotdeal(data.HotDeals);
+  };
   const handleChangeFn = location => {
-    dispatch({ type: 'LOCATION_LOADING', payload: location });
+    const locationId = location?._id || null; // Extract _id from location, default to null if not present
+    dispatch({ type: 'LOCATION_LOADING', payload: locationId });
     localStorage.setItem('location_carvendor', JSON.stringify(location));
     closeModal();
-    dispatch({ type: 'LOCATION_SUCCESS', payload: location });
+    dispatch({ type: 'LOCATION_SUCCESS', payload: locationId });
+    dispatch(getCarsHomePage(Customer_detail?._id, setData, { location: locationId }));
+    window.location.reload();
   };
+
   const handleCleanLocation = () => {
     dispatch({ type: 'LOCATION_LOADING', payload: location });
     localStorage.removeItem('location_carvendor');
@@ -83,7 +100,6 @@ export default function Header() {
   const menuHandler = () => {
     setIsOpen(!isOpen);
   };
-
   return (
     <>
       <Flex
@@ -112,7 +128,7 @@ export default function Header() {
           onClick={openModal}
           marginLeft="50px"
         >
-          {location?.name || 'Select Location'}
+          {deflocationname || 'Select Location'}
         </Button>
         <Spacer />
 

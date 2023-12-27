@@ -1,43 +1,43 @@
-import { Link, useNavigate } from 'react-router-dom';
-import Carousel from '../Components/WebsiteComponents/Carousel';
-import { Card, Text, CardFooter, CardHeader, Heading, Flex } from '@chakra-ui/react';
+import React, { useEffect, useState } from 'react';
+import { Card, Text, CardHeader, Heading, Flex } from '@chakra-ui/react';
 import SliderComponent from '../Components/WebsiteComponents/SliderComponent';
 import BrandSliderComponent from '../Components/WebsiteComponents/BrandSliderComponent';
+import BuyCard from '../Components/WebsiteComponents/BuyCard';
 import Testemonials from '../Components/WebsiteComponents/Testemonials';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import BuyCard from '../Components/WebsiteComponents/BuyCard';
-import { getCars, getCarsHomePage } from '../Redux/App/Actions/Vendors/Car.action';
+import { useNavigate } from 'react-router-dom';
+import { getCarsHomePage } from '../Redux/App/Actions/Vendors/Car.action';
+import Carousel from '../Components/WebsiteComponents/Carousel';
 
-export default function Homepage() {
+const Homepage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [trending, settrending] = useState([]);
   const [featured, setfeatured] = useState([]);
-  const [upcoming, setupcoming] = useState([]);
   const [hotdeal, sethotdeal] = useState([]);
   const { loading, error } = useSelector(state => state?.CarManager);
+  const { Customer_detail, token } = useSelector(store => store?.CustomerAuthManager) || {};
+  const customer = Customer_detail || JSON.parse(localStorage.getItem('customer_detail_carvendor'));
+  const customertoken = token || JSON.parse(localStorage.getItem('customer_token_carvendor'));
 
-  
-  let { Customer_detail, token } = useSelector(
-    (store) => store?.CustomerAuthManager
-  );
-  const customer =
-    Customer_detail ||
-    JSON.parse(localStorage.getItem("customer_detail_carvendor"));
-  let customertoken =
-    token || JSON.parse(localStorage.getItem("customer_token_carvendor"));
-
-    
   const setData = data => {
-    settrending(data.Trendings);
-    setfeatured(data.Featured);
-    setupcoming(data.Upcomings);
-    sethotdeal(data.HotDeals);
+    settrending([...data.Trendings]);
+    setfeatured([...data.Featured]);
+    sethotdeal([...data.HotDeals]);
   };
+  const storedLocation = JSON.parse(localStorage.getItem('location_carvendor'));
+
   useEffect(() => {
-    dispatch(getCarsHomePage(Customer_detail?._id,setData));
-  }, []);
+    if (storedLocation) {
+      const locationId = storedLocation?._id || null;
+      dispatch({ type: 'LOCATION_LOADING', payload: locationId });
+      dispatch(getCarsHomePage(Customer_detail?._id, setData, { location: locationId }));
+      dispatch({ type: 'LOCATION_SUCCESS', payload: locationId });
+    } else {
+      // If location is not in localStorage, make API call directly
+      dispatch(getCarsHomePage(Customer_detail?._id, setData));
+    }
+  }, [Customer_detail?._id]);
 
   return (
     <>
@@ -47,7 +47,6 @@ export default function Homepage() {
         <CardHeader>
           <Flex placeContent={'center'}>
             <Heading textAlign={'center'} size="lg" className="know_more_compontent_heading">
-              {' '}
               Recently added cars
             </Heading>
           </Flex>
@@ -84,37 +83,16 @@ export default function Homepage() {
         </CardHeader>
         <SliderComponent data={hotdeal} />
         <Text
-        align={"center"}
-              color="#30829c"
-              cursor="pointer"
-              onClick={() => {
-                navigate("/collection");
-              }}
-            >
-              View All Cars
-              
-            </Text>
+          align={'center'}
+          color="#30829c"
+          cursor="pointer"
+          onClick={() => {
+            navigate('/collection');
+          }}
+        >
+          View All Cars
+        </Text>
       </Card>
-
-      {/* <Card mx={{ base: "5", md: "10" }} mb={{ base: "5", md: "10" }} pb="5">
-        <CardHeader>
-          <Flex align={"center"} justify={"space-between"}>
-            <Heading size="lg">Upcoming cars</Heading>
-            <Text
-              color="#30829c"
-              cursor="pointer"
-              onClick={() => {
-                navigate("/collection?q=upcoming_car");
-              }}
-            >
-              View All Cars
-            </Text>
-          </Flex>
-        </CardHeader>
-        <SliderComponent data={upcoming} />
-      </Card> */}
-
-      
 
       <Card border="0px" background="#F5F4F9" mb={{ base: '5', md: '10' }} pb="5">
         <CardHeader>
@@ -127,17 +105,18 @@ export default function Homepage() {
         <CardHeader>
           <Flex placeContent={'center'}>
             <Heading textAlign={'center'} size="lg" className="know_more_compontent_heading">
-              Why buy from us ?
+              Why buy from us?
             </Heading>
           </Flex>
         </CardHeader>
         <BuyCard />
       </Card>
+
       <Card mx={{ base: '5', md: '10' }} mb={{ base: '5', md: '10' }} p="5">
-      <CardHeader>
+        <CardHeader>
           <Flex placeContent={'center'}>
             <Heading textAlign={'center'} size="lg" className="know_more_compontent_heading">
-            Join Our Happy Clients
+              Join Our Happy Clients
             </Heading>
           </Flex>
         </CardHeader>
@@ -145,4 +124,6 @@ export default function Homepage() {
       </Card>
     </>
   );
-}
+};
+
+export default Homepage;

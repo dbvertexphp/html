@@ -30,15 +30,15 @@ export default function Carousel() {
     dispatch(getallBanners(null, setcards));
   };
   const handleSearchChange = val => {
-    let data = { search: { name: val._id } };
-
-    navigate('/collection');
+    const { _id } = val;
+    navigate(`/collection?name=${_id}`);
   };
 
   const handleSearchChangeID = val => {
-    let data = { search: { carIds: val } };
-    navigate('/collection');
+    const { label, value } = val;
+    navigate(`/collection?label=${label}&value=${value}`);
   };
+
   useEffect(() => {
     getData();
   }, []);
