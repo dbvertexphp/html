@@ -9,7 +9,7 @@ import EditVendor from "../Components/AdminComponents/AdminVendor/EditVendor";
 import AdminCar from "../Components/AdminComponents/AdminCar";
 import AdminReport from "../Components/AdminComponents/AdminReport";
 import AdminCarComponent from "../Components/AdminComponents/AdminCarComponents/AdminCarComponent";
-import ChangePassword from "../Components/VendorComponents/VendorChangePassword";
+import ChangePassword from "../Components/AdminComponents/AdminChangePassword";
 import UploadStuff from "../Components/Extra/UploadStuff";
 import AdminEmployees from "../Components/AdminComponents/AdminEmployees";
 import AddEmployees from "../Components/AdminComponents/AdminEmployees/AddEmployees";

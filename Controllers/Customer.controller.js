@@ -218,21 +218,15 @@ exports.addCustomer = async (req, res) => {
 
 exports.ChangePassword = async (req, res) => {
   const id = req?.params?.id;
-  let { oldPassword, newPassword } = req.body;
+  let { newPassword } = req.body;
   let temppass = newPassword;
 
   try {
-    if (!oldPassword || !newPassword) {
-      return res.status(401).json({ message: 'Please provide both old password and new password. Mandatory fields missing.' });
-    }
     const customer = await CustomerModel.findById(id);
     if (!customer) {
       return res.status(404).json({ message: 'Customer not found' });
     }
-    const passwordMatch = await bcrypt.compare(oldPassword, customer.password);
-    if (!passwordMatch) {
-      return res.status(401).json({ message: 'Wrong old password. Please enter the correct old password.' });
-    }
+
     const hashedNewPassword = await bcrypt.hash(newPassword, 10);
     await CustomerModel.updateOne({ _id: customer._id }, { password: hashedNewPassword });
     SendMail({ recipientEmail: customer.email, subject: 'Password Changed', html: PasswordChangedEmail('customer', customer, temppass) });

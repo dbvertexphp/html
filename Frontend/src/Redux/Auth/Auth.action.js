@@ -89,7 +89,7 @@ export const ForgotVendor = (payload, navigate, toast) => dispatch => {
   axios
     .post(`${BASE_URL}/api/vendor/forgot-pass`, payload)
     .then(res => {
-      dispatch({ type: types.CARVENDOR_AUTH_LOGIN_SUCCESS, payload: res?.data });
+      dispatch({ type: types.CARVENDOR_AUTH_FORGET_PASSWORD, payload: res?.data });
       toast({
         title: 'Reset Password',
         description: 'Password successfully send on your registed email',
@@ -97,7 +97,7 @@ export const ForgotVendor = (payload, navigate, toast) => dispatch => {
         duration: 4000,
         isClosable: true
       });
-      navigate('/forgot-password');
+      navigate('/vendor-login');
     })
     .catch(err => {
       console.log(err);
@@ -171,7 +171,7 @@ export const ForgotEmployee = (payload, navigate, toast) => dispatch => {
   axios
     .post(`${BASE_URL}/api/employee/forgot-pass`, payload)
     .then(res => {
-      dispatch({ type: types.EMPLOYEE_AUTH_LOGIN_SUCCESS, payload: res?.data });
+      dispatch({ type: types.EMPLOYEE_AUTH_FORGET_PASSWORD, payload: res?.data });
       toast({
         title: 'Reset Password',
         description: 'Password successfully send on your registed email',
@@ -179,7 +179,7 @@ export const ForgotEmployee = (payload, navigate, toast) => dispatch => {
         duration: 4000,
         isClosable: true
       });
-      navigate('/forgot-password');
+      navigate('/employee-login');
     })
     .catch(err => {
       console.log(err);
@@ -191,7 +191,39 @@ export const ForgotEmployee = (payload, navigate, toast) => dispatch => {
         isClosable: true
       });
       dispatch({
-        type: types.EMPLOYEE_AUTH_LOGIN_ERROR,
+        type: types.EMPLOYEE_AUTH_FORGET_PASSWORD,
+        payload: err?.response?.data?.message
+      });
+    });
+};
+
+export const ForgotAdminpass = (payload, navigate, toast) => dispatch => {
+  dispatch({ type: types.USER_AUTH_LOGIN_SUCCESS });
+
+  axios
+    .post(`${BASE_URL}/api/user/forgot-pass`, payload)
+    .then(res => {
+      dispatch({ type: types.USER_AUTH_FORGET_PASSWORD, payload: res?.data });
+      toast({
+        title: 'Reset Password',
+        description: 'Password successfully send on your registed email',
+        status: 'success',
+        duration: 4000,
+        isClosable: true
+      });
+      navigate('/admin-login');
+    })
+    .catch(err => {
+      console.log(err);
+      toast({
+        title: 'Login Failed!',
+        description: err?.response?.data?.message,
+        status: 'error',
+        duration: 4000,
+        isClosable: true
+      });
+      dispatch({
+        type: types.USER_AUTH_LOGIN_SUCCESS,
         payload: err?.response?.data?.message
       });
     });

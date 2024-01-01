@@ -3,13 +3,12 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../assets/Icons/logo.png';
-import { loginEmployee } from '../Redux/Auth/Auth.action';
+import { ForgotAdminpass } from '../Redux/Auth/Auth.action';
 import { theme2 } from '../utils/colours';
 
-export default function Login() {
+export default function Forgot() {
   const [form, setForm] = useState({
-    email: '',
-    password: ''
+    email: ''
   });
 
   const navigate = useNavigate();
@@ -26,7 +25,7 @@ export default function Login() {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(loginEmployee(form, navigate, toast));
+    dispatch(ForgotAdminpass(form, navigate, toast));
   };
 
   return (
@@ -36,27 +35,18 @@ export default function Login() {
           <NavLink to="/">
             <Image src={logo} display={'block'} margin={'auto'} width="100%" h="200px" position={'center'} objectFit={'cover'} />
           </NavLink>
-          <Heading>Employee</Heading>
-          <Heading fontSize={'2xl'}>Sign in to your account </Heading>
+
+          <Heading fontSize={'2xl'}>Forgot Password </Heading>
           <form action="" onSubmit={handleSubmit}>
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
               <Input placeholder="Enter Email" type="email" value={form?.email} name="email" onChange={handleChange} required />
             </FormControl>
-            <FormControl id="password">
-              <FormLabel>Password</FormLabel>
-              <Input placeholder="Enter Password" type="password" value={form?.password} name="password" onChange={handleChange} required />
-            </FormControl>
+
             <br />
             <Stack spacing={6}>
-              <Stack direction={{ base: 'column', sm: 'row' }} align={'start'} justify={'space-between'}>
-                <Checkbox>Remember me</Checkbox>
-                <Link color={'blue.500'} onClick={() => navigate('/employee-forgot-password')}>
-                  Forgot password?
-                </Link>
-              </Stack>
               <Button bg={theme2} color={'white'} mx="auto" width="50%" variant={'solid'} type="submit" isLoading={loading}>
-                Sign in
+                Forgot
               </Button>
             </Stack>
           </form>

@@ -5,13 +5,13 @@ import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { BASE_URL } from '../../utils/config';
 
-const VendorChangePassword = () => {
+const UserChangePassword = () => {
   const toast = useToast();
   const navigate = useNavigate();
 
-  let { Vendor_detail, token } = useSelector(store => store?.VendorAuthManager);
-  const vendor = Vendor_detail || JSON.parse(localStorage.getItem('vendor_detail_carvendor'));
-  let vendortoken = token || JSON.parse(localStorage.getItem('vendor_token_carvendor'));
+  let { User_detail, token } = useSelector(store => store?.UserAuthManager);
+  const user = User_detail || JSON.parse(localStorage.getItem('user_detail_caruser'));
+  let usertoken = token || JSON.parse(localStorage.getItem('user_token_caruser'));
 
   const oldPassInput = useRef();
   const newPassInput = useRef();
@@ -30,14 +30,14 @@ const VendorChangePassword = () => {
 
     let body = {
       newPass: enteredConfirmPass,
-      email: vendor.email
+      email: user.email
     };
 
     axios
-      .patch(`${BASE_URL}/api/vendor/change-pass/${vendor._id}`, body, {
+      .patch(`${BASE_URL}/api/user/change-pass/${user._id}`, body, {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${JSON.parse(localStorage.getItem('vendor_token_carvendor'))}`
+          Authorization: `Bearer ${JSON.parse(localStorage.getItem('admin_token_carvendor'))}`
         }
       })
       .then(res => {
@@ -46,7 +46,7 @@ const VendorChangePassword = () => {
             status: 'success',
             title: 'Password Changed Successfully'
           });
-          navigate('/vendor/dashboard', { replace: true });
+          navigate('/admin/dashboard', { replace: true });
         }
       })
       .catch(err => {
@@ -80,4 +80,4 @@ const VendorChangePassword = () => {
   );
 };
 
-export default VendorChangePassword;
+export default UserChangePassword;

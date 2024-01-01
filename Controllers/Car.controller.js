@@ -33,7 +33,7 @@ exports.getCarsWithPagination = async (req, res) => {
   sortby = sortby || 'createdAt';
   sort_index == 0 ? (sortObj = { [sortby]: -1 }) : (sortObj = { price: sort_index });
 
-  let limit = req.body.limit || 9;
+  let limit = req.body.limit || 25;
   let page = req.body.page || 1;
   page = page > 0 ? page : 1;
   let skip = (page - 1) * limit || 0;
@@ -63,11 +63,16 @@ exports.getCarsWithPagination = async (req, res) => {
       if (filters?.location) FilterArr.push({ location: { $in: [filters.location] } });
       if (filters?.brands?.length > 0) FilterArr.push({ cmake: { $in: filters.brands } });
       if (filters?.bodytypes?.length > 0) FilterArr.push({ cbody_type: { $in: filters.bodytypes } });
-      if (filters?.transmission?.length > 0) FilterArr.push({ transmission: { $in: filters.transmission } });
+      if (filters?.transmission?.length > 0) {
+        const transmissionFilters = filters.transmission.map(transmission => ({
+          transmission: { $regex: new RegExp(transmission, 'i') }
+        }));
+        FilterArr.push({ $or: transmissionFilters });
+      }
       if (filters?.colors?.length > 0) FilterArr.push({ ccolor: { $in: filters.colors } });
       if (filters?.features?.length > 0) FilterArr.push({ features: { $in: filters.features } });
       if (filters?.seats?.length > 0) FilterArr.push({ seats: { $in: filters.seats } });
-      if (filters?.owners?.length > 0) FilterArr.push({ owners: { $in: filters.owners } });
+      if (filters?.owners?.length > 0) FilterArr.push({ ownership: { $in: filters.owners } });
       if (filters?.minPrice || filters?.maxPrice)
         FilterArr.push({
           price: { $gte: filters?.minPrice, $lte: filters?.maxPrice }
@@ -147,7 +152,6 @@ exports.getAllCarsForHome = async (req, res) => {
     const HotDeals = await getLikeStatus('approved', 1, 15, user_id, 'hotdeal_car', locationFilter);
     const Featured = await getLikeStatus('approved', 1, 15, user_id, 'featured_car', locationFilter);
     const Upcomings = await getLikeStatus('approved', 1, 15, user_id, 'upcoming_car', locationFilter);
-    
 
     return res.status(200).send({
       message: 'All Cars For HomePage',

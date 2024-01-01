@@ -81,9 +81,10 @@ const SearchPage = () => {
       filters: { ...filters, location: location?._id || null },
       sortby,
       page,
-      limit: 9
+      limit: 25
     };
     dispatch(getCars(setPageData, data));
+    console.log(setDisplayFilters);
   };
 
   useEffect(() => {
@@ -101,7 +102,8 @@ const SearchPage = () => {
     } else {
       getData();
     }
-  }, [filters, sortby, location, page]);
+  }, [filters, displayFilters, sortby, location, page]);
+
   const refresh = e => {
     localStorage.removeItem('location_carvendor');
     setPage(1);
@@ -126,6 +128,25 @@ const SearchPage = () => {
 
   const correctFilter = newDisplay => {
     childRef.current.correctFilter(newDisplay);
+  };
+  const getDataReset = () => {
+    setFilters(tempfilters);
+  };
+  const handleRemoveFilter = item => {
+    let newDisplay = displayFilters.filter(fil => fil !== item);
+    setDisplayFilters([...newDisplay]); // Update state using spread operator
+
+    // Create a copy of the current filters and modify the copy
+    let updatedFilters = { ...filters };
+
+    // Assuming "transmission" is the filter you want to update
+    updatedFilters.transmission = newDisplay;
+
+    // Update the filters state with the modified copy
+    setFilters(updatedFilters);
+
+    // Call the correctFilter function with the updated filters
+    correctFilter(newDisplay);
   };
 
   return (
@@ -175,8 +196,9 @@ const SearchPage = () => {
                   size="sm"
                   bg="orange.300"
                   onClick={() => {
+                    getDataReset();
                     setDisplayFilters([]);
-                    setFilters(initFilters);
+                    //setFilters(initFilters);
                     callChildFunction();
                   }}
                 >
@@ -189,10 +211,11 @@ const SearchPage = () => {
                         <Button
                           size="sm"
                           rightIcon={<FiX />}
-                          onClick={() => {
-                            let newDisplay = displayFilters.filter(fil => fil != item);
-                            setDisplayFilters(newDisplay);
-                            correctFilter(newDisplay);
+                          onClick={e => {
+                            // let newDisplay = displayFilters.filter(fil => fil != item);
+                            // setDisplayFilters(newDisplay);
+                            // correctFilter(newDisplay);
+                            handleRemoveFilter(item);
                           }}
                         >
                           {item}
@@ -272,7 +295,7 @@ const SearchPage = () => {
                 </Text>
               </Box>
             )}
-            {totalCars > 9 && <PaginationBox total={totalCars || 0} page={page} setpage={setPage} />}
+            {totalCars > 25 && <PaginationBox total={totalCars || 0} page={page} setpage={setPage} />}
           </GridItem>
         </Grid>
       </Box>

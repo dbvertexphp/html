@@ -246,7 +246,7 @@ export default function ProductPage() {
 
     setBookingData({
       ...InitBookingData,
-      advanced_amount: car?.price * 0.1 ,
+      advanced_amount: car?.price * 0.1,
       amount_to_pay: car?.price * 0.1,
       total_amount: car?.price,
       test_drive_booking_amount: 500,
@@ -787,14 +787,6 @@ export default function ProductPage() {
                         <TableContainer whiteSpace={'normal'}>
                           <Table variant="unstyled" size="sm">
                             <Tbody>
-                              <Tr>
-                                <Td>
-                                  <Flex align={'center'} gap="2" textColor={'gray.500'}>
-                                    <BsShieldFill /> Insurance Validity
-                                  </Flex>
-                                </Td>
-                                <Td fontWeight={'semibold'}>Third Party insurance</Td>
-                              </Tr>
                               <Tr>
                                 <Td>
                                   <Flex align={'center'} gap="2" textColor={'gray.500'}>

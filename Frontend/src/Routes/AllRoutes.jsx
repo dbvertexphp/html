@@ -2,6 +2,8 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Login from '../Pages/Login';
 import VendorLogin from '../Pages/VendorLogin';
 import VendorForgotPassword from '../Pages/VendorForgotPassword';
+import EmployeeForgotPassword from '../Pages/EmployeeForgotPassword';
+import AdminForgotPassword from '../Pages/AdminForgotPassword';
 import EmployeeLogin from '../Pages/EmployeeLogin';
 import VendorDashboard from '../Pages/VendorDashboard';
 import EmployeeDashboard from '../Pages/EmployeeDashboard';
@@ -170,6 +172,18 @@ const AllRoutes = () => {
       <Route path="/payment-success" element={<PaymentSuccess />} />
       <Route path="/payment-failed" element={<PaymentFailed />} />
       <Route path="/admin-login" element={<Login />} />
+
+      <Route
+        path="/admin/*"
+        element={
+          <PrivateAdminRoute>
+            <AdminDashboard />
+          </PrivateAdminRoute>
+        }
+      />
+
+      <Route path="/admin-login" element={<Login />} />
+      <Route path="/admin-forgot-password" element={<AdminForgotPassword />} />
       <Route
         path="/admin/*"
         element={
@@ -189,6 +203,18 @@ const AllRoutes = () => {
           </PrivateVendorRoute>
         }
       />
+
+      <Route path="/employee-login" element={<EmployeeLogin />} />
+      <Route path="/employee-forgot-password" element={<EmployeeForgotPassword />} />
+      <Route
+        path="/employee/*"
+        element={
+          <PrivateEmployeeRoute>
+            <EmployeeDashboard />
+          </PrivateEmployeeRoute>
+        }
+      />
+
       <Route path="/employee-login" element={<EmployeeLogin />} />
       <Route
         path="/employee/*"

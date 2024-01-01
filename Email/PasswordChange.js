@@ -1,12 +1,14 @@
 const PasswordChangedEmail = (usertype, user, password) => {
-    let user_name
-    if (usertype == "vendor") {
-        user_name = user.vendor_name
-    } else {
-        user_name = user.first_name + user.last_name
-    }
+  let user_name;
+  if (usertype == 'vendor') {
+    user_name = user.vendor_name;
+  } else if (usertype == 'Employee') {
+    user_name = user.employee_name;
+  } else {
+    user_name = user.first_name + user.last_name;
+  }
 
-    return `<!DOCTYPE html>
+  return `<!DOCTYPE html>
     <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
     
     <head>
@@ -181,7 +183,7 @@ const PasswordChangedEmail = (usertype, user, password) => {
         </table><!-- End -->
     </body>
     
-    </html>`
-}
+    </html>`;
+};
 
 module.exports = { PasswordChangedEmail };

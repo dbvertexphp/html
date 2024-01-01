@@ -59,6 +59,17 @@ export const UserAuthReducer = (state = UserInitState, { type, payload }) => {
       };
     }
 
+    case types.USER_AUTH_FORGET_PASSWORD: {
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        isAuth: true,
+        token: payload?.token,
+        User_detail: payload?.user
+      };
+    }
+
     case types.USER_LOGOUT: {
       localStorage.removeItem('admin_token_carvendor');
       localStorage.removeItem('user_detail_carvendor');
@@ -105,6 +116,17 @@ export const VendorAuthReducer = (state = VendorInitState, { type, payload }) =>
       };
     }
 
+    case types.CARVENDOR_AUTH_FORGET_PASSWORD: {
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        isAuth: true,
+        token: payload?.token,
+        Vendor_detail: payload?.vendor
+      };
+    }
+
     case types.CARVENDOR_LOGOUT: {
       localStorage.removeItem('vendor_token_carvendor');
       localStorage.removeItem('vendor_detail_carvendor');
@@ -141,6 +163,17 @@ export const EmployeeAuthReducer = (state = EmployeeInitState, { type, payload }
     case types.EMPLOYEE_AUTH_LOGIN_SUCCESS: {
       localStorage.setItem('employee_token_carvendor', JSON.stringify(payload?.token));
       localStorage.setItem('employee_detail_carvendor', JSON.stringify(payload?.employee));
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        isAuth: true,
+        token: payload?.token,
+        Employee_detail: payload?.employee
+      };
+    }
+
+    case types.EMPLOYEE_AUTH_FORGET_PASSWORD: {
       return {
         ...state,
         loading: false,

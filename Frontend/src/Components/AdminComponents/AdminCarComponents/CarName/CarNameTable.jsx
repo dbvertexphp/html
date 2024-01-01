@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   Box,
   Button,
@@ -25,31 +25,25 @@ import {
   Input,
   ModalFooter,
   Spinner,
-  Container,
-} from "@chakra-ui/react";
-import { FiDelete, FiPlusCircle, FiTrash2 } from "react-icons/fi";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import { getMakes } from "../../../../Redux/App/Actions/Admin/CarComponents/Make.action";
-import {
-  DeleteCarNameByID,
-  getCarName,
-  postCarName,
-} from "../../../../Redux/App/Actions/Admin/CarComponents/CarName.action";
-import PaginationBox from "../../../Extra/Pagination";
-import TableLoader from "../../../Extra/TableLoader";
+  Container
+} from '@chakra-ui/react';
+import { FiDelete, FiPlusCircle, FiTrash2 } from 'react-icons/fi';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import { getMakes } from '../../../../Redux/App/Actions/Admin/CarComponents/Make.action';
+import { DeleteCarNameByID, getCarName, postCarName } from '../../../../Redux/App/Actions/Admin/CarComponents/CarName.action';
+import PaginationBox from '../../../Extra/Pagination';
+import TableLoader from '../../../Extra/TableLoader';
 
 const initialData = {
-  name: "",
-  make_id: "",
+  name: '',
+  make_id: ''
 };
 
 const CarNameTable = () => {
-  let { User_detail, token } = useSelector((store) => store?.UserAuthManager);
-  const user =
-    User_detail || JSON.parse(localStorage.getItem("user_detail_carvendor"));
-  let admintoken =
-    token || JSON.parse(localStorage.getItem("admin_token_carvendor"));
+  let { User_detail, token } = useSelector(store => store?.UserAuthManager);
+  const user = User_detail || JSON.parse(localStorage.getItem('user_detail_carvendor'));
+  let admintoken = token || JSON.parse(localStorage.getItem('admin_token_carvendor'));
   const [page, setPage] = useState(1);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -57,14 +51,13 @@ const CarNameTable = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const toast = useToast();
-  const { totalCarNames, loading, error, carNames, allCarModels, allMakes } =
-    useSelector((state) => state?.CarComponentManager);
+  const { totalCarNames, loading, error, carNames, allCarModels, allMakes } = useSelector(state => state?.CarComponentManager);
   const getData = () => {
     dispatch(getCarName(page));
     dispatch(getMakes(page));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     if (data && token) {
       dispatch(postCarName(data, navigate, toast, getData, admintoken));
@@ -72,7 +65,7 @@ const CarNameTable = () => {
     }
   };
 
-  const handleDelete = (id) => {
+  const handleDelete = id => {
     dispatch(DeleteCarNameByID(id, toast, getData, admintoken));
   };
 
@@ -81,60 +74,39 @@ const CarNameTable = () => {
   }, [page]);
 
   const headCellStyle = {
-    border: "1px solid #ddd",
-    padding: "5px",
-    textAlign: "center",
+    border: '1px solid #ddd',
+    padding: '5px',
+    textAlign: 'center'
   };
   const cellStyleSet = {
-    border: "1px solid #ddd",
-    padding: "5px",
-    textAlign: "center",
+    border: '1px solid #ddd',
+    padding: '5px',
+    textAlign: 'center'
   };
 
   const itemsPerPage = 10; //
   const startingSerialNumber = (page - 1) * itemsPerPage + 1;
 
   return (
-    <Container
-      maxW="container"
-      borderRadius="5px"
-      minH={"610px"}
-      padding={"20px"}
-      backgroundColor={"white"}
-    >
-      <HStack
-        py={"10px"}
-        justifyContent={"space-between"}
-        alignContent={"center"}
-      >
-        <Text mb="2" p={"10px"} fontWeight={"600"} fontSize="1.5rem">
+    <Container maxW="container" borderRadius="5px" minH={'610px'} padding={'20px'} backgroundColor={'white'}>
+      <HStack py={'10px'} justifyContent={'space-between'} alignContent={'center'}>
+        <Text mb="2" p={'10px'} fontWeight={'600'} fontSize="1.5rem">
           Car Names
         </Text>
-        <Button
-           bg="#30829c"
-           color="white"
-          variant={"solid"}
-          onClick={onOpen}
-          leftIcon={<FiPlusCircle />}
-        >
+        <Button bg="#30829c" color="white" variant={'solid'} onClick={onOpen} leftIcon={<FiPlusCircle />}>
           Add Car Name
         </Button>
       </HStack>
       <TableContainer
-        position={"relative"}
-        my={"10px"}
-        maxHeight={"700px"}
-        overflowY={"auto"}
-        backgroundColor={"white"}
+        position={'relative'}
+        my={'10px'}
+        maxHeight={'700px'}
+        overflowY={'auto'}
+        backgroundColor={'white'}
         // borderRadius={"5px"}
       >
-        <Table size={"sm"} variant="simple">
-          <Thead
-            backgroundColor={"white"}
-            position={"sticky"}
-            top="0"
-            zIndex={3}
-          >
+        <Table size={'sm'} variant="simple">
+          <Thead backgroundColor={'white'} position={'sticky'} top="0" zIndex={3}>
             <Tr>
               <Th sx={headCellStyle}>Sr. no</Th>
               <Th sx={headCellStyle}>Car Name</Th>
@@ -154,14 +126,8 @@ const CarNameTable = () => {
                     <Td sx={cellStyleSet}>{item?.name}</Td>
                     <Td sx={cellStyleSet}>{item?.make_id?.name}</Td>
                     <Td sx={cellStyleSet}>
-                      <HStack w={"100%"} justifyContent={"center"}>
-                        <Button
-                          onClick={() => handleDelete(item._id)}
-                          variant={"solid"}
-                          colorScheme="red"
-                          p={0}
-                          size="sm"
-                        >
+                      <HStack w={'100%'} justifyContent={'center'}>
+                        <Button onClick={() => handleDelete(item._id)} variant={'solid'} colorScheme="red" p={0} size="sm">
                           <FiTrash2 />
                         </Button>
                       </HStack>
@@ -173,31 +139,21 @@ const CarNameTable = () => {
           </Tbody>
         </Table>
       </TableContainer>
-      {
-        <PaginationBox
-          total={totalCarNames || 0}
-          page={page}
-          setpage={setPage}
-        />
-      }
+      {<PaginationBox total={totalCarNames || 0} page={page} setpage={setPage} />}
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Enter Car Name Details</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Box padding={"10px"}>
-              <form>
+            <Box padding={'10px'}>
+              <form onSubmit={handleSubmit}>
                 <FormControl>
                   <FormLabel>Select Brand Name :</FormLabel>
-                  <Select
-                    onChange={(e) =>
-                      setData({ ...data, make_id: e.target.value })
-                    }
-                  >
+                  <Select onChange={e => setData({ ...data, make_id: e.target.value })}>
                     <option value="">--select brand--</option>
                     {allMakes?.length > 0 &&
-                      allMakes?.map((el) => {
+                      allMakes?.map(el => {
                         return (
                           <option key={el._id} value={el._id}>
                             {el?.name}
@@ -210,18 +166,22 @@ const CarNameTable = () => {
                 <FormControl>
                   <FormLabel>Enter Car Name :</FormLabel>
                   <Input
-                    type={"text"}
-                    onChange={(e) => setData({ ...data, name: e.target.value })}
+                    type={'text'}
+                    onChange={e => setData({ ...data, name: e.target.value })}
+                    onKeyPress={e => {
+                      if (e.key === 'Enter') {
+                        handleSubmit(e);
+                      }
+                    }}
                   />
                 </FormControl>
+                <Button type="submit" colorScheme="#30829c" mt={4}>
+                  Add
+                </Button>
               </form>
             </Box>
           </ModalBody>
-          <ModalFooter>
-            <Button colorScheme="#30829c" mr={3} onClick={handleSubmit}>
-              Add
-            </Button>
-          </ModalFooter>
+          <ModalFooter />
         </ModalContent>
       </Modal>
     </Container>
