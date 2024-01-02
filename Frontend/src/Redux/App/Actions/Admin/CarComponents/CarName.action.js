@@ -38,6 +38,33 @@ export const getAllCarNamess = setData => dispatch => {
     });
 };
 
+export const getCarsByNameSreach = (name, setData) => dispatch => {
+  dispatch({ type: types.CARNAME_SREACH_GET_LOADING });
+
+  axios
+    .post(`${BASE_URL}/api/admin/carname/get-carname-sreach`, { name })
+    .then(res => {
+      dispatch({ type: types.CARNAME_SREACH_GET_SUCCESS, payload: res?.data });
+      let carnames = res.data.cars;
+
+      // Check if carnames is defined before mapping
+      if (carnames) {
+        carnames = carnames.map(el => ({ label: el.name, value: el._id, _id: el._id }));
+        setData && setData(carnames);
+      } else {
+        // Handle the case where carnames is undefined
+        console.error('Carnames is undefined:', res);
+      }
+    })
+    .catch(err => {
+      console.log(err);
+      dispatch({
+        type: types.CARNAME_SREACH_GET_ERROR,
+        payload: err?.response?.data?.message
+      });
+    });
+};
+
 export const getAllCar_Id = setData => dispatch => {
   dispatch({ type: types.CARNAME_GET_LOADING });
   axios

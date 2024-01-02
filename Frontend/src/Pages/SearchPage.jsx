@@ -75,6 +75,7 @@ const SearchPage = () => {
     settotalCars(data?.totalCars);
   };
   const [filters, setFilters] = useState(tempfilters);
+  const [appliedFilters, setAppliedFilters] = useState({});
 
   const getData = () => {
     let data = {
@@ -84,7 +85,6 @@ const SearchPage = () => {
       limit: 25
     };
     dispatch(getCars(setPageData, data));
-    console.log(setDisplayFilters);
   };
 
   useEffect(() => {
@@ -132,23 +132,36 @@ const SearchPage = () => {
   const getDataReset = () => {
     setFilters(tempfilters);
   };
-  const handleRemoveFilter = item => {
-    let newDisplay = displayFilters.filter(fil => fil !== item);
-    setDisplayFilters([...newDisplay]); // Update state using spread operator
+  const handleRemoveFilter = ({ name, key }) => {
+    // Filter out the removed item from displayFilters
+    let newDisplay = displayFilters.filter(fil => fil.name !== name);
+    setDisplayFilters([...newDisplay]);
 
     // Create a copy of the current filters and modify the copy
     let updatedFilters = { ...filters };
 
-    // Assuming "transmission" is the filter you want to update
-    updatedFilters.transmission = newDisplay;
+    // Update the filters based on the key
+    if (
+      key === 'transmission' ||
+      key === 'bodytypes' ||
+      key === 'brands' ||
+      key === 'features' ||
+      key === 'owners' ||
+      key === 'colors' ||
+      key === 'seats'
+    ) {
+      // Filter out the removed item from the corresponding key's array
+      updatedFilters[key] = updatedFilters[key].filter(item => item !== name);
+    } else {
+      // Add other key conditions here if needed
+    }
 
     // Update the filters state with the modified copy
     setFilters(updatedFilters);
 
     // Call the correctFilter function with the updated filters
-    correctFilter(newDisplay);
+    correctFilter(updatedFilters);
   };
-
   return (
     <>
       <Box>
@@ -205,20 +218,11 @@ const SearchPage = () => {
                   CLEAR ALL
                 </Button>{' '}
                 {!!displayFilters.length &&
-                  displayFilters.map((item, i) => {
+                  displayFilters.map((filter, i) => {
                     return (
                       <WrapItem key={i}>
-                        <Button
-                          size="sm"
-                          rightIcon={<FiX />}
-                          onClick={e => {
-                            // let newDisplay = displayFilters.filter(fil => fil != item);
-                            // setDisplayFilters(newDisplay);
-                            // correctFilter(newDisplay);
-                            handleRemoveFilter(item);
-                          }}
-                        >
-                          {item}
+                        <Button size="sm" rightIcon={<FiX />} onClick={() => handleRemoveFilter(filter)}>
+                          {filter.name}
                         </Button>
                       </WrapItem>
                     );

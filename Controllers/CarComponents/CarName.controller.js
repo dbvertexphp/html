@@ -42,6 +42,26 @@ exports.getAllCarNames = async (req, res) => {
     return res.status(500).send({ message: error?.message || 'Something went Wrong', error });
   }
 };
+exports.getCarsByNameSreach = async (req, res) => {
+  try {
+    const { name } = req.body;
+
+    if (!name) {
+      return res.status(400).json({ message: 'Please provide a car name.' });
+    }
+
+    // Check if 'name' is an object, and extract the 'name' property if it exists
+    const searchName = typeof name === 'object' ? name.name : name;
+
+    // Using a regular expression to find car names that contain the provided substring
+    const cars = await CarNameModel.find({ name: { $regex: searchName, $options: 'i' } });
+
+    return res.status(200).json({ message: 'Cars found by name', cars });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: error?.message || 'Something went wrong', error });
+  }
+};
 
 exports.getAllCar_Id = async (req, res) => {
   try {

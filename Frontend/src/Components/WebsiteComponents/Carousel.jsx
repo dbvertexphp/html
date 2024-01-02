@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Box, Heading, Image, InputGroup, Skeleton, Text, Button, InputLeftElement, Input, Select } from '@chakra-ui/react';
 import Slider from 'react-slick';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getallBanners } from '../../Redux/App/Actions/Admin/Website/Website.action';
 import AsyncSelector from '../Extra/AsyncSelect';
-import { getAllCarNamess, getAllCar_Id } from '../../Redux/App/Actions/Admin/CarComponents/CarName.action';
+import { getAllCarNamess, getAllCar_Id, getCarsByNameSreach } from '../../Redux/App/Actions/Admin/CarComponents/CarName.action';
 import { useNavigate } from 'react-router-dom';
 import { Link, NavLink } from 'react-router-dom';
 import { RiSearchLine } from 'react-icons/ri';
+import AsyncSelect from 'react-select/async';
 
 const settings = {
   dots: true,
@@ -26,12 +27,11 @@ export default function Carousel() {
   const [cards, setcards] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const getData = e => {
+  const carsByName = useSelector(state => state.CarComponentManager.getCarsByNameSreach);
+  const [inputValue, setInputValue] = useState('');
+
+  const getData = () => {
     dispatch(getallBanners(null, setcards));
-  };
-  const handleSearchChange = val => {
-    const { _id } = val;
-    navigate(`/collection?name=${_id}`);
   };
 
   const handleSearchChangeID = val => {
@@ -42,6 +42,37 @@ export default function Carousel() {
   useEffect(() => {
     getData();
   }, []);
+
+  useEffect(() => {}, []);
+
+  const filterColors = inputValue => {
+    console.log(carsByName);
+  };
+
+  const loadOptions = (inputValue, callback) => {
+    dispatch(getCarsByNameSreach(inputValue));
+    setTimeout(() => {
+      callback(filterColors(inputValue));
+    }, 1000);
+  };
+
+  // const loadOptions = (inputValue, callback) => {
+  //   const options = carsByName.map(car => ({
+  //     label: car.name,
+  //     value: car._id
+  //   }));
+
+  //   callback(options);
+  //   dispatch(getCarsByNameSreach(inputValue));
+  // };
+
+  const customStyles = {
+    container: provided => ({
+      ...provided,
+      width: '100%'
+    })
+  };
+
   return (
     <>
       <Box position={'relative'} width={'100%'} maxHeight={{ base: '850px', md: '850px' }} overflow={'hidden'} margin="auto">
@@ -118,11 +149,11 @@ export default function Carousel() {
           <InputGroup w={{ base: 'full', md: '650px' }} size="lg" justifyContent="left" height={'48px !important'}>
             <InputLeftElement pointerEvents="none"></InputLeftElement>
 
-            <AsyncSelector
+            <AsyncSelect
+              styles={customStyles}
               height={'48px !important'}
-              handleChangeFn={handleSearchChange}
-              getItems={getAllCarNamess}
-              placeholder={'\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Search Car'}
+              loadOptions={loadOptions}
+              placeholder={'\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Search Car ID'}
               bg="gray.200"
             />
           </InputGroup>

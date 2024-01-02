@@ -95,6 +95,12 @@ export default function CustomerLoginEmail() {
     };
     dispatch(loginCustomer(payload, navigate, toast));
   };
+  const handleKeyPress = event => {
+    if (event.key === 'Enter') {
+      // Call the login function here, e.g., confirmPass()
+      confirmPass();
+    }
+  };
 
   return (
     <Stack minH={'80vh'} direction={{ base: 'column', md: 'row' }}>
@@ -126,7 +132,14 @@ export default function CustomerLoginEmail() {
                 <IoIosMail />
               </h1>
             </InputLeftElement>
-            <Input style={{ height: '50px' }} isRequired type="email" placeholder="Enter Email ID" onChange={handleInputChange} />
+            <Input
+              style={{ height: '50px' }}
+              isRequired
+              type="text"
+              placeholder="Enter Email ID / Phone Number"
+              onChange={handleInputChange}
+              onKeyPress={handleKeyPress}
+            />
           </InputGroup>
 
           <InputGroup mt="10">
@@ -141,6 +154,7 @@ export default function CustomerLoginEmail() {
               value={inputPass}
               placeholder="Enter Password"
               onChange={handleInputPass}
+              onKeyPress={handleKeyPress}
             />
             <InputRightElement width="4.5rem">
               <Button h="1.75rem" size="sm" onClick={handleClick}>

@@ -28,6 +28,12 @@ export default function Login() {
     event.preventDefault();
     dispatch(loginEmployee(form, navigate, toast));
   };
+  const handleKeyPress = event => {
+    if (event.key === 'Enter') {
+      // Call the login function here, e.g., confirmPass()
+      handleSubmit();
+    }
+  };
 
   return (
     <Stack minH={'100vh'} direction={{ base: 'column', md: 'row' }}>
@@ -41,11 +47,27 @@ export default function Login() {
           <form action="" onSubmit={handleSubmit}>
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
-              <Input placeholder="Enter Email" type="email" value={form?.email} name="email" onChange={handleChange} required />
+              <Input
+                placeholder="Enter Email"
+                type="text"
+                value={form?.email}
+                name="email"
+                onChange={handleChange}
+                onKeyPress={handleKeyPress}
+                required
+              />
             </FormControl>
             <FormControl id="password">
               <FormLabel>Password</FormLabel>
-              <Input placeholder="Enter Password" type="password" value={form?.password} name="password" onChange={handleChange} required />
+              <Input
+                placeholder="Enter Password"
+                type="password"
+                value={form?.password}
+                name="password"
+                onChange={handleChange}
+                onKeyPress={handleKeyPress}
+                required
+              />
             </FormControl>
             <br />
             <Stack spacing={6}>

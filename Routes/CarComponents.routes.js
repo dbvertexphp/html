@@ -12,7 +12,8 @@ const {
   UpdateCarNameByID,
   DeleteCarNameByID,
   getCarNames,
-  getAllCar_Id
+  getAllCar_Id,
+  getCarsByNameSreach
 } = require('../Controllers/CarComponents/CarName.controller');
 const { getAllColors, getColorByID, addColor, UpdateColorByID, DeleteColorByID } = require('../Controllers/CarComponents/Color.controller');
 const {
@@ -75,6 +76,7 @@ const CarNameRouter = require('express').Router();
 
 CarNameRouter.get('/', (req, res) => res.status(200).send({ message: 'Welcome to CarName Route' }));
 CarNameRouter.get('/get-carname', getCarNames);
+CarNameRouter.post('/get-carname-sreach', getCarsByNameSreach);
 CarNameRouter.get('/get-all-carnames', getAllCarNames);
 CarNameRouter.get('/get-all-carId', getAllCar_Id);
 CarNameRouter.post('/add-carname', Authentication, addCarName);

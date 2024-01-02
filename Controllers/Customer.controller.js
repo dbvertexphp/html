@@ -85,45 +85,33 @@ exports.CustomerLogin = async (req, res) => {
 
   try {
     if (!email || !password) {
-      return res.status(401).json({ message: 'Please provide both email and password. Mandatory fields missing.' });
+      return res.status(401).json({ message: 'Please provide both identifier (email/phone) and password. Mandatory fields missing.' });
     }
 
-    let customer = await CustomerModel.findOne({ email });
+    let customer;
+    if (isValidEmail(email)) {
+      // If the input is a valid email, search based on the email field
+      customer = await CustomerModel.findOne({ email: email });
+    } else if (isValidPhoneNumber(email)) {
+      // If the input is a valid phone number, search based on the phone_number field
+      customer = await CustomerModel.findOne({ phone_number: email });
+    } else {
+      // If the input is neither a valid email nor a valid phone number, return an error
+      return res.status(400).json({ message: 'Invalid email or phone number format.' });
+    }
 
     if (!customer) {
-      return res.status(404).json({ message: 'Email not found. Please check the entered email.' });
+      return res.status(404).json({ message: 'Please check the entered email or phone number. Not found' });
     }
 
-    if (customer.status === 'disabled') {
-      return res.status(400).json({ message: 'Your account is temporarily disabled by the admin. Please contact us for assistance.' });
-    }
-
+    // Compare the entered password with the stored hashed password
     const passwordMatch = await bcrypt.compare(password, customer.password);
 
     if (!passwordMatch) {
       return res.status(401).json({ message: 'Wrong credentials. Please check your password.' });
     }
 
-    // Check if OTP is verified
-    if (!customer.otp_verified) {
-      // If not verified, generate OTP and send it to the user's email
-      const otp = generateOTP();
-
-      // Update customer with the new OTP
-      customer = await CustomerModel.findOneAndUpdate({ email }, { $set: { otp } }, { new: true });
-
-      // Send OTP verification email
-      SendMail({
-        recipientEmail: customer.email,
-        subject: 'Verify Your OTP!',
-        html: OtpTemplapes(customer)
-      });
-
-      return res.status(200).json({
-        message: 'OTP not verified. Please check your email for the OTP.',
-        customer: { _id: customer._id, email: customer.email, otp_verified: customer.otp_verified }
-      });
-    }
+    // Continue with the rest of your existing logic...
 
     const token = jwt.sign({ _id: customer._id }, process.env.JSON_SECRET);
 
@@ -136,7 +124,7 @@ exports.CustomerLogin = async (req, res) => {
     res.json({ message: 'Login successful', token, customer: customerWithoutPassword });
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ message: error?.message || 'Something went Wrong', error });
+    return res.status(500).json({ message: error?.message || 'Something went wrong', error });
   }
 };
 
@@ -389,6 +377,22 @@ exports.DeleteCustomerByID = async (req, res) => {
     return res.status(500).send({ message: error?.message || 'Something went Wrong', error });
   }
 };
+
+function isValidEmail(input) {
+  // You can implement your email validation logic here
+  // For a simple check, you can use a regular expression
+  const emailRegex = /\S+@\S+\.\S+/;
+  return emailRegex.test(input);
+}
+
+// Function to check if the input is a valid phone number
+function isValidPhoneNumber(input) {
+  // You can implement your phone number validation logic here
+  // For a simple check, you can use a regular expression or other validation methods
+  // Example regex for a simple check: /^[0-9]{10}$/ (assuming 10-digit phone number)
+  const phoneRegex = /^[0-9]{10}$/;
+  return phoneRegex.test(input);
+}
 
 const generateOTP = () => {
   return Math.floor(1000 + Math.random() * 9000).toString();

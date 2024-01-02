@@ -66,7 +66,7 @@ const Homepage = () => {
             ></Text>
           </Flex>
         </CardHeader>
-        <SliderComponent data={featured} />
+        <SliderComponent data={hotdeal} />
       </Card>
 
       <Card shadow="none" mx={{ base: '5', md: '10' }} mb={{ base: '5', md: '10' }} pb="5">
@@ -81,7 +81,7 @@ const Homepage = () => {
             ></Text>
           </Flex>
         </CardHeader>
-        <SliderComponent data={hotdeal} />
+        <SliderComponent data={featured} />
         <Text
           align={'center'}
           color="#30829c"

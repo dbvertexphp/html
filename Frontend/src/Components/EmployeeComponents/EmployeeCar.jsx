@@ -301,7 +301,8 @@ const EmployeeCar  = () => {
                           <BsFillEyeFill />
                         </Button>
                         <Button
-                          isDisabled={row?.status === "approved"}
+                         // isDisabled={row?.status === "approved"}
+                          isDisabled
                           variant={"solid"}
                           colorScheme={"blue"}
                           size={"sm"}

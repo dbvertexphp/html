@@ -74,14 +74,15 @@ function Filters({ filters, setFilters, displayFilters, setDisplayFilters, callC
     clearFilter,
     correctFilter
   }));
-
   const handleAddFilter = (e, data, setData, key) => {
     let { name, checked } = e.target;
 
-    if (displayFilters.includes(name)) {
-      let newDisplay = displayFilters?.filter(item => item !== name);
+    // Check if the filter is already present in displayFilters
+    if (displayFilters.some(item => item.name === name)) {
+      // Filter is present, remove it
+      let newDisplay = displayFilters.filter(item => item.name !== name);
       setDisplayFilters(newDisplay);
-      console.log('New Display:', newDisplay);
+
       // Remove the filter from the payload if it exists
       let tempPayload = data.filter(el => el !== name);
       setData(tempPayload);
@@ -93,16 +94,16 @@ function Filters({ filters, setFilters, displayFilters, setDisplayFilters, callC
         [key]: tempPayload
       }));
     } else {
-      // Add the filter to the displayFilters and payload
-      setDisplayFilters([...displayFilters, name]);
+      // Filter is not present, add it
+      setDisplayFilters([...displayFilters, { name, key }]);
 
       let payload;
 
-      if (checked && data.includes(name)) {
-        return;
-      } else if (checked && !data.includes(name)) {
+      if (checked) {
+        // Add the filter to payload only if it is checked
         payload = [...data, name];
       } else {
+        // Remove the filter from payload if it is unchecked
         let temp = data.filter(el => el !== name);
         payload = temp;
       }

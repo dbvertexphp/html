@@ -17,79 +17,76 @@ import {
   Text,
   Textarea,
   useDisclosure,
-  useToast,
-} from "@chakra-ui/react";
+  useToast
+} from '@chakra-ui/react';
 
-import React, { useState } from "react";
-import { FiPlusCircle, FiPlusSquare, FiX, FiXCircle } from "react-icons/fi";
-import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { getBodyTypes } from "../../../Redux/App/Actions/Admin/CarComponents/BodyType.action";
-import { getCarModels } from "../../../Redux/App/Actions/Admin/CarComponents/CarModel.action";
-import { getMakes } from "../../../Redux/App/Actions/Admin/CarComponents/Make.action";
-import { postCar } from "../../../Redux/App/Actions/Vendors/Car.action";
-import { useEffect } from "react";
-import InputUploadMultiple from "../../Extra/InputMultipleUpload";
-import { getColors } from "../../../Redux/App/Actions/Admin/CarComponents/Color.action";
-import { getLocations } from "../../../Redux/App/Actions/Admin/CarComponents/Location.action";
-import { getCarName } from "../../../Redux/App/Actions/Admin/CarComponents/CarName.action";
-import InputUpload from "../../Extra/InputUpload";
-import DocumentModal from "../../Extra/DocumentModal";
-import { ColorSelect, StateSelect } from "../../Extra/CustomSelect";
-import {
-  featureArray,
-  safetyFeatureArray,
-  documentsArray,
-} from "../../../utils/CarFeatures";
+import React, { useState } from 'react';
+import { FiPlusCircle, FiPlusSquare, FiX, FiXCircle } from 'react-icons/fi';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getBodyTypes } from '../../../Redux/App/Actions/Admin/CarComponents/BodyType.action';
+import { getCarModels } from '../../../Redux/App/Actions/Admin/CarComponents/CarModel.action';
+import { getMakes } from '../../../Redux/App/Actions/Admin/CarComponents/Make.action';
+import { postCar } from '../../../Redux/App/Actions/Vendors/Car.action';
+import { useEffect } from 'react';
+import InputUploadMultiple from '../../Extra/InputMultipleUpload';
+import { getColors } from '../../../Redux/App/Actions/Admin/CarComponents/Color.action';
+import { getLocations } from '../../../Redux/App/Actions/Admin/CarComponents/Location.action';
+import { getCarName } from '../../../Redux/App/Actions/Admin/CarComponents/CarName.action';
+import InputUpload from '../../Extra/InputUpload';
+import DocumentModal from '../../Extra/DocumentModal';
+import { ColorSelect, StateSelect } from '../../Extra/CustomSelect';
+import { featureArray, safetyFeatureArray, documentsArray } from '../../../utils/CarFeatures';
 
 const initial = {
-  vendorID: "",
-  name: "",
-  cname: "",
-  cmake: "",
-  cmodel: "",
-  make: "",
-  model: "",
-  body_type: "",
-  short_description: "",
-  description: "",
-  color: "",
-  ownership: "",
-  price: "",
-  km_driven: "",
-  primary_image: "",
-  gallery_images: "",
-  engine_displacment: "",
-  engine_type: "",
-  mileage: "",
-  wheel_size: "",
-  condition: "",
-  transmission: "",
-  seats: "",
-  fuel_type: "",
+  vendorID: '',
+  name: '',
+  cname: '',
+  cmake: '',
+  cmodel: '',
+  make: '',
+  model: '',
+  body_type: '',
+  short_description: '',
+  description: '',
+  color: '',
+  ownership: '',
+  price: '',
+  km_driven: '',
+  primary_image: '',
+  gallery_images: '',
+  engine_displacment: '',
+  engine_type: '',
+  mileage: '',
+  wheel_size: '',
+  condition: '',
+  transmission: '',
+  seats: '',
+  fuel_type: '',
 
   features: [],
   safety_features: [],
 
   location: [],
-  VIN: "",
-  warranty: "4",
-  license_number: "",
-  ownership_history: "",
+  VIN: '',
+  warranty: '4',
+  license_number: '',
+  ownership_history: '',
+
+  owner_name: '',
+  owner_email: '',
+  owner_mobile: '',
+  owner_location: '',
+
   documents: [],
-  regState: "",
-  regYear: "",
+  regState: '',
+  regYear: ''
 };
 
 const AddCar = () => {
-  let { Vendor_detail, token } = useSelector(
-    (store) => store?.VendorAuthManager
-  );
-  const vendor =
-    Vendor_detail ||
-    JSON.parse(localStorage.getItem("vendor_detail_carvendor"));
-  let vendortoken =
-    token || JSON.parse(localStorage.getItem("vendor_token_carvendor"));
+  let { Vendor_detail, token } = useSelector(store => store?.VendorAuthManager);
+  const vendor = Vendor_detail || JSON.parse(localStorage.getItem('vendor_detail_carvendor'));
+  let vendortoken = token || JSON.parse(localStorage.getItem('vendor_token_carvendor'));
 
   const [formData, setFormData] = useState(initial);
 
@@ -117,11 +114,11 @@ const AddCar = () => {
     allMakes,
     allCarNames,
     allBodyTypes,
-    allCarModels,
-  } = useSelector((state) => state?.CarComponentManager);
-  const { loading: isCarLoading } = useSelector((state) => state?.CarManager);
+    allCarModels
+  } = useSelector(state => state?.CarComponentManager);
+  const { loading: isCarLoading } = useSelector(state => state?.CarManager);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     let data = formData;
@@ -134,20 +131,23 @@ const AddCar = () => {
     data.mileage = +data.mileage;
 
     for (const key in data) {
-      if (
-        key === "VIN" ||
-        key === "license_number" ||
-        key === "ownership_history" ||
-        key === "documents"
-      ) {
+      if (key === 'VIN' || key === 'license_number' || key === 'ownership_history' || key === 'documents') {
         continue;
       }
-      if (data[key] == "" || data[key] == null || data[key] == undefined) {
+      if (formData.owner_mobile.length !== 10) {
+        return toast({
+          title: `Please Enter 10 Digit Number`,
+          status: 'error',
+          position: 'top',
+          duration: 4000
+        });
+      }
+      if (data[key] == '' || data[key] == null || data[key] == undefined) {
         return toast({
           title: `Please Enter ${key?.toLocaleUpperCase()}`,
-          status: "error",
-          position: "top",
-          duration: 4000,
+          status: 'error',
+          position: 'top',
+          duration: 4000
         });
       }
     }
@@ -156,182 +156,178 @@ const AddCar = () => {
   };
 
   const handleAddDocument = () => {
-    let isPresent = formData?.documents.find(
-      (el) => el.label === singleDocument.label
-    );
+    let isPresent = formData?.documents.find(el => el.label === singleDocument.label);
 
     if (isPresent)
       return toast({
-        position: "top",
-        title: "Alredy Added",
-        status: "warning",
+        position: 'top',
+        title: 'Alredy Added',
+        status: 'warning',
         duration: 4000,
-        isClosable: true,
+        isClosable: true
       });
     if (singleDocument.label && singleDocument.doc) {
       setFormData({
         ...formData,
-        documents: [...formData?.documents, singleDocument],
+        documents: [...formData?.documents, singleDocument]
       });
 
       toast({
-        position: "top",
+        position: 'top',
         title: `Successfully Added ${singleDocument.label}`,
-        status: "success",
+        status: 'success',
         duration: 4000,
-        isClosable: true,
+        isClosable: true
       });
       setSingleDocument({});
-      setRefreshDocUpload((previous) => !previous);
+      setRefreshDocUpload(previous => !previous);
     }
   };
 
-  const handeDeleteDocument = (label) => {
-    let filtered = formData?.documents?.filter((el) => el.label !== label);
+  const handeDeleteDocument = label => {
+    let filtered = formData?.documents?.filter(el => el.label !== label);
     setFormData({ ...formData, documents: filtered });
     return toast({
-      position: "top",
+      position: 'top',
       title: `${label} removed`,
-      status: "success",
+      status: 'success',
       duration: 4000,
-      isClosable: true,
+      isClosable: true
     });
   };
 
-  const handleDetailsChange = (e) => {
+  const handleDetailsChange = e => {
     const { name, value } = e.target;
 
-    setFormData((prevFormData) => ({
+    setFormData(prevFormData => ({
       ...prevFormData,
-      [name]: value,
+      [name]: value
     }));
   };
 
   const handleSafetyFeatures = () => {
-    let safe = document.getElementById("selectSafetyFeatures")?.value;
+    let safe = document.getElementById('selectSafetyFeatures')?.value;
     if (safetyFeatures.includes(safe) || !safe) {
       return toast({
-        position: "top",
-        title: !safe
-          ? "Please select a Safety feature"
-          : "Safety feature Already Added",
-        status: "info",
+        position: 'top',
+        title: !safe ? 'Please select a Safety feature' : 'Safety feature Already Added',
+        status: 'info',
         duration: 4000,
-        isClosable: true,
+        isClosable: true
       });
     }
-    if (safe == "all") {
-      let allSafeFeaturesArr = safetyFeatureArray.slice(2).map((el) => {
+    if (safe == 'all') {
+      let allSafeFeaturesArr = safetyFeatureArray.slice(2).map(el => {
         return el.value;
       });
       setSafetyFeatures(allSafeFeaturesArr);
       setFormData({
         ...formData,
-        safety_features: allSafeFeaturesArr,
+        safety_features: allSafeFeaturesArr
       });
     } else {
       let newsafearr = [...safetyFeatures, safe];
       setSafetyFeatures(newsafearr);
       setFormData({
         ...formData,
-        safety_features: newsafearr,
+        safety_features: newsafearr
       });
     }
     toast({
-      position: "top",
-      title: "Added to List",
-      status: "success",
+      position: 'top',
+      title: 'Added to List',
+      status: 'success',
       duration: 4000,
-      isClosable: true,
+      isClosable: true
     });
   };
 
   const handleLocation = () => {
-    let locat = document.getElementById("selectLocation")?.value;
+    let locat = document.getElementById('selectLocation')?.value;
     if (selectedLocations.includes(locat) || !locat) {
       return toast({
-        position: "top",
-        title: !locat ? "Please select a Location" : "Location Already Added",
-        status: "info",
+        position: 'top',
+        title: !locat ? 'Please select a Location' : 'Location Already Added',
+        status: 'info',
         duration: 4000,
-        isClosable: true,
+        isClosable: true
       });
     }
-    if (locat == "all") {
+    if (locat == 'all') {
       let temp = [];
-      allLocations.forEach((el) => {
+      allLocations.forEach(el => {
         temp.push(el._id);
       });
       let aLocations = temp;
       setSelectedLocations(temp);
       setFormData({
         ...formData,
-        location: aLocations,
+        location: aLocations
       });
     } else {
       let newSelectedLocations = [...selectedLocations, locat];
       setSelectedLocations(newSelectedLocations);
       setFormData({
         ...formData,
-        location: newSelectedLocations,
+        location: newSelectedLocations
       });
     }
     toast({
-      position: "top",
-      title: "Added to List",
-      status: "success",
+      position: 'top',
+      title: 'Added to List',
+      status: 'success',
       duration: 4000,
-      isClosable: true,
+      isClosable: true
     });
   };
 
   const handlefeatures = () => {
-    let fea = document.getElementById("selectFeature")?.value;
+    let fea = document.getElementById('selectFeature')?.value;
     if (features.includes(fea) || !fea) {
       return toast({
-        position: "top",
-        title: !fea ? "Please select a Feature" : "Feature Already Added",
-        status: "info",
+        position: 'top',
+        title: !fea ? 'Please select a Feature' : 'Feature Already Added',
+        status: 'info',
         duration: 4000,
-        isClosable: true,
+        isClosable: true
       });
     }
-    if (fea == "all") {
-      let allFeaturesArr = featureArray.slice(2).map((el) => {
+    if (fea == 'all') {
+      let allFeaturesArr = featureArray.slice(2).map(el => {
         return el.value;
       });
       setfeatures(allFeaturesArr);
       setFormData({
         ...formData,
-        features: allFeaturesArr,
+        features: allFeaturesArr
       });
     } else {
       let newfeaarr = [...features, fea];
       setfeatures(newfeaarr);
       setFormData({
         ...formData,
-        features: newfeaarr,
+        features: newfeaarr
       });
     }
     toast({
-      position: "top",
-      title: "Added to List",
-      status: "success",
+      position: 'top',
+      title: 'Added to List',
+      status: 'success',
       duration: 4000,
-      isClosable: true,
+      isClosable: true
     });
   };
-  const HandleUploadSomeImages = (images) => {
-    setFormData((prevFormData) => ({
+  const HandleUploadSomeImages = images => {
+    setFormData(prevFormData => ({
       ...prevFormData,
-      gallery_images: [...prevFormData.gallery_images, ...images],
+      gallery_images: [...prevFormData.gallery_images, ...images]
     }));
   };
-  const DeleteImageFromForm = (image) => {
-    let temp = formData?.gallery_images.filter((el) => el != image);
-    setFormData((prevFormData) => ({
+  const DeleteImageFromForm = image => {
+    let temp = formData?.gallery_images.filter(el => el != image);
+    setFormData(prevFormData => ({
       ...prevFormData,
-      gallery_images: temp,
+      gallery_images: temp
     }));
   };
   const getData = () => {
@@ -344,7 +340,7 @@ const AddCar = () => {
 
     setFormData({
       ...formData,
-      vendorID: Vendor_detail?._id,
+      vendorID: Vendor_detail?._id
     });
   };
   useEffect(() => {
@@ -359,23 +355,17 @@ const AddCar = () => {
         // border="0.4px solid"
         borderRadius="5px"
         mb="10"
-        padding={"20px"}
+        padding={'20px'}
         onSubmit={handleSubmit}
       >
         <Grid templateColumns="repeat(12, 1fr)">
           <GridItem as="div" colSpan={{ base: 6, md: 12 }} p="10px">
-            <Text mb="2" fontWeight={"500"} fontSize="1.5rem">
+            <Text mb="2" fontWeight={'500'} fontSize="1.5rem">
               Car Overview Details :
             </Text>
           </GridItem>
 
-          <GridItem
-            as="div"
-            colSpan={{ base: 12, md: 12 }}
-            p="20px "
-            borderRadius={"10px"}
-            backgroundColor={"white"}
-          >
+          <GridItem as="div" colSpan={{ base: 12, md: 12 }} p="20px " borderRadius={'10px'} backgroundColor={'white'}>
             <Grid templateColumns="repeat(12, 1fr)">
               <GridItem as="div" colSpan={{ base: 12, md: 4 }} p="10px">
                 <FormLabel>Select Brand</FormLabel>
@@ -383,19 +373,19 @@ const AddCar = () => {
                   type="text"
                   name="cmake"
                   defaultValue={formData?.cmake}
-                  onChange={(e) => {
+                  onChange={e => {
                     let x = e.target.value;
-                    let el = allMakes.find((el) => el._id == x);
-                    setFormData((prev) => {
+                    let el = allMakes.find(el => el._id == x);
+                    setFormData(prev => {
                       return { ...prev, cmake: el.name, make: el._id };
                     });
                   }}
                 >
                   <option value="">Select brand</option>
                   {allMakes?.length > 0 &&
-                    allMakes?.map((item) => {
+                    allMakes?.map(item => {
                       return (
-                        <option key={item._id + "sadfsad"} value={item._id}>
+                        <option key={item._id + 'sadfsad'} value={item._id}>
                           {item?.name}
                         </option>
                       );
@@ -409,11 +399,11 @@ const AddCar = () => {
                   type="text"
                   name="cmodel"
                   defaultValue={formData?.cmodel}
-                  onChange={(e) => {
+                  onChange={e => {
                     let x = e.target.value;
-                    let el = allCarModels.find((el) => el._id == x);
+                    let el = allCarModels.find(el => el._id == x);
 
-                    setFormData((prev) => {
+                    setFormData(prev => {
                       return { ...prev, cmodel: el.name, model: el._id };
                     });
                   }}
@@ -421,10 +411,10 @@ const AddCar = () => {
                   <option value="">Select model</option>
                   {allCarModels?.length > 0 &&
                     allCarModels
-                      ?.filter((el) => el.make_id === formData?.make)
-                      .map((item) => {
+                      ?.filter(el => el.make_id === formData?.make)
+                      .map(item => {
                         return (
-                          <option key={item._id + "sadfsad"} value={item._id}>
+                          <option key={item._id + 'sadfsad'} value={item._id}>
                             {item?.name}
                           </option>
                         );
@@ -437,10 +427,10 @@ const AddCar = () => {
                 <Select
                   type="text"
                   name="name"
-                  onChange={(e) => {
+                  onChange={e => {
                     let x = e.target.value;
-                    let el = allCarNames?.find((el) => el._id == x);
-                    setFormData((prev) => {
+                    let el = allCarNames?.find(el => el._id == x);
+                    setFormData(prev => {
                       return { ...prev, cname: el.name, name: el._id };
                     });
                   }}
@@ -448,10 +438,10 @@ const AddCar = () => {
                   <option value="">Select car name</option>
                   {allCarNames?.length > 0 &&
                     allCarNames
-                      ?.filter((el) => el.make_id == formData?.make)
-                      ?.map((item) => {
+                      ?.filter(el => el.make_id == formData?.make)
+                      ?.map(item => {
                         return (
-                          <option key={item._id + "sadfsad"} value={item._id}>
+                          <option key={item._id + 'sadfsad'} value={item._id}>
                             {item?.name}
                           </option>
                         );
@@ -463,16 +453,16 @@ const AddCar = () => {
                 <FormLabel>Primary Image</FormLabel>
                 <InputUpload
                   isRequired={true}
-                  color={"gray"}
+                  color={'gray'}
                   acceptData="image/*"
-                  HandleUploadSomeImages={(image) => {
-                    setFormData((prevFormData) => ({
+                  HandleUploadSomeImages={image => {
+                    setFormData(prevFormData => ({
                       ...prevFormData,
-                      primary_image: image,
+                      primary_image: image
                     }));
                   }}
-                  border={"3px dotted gray"}
-                  UploadText={"Upload Primary image"}
+                  border={'3px dotted gray'}
+                  UploadText={'Upload Primary image'}
                 />
               </GridItem>
 
@@ -482,45 +472,35 @@ const AddCar = () => {
                   isRequired={true}
                   acceptData="image/*"
                   HandleUploadSomeImages={HandleUploadSomeImages}
-                  UploadText={"Upload Gallery Images"}
+                  UploadText={'Upload Gallery Images'}
                 />
               </GridItem>
 
               {formData?.primary_image && (
                 <GridItem as="div" colSpan={{ base: 12, md: 3 }} px="10px">
                   <Flex
-                    flexDirection={"column"}
-                    alignItems={"center"}
-                    justifyContent={"start"}
-                    bg={"gray.50"}
-                    borderRadius={"5px"}
+                    flexDirection={'column'}
+                    alignItems={'center'}
+                    justifyContent={'start'}
+                    bg={'gray.50'}
+                    borderRadius={'5px'}
                     p="5px"
-                    border={"1px solid #ddd"}
+                    border={'1px solid #ddd'}
                   >
                     <Image
                       mt={5}
                       mx={1}
                       src={formData?.primary_image}
                       alt="carimage"
-                      w={"200px"}
-                      h={"150px"}
-                      objectPosition={"center"}
-                      objectFit={"cover"}
-                      border={"1px solid #ddd"}
+                      w={'200px'}
+                      h={'150px'}
+                      objectPosition={'center'}
+                      objectFit={'cover'}
+                      border={'1px solid #ddd'}
                     />
-                    <Flex
-                      alignItems={"center"}
-                      justifyContent={"space-between"}
-                      p={"2"}
-                    >
+                    <Flex alignItems={'center'} justifyContent={'space-between'} p={'2'}>
                       <Text px={2}>Primary</Text>
-                      <Button
-                        size={"xs"}
-                        bg={"white"}
-                        onClick={() =>
-                          setFormData({ ...formData, primary_image: "" })
-                        }
-                      >
+                      <Button size={'xs'} bg={'white'} onClick={() => setFormData({ ...formData, primary_image: '' })}>
                         <FiXCircle />
                       </Button>
                     </Flex>
@@ -530,44 +510,24 @@ const AddCar = () => {
 
               {formData?.gallery_images?.length > 0 && (
                 <GridItem as="div" colSpan={{ base: 12, md: 9 }} px="10px">
-                  <Flex
-                    bg={"gray.50"}
-                    borderRadius={"5px"}
-                    p="5px"
-                    overflowX={"auto"}
-                    width={"full"}
-                    border={"1px solid #ddd"}
-                  >
+                  <Flex bg={'gray.50'} borderRadius={'5px'} p="5px" overflowX={'auto'} width={'full'} border={'1px solid #ddd'}>
                     {formData?.gallery_images?.length > 0 &&
                       formData?.gallery_images?.map((el, index) => {
                         return (
-                          <Flex
-                            key={index + "adsfsadhf"}
-                            flexDirection={"column"}
-                            alignItems={"center"}
-                            justifyContent={"start"}
-                          >
+                          <Flex key={index + 'adsfsadhf'} flexDirection={'column'} alignItems={'center'} justifyContent={'start'}>
                             <Image
                               mt={5}
                               mx={1}
                               src={el}
                               alt="carimage"
-                              minW={"200px"}
-                              h={"150px"}
-                              objectPosition={"center"}
-                              objectFit={"cover"}
-                              border={"1px solid #ddd"}
+                              minW={'200px'}
+                              h={'150px'}
+                              objectPosition={'center'}
+                              objectFit={'cover'}
+                              border={'1px solid #ddd'}
                             />
-                            <Flex
-                              alignItems={"center"}
-                              justifyContent={"space-between"}
-                              p={"2"}
-                            >
-                              <Button
-                                size={"xs"}
-                                bg={"white"}
-                                onClick={() => DeleteImageFromForm(el)}
-                              >
+                            <Flex alignItems={'center'} justifyContent={'space-between'} p={'2'}>
+                              <Button size={'xs'} bg={'white'} onClick={() => DeleteImageFromForm(el)}>
                                 <FiXCircle />
                               </Button>
                             </Flex>
@@ -606,23 +566,23 @@ const AddCar = () => {
                   type="text"
                   name="body_type"
                   defaultValue={formData?.body_type}
-                  onChange={(e) => {
+                  onChange={e => {
                     let x = e.target.value;
-                    let el = allBodyTypes.find((el) => el._id == x);
-                    setFormData((prev) => {
+                    let el = allBodyTypes.find(el => el._id == x);
+                    setFormData(prev => {
                       return {
                         ...prev,
                         cbody_type: el.name,
-                        body_type: el._id,
+                        body_type: el._id
                       };
                     });
                   }}
                 >
                   <option value="">Select body type</option>
                   {allBodyTypes?.length > 0 &&
-                    allBodyTypes?.map((item) => {
+                    allBodyTypes?.map(item => {
                       return (
-                        <option key={item._id + "df435f"} value={item._id}>
+                        <option key={item._id + 'df435f'} value={item._id}>
                           {item?.name}
                         </option>
                       );
@@ -646,25 +606,20 @@ const AddCar = () => {
                 <FormLabel>Choose Primary Color</FormLabel>
                 <ColorSelect
                   colors={allColors}
-                  HandleChange={(e) => {
-                    setFormData((prev) => ({
+                  HandleChange={e => {
+                    setFormData(prev => ({
                       ...prev,
                       color: e.target.value,
-                      ccolor: e.target.label,
+                      ccolor: e.target.label
                     }));
                   }}
                   name="color"
-                />{" "}
+                />{' '}
               </GridItem>
 
               <GridItem as="div" colSpan={{ base: 12, md: 4 }} p="10px">
                 <FormLabel>Choose Ownership </FormLabel>
-                <Select
-                  type="text"
-                  name="ownership"
-                  defaultValue={formData?.ownership}
-                  onChange={handleDetailsChange}
-                >
+                <Select type="text" name="ownership" defaultValue={formData?.ownership} onChange={handleDetailsChange}>
                   <option value="">Select ownership-</option>
                   <option value="First">First</option>
                   <option value="Second">Second</option>
@@ -703,18 +658,12 @@ const AddCar = () => {
           </GridItem>
 
           <GridItem as="div" colSpan={{ base: 6, md: 12 }} p="10px">
-            <Text mb="2" fontWeight={"500"} fontSize="1.5rem">
+            <Text mb="2" fontWeight={'500'} fontSize="1.5rem">
               Additional Details :
             </Text>
           </GridItem>
 
-          <GridItem
-            as="div"
-            colSpan={{ base: 12, md: 12 }}
-            p="20px "
-            borderRadius={"10px"}
-            backgroundColor={"white"}
-          >
+          <GridItem as="div" colSpan={{ base: 12, md: 12 }} p="20px " borderRadius={'10px'} backgroundColor={'white'}>
             <Grid templateColumns="repeat(12, 1fr)">
               <GridItem as="div" colSpan={{ base: 12, md: 4 }} p="10px">
                 <FormLabel>Engine Displacement</FormLabel>
@@ -733,12 +682,7 @@ const AddCar = () => {
 
               <GridItem as="div" colSpan={{ base: 12, md: 4 }} p="10px">
                 <FormLabel>Select Engine Type</FormLabel>
-                <Select
-                  type="text"
-                  name="engine_type"
-                  defaultValue={formData?.engine_type}
-                  onChange={handleDetailsChange}
-                >
+                <Select type="text" name="engine_type" defaultValue={formData?.engine_type} onChange={handleDetailsChange}>
                   <option value="">Select type</option>
                   <option value="Inline-4">Inline-4</option>
                   <option value="V8">V8</option>
@@ -785,12 +729,7 @@ const AddCar = () => {
 
               <GridItem as="div" colSpan={{ base: 12, md: 4 }} p="10px">
                 <FormLabel>Select Condition</FormLabel>
-                <Select
-                  type="text"
-                  name="condition"
-                  defaultValue={formData?.condition}
-                  onChange={handleDetailsChange}
-                >
+                <Select type="text" name="condition" defaultValue={formData?.condition} onChange={handleDetailsChange}>
                   <option value="">Select condition</option>
                   <option value="New">New</option>
                   <option value="Used">Used</option>
@@ -807,28 +746,15 @@ const AddCar = () => {
               </GridItem>
               <GridItem as="div" colSpan={{ base: 12, md: 4 }} p="10px">
                 <FormLabel>Select Transmission</FormLabel>
-                <Select
-                  type="text"
-                  name="transmission"
-                  defaultValue={formData?.transmission}
-                  onChange={handleDetailsChange}
-                >
+                <Select type="text" name="transmission" defaultValue={formData?.transmission} onChange={handleDetailsChange}>
                   <option value="">Select transmission</option>
                   <option value="Automatic">Automatic</option>
                   <option value="Manual">Manual</option>
-                  <option value="Continuously Variable Valve Transmission (CVVT)">
-                    Continuously Variable Valve Transmission (CVVT)
-                  </option>
-                  <option value="DirectShift Gearbox">
-                    DirectShift Gearbox (DSG)
-                  </option>
+                  <option value="Continuously Variable Valve Transmission (CVVT)">Continuously Variable Valve Transmission (CVVT)</option>
+                  <option value="DirectShift Gearbox">DirectShift Gearbox (DSG)</option>
                   <option value="Tiptronic">Tiptronic</option>
-                  <option value="Automated Manual Transmission">
-                    Automated Manual Transmission (AMT)
-                  </option>
-                  <option value="Auto Transmission">
-                    Auto Transmission (AT)
-                  </option>
+                  <option value="Automated Manual Transmission">Automated Manual Transmission (AMT)</option>
+                  <option value="Auto Transmission">Auto Transmission (AT)</option>
                 </Select>
               </GridItem>
 
@@ -846,12 +772,7 @@ const AddCar = () => {
 
               <GridItem as="div" colSpan={{ base: 12, md: 4 }} p="10px">
                 <FormLabel>Choose Fuel Type </FormLabel>
-                <Select
-                  type="text"
-                  name="fuel_type"
-                  defaultValue={formData?.fuel_type}
-                  onChange={handleDetailsChange}
-                >
+                <Select type="text" name="fuel_type" defaultValue={formData?.fuel_type} onChange={handleDetailsChange}>
                   <option value="">Select fuel type-</option>
                   <option value="Petrol">Petrol</option>
                   <option value="Diesel">Diesel</option>
@@ -875,35 +796,82 @@ const AddCar = () => {
                     return <option>{el}</option>;
                   })}{" "}
                 </Select> */}
-                <StateSelect
-                  HandleChange={(val) =>
-                    setFormData((prev) => ({ ...prev, regState: val?.value }))
-                  }
-                  name={"regState"}
+                <StateSelect HandleChange={val => setFormData(prev => ({ ...prev, regState: val?.value }))} name={'regState'} />
+              </GridItem>
+            </Grid>
+          </GridItem>
+
+          <GridItem as="div" colSpan={{ base: 6, md: 12 }} p="10px">
+            <Text mb="2" fontWeight={'500'} fontSize="1.5rem">
+              Owner Details :
+            </Text>
+          </GridItem>
+
+          <GridItem as="div" colSpan={{ base: 12, md: 12 }} p="20px " borderRadius={'10px'} backgroundColor={'white'}>
+            <Grid templateColumns="repeat(12, 1fr)">
+              <GridItem as="div" colSpan={{ base: 12, md: 4 }} p="10px">
+                <FormLabel>Owner Name</FormLabel>
+                <Input
+                  placeholder="Enter Owner Name"
+                  type="text"
+                  name="owner_name"
+                  defaultValue={formData?.owner_name}
+                  onChange={handleDetailsChange}
+                  isRequired={true}
+                />
+              </GridItem>
+
+              <GridItem as="div" colSpan={{ base: 12, md: 4 }} p="10px">
+                <FormLabel>Owner Email</FormLabel>
+                <Input
+                  placeholder="Enter Owner Email"
+                  type="email"
+                  name="owner_email"
+                  defaultValue={formData?.owner_email}
+                  onChange={handleDetailsChange}
+                  isRequired={true}
+                />
+              </GridItem>
+
+              <GridItem as="div" colSpan={{ base: 12, md: 4 }} p="10px">
+                <FormLabel>Owner Mobile</FormLabel>
+                <Input
+                  placeholder="Enter Owner Mobile"
+                  type="number"
+                  name="owner_mobile"
+                  defaultValue={formData?.owner_mobile}
+                  onChange={handleDetailsChange}
+                  isRequired={true}
+                />
+              </GridItem>
+
+              <GridItem as="div" colSpan={{ base: 12, md: 4 }} p="10px">
+                <FormLabel>Owner Location</FormLabel>
+                <Input
+                  placeholder="Enter Owner Location"
+                  type="text"
+                  name="owner_location"
+                  defaultValue={formData?.owner_location}
+                  onChange={handleDetailsChange}
+                  isRequired={true}
                 />
               </GridItem>
             </Grid>
           </GridItem>
 
           <GridItem as="div" colSpan={{ base: 6, md: 12 }} p="10px">
-            <Text mb="2" fontWeight={"500"} fontSize="1.5rem">
+            <Text mb="2" fontWeight={'500'} fontSize="1.5rem">
               Feature Details :
             </Text>
           </GridItem>
 
-          <GridItem
-            as="div"
-            colSpan={{ base: 12, md: 12 }}
-            p="20px "
-            borderRadius={"10px"}
-            backgroundColor={"white"}
-          >
+          <GridItem as="div" colSpan={{ base: 12, md: 12 }} p="20px " borderRadius={'10px'} backgroundColor={'white'}>
             <Grid templateColumns="repeat(12, 1fr)">
               <GridItem as="div" colSpan={{ base: 12, md: 6 }} p="10px">
                 <FormLabel>Select Features</FormLabel>
-                <Flex w={"100%"} gap={3} my={1} borderRadius={"5px"}>
+                <Flex w={'100%'} gap={3} my={1} borderRadius={'5px'}>
                   <Select id="selectFeature">
-                    {featureArray.map((el) => {
+                    {featureArray.map(el => {
                       return (
                         <option key={el.value} value={el.value}>
                           {el.label}
@@ -911,39 +879,25 @@ const AddCar = () => {
                       );
                     })}
                   </Select>
-                  <Button
-                   bg="#30829c"
-                    leftIcon={<FiPlusSquare />}
-                    colorScheme="blue"
-                    onClick={handlefeatures}
-                  >
+                  <Button bg="#30829c" leftIcon={<FiPlusSquare />} colorScheme="blue" onClick={handlefeatures}>
                     Add
                   </Button>
                 </Flex>
                 {features.length > 0 && (
-                  <Flex
-                    w={"100%"}
-                    wrap={"wrap"}
-                    gap={3}
-                    bg={"#f2ffe6"}
-                    p="2"
-                    my={3}
-                    borderRadius={"5px"}
-                    border={"1px solid #ddd"}
-                  >
+                  <Flex w={'100%'} wrap={'wrap'} gap={3} bg={'#f2ffe6'} p="2" my={3} borderRadius={'5px'} border={'1px solid #ddd'}>
                     {features.map((item, index) => {
                       return (
                         <Button
                           key={item + 234}
-                          variant={"ghost"}
-                          border={"1px solid #ddd"}
-                          borderRadius={"30px"}
-                          size={"sm"}
-                          color={"black"}
-                          bg={"white"}
+                          variant={'ghost'}
+                          border={'1px solid #ddd'}
+                          borderRadius={'30px'}
+                          size={'sm'}
+                          color={'black'}
+                          bg={'white'}
                           rightIcon={<FiX />}
                           onClick={() => {
-                            let subs = features.filter((el) => item !== el);
+                            let subs = features.filter(el => item !== el);
                             setfeatures(subs);
                           }}
                         >
@@ -957,9 +911,9 @@ const AddCar = () => {
 
               <GridItem as="div" colSpan={{ base: 12, md: 6 }} p="10px">
                 <FormLabel>Select Safety Features</FormLabel>
-                <Flex w={"100%"} gap={3} my={1} borderRadius={"5px"}>
+                <Flex w={'100%'} gap={3} my={1} borderRadius={'5px'}>
                   <Select id="selectSafetyFeatures">
-                    {safetyFeatureArray.map((el) => {
+                    {safetyFeatureArray.map(el => {
                       return (
                         <option key={el.value} value={el.value}>
                           {el.label}
@@ -967,41 +921,25 @@ const AddCar = () => {
                       );
                     })}
                   </Select>
-                  <Button
-                   bg="#30829c"
-                    leftIcon={<FiPlusSquare />}
-                    colorScheme="blue"
-                    onClick={handleSafetyFeatures}
-                  >
+                  <Button bg="#30829c" leftIcon={<FiPlusSquare />} colorScheme="blue" onClick={handleSafetyFeatures}>
                     Add
                   </Button>
                 </Flex>
                 {safetyFeatures.length > 0 && (
-                  <Flex
-                    w={"100%"}
-                    wrap={"wrap"}
-                    gap={3}
-                    bg={"#f2ffe6"}
-                    p="2"
-                    my={3}
-                    borderRadius={"5px"}
-                    border={"1px solid #ddd"}
-                  >
+                  <Flex w={'100%'} wrap={'wrap'} gap={3} bg={'#f2ffe6'} p="2" my={3} borderRadius={'5px'} border={'1px solid #ddd'}>
                     {safetyFeatures.map((item, index) => {
                       return (
                         <Button
                           key={item + 234}
-                          variant={"ghost"}
-                          border={"1px solid #ddd"}
-                          borderRadius={"30px"}
-                          size={"sm"}
-                          color={"black"}
-                          bg={"white"}
+                          variant={'ghost'}
+                          border={'1px solid #ddd'}
+                          borderRadius={'30px'}
+                          size={'sm'}
+                          color={'black'}
+                          bg={'white'}
                           rightIcon={<FiX />}
                           onClick={() => {
-                            let subs = safetyFeatures.filter(
-                              (el) => item !== el
-                            );
+                            let subs = safetyFeatures.filter(el => item !== el);
                             setSafetyFeatures(subs);
                           }}
                         >
@@ -1016,25 +954,15 @@ const AddCar = () => {
           </GridItem>
 
           <GridItem as="div" colSpan={{ base: 6, md: 12 }} p="10px">
-            <Text mb="2" fontWeight={"500"} fontSize="1.5rem">
+            <Text mb="2" fontWeight={'500'} fontSize="1.5rem">
               Other Details :
             </Text>
           </GridItem>
 
-          <GridItem
-            as="div"
-            colSpan={{ base: 12, md: 12 }}
-            p="20px "
-            borderRadius={"10px"}
-            backgroundColor={"white"}
-          >
+          <GridItem as="div" colSpan={{ base: 12, md: 12 }} p="20px " borderRadius={'10px'} backgroundColor={'white'}>
             <Grid templateColumns="repeat(12, 1fr)">
               <GridItem as="div" colSpan={{ base: 12, md: 4 }} p="10px">
-                <FormControl
-                  isInvalid={
-                    formData?.VIN?.length !== 17 && formData?.VIN?.length > 0
-                  }
-                >
+                <FormControl isInvalid={formData?.VIN?.length !== 17 && formData?.VIN?.length > 0}>
                   <FormLabel>VIN (optional)</FormLabel>
                   <Input
                     isRequired={true}
@@ -1044,10 +972,7 @@ const AddCar = () => {
                     defaultValue={formData?.VIN}
                     onChange={handleDetailsChange}
                   />
-                  {formData?.VIN?.length !== 17 &&
-                    formData?.VIN?.length > 0 && (
-                      <FormErrorMessage>Enter 17 digit VIN</FormErrorMessage>
-                    )}
+                  {formData?.VIN?.length !== 17 && formData?.VIN?.length > 0 && <FormErrorMessage>Enter 17 digit VIN</FormErrorMessage>}
                 </FormControl>
               </GridItem>
 
@@ -1069,28 +994,26 @@ const AddCar = () => {
                   <Flex gap="3">
                     <FormControl>
                       <Select
-                        width={"70%"}
-                        onChange={(e) => {
+                        width={'70%'}
+                        onChange={e => {
                           setSingleDocument({
                             ...singleDocument,
-                            label: e.target.value,
+                            label: e.target.value
                           });
-                          formData?.documents.find(
-                            (el) => e.target.value === el.label
-                          )
+                          formData?.documents.find(el => e.target.value === el.label)
                             ? toast({
-                                position: "top",
-                                title: "Alredy Added",
-                                status: "warning",
+                                position: 'top',
+                                title: 'Alredy Added',
+                                status: 'warning',
                                 duration: 4000,
-                                isClosable: true,
+                                isClosable: true
                               })
-                            : "";
+                            : '';
                         }}
                       >
                         <option value="">Select PDF Document Type</option>
                         {documentsArray?.length &&
-                          documentsArray?.map((el) => {
+                          documentsArray?.map(el => {
                             return (
                               <option key={el} value={el}>
                                 {el}
@@ -1100,25 +1023,19 @@ const AddCar = () => {
                       </Select>
                       {/* <FormHelperText p="0" color={"red"}>Only PDF file</FormHelperText> */}
                     </FormControl>
-                    {!formData?.documents.find(
-                      (el) => singleDocument.label === el.label
-                    ) && (
+                    {!formData?.documents.find(el => singleDocument.label === el.label) && (
                       <InputUpload
                         refresh={refreshDocUpload}
-                        accept={"application/pdf"}
-                        HandleUploadSomeImages={(doc) =>
-                          setSingleDocument({ ...singleDocument, doc: doc })
-                        }
+                        accept={'application/pdf'}
+                        HandleUploadSomeImages={doc => setSingleDocument({ ...singleDocument, doc: doc })}
                       />
                     )}
                     <Button
-                     bg="#30829c"
+                      bg="#30829c"
                       leftIcon={<FiPlusSquare />}
-                      colorScheme={"blue"}
+                      colorScheme={'blue'}
                       onClick={handleAddDocument}
-                      isDisabled={formData?.documents.find(
-                        (el) => singleDocument.label === el.label
-                      )}
+                      isDisabled={formData?.documents.find(el => singleDocument.label === el.label)}
                     >
                       Add
                     </Button>
@@ -1127,39 +1044,23 @@ const AddCar = () => {
               </GridItem>
 
               <GridItem as="div" colSpan={{ base: 12, md: 12 }} py="10px">
-                <Flex gap={"3"} overflowX={"auto"} width={"full"}>
+                <Flex gap={'3'} overflowX={'auto'} width={'full'}>
                   {formData?.documents?.length > 0 &&
                     formData?.documents?.map((el, index) => {
                       return (
-                        <Flex
-                          key={index + "asgetugsj"}
-                          alignItems={"center"}
-                          justifyContent={"space-between"}
-                          p={"2"}
-                        >
-                          <Button
-                          
-                            onClick={onOpen}
-                            borderTopRightRadius={"0px"}
-                            borderBottomRightRadius={"0px"}
-                            fontWeight={"600"}
-                          >
+                        <Flex key={index + 'asgetugsj'} alignItems={'center'} justifyContent={'space-between'} p={'2'}>
+                          <Button onClick={onOpen} borderTopRightRadius={'0px'} borderBottomRightRadius={'0px'} fontWeight={'600'}>
                             {el.label}
                           </Button>
                           <Button
                             colorScheme="red"
-                            borderTopLeftRadius={"0px"}
-                            borderBottomLeftRadius={"0px"}
+                            borderTopLeftRadius={'0px'}
+                            borderBottomLeftRadius={'0px'}
                             onClick={() => handeDeleteDocument(el.label)}
                           >
                             <FiXCircle />
                           </Button>
-                          <DocumentModal
-                            isOpen={isOpen}
-                            onClose={onClose}
-                            name={el.label}
-                            doc={el.doc}
-                          />
+                          <DocumentModal isOpen={isOpen} onClose={onClose} name={el.label} doc={el.doc} />
                         </Flex>
                       );
                     })}
@@ -1168,12 +1069,12 @@ const AddCar = () => {
 
               <GridItem as="div" colSpan={{ base: 12, md: 6 }} p="10px">
                 <FormLabel>Select Location</FormLabel>
-                <Flex w={"100%"} gap={3} my={1} borderRadius={"5px"}>
+                <Flex w={'100%'} gap={3} my={1} borderRadius={'5px'}>
                   <Select id="selectLocation">
                     <option value="">Select Location</option>
                     <option value="all">Select all</option>
                     {allLocations?.length &&
-                      allLocations?.map((el) => {
+                      allLocations?.map(el => {
                         return (
                           <option key={el._id} value={el._id}>
                             {el?.name}
@@ -1181,45 +1082,29 @@ const AddCar = () => {
                         );
                       })}
                   </Select>
-                  <Button
-                   bg="#30829c"
-                    leftIcon={<FiPlusSquare />}
-                    colorScheme={"blue"}
-                    onClick={handleLocation}
-                  >
+                  <Button bg="#30829c" leftIcon={<FiPlusSquare />} colorScheme={'blue'} onClick={handleLocation}>
                     Add
                   </Button>
                 </Flex>
                 {selectedLocations.length > 0 && (
-                  <Flex
-                    w={"100%"}
-                    wrap={"wrap"}
-                    gap={3}
-                    bg={"#f2ffe6"}
-                    p="2"
-                    my={3}
-                    borderRadius={"5px"}
-                    border={"1px solid #ddd"}
-                  >
+                  <Flex w={'100%'} wrap={'wrap'} gap={3} bg={'#f2ffe6'} p="2" my={3} borderRadius={'5px'} border={'1px solid #ddd'}>
                     {selectedLocations.map((item, index) => {
                       return (
                         <Button
-                          key={item + "sdfsdf34"}
-                          variant={"ghost"}
-                          border={"1px solid #ddd"}
-                          borderRadius={"30px"}
-                          size={"sm"}
-                          color={"black"}
-                          bg={"white"}
+                          key={item + 'sdfsdf34'}
+                          variant={'ghost'}
+                          border={'1px solid #ddd'}
+                          borderRadius={'30px'}
+                          size={'sm'}
+                          color={'black'}
+                          bg={'white'}
                           rightIcon={<FiX />}
                           onClick={() => {
-                            let subs = selectedLocations.filter(
-                              (el) => item !== el
-                            );
+                            let subs = selectedLocations.filter(el => item !== el);
                             setSelectedLocations(subs);
                           }}
                         >
-                          {allLocations.find((el) => item == el?._id)?.name}
+                          {allLocations.find(el => item == el?._id)?.name}
                         </Button>
                       );
                     })}
@@ -1241,21 +1126,13 @@ const AddCar = () => {
             </Grid>
           </GridItem>
         </Grid>
-        <Flex gap={1} justifyContent={"end"} my={"15px"}>
+        <Flex gap={1} justifyContent={'end'} my={'15px'}>
           <Link to="/vendor/cars">
             <Button colorScheme="gray" my="10px">
               Cancel
             </Button>
           </Link>
-          <Button
-           bg="#30829c"
-            colorScheme="blue"
-            m="10px"
-            isLoading={isCarLoading}
-            type="submit"
-            rightIcon={<FiPlusCircle />}
-            onClick={handleSubmit}
-          >
+          <Button bg="#30829c" colorScheme="blue" m="10px" isLoading={isCarLoading} type="submit" rightIcon={<FiPlusCircle />} onClick={handleSubmit}>
             Add Car
           </Button>
         </Flex>

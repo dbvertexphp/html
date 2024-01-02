@@ -70,31 +70,67 @@ exports.getVendorByID = async (req, res) => {
 
 exports.VendorLogin = async (req, res) => {
   const { email, password } = req.body;
-  const test = { email, password };
-  for (const key in test) {
-    if (!test[key]) return res.status(401).json({ message: `Please Provide ${key}, Mandatory field missing: ${key}` });
-  }
+
   try {
-    let vendor = await VendorModel.findOne({ email });
-    if (!vendor) return res.status(404).send({ message: 'Email Not Found, Please check entered email' });
-    bcrypt.compare(password, vendor?.password).then(async result => {
-      if (!result) {
-        return res.status(404).send({ message: 'Wrong Credentials' });
-      } else {
-        const token = jwt.sign({ _id: vendor?._id, role: vendor?.role }, process.env.JSON_SECRET);
-        let instance = await VendorModel.findOne({ email }).select({ password: 0 }).populate('reference');
-        if (instance.status == 'disabled')
-          return res
-            .status(400)
-            .json({ message: 'Your Account is Temporarily Disabled By Admin. \n Please Contact through Email to review your account' });
-        return res.status(200).send({ message: 'Login Successful', token, vendor: instance });
-      }
-    });
+    if (!email || !password) {
+      return res.status(401).json({ message: 'Please provide both (email/phone) and password. Mandatory fields missing.' });
+    }
+
+    let vendor;
+    if (isValidEmail(email)) {
+      // If the input is a valid email, search based on the email field
+      vendor = await VendorModel.findOne({ email: email });
+    } else if (isValidPhoneNumber(email)) {
+      // If the input is a valid phone number, search based on the phone_number field
+      vendor = await VendorModel.findOne({ mobile_number: email });
+    } else {
+      // If the input is neither a valid email nor a valid phone number, return an error
+      return res.status(400).json({ message: 'Invalid email or phone number format.' });
+    }
+
+    if (!vendor) {
+      return res.status(404).json({ message: 'Please check the entered email or phone number. Not found' });
+    }
+
+    // Compare the entered password with the stored hashed password
+    const passwordMatch = await bcrypt.compare(password, vendor.password);
+
+    if (!passwordMatch) {
+      return res.status(401).json({ message: 'Wrong credentials. Please check your password.' });
+    }
+
+    // Continue with the rest of your existing logic...
+
+    const token = jwt.sign({ _id: vendor._id, role: vendor.role }, process.env.JSON_SECRET);
+    let instance = await VendorModel.findOne({ email: vendor.email }).select({ password: 0 }).populate('reference');
+    if (instance.status == 'disabled') {
+      return res.status(400).json({
+        message: 'Your Account is Temporarily Disabled By Admin. \n Please Contact through Email to review your account'
+      });
+    }
+
+    return res.status(200).json({ message: 'Login Successful', token, vendor: instance });
   } catch (error) {
-    console.log(error);
-    return res.status(500).send({ message: error?.message || 'Something went Wrong', error });
+    console.error(error);
+    return res.status(500).json({ message: error?.message || 'Something went wrong', error });
   }
 };
+
+// Function to check if the input is a valid email
+function isValidEmail(input) {
+  const emailRegex = /\S+@\S+\.\S+/;
+  return emailRegex.test(input);
+}
+
+// Function to check if the input is a valid phone number
+function isValidPhoneNumber(input) {
+  // You can implement your phone number validation logic here
+  // For a simple check, you can use a regular expression or other validation methods
+  // Example regex for a simple check: /^[0-9]{10}$/ (assuming 10-digit phone number)
+  const phoneRegex = /^[0-9]{10}$/;
+  return phoneRegex.test(input);
+}
+
 exports.addVendor = async (req, res) => {
   let payload = req.body;
   let { email, password, vendor_name, company_name, phone_number } = req.body;

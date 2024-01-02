@@ -85,6 +85,12 @@ const CarSchema = mongoose.Schema(
     ],
 
     ownership: { type: String },
+
+    owner_name: { type: String },
+    owner_email: { type: String },
+    owner_mobile: { type: String },
+    owner_location: { type: String },
+
     km_driven: { type: Number },
     seats: { type: String },
     hidden: { type: Boolean },
