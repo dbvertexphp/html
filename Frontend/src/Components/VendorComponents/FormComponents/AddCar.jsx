@@ -102,7 +102,6 @@ const AddCar = () => {
   const [selectedLocations, setSelectedLocations] = useState([]);
 
   const [refreshDocUpload, setRefreshDocUpload] = useState(false);
-
   const toast = useToast();
 
   const {
@@ -118,6 +117,29 @@ const AddCar = () => {
   } = useSelector(state => state?.CarComponentManager);
   const { loading: isCarLoading } = useSelector(state => state?.CarManager);
 
+  useEffect(() => {
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      features: features
+    }));
+  }, [features]);
+
+  // Update formData when safetyFeatures state changes
+  useEffect(() => {
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      safety_features: safetyFeatures
+    }));
+  }, [safetyFeatures]);
+
+  // Update formData when selectedLocations state changes
+  useEffect(() => {
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      location: selectedLocations
+    }));
+  }, [selectedLocations]);
+
   const handleSubmit = e => {
     e.preventDefault();
 
@@ -131,6 +153,9 @@ const AddCar = () => {
     data.mileage = +data.mileage;
 
     for (const key in data) {
+      console.log(formData.features);
+      console.log(formData.safety_features);
+      console.log(formData.location);
       if (key === 'VIN' || key === 'license_number' || key === 'ownership_history' || key === 'documents') {
         continue;
       }
@@ -317,6 +342,7 @@ const AddCar = () => {
       isClosable: true
     });
   };
+
   const HandleUploadSomeImages = images => {
     setFormData(prevFormData => ({
       ...prevFormData,
