@@ -77,11 +77,11 @@ export default function Carousel() {
     const indexToRemove = storedNameSreach.findIndex(option => option.value === value);
 
     if (indexToRemove !== -1) {
-     
+      console.log(indexToRemove);
+
       // Exclude the item to be removed from storedNameSreach
-      localStorage.removeItem(`SreachcarnameOptions_${indexToRemove}`);
       const updatedOptions = storedNameSreach.filter((_, index) => index !== indexToRemove);
-      console.log(updatedOptions);
+
       // Update state to re-render without the removed item
       setStoredNameSreach(updatedOptions);
 
@@ -90,6 +90,9 @@ export default function Carousel() {
 
       // Optionally, close the dropdown
       setMenuIsOpen(true);
+
+      // Optionally, redirect to a new page
+      // navigate(`/new-page`); // Comment out or remove this line to prevent redirection
     }
   };
 
@@ -179,8 +182,6 @@ export default function Carousel() {
     const indexToRemove = storedOptions.findIndex(option => option.value === value);
 
     if (indexToRemove !== -1) {
-
-    
       // Remove the item from localStorage using the unique key
       localStorage.removeItem(`SearchCarIdOptions_${indexToRemove}`);
 
