@@ -75,24 +75,18 @@ export default function Carousel() {
     const storedNameSreachString = localStorage.getItem('SreachcarnameOptions');
     let storedNameSreach = storedNameSreachString ? JSON.parse(storedNameSreachString) : [];
     const indexToRemove = storedNameSreach.findIndex(option => option.value === value);
-
+    console.log('Before Removal:', storedNameSreach);
     if (indexToRemove !== -1) {
-      console.log(indexToRemove);
-
       // Exclude the item to be removed from storedNameSreach
       const updatedOptions = storedNameSreach.filter((_, index) => index !== indexToRemove);
 
       // Update state to re-render without the removed item
       setStoredNameSreach(updatedOptions);
+      // Your removal code
 
-      // Update local storage
+      console.log('After Removal:', updatedOptions);
       localStorage.setItem('SreachcarnameOptions', JSON.stringify(updatedOptions));
-
-      // Optionally, close the dropdown
       setMenuIsOpen(true);
-
-      // Optionally, redirect to a new page
-      // navigate(`/new-page`); // Comment out or remove this line to prevent redirection
     }
   };
 
