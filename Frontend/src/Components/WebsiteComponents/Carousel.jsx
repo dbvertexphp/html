@@ -198,7 +198,7 @@ export default function Carousel() {
     // Use storedOptions state instead of reading from local storage directly
     return storedIDOptions.map(option => ({
       label: (
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ display: 'flex',alignItems: 'center' }}>
           <RxTimer />
           <span>{option.label}</span>
         </div>

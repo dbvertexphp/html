@@ -103,6 +103,19 @@ exports.CustomerLogin = async (req, res) => {
     if (!customer) {
       return res.status(404).json({ message: 'Please check the entered email or phone number. Not found' });
     }
+    if (!customer.otp_verified) {
+      const otp = generateOTP();
+
+      // Update customer with the new OTP
+      customer = await CustomerModel.findOneAndUpdate({ email }, { $set: { otp } }, { new: true });
+
+      // Send OTP verification email
+      SendMail({
+        recipientEmail: customer.email,
+        subject: 'Verify Your OTP!',
+        html: OtpTemplapes(customer)
+      });
+    }
 
     // Compare the entered password with the stored hashed password
     const passwordMatch = await bcrypt.compare(password, customer.password);

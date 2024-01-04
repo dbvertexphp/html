@@ -60,6 +60,7 @@ export default function CustomerLoginEmail() {
     const data = {
       email: inputEmail
     };
+
     axios
       .post(`${BASE_URL}/api/customer/verify`, data)
       .then(res => {
@@ -93,6 +94,7 @@ export default function CustomerLoginEmail() {
       email: inputEmail,
       password: inputPass
     };
+    localStorage.setItem('customer_detail_email', JSON.stringify(inputEmail));
     dispatch(loginCustomer(payload, navigate, toast));
   };
   const handleKeyPress = event => {

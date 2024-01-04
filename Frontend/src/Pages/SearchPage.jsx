@@ -191,7 +191,7 @@ const SearchPage = () => {
     // Use storedNameSreach state instead of reading from local storage directly
     return storedNameSreach.map(permission => ({
       label: (
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
           <span>{permission.label}</span>
         </div>
       ),
@@ -296,8 +296,8 @@ const SearchPage = () => {
     // Use storedOptions state instead of reading from local storage directly
     return storedIDOptions.map(option => ({
       label: (
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <RxTimer />
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <RxTimer />
           <span>{option.label}</span>
         </div>
       ),

@@ -61,6 +61,7 @@ export default function CustomerRegister() {
   };
 
   const submitHandler = () => {
+
     if (!verifyCredentials()) {
       toast({
         title: 'please Input All the fields',
@@ -77,6 +78,7 @@ export default function CustomerRegister() {
           duration: 4000
         });
       } else {
+        localStorage.setItem('customer_detail_email', JSON.stringify(userDetails.email));
         dispatch(signupCustomer(userDetails, navigate, toast));
       }
     }
