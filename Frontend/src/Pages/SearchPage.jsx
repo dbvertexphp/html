@@ -69,6 +69,67 @@ const SearchPage = () => {
   const [menuIsOpen, setMenuIsOpen] = useState();
   const [idmenuIsOpen, setIDMenuIsOpen] = useState();
 
+  let tempfilters = {
+    status: 'approved',
+    minPrice: 0,
+    location: location?._id || null,
+    maxPrice: 5000000,
+    minKms: 0,
+    maxKms: 500000
+  };
+
+  const setPageData = data => {
+    setcars(data?.Cars);
+    settotalCars(data?.totalCars);
+  };
+  const [filters, setFilters] = useState(tempfilters);
+  const [appliedFilters, setAppliedFilters] = useState({});
+
+  const getData = () => {
+    let data = {
+      filters: { ...filters, location: location?._id || null },
+      sortby,
+      page,
+      limit: 25
+    };
+    dispatch(getCars(setPageData, data));
+  };
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const nameParam = urlParams.get('name');
+    const labelParam = urlParams.get('label');
+    const valueParam = urlParams.get('value');
+
+    if (nameParam) {
+      const val = { _id: nameParam };
+      handleSearchChangeDefult(val);
+    } else if (labelParam && valueParam) {
+      const val = { label: labelParam, value: valueParam };
+      handleSearchChangeIDDefult(val);
+    } else {
+      getData();
+    }
+  }, [filters, displayFilters, sortby, location, page]);
+
+  const refresh = e => {
+    localStorage.removeItem('location_carvendor');
+    setPage(1);
+    window.location.href = '/collection';
+  };
+
+  const handleSearchChangeDefult = val => {
+    let data = { search: { name: val._id } };
+    setPage(1);
+    dispatch(getCars(setPageData, data));
+  };
+
+  const handleSearchChangeIDDefult = val => {
+    let data = { search: { carIds: val } };
+    setPage(1);
+    dispatch(getCars(setPageData, data));
+  };
+
   const handleSelectSreachName = selectedOption => {
     const { value: _id } = selectedOption;
     const storedNameSreachString = localStorage.getItem('SreachcarnameOptions');
@@ -154,54 +215,6 @@ const SearchPage = () => {
     }
   }, []);
 
-  let tempfilters = {
-    status: 'approved',
-    minPrice: 0,
-    location: location?._id || null,
-    maxPrice: 5000000,
-    minKms: 0,
-    maxKms: 500000
-  };
-
-  const setPageData = data => {
-    setcars(data?.Cars);
-    settotalCars(data?.totalCars);
-  };
-  const [filters, setFilters] = useState(tempfilters);
-  const [appliedFilters, setAppliedFilters] = useState({});
-
-  const getData = () => {
-    let data = {
-      filters: { ...filters, location: location?._id || null },
-      sortby,
-      page,
-      limit: 25
-    };
-    dispatch(getCars(setPageData, data));
-  };
-
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const nameParam = urlParams.get('name');
-    const labelParam = urlParams.get('label');
-    const valueParam = urlParams.get('value');
-
-    if (nameParam) {
-      const val = { _id: nameParam };
-      handleSearchChange(val);
-    } else if (labelParam && valueParam) {
-      const val = { label: labelParam, value: valueParam };
-      handleSearchChangeID(val);
-    } else {
-      getData();
-    }
-  }, [filters, displayFilters, sortby, location, page]);
-
-  const refresh = e => {
-    localStorage.removeItem('location_carvendor');
-    setPage(1);
-    window.location.href = '/collection';
-  };
 
   const handleSelectSearchID = selectedOption => {
     const { value: carId } = selectedOption;
