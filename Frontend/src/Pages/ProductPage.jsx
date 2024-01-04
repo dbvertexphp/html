@@ -1255,7 +1255,7 @@ export default function ProductPage() {
                   advanced_amount: data?.price * 0.1 - 500,
                   total_amount: data?.price,
                   test_drive_booking_amount: 500,
-                  remaining_amount: 0,
+                  remaining_amount: data?.price - (data?.price * 0.1 + 500),
                   status: 'paid'
                 })
               }

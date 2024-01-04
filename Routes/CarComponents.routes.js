@@ -13,6 +13,7 @@ const {
   DeleteCarNameByID,
   getCarNames,
   getAllCar_Id,
+  getCarsByIDSreach,
   getCarsByNameSreach
 } = require('../Controllers/CarComponents/CarName.controller');
 const { getAllColors, getColorByID, addColor, UpdateColorByID, DeleteColorByID } = require('../Controllers/CarComponents/Color.controller');
@@ -79,6 +80,7 @@ CarNameRouter.get('/get-carname', getCarNames);
 CarNameRouter.post('/get-carname-sreach', getCarsByNameSreach);
 CarNameRouter.get('/get-all-carnames', getAllCarNames);
 CarNameRouter.get('/get-all-carId', getAllCar_Id);
+CarNameRouter.post('/get-carId-sreach', getCarsByIDSreach);
 CarNameRouter.post('/add-carname', Authentication, addCarName);
 CarNameRouter.patch('/update-carname/:id', Authentication, UpdateCarNameByID);
 CarNameRouter.delete('/delete-carname/:id', Authentication, DeleteCarNameByID);

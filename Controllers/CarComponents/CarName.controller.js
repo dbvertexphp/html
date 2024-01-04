@@ -85,6 +85,37 @@ exports.getAllCar_Id = async (req, res) => {
   }
 };
 
+exports.getCarsByIDSreach = async (req, res) => {
+  try {
+    const { carId } = req.body;
+
+    if (!carId) {
+      return res.status(400).json({ message: 'Please provide a Car_id.' });
+    }
+
+    // Check if 'carId' is an object, and extract the 'carId' property if it exists
+    const searchCarId = typeof carId === 'object' ? carId.carId : carId;
+
+    // Using a regular expression to find cars with Car_id containing the provided substring
+    const cars = await CarModel.find({ Car_id: { $regex: searchCarId, $options: 'i' } }, '_id Car_id');
+
+    // Check if there are no cars with the provided Car_id
+    if (!cars || cars.length === 0) {
+      return res.status(404).send({ message: 'No cars with the provided Car_id found' });
+    }
+
+    const carDetails = cars.map(car => ({
+      _id: car._id,
+      Car_id: car.Car_id
+    }));
+
+    return res.status(200).send({ message: 'Car details', carDetails });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ message: error?.message || 'Something went wrong', error });
+  }
+};
+
 exports.UpdateCarNameByID = async (req, res) => {
   let id = req?.params?.id;
   let payload = req.body;
