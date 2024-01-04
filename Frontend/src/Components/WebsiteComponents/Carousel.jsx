@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import * as flatted from 'flatted';
 import axios from 'axios';
 import { Box, Heading, Image, InputGroup, Skeleton, Text, Button, InputLeftElement, Input, Select } from '@chakra-ui/react';
 import Slider from 'react-slick';
@@ -40,13 +41,13 @@ export default function Carousel() {
 
   const handleSelectSreachName = selectedOption => {
     const { value: _id } = selectedOption;
-    const storedNameSreachString = localStorage.getItem('SreachcarnameOptions');
+    const storedNameSreachString = sessionStorage.getItem('SreachcarnameOptions');
     const storedNameSreach = storedNameSreachString ? JSON.parse(storedNameSreachString) : [];
     const isOptionExists = storedNameSreach.some(option => option.value === _id);
 
     if (!isOptionExists) {
-      const updatedOptions = [...storedNameSreach, { label: selectedOption.label, value: _id }];
-      localStorage.setItem('SreachcarnameOptions', JSON.stringify(updatedOptions));
+      const updatedOptions = [...storedNameSreach, { label: flatted.stringify(selectedOption.label), value: _id }];
+      sessionStorage.setItem('SreachcarnameOptions', JSON.stringify(updatedOptions));
     }
     navigate(`/collection?name=${_id}`);
   };
@@ -72,50 +73,41 @@ export default function Carousel() {
   };
 
   const handleClearOption = value => {
-    const storedNameSreachString = localStorage.getItem('SreachcarnameOptions');
+    const storedNameSreachString = sessionStorage.getItem('SreachcarnameOptions');
     let storedNameSreach = storedNameSreachString ? JSON.parse(storedNameSreachString) : [];
     const indexToRemove = storedNameSreach.findIndex(option => option.value === value);
-
     if (indexToRemove !== -1) {
-        console.log(indexToRemove);
-        // Exclude the item to be removed from storedNameSreach
-        const updatedOptions = storedNameSreach.filter((_, index) => index !== indexToRemove);
-
-        // Update state to re-render without the removed item
-        setStoredNameSreach(updatedOptions);
-
-        // Update local storage
-        localStorage.setItem('SreachcarnameOptions', JSON.stringify(updatedOptions));
-
-        // Optionally, close the dropdown
-        setMenuIsOpen(true);
+      storedNameSreach.splice(indexToRemove, 1);
+      sessionStorage.setItem('SreachcarnameOptions', JSON.stringify(storedNameSreach));
+      setMenuIsOpen(true);
     }
-};
+  };
 
-const RecantOptionsSreachName = () => {
-    // Use storedNameSreach state instead of reading from local storage directly
+  const RecantOptionsSreachName = () => {
+    const storedNameSreachString = sessionStorage.getItem('SreachcarnameOptions');
+    const storedNameSreach = storedNameSreachString ? JSON.parse(storedNameSreachString) : [];
+
     return storedNameSreach.map(permission => ({
-        label: (
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span>{permission.label}</span>
-                <MdOutlineClear onClick={() => handleClearOption(permission.value)} />
-            </div>
-        ),
-        value: permission.value
+      label: (
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <span>{flatted.parse(permission.label)}</span>
+          <MdOutlineClear onClick={() => handleClearOption(permission.value)} />
+        </div>
+      ),
+      value: permission.value
     }));
-};
-
+  };
 
   useEffect(() => {
     // Load stored options from local storage on component mount
-    const storedOption = localStorage.getItem('Sreachcarname');
+    const storedOption = sessionStorage.getItem('Sreachcarname');
     if (storedOption) {
       const parsedOption = JSON.parse(storedOption);
       setSelectedNameSreach(parsedOption);
     }
 
     // Load options from local storage for default dropdown
-    const storedNameSreachString = localStorage.getItem('SreachcarnameOptions');
+    const storedNameSreachString = sessionStorage.getItem('SreachcarnameOptions');
     if (storedNameSreachString) {
       const storedNameSreach = JSON.parse(storedNameSreachString);
       setStoredNameSreach(storedNameSreach);
@@ -195,15 +187,15 @@ const RecantOptionsSreachName = () => {
   const RecentOptionsSearchID = () => {
     // Use storedOptions state instead of reading from local storage directly
     return storedIDOptions.map(option => ({
-        label: (
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span>{option.label}</span>
-                <MdOutlineClear onClick={() => handleClearIDOption(option.value)} />
-            </div>
-        ),
-        value: option.value
+      label: (
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <span>{option.label}</span>
+          <MdOutlineClear onClick={() => handleClearIDOption(option.value)} />
+        </div>
+      ),
+      value: option.value
     }));
-};
+  };
 
   useEffect(() => {
     // Load options from local storage for default dropdown
