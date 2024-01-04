@@ -20,6 +20,7 @@ import {
 } from '@chakra-ui/react';
 import axios from 'axios';
 import { MdOutlineClear } from 'react-icons/md';
+import { RxTimer } from 'react-icons/rx';
 import { BASE_URL } from '../utils/config';
 import ItemCard from '../Components/WebsiteComponents/ItemCard';
 import Carousel from '../Components/WebsiteComponents/CarouselDetail';
@@ -192,7 +193,6 @@ const SearchPage = () => {
       label: (
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <span>{permission.label}</span>
-          <MdOutlineClear onClick={() => handleClearOption(permission.value)} />
         </div>
       ),
       value: permission.value
@@ -214,7 +214,6 @@ const SearchPage = () => {
       setStoredNameSreach(storedNameSreach);
     }
   }, []);
-
 
   const handleSelectSearchID = selectedOption => {
     const { value: carId } = selectedOption;
@@ -298,8 +297,8 @@ const SearchPage = () => {
     return storedIDOptions.map(option => ({
       label: (
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <RxTimer />
           <span>{option.label}</span>
-          <MdOutlineClear onClick={() => handleClearIDOption(option.value)} />
         </div>
       ),
       value: option.value

@@ -28,6 +28,7 @@ const App = () => {
         localStorage.removeItem('customer_detail_carvendor');
         localStorage.removeItem('customer_token_carvendor');
         localStorage.removeItem('customer_detail_email');
+        localStorage.removeItem('SreachcarnameOptions');
         // Perform any additional logout or session expiration actions here
         //console.log('Session expired due to inactivity.');
       }

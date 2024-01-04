@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getallBanners } from '../../Redux/App/Actions/Admin/Website/Website.action';
 import AsyncSelector from '../Extra/AsyncSelect';
 import { getAllCar_Id } from '../../Redux/App/Actions/Admin/CarComponents/CarName.action';
-import { MdOutlineClear } from 'react-icons/md';
+import { RxTimer } from 'react-icons/rx';
 import { BASE_URL } from '../../utils/config';
 import { useNavigate } from 'react-router-dom';
 import { Link, NavLink } from 'react-router-dom';
@@ -75,7 +75,7 @@ export default function Carousel() {
     const storedNameSreachString = localStorage.getItem('SreachcarnameOptions');
     let storedNameSreach = storedNameSreachString ? JSON.parse(storedNameSreachString) : [];
     const indexToRemove = storedNameSreach.findIndex(option => option.value === value);
-    console.log('Before Removal:', storedNameSreach);
+
     if (indexToRemove !== -1) {
       // Exclude the item to be removed from storedNameSreach
       const updatedOptions = storedNameSreach.filter((_, index) => index !== indexToRemove);
@@ -94,9 +94,9 @@ export default function Carousel() {
     // Use storedNameSreach state instead of reading from local storage directly
     return storedNameSreach.map(permission => ({
       label: (
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <RxTimer />
           <span>{permission.label}</span>
-          <MdOutlineClear onClick={() => handleClearOption(permission.value)} />
         </div>
       ),
       value: permission.value
@@ -199,8 +199,8 @@ export default function Carousel() {
     return storedIDOptions.map(option => ({
       label: (
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <RxTimer />
           <span>{option.label}</span>
-          <MdOutlineClear onClick={() => handleClearIDOption(option.value)} />
         </div>
       ),
       value: option.value
