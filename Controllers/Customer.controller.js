@@ -108,8 +108,9 @@ exports.CustomerLogin = async (req, res) => {
     if (!customer.otp_verified) {
       const otp = generateOTP();
 
+      phone_number = await CustomerModel.findOne({ phone_number: email });
       // Update customer with the new OTP
-      customer = await CustomerModel.findOneAndUpdate({ email }, { $set: { otp } }, { new: true });
+      customer = await CustomerModel.findOneAndUpdate({ phone_number }, { $set: { otp } }, { new: true });
 
       // Send OTP verification email
       SendMail({
