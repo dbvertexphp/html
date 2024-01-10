@@ -12,7 +12,7 @@ import {
   Stack,
   Text
 } from '@chakra-ui/react';
-import { RangeSlider, RangeSliderTrack, RangeSliderFilledTrack, RangeSliderThumb } from '@chakra-ui/react';
+import { RangeSlider, RangeSliderTrack, RangeSliderFilledTrack, RangeSliderThumb, Input } from '@chakra-ui/react';
 import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
 import IndianNumberSystem from '../../utils/IndianNumSystem';
 import { getBodyTypes } from '../../Redux/App/Actions/Admin/CarComponents/BodyType.action';
@@ -25,6 +25,7 @@ import { useNavigate } from 'react-router-dom';
 import { featureArray, safetyFeatureArray } from '../../utils/CarFeatures';
 
 function Filters({ filters, setFilters, displayFilters, setDisplayFilters, callChildFunction }, ref) {
+  console.log(displayFilters);
   let dispatch = useDispatch();
 
   const { allColors, allMakes, allBodyTypes, loading, error } = useSelector(state => state?.CarComponentManager);
@@ -37,8 +38,10 @@ function Filters({ filters, setFilters, displayFilters, setDisplayFilters, callC
   const [owners, setowners] = useState([]);
   const [colors, setcolors] = useState([]);
   const [seats, setseats] = useState([]);
+  const [minPriceInput, setMinPriceInput] = useState();
+  const [maxPriceInput, setMaxPriceInput] = useState();
 
-  const [kmsdriven, setkmsdriven] = useState({ minKms: 0, maxKms: 5000000 });
+  const [kmsdriven, setkmsdriven] = useState({ minKms: 0, maxKms: 300000 });
   const [price, setprice] = useState({
     minPrice: 0,
     maxPrice: 50000000
@@ -52,10 +55,10 @@ function Filters({ filters, setFilters, displayFilters, setDisplayFilters, callC
     setowners([]);
     setcolors([]);
     setseats([]);
-    setkmsdriven({ minKms: 0, maxKms: 5000000 });
+    setkmsdriven({ minKms: 0, maxKms: 300000 });
     setprice({
       minPrice: 0,
-      maxPrice: 50000000
+      maxPrice: 300000
     });
   };
 
@@ -246,6 +249,25 @@ function Filters({ filters, setFilters, displayFilters, setDisplayFilters, callC
                   <RangeSliderThumb index={0} boxSize={2} />
                   <RangeSliderThumb index={1} boxSize={2} />
                 </RangeSlider>
+                <Stack spacing={3}>
+                  <Input
+                    type="number"
+                    variant="outline"
+                    placeholder="Min Price"
+                    value={minPriceInput}
+                    onChange={e => setMinPriceInput(e.target.value)}
+                  />
+                  <Input
+                    type="number"
+                    variant="outline"
+                    placeholder="Max Price"
+                    value={maxPriceInput}
+                    onChange={e => setMaxPriceInput(e.target.value)}
+                  />
+                  <Button sx={{ background: 'rgb(16, 151, 177)', color: 'white' }} onClick={() => setMinMaxPrice(minPriceInput, maxPriceInput)}>
+                    Submit
+                  </Button>
+                </Stack>
                 <Box>
                   Suggestions <br />
                   <Button size="xs" variant={'outline'} onClick={() => setMinMaxPrice(0, 300000)}>
@@ -266,7 +288,17 @@ function Filters({ filters, setFilters, displayFilters, setDisplayFilters, callC
                   <Button size="xs" variant={'outline'} onClick={() => setMinMaxPrice(1500000, 50000000)}>
                     above 15 Lakhs
                   </Button>
-                  <Button size="xs" variant={'outline'} color="red.400" mx={1} onClick={() => setMinMaxPrice(0, 50000000)}>
+                  <Button
+                    size="xs"
+                    variant={'outline'}
+                    color="red.400"
+                    mx={1}
+                    onClick={() => {
+                      setMinMaxPrice(0, 50000000);
+                      setMinPriceInput(''); // Resetting the input field
+                      setMaxPriceInput(''); // Resetting the input field
+                    }}
+                  >
                     Reset
                   </Button>
                 </Box>
@@ -376,6 +408,9 @@ function Filters({ filters, setFilters, displayFilters, setDisplayFilters, callC
                   <Checkbox name="Third" isChecked={owners.includes('Third')} onChange={e => handleAddFilter(e, owners, setowners, 'owners')}>
                     3rd owner
                   </Checkbox>
+                  <Checkbox name="fourth" isChecked={owners.includes('fourth')} onChange={e => handleAddFilter(e, owners, setowners, 'owners')}>
+                    4th owner
+                  </Checkbox>
                 </Stack>
               </AccordionPanel>
             </AccordionItem>
@@ -422,9 +457,9 @@ function Filters({ filters, setFilters, displayFilters, setDisplayFilters, callC
                   <Text>{IndianNumberSystem(kmsdriven.maxKms)}</Text>
                 </Flex>
                 <RangeSlider
-                  defaultValue={[0, 5000000]}
+                  defaultValue={[0, 300000]}
                   min={0}
-                  max={5000000}
+                  max={300000}
                   step={500}
                   checked={brands.includes('Audi')}
                   onChangeEnd={val => {

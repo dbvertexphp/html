@@ -1,4 +1,5 @@
 import { Flex, Box, Image, useColorModeValue, Center, Stack, Text, Divider, Button, useToast } from '@chakra-ui/react';
+import React from 'react';
 import { FaRegHeart } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,7 +15,24 @@ import { checkisinwishlist } from '../../Redux/App/Actions/Admin/Website/Website
 function ItemCard(props) {
   const dispatch = useDispatch();
   const toast = useToast();
-  const { name, price, imageURL, year, km, fuel, state, _id, booking_status, like_status, Car_id } = props;
+  const {
+    name,
+    price,
+    imageURL,
+    year,
+    km,
+    fuel,
+    state,
+    _id,
+    booking_status,
+    like_status,
+    Car_id,
+    featured_car,
+    trending_car,
+    upcoming_car,
+    hotdeal_car,
+    locationNames
+  } = props;
 
   const { Customer_detail, token, isAuth } = useSelector(state => state.CustomerAuthManager);
 
@@ -69,7 +87,6 @@ function ItemCard(props) {
     // Add logic to make an API request to remove the item from the wishlist
     await axios.delete(`${BASE_URL}/api/test/removeinwishlist/${Customer_detail._id}/${_id}`);
   };
-
   return (
     <Flex p="3" w="full" alignItems="center" justifyContent="center">
       <Box borderWidth="1px" rounded="lg" shadow="md" position="relative" bg="gray.50">
@@ -112,7 +129,6 @@ function ItemCard(props) {
           <NavLink to={`/product/${_id}`}>
             <Image zIndex={0} src={imageURL} roundedTop="lg" roundedBottom="lg" w="400px" objectFit="cover" h={'265px'} maxW={'full'} />
           </NavLink>
-
           <Box
             position="absolute"
             top="10px" // Adjust this value as needed
@@ -133,18 +149,26 @@ function ItemCard(props) {
             )}
           </Box>
 
-          <Box
-            position="absolute"
-            bottom="10px" // Adjust this value as needed
-            right="10px" // Adjust this value as needed
-            color={'white'}
-            bg="green"
-            fontSize="12"
-            rounded="30px"
-            padding="5px"
-          >
-            <Box>Trending Car</Box>
-          </Box>
+          {featured_car === 1 && (
+            <Box className="featured_car">
+              <Box>Featured</Box>
+            </Box>
+          )}
+          {trending_car === 1 && (
+            <Box className="trending_car">
+              <Box>Trending</Box>
+            </Box>
+          )}
+          {upcoming_car === 1 && (
+            <Box className="upcoming_car">
+              <Box>Upcoming </Box>
+            </Box>
+          )}
+          {hotdeal_car === 1 && (
+            <Box className="hotdeal_car">
+              <Box>Hot Deal</Box>
+            </Box>
+          )}
         </Flex>
 
         <Box p="5">
@@ -171,7 +195,17 @@ function ItemCard(props) {
           </Box>
           <Box marginTop="10px" className="home_page_location" display="flex" alignItems="center">
             <GrLocation />
-            Parsvnath City Mall, Faridabad
+
+            {locationNames.map((location, index) =>
+              // Render only the first 3 elements
+              index < 3 ? (
+                <React.Fragment key={index}>
+                  {location}
+                  {index < 2 && ',  '}
+                </React.Fragment>
+              ) : null
+            )}
+            {locationNames.length > 3 && <span>...</span>}
           </Box>
         </Box>
         <Flex justify={'space-evenly'} gap="1" mb="8" mx="5" fontSize={14} className="home_page_car_details">

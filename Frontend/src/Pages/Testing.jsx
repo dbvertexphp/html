@@ -343,7 +343,6 @@ const SearchPage = () => {
   const handleRemoveFilter = ({ name, key }) => {
     // Filter out the removed item from displayFilters
     let newDisplay = displayFilters.filter(fil => fil.name !== name);
-    console.log(newDisplay);
     setDisplayFilters([...newDisplay]);
 
     // Create a copy of the current filters and modify the copy
@@ -478,8 +477,8 @@ const SearchPage = () => {
                 {/* <option value={"featured_car"}>Featured </option> */}
                 <option value={'hotdeal_car'}>Hot Deals</option>
                 {/* <option value={"upcoming_car"}>Upcoming </option>
-                        <option value={"low_to_high"}>Low to High</option>
-                        <option value={"high_to_low"}>High to Low</option> */}
+                    <option value={"low_to_high"}>Low to High</option>
+                    <option value={"high_to_low"}>High to Low</option> */}
               </Select>
             </Flex>
 

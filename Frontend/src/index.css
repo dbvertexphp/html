@@ -249,5 +249,53 @@ body {
 }
 .custom-selector .css-1okebmr-indicator-separator,
 .custom-selector .css-1gtu0rj-indicatorContainer {
-  background-color: transparent !important; 
+  background-color: transparent !important;
+}
+.featured_car {
+  position: absolute !important;
+  bottom: 10px !important;
+  right: 10px !important;
+  color: white !important;
+  background: #ff6347 !important;
+  font-size: 15px !important;
+  border-radius: 30px !important;
+  padding: 5px 20px 5px 20px !important;
+  letter-spacing: 1px !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+.trending_car {
+  position: absolute !important;
+  bottom: 10px !important;
+  right: 10px !important;
+  color: white !important;
+  background: #72b093 !important;
+  font-size: 15px !important;
+  border-radius: 30px !important;
+  padding: 5px 20px 5px 20px !important;
+  letter-spacing: 1px !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+.upcoming_car {
+  position: absolute !important;
+  bottom: 10px !important;
+  right: 10px !important;
+  color: white !important;
+  background: #f89cc8 !important;
+  font-size: 15px !important;
+  border-radius: 30px !important;
+  padding: 5px 20px 5px 20px !important;
+  letter-spacing: 1px !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+.hotdeal_car {
+  position: absolute !important;
+  bottom: 10px !important;
+  right: 10px !important;
+  color: white !important;
+  background: #fc0000 !important;
+  font-size: 15px !important;
+  border-radius: 30px !important;
+  padding: 5px 20px 5px 20px !important;
+  letter-spacing: 1px !important;
+  font-family: 'Poppins', sans-serif !important;
 }

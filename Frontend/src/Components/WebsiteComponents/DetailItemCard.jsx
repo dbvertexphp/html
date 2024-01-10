@@ -1,5 +1,6 @@
 import { Flex, Box, Image, useColorModeValue, Center, Stack, Text, Divider, Button, useToast } from '@chakra-ui/react';
 import { FaRegHeart } from 'react-icons/fa';
+import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -12,8 +13,7 @@ import { BASE_URL } from '../../utils/config';
 function DetailItemCard(props) {
   const dispatch = useDispatch();
   const toast = useToast();
-  const { name, price, imageURL, year, km, fuel, state, _id, booking_status, like_status, Car_id } = props;
-
+  const { name, price, imageURL, year, km, fuel, state, _id, booking_status, like_status, Car_id, locationNames } = props;
   const { Customer_detail, token, isAuth } = useSelector(state => state.CustomerAuthManager);
 
   const [isFavorite, setIsFavorite] = useState(like_status === 'Yes');
@@ -130,7 +130,16 @@ function DetailItemCard(props) {
             </Box>
             <Box marginTop="10px" className="home_page_location" display="flex" alignItems="center">
               <GrLocation />
-              Parsvnath City Mall, Faridabad
+              {locationNames.map((location, index) =>
+                // Render only the first 3 elements
+                index < 10 ? (
+                  <React.Fragment key={index}>
+                    {location}
+                    {index < 10 && ',  '}
+                  </React.Fragment>
+                ) : null
+              )}
+              {locationNames.length > 10 && <span>...</span>}
             </Box>
           </Box>
 

@@ -153,20 +153,19 @@ const AddCar = () => {
     data.mileage = +data.mileage;
 
     for (const key in data) {
-      console.log(formData.features);
-      console.log(formData.safety_features);
-      console.log(formData.location);
-      if (key === 'VIN' || key === 'license_number' || key === 'ownership_history' || key === 'documents') {
+      if (
+        key === 'owner_name' ||
+        key === 'owner_email' ||
+        key === 'owner_mobile' ||
+        key === 'owner_location' ||
+        key === 'VIN' ||
+        key === 'license_number' ||
+        key === 'ownership_history' ||
+        key === 'documents'
+      ) {
         continue;
       }
-      if (formData.owner_mobile.length !== 10) {
-        return toast({
-          title: `Please Enter 10 Digit Number`,
-          status: 'error',
-          position: 'top',
-          duration: 4000
-        });
-      }
+
       if (data[key] == '' || data[key] == null || data[key] == undefined) {
         return toast({
           title: `Please Enter ${key?.toLocaleUpperCase()}`,
@@ -650,6 +649,7 @@ const AddCar = () => {
                   <option value="First">First</option>
                   <option value="Second">Second</option>
                   <option value="third">third</option>
+                  <option value="fourth">fourth</option>
                 </Select>
               </GridItem>
 
@@ -843,7 +843,6 @@ const AddCar = () => {
                   name="owner_name"
                   defaultValue={formData?.owner_name}
                   onChange={handleDetailsChange}
-                  isRequired={true}
                 />
               </GridItem>
 
@@ -855,7 +854,6 @@ const AddCar = () => {
                   name="owner_email"
                   defaultValue={formData?.owner_email}
                   onChange={handleDetailsChange}
-                  isRequired={true}
                 />
               </GridItem>
 
@@ -867,7 +865,6 @@ const AddCar = () => {
                   name="owner_mobile"
                   defaultValue={formData?.owner_mobile}
                   onChange={handleDetailsChange}
-                  isRequired={true}
                 />
               </GridItem>
 
@@ -879,7 +876,6 @@ const AddCar = () => {
                   name="owner_location"
                   defaultValue={formData?.owner_location}
                   onChange={handleDetailsChange}
-                  isRequired={true}
                 />
               </GridItem>
             </Grid>

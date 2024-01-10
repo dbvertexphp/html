@@ -87,6 +87,11 @@ const SliderComponent = ({ data }) => {
               booking_status={card.booking_status}
               like_status={card.Like_status}
               Car_id={card?.Car_id}
+              featured_car={card?.featured_car}
+              trending_car={card?.trending_car}
+              upcoming_car={card?.upcoming_car}
+              hotdeal_car={card?.hotdeal_car}
+              locationNames={card?.locationNames}
             />
           ))}
       </Slider>

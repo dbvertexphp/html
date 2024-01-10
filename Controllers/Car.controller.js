@@ -1,5 +1,7 @@
 const CarModel = require('../Models/Car.model');
 const SendMail = require('../Config/Sendmail');
+const LocationModel = require('../Models/CarComponents/Location.model');
+
 const { CarAddedVendor, CarAddedAdmin } = require('../Email/CarTemplates/CarAdded');
 const EmployeeModel = require('../Models/EmployeeModel');
 const { CarApprovedEmployee, CarApprovedVendor, CarApprovedAdmin } = require('../Email/CarTemplates/CarApproved');
@@ -175,19 +177,26 @@ async function getLikeStatus(status, condition, size, user_id, flag, locationFil
     return cars.map(car => ({ ...car.toObject(), Like_status: 'No' }));
   }
 
-  // For each car, check Like_status
+  // For each car, check Like_status and include location names
   const carsWithLikeStatus = await Promise.all(
     cars.map(async car => {
-      car.Like_status = await checkWishlist(user_id, car._id);
-      return car;
+      const likeStatus = await checkWishlist(user_id, car._id);
+
+      if (car.location && Array.isArray(car.location)) {
+        const locationNames = await Promise.all(
+          car.location.map(async locationId => {
+            const locationData = await LocationModel.findById(locationId);
+            return locationData ? locationData.name : null;
+          })
+        );
+        car = { ...car.toObject(), locationNames: locationNames.filter(Boolean) };
+      }
+
+      return { ...car, Like_status: likeStatus };
     })
   );
 
-  // Include Like_status in response
-  return carsWithLikeStatus.map(car => ({
-    ...car.toObject(),
-    Like_status: car.Like_status
-  }));
+  return carsWithLikeStatus;
 }
 
 async function checkWishlist(user_id, car_id) {
@@ -301,5 +310,46 @@ exports.DeleteCarByID = async (req, res) => {
   } catch (error) {
     console.log(error);
     return res.status(500).send({ message: error?.message || 'Something went Wrong', error });
+  }
+};
+let lastGeneratedCarId = 0;
+
+const generateCarId = () => {
+  lastGeneratedCarId++;
+  const paddedId = String(lastGeneratedCarId).padStart(3, '0');
+  return 'CAR' + paddedId;
+};
+
+exports.addCarIdsToExistingRecords = async () => {
+  try {
+    // Find all records without Car_id
+    const carsWithoutId = await CarModel.find({ Car_id: { $exists: false } });
+
+    // Set Car_id for existing records
+    for (const car of carsWithoutId) {
+      car.Car_id = generateCarId(); // Use your Car_id generation logic
+      await car.save();
+    }
+
+    // Find the latest Car_id
+    const latestCar = await CarModel.findOne().sort({ Car_id: -1 });
+
+    // Auto-increment and add Car_id for new records
+    const newCars = await CarModel.find({ Car_id: { $exists: false } });
+    let nextCarId = 1;
+    if (latestCar) {
+      // Extract the numeric part of the Car_id and increment
+      nextCarId = parseInt(latestCar.Car_id.replace('CAR', '')) + 1;
+    }
+
+    for (const newCar of newCars) {
+      newCar.Car_id = `CAR${nextCarId}`;
+      await newCar.save();
+      nextCarId++;
+    }
+
+    console.log('Car IDs added successfully.');
+  } catch (error) {
+    console.error('Error adding car IDs:', error);
   }
 };
