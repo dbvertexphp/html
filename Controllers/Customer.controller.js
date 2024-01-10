@@ -82,7 +82,7 @@ exports.CustomerEmailVerification = async (req, res) => {
 
 exports.CustomerLogin = async (req, res) => {
   const { email, password } = req.body;
-  console.log(email);
+
   try {
     if (!email || !password) {
       return res.status(401).json({ message: 'Please provide both identifier (email/phone) and password. Mandatory fields missing.' });
@@ -90,11 +90,9 @@ exports.CustomerLogin = async (req, res) => {
 
     let customer;
     if (isValidEmail(email)) {
-      console.log('isValidEmail', email);
       // If the input is a valid email, search based on the email field
       customer = await CustomerModel.findOne({ email: email });
     } else if (isValidPhoneNumber(email)) {
-      console.log('isValidPhoneNumber', email);
       // If the input is a valid phone number, search based on the phone_number field
       customer = await CustomerModel.findOne({ phone_number: email });
     } else {
@@ -105,16 +103,31 @@ exports.CustomerLogin = async (req, res) => {
     if (!customer) {
       return res.status(404).json({ message: 'Please check the entered email or phone number. Not found' });
     }
-    if (!customer.otp_verified) {
-      const otp = generateOTP();
 
+    if (!customer.otp_verified && isValidPhoneNumber(email)) {
+      const otp = generateOTP();
       phone_number = await CustomerModel.findOne({ phone_number: email });
+      const emails = phone_number.email;
       // Update customer with the new OTP
-      customer = await CustomerModel.findOneAndUpdate({ phone_number }, { $set: { otp } }, { new: true });
+      customer = await CustomerModel.findOneAndUpdate({ email: emails }, { $set: { otp } }, { new: true });
 
       // Send OTP verification email
       SendMail({
-        recipientEmail: customer.email,
+        recipientEmail: emails,
+        subject: 'Verify Your OTP!',
+        html: OtpTemplapes(customer)
+      });
+    }
+    if (!customer.otp_verified && isValidEmail(email)) {
+      const otp = generateOTP();
+      phone_number = await CustomerModel.findOne({ email: email });
+      const emails = phone_number.email;
+      // Update customer with the new OTP
+      customer = await CustomerModel.findOneAndUpdate({ email: emails }, { $set: { otp } }, { new: true });
+
+      // Send OTP verification email
+      SendMail({
+        recipientEmail: emails,
         subject: 'Verify Your OTP!',
         html: OtpTemplapes(customer)
       });
@@ -244,34 +257,47 @@ exports.Otp_verified = async (req, res) => {
   try {
     const { email, otp } = req.body;
 
-    // Find the user by email and OTP
-    const user = await CustomerModel.findOne({ email, otp, otp_verified: false });
+    let user;
 
-    if (user) {
+    if (isValidEmail(email)) {
+      // If the input is a valid email, search based on the email field
+      user = await CustomerModel.findOne({ email: email });
+    } else if (isValidPhoneNumber(email)) {
+      // If the input is a valid phone number, search based on the phone_number field
+      user = await CustomerModel.findOne({ phone_number: email });
+    } else {
+      // If the input is neither a valid email nor a valid phone number, return an error
+      return res.status(400).json({ message: 'Invalid email or phone number format.' });
+    }
+
+    // Find the user by email/phone and OTP
+    const userByOtp = await CustomerModel.findOne({ _id: user?._id, otp, otp_verified: false });
+
+    if (userByOtp) {
       // If user found, update otp_verified to true
-      await CustomerModel.updateOne({ email, otp }, { $set: { otp_verified: true } });
+      await CustomerModel.updateOne({ _id: userByOtp._id, otp }, { $set: { otp_verified: true } });
 
-      const token = jwt.sign({ _id: user?._id }, process.env.JSON_SECRET);
+      const token = jwt.sign({ _id: userByOtp?._id }, process.env.JSON_SECRET);
 
       // Include required data and token in the response
       return res.status(200).json({
         status: true,
         message: 'OTP verified successfully',
         customer: {
-          _id: user._id,
-          customer_code: user.customer_code,
-          email: user.email,
-          role: user.role,
-          first_name: user.first_name,
-          last_name: user.last_name,
-          createdAt: user.createdAt,
-          otp: user.otp,
+          _id: userByOtp._id,
+          customer_code: userByOtp.customer_code,
+          email: userByOtp.email,
+          role: userByOtp.role,
+          first_name: userByOtp.first_name,
+          last_name: userByOtp.last_name,
+          createdAt: userByOtp.createdAt,
+          otp: userByOtp.otp,
           otp_verified: true,
-          status: user.status,
-          orders: user.orders,
-          createdAt: user.createdAt,
-          updatedAt: user.updatedAt,
-          __v: user.__v
+          status: userByOtp.status,
+          orders: userByOtp.orders,
+          createdAt: userByOtp.createdAt,
+          updatedAt: userByOtp.updatedAt,
+          __v: userByOtp.__v
         },
         token
       });
@@ -283,18 +309,32 @@ exports.Otp_verified = async (req, res) => {
     return res.status(500).json({ status: false, message: 'Something went wrong' });
   }
 };
+
 exports.ResendOtp = async (req, res) => {
   const { email } = req.body;
 
   try {
     if (!email) {
-      return res.status(400).json({ message: 'Please provide an email address.' });
+      return res.status(400).json({ message: 'Please provide an email address or phone number.' });
     }
 
-    let customer = await CustomerModel.findOne({ email });
+    let customer, contactField;
+
+    if (isValidEmail(email)) {
+      // If the input is a valid email, search based on the email field
+      customer = await CustomerModel.findOne({ email });
+      contactField = 'email';
+    } else if (isValidPhoneNumber(email)) {
+      // If the input is a valid phone number, search based on the phone_number field
+      customer = await CustomerModel.findOne({ phone_number: email });
+      contactField = 'phone_number';
+    } else {
+      // If the input is neither a valid email nor a valid phone number, return an error
+      return res.status(400).json({ message: 'Invalid email or phone number format.' });
+    }
 
     if (!customer) {
-      return res.status(404).json({ message: 'Email not found.' });
+      return res.status(404).json({ message: 'Contact not found.' });
     }
 
     if (customer.status === 'disabled') {
@@ -305,9 +345,12 @@ exports.ResendOtp = async (req, res) => {
     const otp = generateOTP();
 
     // Update customer with the new OTP
-    customer = await CustomerModel.findOneAndUpdate({ email }, { $set: { otp } }, { new: true });
+    customer = await CustomerModel.findOneAndUpdate({ [contactField]: email }, { $set: { otp } }, { new: true });
 
-    // Send OTP verification email
+    // Send OTP verification message based on the contact field
+    const recipientContact = contactField === 'email' ? customer.email : customer.phone_number;
+    console.log(customer);
+
     SendMail({
       recipientEmail: customer.email,
       subject: 'Verify Your OTP!',
@@ -315,14 +358,15 @@ exports.ResendOtp = async (req, res) => {
     });
 
     return res.status(200).json({
-      message: 'OTP resent successfully. Please check your email for the new OTP.',
-      customer: { _id: customer._id, email: customer.email, otp_verified: customer.otp_verified }
+      message: `OTP resent successfully. Please check your ${contactField === 'email' ? 'email' : 'phone'} for the new OTP.`,
+      customer: { _id: customer._id, [contactField]: recipientContact, otp_verified: customer.otp_verified }
     });
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ message: error?.message || 'Something went Wrong', error });
+    return res.status(500).json({ message: error?.message || 'Something went wrong', error });
   }
 };
+
 exports.forgetPassword = async (req, res) => {
   const { email, otp, password } = req.body;
 
