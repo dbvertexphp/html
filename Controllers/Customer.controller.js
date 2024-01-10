@@ -82,7 +82,7 @@ exports.CustomerEmailVerification = async (req, res) => {
 
 exports.CustomerLogin = async (req, res) => {
   const { email, password } = req.body;
-
+  console.log(email);
   try {
     if (!email || !password) {
       return res.status(401).json({ message: 'Please provide both identifier (email/phone) and password. Mandatory fields missing.' });
@@ -90,9 +90,11 @@ exports.CustomerLogin = async (req, res) => {
 
     let customer;
     if (isValidEmail(email)) {
+      console.log('isValidEmail', email);
       // If the input is a valid email, search based on the email field
       customer = await CustomerModel.findOne({ email: email });
     } else if (isValidPhoneNumber(email)) {
+      console.log('isValidPhoneNumber', email);
       // If the input is a valid phone number, search based on the phone_number field
       customer = await CustomerModel.findOne({ phone_number: email });
     } else {
