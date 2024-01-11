@@ -20,86 +20,66 @@ import {
   Thead,
   Tr,
   useDisclosure,
-  useToast,
-} from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
-import { FiEye, FiRefreshCcw, FiX } from "react-icons/fi";
-import { useDispatch, useSelector } from "react-redux";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
-import {
-  UpdateTestDriveByID,
-  getTestDrives,
-  getTestDrivesByCarID,
-} from "../../Redux/App/Actions/TestDrive.action";
-import { formatDate } from "../../utils/DatesFunctions";
-import DocumentModal from "../Extra/DocumentModal";
-import PaginationBox from "../Extra/Pagination";
-import AlertMessageModal from "../Extra/AlertMessageModal";
-import { Search2Icon } from "@chakra-ui/icons";
-import TableLoader from "../Extra/TableLoader";
+  useToast
+} from '@chakra-ui/react';
+import React, { useEffect, useState } from 'react';
+import { FiEye, FiRefreshCcw, FiX } from 'react-icons/fi';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { UpdateTestDriveByID, getTestDrives, getTestDrivesByCarID } from '../../Redux/App/Actions/TestDrive.action';
+import { formatDate } from '../../utils/DatesFunctions';
+import DocumentModal from '../Extra/DocumentModal';
+import PaginationBox from '../Extra/Pagination';
+import AlertMessageModal from '../Extra/AlertMessageModal';
+import { Search2Icon } from '@chakra-ui/icons';
+import TableLoader from '../Extra/TableLoader';
 
 const AdminTestdrive = () => {
   const navigate = useNavigate();
 
-  let { User_detail, token } = useSelector((store) => store?.UserAuthManager);
-  const user =
-    User_detail || JSON.parse(localStorage.getItem("user_detail_carvendor"));
-  let admintoken =
-    token || JSON.parse(localStorage.getItem("admin_token_carvendor"));
+  let { User_detail, token } = useSelector(store => store?.UserAuthManager);
+  const user = User_detail || JSON.parse(localStorage.getItem('user_detail_carvendor'));
+  let admintoken = token || JSON.parse(localStorage.getItem('admin_token_carvendor'));
 
   const [showDateSelect, setShowDateSelect] = useState(false);
   const [dateSelectValue, setDateSelectValue] = useState({
-    startDate: "",
-    endDate: "",
+    startDate: '',
+    endDate: ''
   });
   const [searchParams, setSearchParams] = useSearchParams();
-  const [days, setDays] = useState(searchParams.get("filterBydays") || "");
-  const [searchQuery, setSearchQuery] = useState(
-    searchParams.get("searchQuery") || ""
-  );
+  const [days, setDays] = useState(searchParams.get('filterBydays') || '');
+  const [searchQuery, setSearchQuery] = useState(searchParams.get('searchQuery') || '');
   const [page, setPage] = useState(1);
   const toast = useToast();
   const dispatch = useDispatch();
 
   const locat = useLocation();
   const queryParams = new URLSearchParams(locat.search);
-  const q = queryParams.get("car") || "";
+  const q = queryParams.get('car') || '';
 
   const [testDrives, settestDrives] = useState([]);
-  const { totalTestDrives, loading, error } = useSelector(
-    (store) => store?.TestDriveManager
-  );
+  const { totalTestDrives, loading, error } = useSelector(store => store?.TestDriveManager);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [selectedDocument, setSelectedDocument] = useState("");
+  const [selectedDocument, setSelectedDocument] = useState('');
   const [AlertMsg1, setAlertMsg1] = useState({
     open: false,
-    text: "",
+    text: ''
   });
 
   const handleStatusChange = (id, value) => {
     const data = {
-      status: value,
+      status: value
     };
-    dispatch(
-      UpdateTestDriveByID(
-        id,
-        data,
-        toast,
-        getData,
-        "Status Changed Successfully",
-        setAlertMsg1,
-        admintoken
-      )
-    );
+    dispatch(UpdateTestDriveByID(id, data, toast, getData, 'Status Changed Successfully', setAlertMsg1, admintoken));
   };
 
-  const handleFilterBydays = (e) => {
+  const handleFilterBydays = e => {
     let params = {};
     for (let entries of searchParams.entries()) {
       params[entries[0]] = entries[1];
     }
 
-    if (e.target.value == "custom") {
+    if (e.target.value == 'custom') {
       setShowDateSelect(true);
       setSearchParams({ ...params, filterByDays: e.target.value });
     } else {
@@ -115,22 +95,22 @@ const AdminTestdrive = () => {
       params[entries[0]] = entries[1];
     }
 
-    if (dateSelectValue.startDate !== "" && dateSelectValue.endDate !== "") {
+    if (dateSelectValue.startDate !== '' && dateSelectValue.endDate !== '') {
       const startDateObj = new Date(dateSelectValue?.startDate)?.toISOString();
       const endDateObj = new Date(dateSelectValue?.endDate)?.toISOString();
       if (endDateObj < startDateObj) {
         return toast({
-          title: "End Date cannot occur before Start Date",
-          status: "error",
-          position: "top",
-          duration: 4000,
+          title: 'End Date cannot occur before Start Date',
+          status: 'error',
+          position: 'top',
+          duration: 4000
         });
       } else {
         setSearchParams({
           ...params,
-          filterByDays: "custom",
+          filterByDays: 'custom',
           fromDate: startDateObj,
-          toDate: endDateObj,
+          toDate: endDateObj
         });
         setPage(1);
       }
@@ -139,12 +119,12 @@ const AdminTestdrive = () => {
 
   const getData = () => {
     let params = {
-      filterByDays: searchParams.get("filterByDays"),
-      page: page,
+      filterByDays: searchParams.get('filterByDays'),
+      page: page
     };
-    if (params?.filterByDays === "custom") {
-      params["fromDate"] = searchParams.get("fromDate");
-      params["toDate"] = searchParams.get("toDate");
+    if (params?.filterByDays === 'custom') {
+      params['fromDate'] = searchParams.get('fromDate');
+      params['toDate'] = searchParams.get('toDate');
     }
     if (searchQuery) params.search = searchQuery;
 
@@ -159,10 +139,10 @@ const AdminTestdrive = () => {
     let val = searchQuery;
     if (val.length < 3 || val.length < 0) {
       return toast({
-        title: "Search Query must contain atleast 3 charachters",
-        status: "warning",
-        position: "top",
-        duration: 3000,
+        title: 'Search Query must contain atleast 3 charachters',
+        status: 'warning',
+        position: 'top',
+        duration: 3000
       });
     }
 
@@ -175,10 +155,10 @@ const AdminTestdrive = () => {
   };
   const refreshAll = () => {
     setSearchParams({});
-    setSearchQuery("");
+    setSearchQuery('');
     setPage(1);
     setShowDateSelect(false);
-    document.getElementById("selectFilterByDays").value = "";
+    document.getElementById('selectFilterByDays').value = '';
     getData();
   };
 
@@ -193,77 +173,47 @@ const AdminTestdrive = () => {
   const itemsPerPage = 5;
   const startingSerialNumber = (page - 1) * itemsPerPage + 1;
   return (
-    <Container
-      maxW="container"
-      borderRadius="5px"
-      minH={"610px"}
-      padding={"20px"}
-      backgroundColor={"white"}
-    >
-      <Flex justifyContent={"space-between"} alignItems={"center"}>
-        <Text
-          mb="2"
-          p={"10px"}
-          fontWeight={"500"}
-          fontSize={{ base: "1.3rem", md: "2rem" }}
-        >
+    <Container maxW="container" borderRadius="5px" minH={'610px'} padding={'20px'} backgroundColor={'white'}>
+      <Flex justifyContent={'space-between'} alignItems={'center'}>
+        <Text mb="2" p={'10px'} fontWeight={'500'} fontSize={{ base: '1.3rem', md: '2rem' }}>
           Test Drives
         </Text>
       </Flex>
 
-      <HStack
-        py={"10px"}
-        justifyContent={"space-between"}
-        alignContent={"center"}
-      >
-        <InputGroup w={"full"}>
-          <Input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder={"Search by Customer Details"}
-          />
-          <InputRightElement>
-            {searchQuery ? (
-              <FiX onClick={refreshAll} />
-            ) : (
-              <Search2Icon color="gray.300" />
-            )}
-          </InputRightElement>
+      <HStack py={'10px'} justifyContent={'space-between'} alignContent={'center'}>
+        <InputGroup w={'full'}>
+          <Input type="text" value={searchQuery} onChange={e => setSearchQuery(e.target.value)} placeholder={'Search by Customer Details'} />
+          <InputRightElement>{searchQuery ? <FiX onClick={refreshAll} /> : <Search2Icon color="gray.300" />}</InputRightElement>
         </InputGroup>
 
         {searchQuery && (
-          <Button color={"blue.500"} onClick={handleSearchQuery}>
+          <Button color={'blue.500'} onClick={handleSearchQuery}>
             <Search2Icon />
           </Button>
         )}
-        <Select
-          backgroundColor={"white"}
-          onChange={handleFilterBydays}
-          id="selectFilterByDays"
-        >
-          <option value={""}>Filter By Days</option>
-          <option value={"today"}>today</option>
-          <option value={"yesterday"}>yesterday</option>
-          <option value={"7days"}>last 7 days</option>
-          <option value={"thismonth"}>this month</option>
-          <option value={"lastmonth"}>last month</option>
-          <option value={"last3month"}>last 3 month</option>
-          <option value={"thisyear"}>this year</option>
-          <option value={"custom"}>Custom range</option>
+        <Select backgroundColor={'white'} onChange={handleFilterBydays} id="selectFilterByDays">
+          <option value={''}>Filter By Days</option>
+          <option value={'today'}>today</option>
+          <option value={'yesterday'}>yesterday</option>
+          <option value={'7days'}>last 7 days</option>
+          <option value={'thismonth'}>this month</option>
+          <option value={'lastmonth'}>last month</option>
+          <option value={'last3month'}>last 3 month</option>
+          <option value={'thisyear'}>this year</option>
+          <option value={'custom'}>Custom range</option>
         </Select>
 
         {showDateSelect && (
-          <HStack p={1.5} borderRadius={"5px"}>
+          <HStack p={1.5} borderRadius={'5px'}>
             <HStack>
               <p>From</p>
               <Input
-                type={"date"}
+                type={'date'}
                 size="sm"
-                onChange={(e) =>
+                onChange={e =>
                   setDateSelectValue({
                     ...dateSelectValue,
-                    startDate: e.target.value,
+                    startDate: e.target.value
                   })
                 }
               />
@@ -271,12 +221,12 @@ const AdminTestdrive = () => {
             <HStack>
               <p>To</p>
               <Input
-                type={"date"}
+                type={'date'}
                 size="sm"
-                onChange={(e) =>
+                onChange={e =>
                   setDateSelectValue({
                     ...dateSelectValue,
-                    endDate: e.target.value,
+                    endDate: e.target.value
                   })
                 }
               />
@@ -284,27 +234,14 @@ const AdminTestdrive = () => {
           </HStack>
         )}
 
-        <Button
-            bg="#30829c"
-            color="white"
-          variant={"solid"}
-          w={"20%"}
-          onClick={refreshAll}
-        >
+        <Button bg="#30829c" color="white" variant={'solid'} w={'20%'} onClick={refreshAll}>
           Refresh
         </Button>
       </HStack>
 
-      <TableContainer
-        position={"relative"}
-        my={"10px"}
-        maxHeight={"700px"}
-        overflowY={"auto"}
-        backgroundColor={"white"}
-        border={"1px solid #ddd"}
-      >
-        <Table size={"sm"} variant="striped">
-          <Thead backgroundColor={"white"} position={"sticky"} top="0">
+      <TableContainer position={'relative'} my={'10px'} maxHeight={'700px'} overflowY={'auto'} backgroundColor={'white'} border={'1px solid #ddd'}>
+        <Table size={'sm'} variant="striped">
+          <Thead backgroundColor={'white'} position={'sticky'} top="0">
             <Tr>
               <Th sx={headCellStyle}>Sr. no</Th>
               <Th sx={headCellStyle}>Customer </Th>
@@ -323,14 +260,12 @@ const AdminTestdrive = () => {
             ) : testDrives.length > 0 ? (
               testDrives.map((item, index) => {
                 return (
-                  <Tr key={"asgt" + index}>
-                    <Td sx={{ ...cellStyle, textAlign: "center" }}>
-                      {index + startingSerialNumber}
-                    </Td>
+                  <Tr key={'asgt' + index}>
+                    <Td sx={{ ...cellStyle, textAlign: 'center' }}>{index + startingSerialNumber}</Td>
                     <Td sx={cellStyle}>
                       <Stack>
-                        <Text fontWeight={"500"}>
-                          {" "}
+                        <Text fontWeight={'500'}>
+                          {' '}
                           <b>{item?.name}</b>
                         </Text>
                         <Text>{item?.customer_id?.customer_code}</Text>
@@ -340,39 +275,35 @@ const AdminTestdrive = () => {
                     <Td sx={cellStyle}>
                       {item?.vendor_id ? (
                         <Stack>
-                          <Text fontWeight={"500"}>
+                          <Text fontWeight={'500'}>
                             <b>{item?.vendor_id?.vendor_name}</b>
                           </Text>
                           <Text>{item?.vendor_id?.vendor_code}</Text>
                           <Text>{item?.vendor_id?.phone_number}</Text>
                         </Stack>
                       ) : (
-                        "NA"
+                        'NA'
                       )}
                     </Td>
 
                     <Td sx={cellStyle}>
                       {item?.vendor_id?.reference ? (
                         <Stack>
-                          <Text fontWeight={"500"}>
+                          <Text fontWeight={'500'}>
                             <b>{item?.vendor_id?.reference?.employee_name}</b>
                           </Text>
-                          <Text>
-                            {item?.vendor_id?.reference?.employee_code}
-                          </Text>
-                          <Text>
-                            {item?.vendor_id?.reference?.phone_number}
-                          </Text>
+                          <Text>{item?.vendor_id?.reference?.employee_code}</Text>
+                          <Text>{item?.vendor_id?.reference?.phone_number}</Text>
                         </Stack>
                       ) : (
-                        "NA"
+                        'NA'
                       )}
                     </Td>
                     <Td
                       sx={{
                         ...cellStyle,
-                        maxWidth: "140px",
-                        whiteSpace: "pre-wrap",
+                        maxWidth: '140px',
+                        whiteSpace: 'pre-wrap'
                       }}
                     >
                       <Stack>
@@ -392,17 +323,17 @@ const AdminTestdrive = () => {
                     <Td
                       sx={{
                         ...cellStyle,
-                        maxWidth: "140px",
-                        whiteSpace: "pre-wrap",
+                        maxWidth: '140px',
+                        whiteSpace: 'pre-wrap'
                       }}
                     >
                       {item?.address}
                     </Td>
                     <Td sx={cellStyle}>
                       <Button
-                        size={"xs"}
+                        size={'xs'}
                         rightIcon={<FiEye />}
-                        variant={"solid"}
+                        variant={'solid'}
                         colorScheme="blue"
                         onClick={() => {
                           onOpen();
@@ -413,36 +344,34 @@ const AdminTestdrive = () => {
                       </Button>
                     </Td>
                     <Td sx={cellStyle}>
-                      <Box display={"flex"} justifyContent={"center"}>
+                      <Box display={'flex'} justifyContent={'center'}>
                         <Select
                           bg={
-                            item.status === "pending"
-                              ? "orange.300"
-                              : item.status === "under review"
-                              ? "purple.400"
-                              : item.status === "approved"
-                              ? "green.400"
-                              : item.status === "rejected"
-                              ? "red.400"
-                              : item.status === "online"
-                              ? "teal.400"
-                              : "red.400" // Default case
+                            item.status === 'pending'
+                              ? 'orange.300'
+                              : item.status === 'under review'
+                              ? 'purple.400'
+                              : item.status === 'approved'
+                              ? 'green.400'
+                              : item.status === 'rejected'
+                              ? 'red.400'
+                              : item.status === 'online'
+                              ? 'teal.400'
+                              : 'red.400' // Default case
                           }
-                          color={"white"}
-                          w={"100px"}
+                          color={'white'}
+                          w={'100px'}
                           value={item.status}
-                          size={"xs"}
-                          onChange={(e) =>
-                            handleStatusChange(item._id, e.target.value)
-                          }
+                          size={'xs'}
+                          onChange={e => handleStatusChange(item._id, e.target.value)}
                         >
-                          <option value="pending" style={{ color: "blue" }}>
+                          <option value="pending" style={{ color: 'blue' }}>
                             Pending
                           </option>
-                          <option value="approved" style={{ color: "green" }}>
+                          <option value="approved" style={{ color: 'green' }}>
                             Approved
                           </option>
-                          <option value="rejected" style={{ color: "red" }}>
+                          <option value="rejected" style={{ color: 'red' }}>
                             Rejected
                           </option>
                         </Select>
@@ -453,7 +382,7 @@ const AdminTestdrive = () => {
               })
             ) : (
               <Tr>
-                <Td colSpan={"12"}>
+                <Td colSpan={'12'}>
                   <center>No Testdrives Found</center>
                 </Td>
               </Tr>
@@ -461,25 +390,10 @@ const AdminTestdrive = () => {
           </Tbody>
         </Table>
       </TableContainer>
-      {!q && (
-        <PaginationBox
-          total={totalTestDrives || 0}
-          page={page}
-          setpage={setPage}
-        />
-      )}
+      {!q && <PaginationBox total={totalTestDrives / 10 || 0} page={page} setpage={setPage} />}
 
-      <DocumentModal
-        isOpen={isOpen}
-        onClose={onClose}
-        name={"DRIVING LICENSE DOCUMENT"}
-        doc={selectedDocument}
-      />
-      <AlertMessageModal
-        text={AlertMsg1.text}
-        openModal={AlertMsg1.open}
-        setAlertMsg1={setAlertMsg1}
-      />
+      <DocumentModal isOpen={isOpen} onClose={onClose} name={'DRIVING LICENSE DOCUMENT'} doc={selectedDocument} />
+      <AlertMessageModal text={AlertMsg1.text} openModal={AlertMsg1.open} setAlertMsg1={setAlertMsg1} />
     </Container>
   );
 };
@@ -487,12 +401,12 @@ const AdminTestdrive = () => {
 export default AdminTestdrive;
 
 const cellStyle = {
-  padding: "4px 8px",
-  fontSize: "14px",
-  textAlign: "left",
+  padding: '4px 8px',
+  fontSize: '14px',
+  textAlign: 'left'
 };
 const headCellStyle = {
-  padding: "8px 4px",
-  textAlign: "center",
-  color: "black",
+  padding: '8px 4px',
+  textAlign: 'center',
+  color: 'black'
 };

@@ -158,7 +158,7 @@ const BodyTypeTable = () => {
           </Tbody>
         </Table>
       </TableContainer>
-      {<PaginationBox total={totalBodyTypes || 0} page={page} setpage={setPage} />}
+      {<PaginationBox total={totalBodyTypes / 10 || 0} page={page} setpage={setPage} />}
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>

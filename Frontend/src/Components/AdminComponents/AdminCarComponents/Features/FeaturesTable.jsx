@@ -125,7 +125,7 @@ const FeaturesTable = () => {
           </Tbody>
         </Table>
       </TableContainer>
-      {<PaginationBox total={totalFeaturess || 0} page={page} setpage={setPage} />}
+      {<PaginationBox total={totalFeaturess / 10 || 0} page={page} setpage={setPage} />}
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>

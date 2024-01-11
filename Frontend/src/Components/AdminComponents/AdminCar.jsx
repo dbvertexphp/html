@@ -463,7 +463,7 @@ const AdminCar = () => {
           </Tbody>
         </Table>
       </TableContainer>
-      {<PaginationBox total={totalCars || 0} page={page} setpage={setPage} />}
+      {<PaginationBox total={totalCars / 50 || 0} page={page} setpage={setPage} />}
       {/**<!--*------- <View Single Car Modal> ----------->*/}
       <ViewSingleCarModal
         ViewSingleCar={ViewSingleCar}

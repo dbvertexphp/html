@@ -124,7 +124,7 @@ const MakeTable = () => {
           </Tbody>
         </Table>
       </TableContainer>
-      {<PaginationBox total={totalMakes || 0} page={page} setpage={setPage} />}
+      {<PaginationBox total={totalMakes / 10 || 0} page={page} setpage={setPage} />}
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>

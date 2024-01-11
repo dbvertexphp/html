@@ -400,7 +400,7 @@ const AdminVendor = () => {
             </Tbody>
           </Table>
         </TableContainer>
-        {<PaginationBox total={totalVendors || 0} page={page} setpage={setPage} />}
+        {<PaginationBox total={totalVendors / 10 || 0} page={page} setpage={setPage} />}
       </Container>
       {/**<!--*------- <Delete Popup> ----------->*/}
       <AlertDialog isOpen={isOpen} leastDestructiveRef={cancelRef} onClose={onClose}>

@@ -34,14 +34,14 @@ import {
   import {
     getCarByID,
     getAllTestdriveByEmployeeID,
-  } from "../../Redux/App/Actions/Admin/Website/Website.action"; 
+  } from "../../Redux/App/Actions/Admin/Website/Website.action";
    import { BsFillEyeFill } from "react-icons/bs";
   import { getVendors } from "../../Redux/App/Actions/Vendor.action";
   import { getTestDrivesCarIds } from "../../Redux/App/Actions/TestDrive.action";
   import ViewSingleCarModal from "../Extra/ViewSingleCarModal";
   import PaginationBox from "../Extra/Pagination";
   import TableLoader from "../Extra/TableLoader";
-  
+
   const EmployeeBooking = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -56,7 +56,7 @@ import {
       JSON.parse(localStorage.getItem("employee_detail_carvendor"));
     let employeetoken =
       token || JSON.parse(localStorage.getItem("employee_token_carvendor"));
-    
+
     const [refresh, setrefresh] = useState(false);
     const [sortby, setsortby] = useState("");
     const [page, setPage] = useState(1);
@@ -69,7 +69,7 @@ import {
   );
   const [testDrives, setCars] = useState([]);
 
-  
+
   const {
     isOpen: isViewOpen,
     onOpen: onViewOpen,
@@ -84,12 +84,12 @@ import {
   } = useDisclosure();
 
   const getData = () => {
-     
+
     let data = { sortby };
-   
+
     dispatch(getAllTestdriveByEmployeeID(Employee_detail?._id, page, data, setCars, employeetoken));
-   
- 
+
+
 };
 
 
@@ -98,8 +98,8 @@ useEffect(() => {
 }, [page, sortby]);
 
 
-  
-   
+
+
     return (
       <Container
         maxW="container"
@@ -116,7 +116,7 @@ useEffect(() => {
         >
          Testdrive
         </Text>
-      
+
         <TableContainer
           position={"relative"}
           my={"10px"}
@@ -249,7 +249,7 @@ useEffect(() => {
             </Tbody>
           </Table>
         </TableContainer>
-        {<PaginationBox total={totalCars || 0} page={page} setpage={setPage} />}
+        {<PaginationBox total={totalCars / 10 || 0} page={page} setpage={setPage} />}
         {/**<!--*------- <View Single Car Modal> ----------->*/}
         <ViewSingleCarModal
           ViewSingleCar={ViewSingleCar}
@@ -262,25 +262,24 @@ useEffect(() => {
           onDocOpen={onDocOpen}
         />
         {/**<!--*------- <Disable Poput> ----------->*/}
-       
+
       </Container>
     );
   };
-  
+
   export default EmployeeBooking;
-  
+
   const cellStyle = {
     padding: "3px 6px",
     fontSize: "12px",
   };
-  
+
   const tagsStyle = {
     padding: "1px 3px",
     fontSize: "12px",
   };
-  
+
   const headCellStyle = {
     padding: "1px",
     textAlign: "center",
   };
-  

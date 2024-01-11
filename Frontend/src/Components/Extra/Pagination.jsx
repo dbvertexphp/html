@@ -2,7 +2,8 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { Center, Button, Stack } from '@chakra-ui/react';
 
 const PaginationBox = ({ total, setpage, page }) => {
-  const Pages = Math.ceil(total / 25);
+  const Pages = Math.ceil(total);
+  console.log(Pages);
   const HandleLeft = () => {
     if (page === 1) return;
     setpage(prev => prev - 1);

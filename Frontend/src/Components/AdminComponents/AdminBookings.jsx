@@ -463,7 +463,7 @@ const AdminBookings = () => {
         </TableContainer>
         {
           <PaginationBox
-            total={totalbookings || 0}
+            total={totalbookings/10 || 0}
             page={page}
             setpage={setPage}
           />

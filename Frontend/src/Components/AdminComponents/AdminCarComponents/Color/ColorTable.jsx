@@ -154,7 +154,7 @@ const ColorTable = () => {
           </Tbody>
         </Table>
       </TableContainer>
-      {<PaginationBox total={totalColors || 0} page={page} setpage={setPage} />}
+      {<PaginationBox total={totalColors / 10 || 0} page={page} setpage={setPage} />}
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>

@@ -211,7 +211,7 @@ const EmployeeVendor = () => {
             )}
           </Tbody>
         </Table>
-        {<PaginationBox total={totalVendors || 0} page={page} setpage={setPage} />}
+        {<PaginationBox total={totalVendors / 10 || 0} page={page} setpage={setPage} />}
       </TableContainer>
 
       {/**<!--*------- <View Single Car Modal> ----------->*/}

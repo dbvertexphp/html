@@ -130,7 +130,7 @@ const LocationTable = () => {
           </Tbody>
         </Table>
       </TableContainer>
-      {<PaginationBox total={totalLocations || 0} page={page} setpage={setPage} />}
+      {<PaginationBox total={totalLocations / 10 || 0} page={page} setpage={setPage} />}
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>

@@ -376,7 +376,7 @@ const VendorTestDrive = () => {
         </TableContainer>
         {
           <PaginationBox
-            total={totalTestDrives || 0}
+            total={totalTestDrives / 10 || 0}
             page={page}
             setpage={setPage}
           />

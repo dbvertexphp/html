@@ -150,7 +150,7 @@ const CarModelTable = () => {
           </Tbody>
         </Table>
       </TableContainer>
-      {<PaginationBox total={totalCarModels || 0} page={page} setpage={setPage} />}
+      {<PaginationBox total={totalCarModels / 50 || 0} page={page} setpage={setPage} />}
       <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
         <ModalContent>

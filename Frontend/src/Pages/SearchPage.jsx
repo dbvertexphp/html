@@ -343,7 +343,7 @@ const SearchPage = () => {
   const handleRemoveFilter = ({ name, key }) => {
     // Filter out the removed item from displayFilters
     let newDisplay = displayFilters.filter(fil => fil.name !== name);
-   // console.log(newDisplay);
+    // console.log(newDisplay);
     setDisplayFilters([...newDisplay]);
 
     // Create a copy of the current filters and modify the copy
@@ -534,7 +534,7 @@ const SearchPage = () => {
                 </Text>
               </Box>
             )}
-            {totalCars > 25 && <PaginationBox total={totalCars || 0} page={page} setpage={setPage} />}
+            {totalCars > 25 && <PaginationBox total={totalCars / 25 || 0} page={page} setpage={setPage} />}
           </GridItem>
         </Grid>
       </Box>
