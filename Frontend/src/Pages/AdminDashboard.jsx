@@ -104,6 +104,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
     { path: "/components/model", label: "Car Models" },
     { path: "/components/name", label: "Car Names" },
     { path: "/components/bodytype", label: "Car Body Types" },
+    { path: "/components/Features", label: "Car Features" },
     { path: "/components/location", label: "Locations" },
     { path: "/components/color", label: "Colours" },
   ];

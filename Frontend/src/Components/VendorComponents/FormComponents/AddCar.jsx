@@ -33,10 +33,11 @@ import InputUploadMultiple from '../../Extra/InputMultipleUpload';
 import { getColors } from '../../../Redux/App/Actions/Admin/CarComponents/Color.action';
 import { getLocations } from '../../../Redux/App/Actions/Admin/CarComponents/Location.action';
 import { getCarName } from '../../../Redux/App/Actions/Admin/CarComponents/CarName.action';
+import { getFeaturess } from '../../../Redux/App/Actions/Admin/CarComponents/Features.action';
 import InputUpload from '../../Extra/InputUpload';
 import DocumentModal from '../../Extra/DocumentModal';
 import { ColorSelect, StateSelect } from '../../Extra/CustomSelect';
-import { featureArray, safetyFeatureArray, documentsArray } from '../../../utils/CarFeatures';
+import { safetyFeatureArray, documentsArray } from '../../../utils/CarFeatures';
 
 const initial = {
   vendorID: '',
@@ -92,11 +93,9 @@ const AddCar = () => {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
   const { isOpen, onOpen, onClose } = useDisclosure();
-
   const [singleDocument, setSingleDocument] = useState({});
-
+  const [page, setPage] = useState(1);
   const [features, setfeatures] = useState([]);
   const [safetyFeatures, setSafetyFeatures] = useState([]);
   const [selectedLocations, setSelectedLocations] = useState([]);
@@ -104,17 +103,9 @@ const AddCar = () => {
   const [refreshDocUpload, setRefreshDocUpload] = useState(false);
   const toast = useToast();
 
-  const {
-    loading,
-    error,
-
-    allLocations,
-    allColors,
-    allMakes,
-    allCarNames,
-    allBodyTypes,
-    allCarModels
-  } = useSelector(state => state?.CarComponentManager);
+  const { loading, error, allLocations, allColors, allMakes, allCarNames, allBodyTypes, allFeaturess, allCarModels } = useSelector(
+    state => state?.CarComponentManager
+  );
   const { loading: isCarLoading } = useSelector(state => state?.CarManager);
 
   useEffect(() => {
@@ -307,6 +298,7 @@ const AddCar = () => {
 
   const handlefeatures = () => {
     let fea = document.getElementById('selectFeature')?.value;
+    console.log(fea);
     if (features.includes(fea) || !fea) {
       return toast({
         position: 'top',
@@ -317,8 +309,8 @@ const AddCar = () => {
       });
     }
     if (fea == 'all') {
-      let allFeaturesArr = featureArray.slice(2).map(el => {
-        return el.value;
+      let allFeaturesArr = allFeaturess.slice(2).map(el => {
+        return el.name;
       });
       setfeatures(allFeaturesArr);
       setFormData({
@@ -362,15 +354,19 @@ const AddCar = () => {
     dispatch(getMakes());
     dispatch(getColors());
     dispatch(getLocations());
+    dispatch(getFeaturess(page));
 
     setFormData({
       ...formData,
       vendorID: Vendor_detail?._id
     });
   };
+
   useEffect(() => {
     getData();
   }, []);
+
+  console.log(features);
 
   return (
     <Box>
@@ -893,9 +889,9 @@ const AddCar = () => {
                 <FormLabel>Select Features</FormLabel>
                 <Flex w={'100%'} gap={3} my={1} borderRadius={'5px'}>
                   <Select id="selectFeature">
-                    {featureArray.map(el => {
+                    {allFeaturess.map(el => {
                       return (
-                        <option key={el.value} value={el.value}>
+                        <option key={el._id} value={el.name}>
                           {el.label}
                         </option>
                       );
@@ -920,6 +916,7 @@ const AddCar = () => {
                           rightIcon={<FiX />}
                           onClick={() => {
                             let subs = features.filter(el => item !== el);
+                            console.log();
                             setfeatures(subs);
                           }}
                         >

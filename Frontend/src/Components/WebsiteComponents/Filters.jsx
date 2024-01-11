@@ -20,21 +20,22 @@ import { getCarModels } from '../../Redux/App/Actions/Admin/CarComponents/CarMod
 import { getCarName } from '../../Redux/App/Actions/Admin/CarComponents/CarName.action';
 import { getMakes } from '../../Redux/App/Actions/Admin/CarComponents/Make.action';
 import { getColors } from '../../Redux/App/Actions/Admin/CarComponents/Color.action';
+import { getFeaturess } from '../../Redux/App/Actions/Admin/CarComponents/Features.action';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { featureArray, safetyFeatureArray } from '../../utils/CarFeatures';
+import { safetyFeatureArray } from '../../utils/CarFeatures';
 
 function Filters({ filters, setFilters, displayFilters, setDisplayFilters, callChildFunction }, ref) {
-  console.log(displayFilters);
   let dispatch = useDispatch();
 
-  const { allColors, allMakes, allBodyTypes, loading, error } = useSelector(state => state?.CarComponentManager);
+  const { allColors, allMakes, allBodyTypes, loading, error, allFeaturess } = useSelector(state => state?.CarComponentManager);
 
   const [showFilter, setShowFilter] = useState(true);
   const [brands, setbrands] = useState([]);
   const [bodytypes, setbodytypes] = useState([]);
   const [features, setfeatures] = useState([]);
   const [transmission, settransmission] = useState([]);
+  const [page, setPage] = useState(1);
   const [owners, setowners] = useState([]);
   const [colors, setcolors] = useState([]);
   const [seats, setseats] = useState([]);
@@ -137,12 +138,12 @@ function Filters({ filters, setFilters, displayFilters, setDisplayFilters, callC
     dispatch(getCarName());
     dispatch(getMakes());
     dispatch(getColors());
+    dispatch(getFeaturess(page));
   };
 
   useEffect(() => {
     getData();
   }, []);
-
   return (
     <Box position={{ md: 'sticky' }} top={{ md: '85px' }}>
       <Flex display={{ base: 'flex', md: 'none' }} px="4" justify={'end'}>
@@ -173,7 +174,8 @@ function Filters({ filters, setFilters, displayFilters, setDisplayFilters, callC
                           <Checkbox
                             key={el?._id}
                             name={el?.name}
-                            isChecked={brands.includes(el?.name)}
+                            //isChecked={brands.includes(el?.name)}
+                            isChecked={displayFilters.some(item => item.name === el?.name)}
                             onChange={e => handleAddFilter(e, brands, setbrands, 'brands')}
                           >
                             {el?.name}
@@ -203,7 +205,8 @@ function Filters({ filters, setFilters, displayFilters, setDisplayFilters, callC
                           <Checkbox
                             key={el?._id}
                             name={el?.name}
-                            isChecked={bodytypes.includes(el?.name)}
+                            // isChecked={bodytypes.includes(el?.name)}
+                            isChecked={displayFilters.some(item => item.name === el?.name)}
                             onChange={e => handleAddFilter(e, bodytypes, setbodytypes, 'bodytypes')}
                           >
                             {el?.name}
@@ -320,7 +323,8 @@ function Filters({ filters, setFilters, displayFilters, setDisplayFilters, callC
                           <Checkbox
                             key={el?._id}
                             name={el?.name}
-                            isChecked={colors.includes(el?.name)}
+                            //isChecked={colors.includes(el?.name)}
+                            isChecked={displayFilters.some(item => item.name === el?.name)}
                             onChange={e => handleAddFilter(e, colors, setcolors, 'colors')}
                           >
                             {el?.name}
@@ -343,20 +347,18 @@ function Filters({ filters, setFilters, displayFilters, setDisplayFilters, callC
               </AccordionButton>
               <AccordionPanel pb={4}>
                 <Stack height={'200px'} overflowY={'auto'}>
-                  {featureArray?.length > 0 ? (
+                  {allFeaturess?.length > 0 ? (
                     <>
-                      {featureArray.slice(2).map(el => {
-                        return (
-                          <Checkbox
-                            key={el?.value}
-                            name={el?.value}
-                            isChecked={features.includes(el.value)}
-                            onChange={e => handleAddFilter(e, features, setfeatures, 'features')}
-                          >
-                            {el?.value}
-                          </Checkbox>
-                        );
-                      })}
+                      {allFeaturess.slice(2).map(el => (
+                        <Checkbox
+                          key={el?._id}
+                          name={el?.name}
+                          isChecked={displayFilters.some(item => item.name === el?.name)}
+                          onChange={e => handleAddFilter(e, features, setfeatures, 'features')}
+                        >
+                          {el?.name}
+                        </Checkbox>
+                      ))}
                     </>
                   ) : (
                     <Spinner />
@@ -375,14 +377,16 @@ function Filters({ filters, setFilters, displayFilters, setDisplayFilters, callC
                 <Stack>
                   <Checkbox
                     name="automatic"
-                    isChecked={transmission.includes('automatic')}
+                    //isChecked={transmission.includes('automatic')}
+                    isChecked={displayFilters.some(item => item.name === 'automatic')}
                     onChange={e => handleAddFilter(e, transmission, settransmission, 'transmission')}
                   >
                     Automatic
                   </Checkbox>
                   <Checkbox
                     name="manual"
-                    isChecked={transmission.includes('manual')}
+                    // isChecked={transmission.includes('manual')}
+                    isChecked={displayFilters.some(item => item.name === 'manual')}
                     onChange={e => handleAddFilter(e, transmission, settransmission, 'transmission')}
                   >
                     Manual
@@ -399,16 +403,36 @@ function Filters({ filters, setFilters, displayFilters, setDisplayFilters, callC
               </AccordionButton>
               <AccordionPanel pb={4}>
                 <Stack>
-                  <Checkbox name="First" isChecked={owners.includes('First')} onChange={e => handleAddFilter(e, owners, setowners, 'owners')}>
+                  <Checkbox
+                    name="First"
+                    //isChecked={owners.includes('First')}
+                    isChecked={displayFilters.some(item => item.name === 'First')}
+                    onChange={e => handleAddFilter(e, owners, setowners, 'owners')}
+                  >
                     1st owner
                   </Checkbox>
-                  <Checkbox name="Second" isChecked={owners.includes('Second')} onChange={e => handleAddFilter(e, owners, setowners, 'owners')}>
+                  <Checkbox
+                    name="Second"
+                    //isChecked={owners.includes('Second')}
+                    isChecked={displayFilters.some(item => item.name === 'Second')}
+                    onChange={e => handleAddFilter(e, owners, setowners, 'owners')}
+                  >
                     2nd owner
                   </Checkbox>
-                  <Checkbox name="Third" isChecked={owners.includes('Third')} onChange={e => handleAddFilter(e, owners, setowners, 'owners')}>
+                  <Checkbox
+                    name="Third"
+                    //isChecked={owners.includes('Third')}
+                    isChecked={displayFilters.some(item => item.name === 'Third')}
+                    onChange={e => handleAddFilter(e, owners, setowners, 'owners')}
+                  >
                     3rd owner
                   </Checkbox>
-                  <Checkbox name="fourth" isChecked={owners.includes('fourth')} onChange={e => handleAddFilter(e, owners, setowners, 'owners')}>
+                  <Checkbox
+                    name="fourth"
+                    //isChecked={owners.includes('fourth')}
+                    isChecked={displayFilters.some(item => item.name === 'fourth')}
+                    onChange={e => handleAddFilter(e, owners, setowners, 'owners')}
+                  >
                     4th owner
                   </Checkbox>
                 </Stack>
@@ -423,22 +447,47 @@ function Filters({ filters, setFilters, displayFilters, setDisplayFilters, callC
               </AccordionButton>
               <AccordionPanel pb={4}>
                 <Stack>
-                  <Checkbox name="2" isChecked={seats.includes('2')} onChange={e => handleAddFilter(e, seats, setseats, 'seats')}>
+                  <Checkbox
+                    name="2"
+                    //isChecked={seats.includes('2')}
+                    isChecked={displayFilters.some(item => item.name === '2')}
+                    onChange={e => handleAddFilter(e, seats, setseats, 'seats')}
+                  >
                     2 seater
                   </Checkbox>
-                  <Checkbox name="4" isChecked={seats.includes('4')} onChange={e => handleAddFilter(e, seats, setseats, 'seats')}>
+                  <Checkbox
+                    name="4"
+                    isChecked={displayFilters.some(item => item.name === '4')}
+                    onChange={e => handleAddFilter(e, seats, setseats, 'seats')}
+                  >
                     4 seater
                   </Checkbox>
-                  <Checkbox name="5" isChecked={seats.includes('5')} onChange={e => handleAddFilter(e, seats, setseats, 'seats')}>
+                  <Checkbox
+                    name="5"
+                    isChecked={displayFilters.some(item => item.name === '5')}
+                    onChange={e => handleAddFilter(e, seats, setseats, 'seats')}
+                  >
                     5 seater
                   </Checkbox>
-                  <Checkbox name="6" isChecked={seats.includes('6')} onChange={e => handleAddFilter(e, seats, setseats, 'seats')}>
+                  <Checkbox
+                    name="6"
+                    isChecked={displayFilters.some(item => item.name === '6')}
+                    onChange={e => handleAddFilter(e, seats, setseats, 'seats')}
+                  >
                     6 seater
                   </Checkbox>
-                  <Checkbox name="7" isChecked={seats.includes('7')} onChange={e => handleAddFilter(e, seats, setseats, 'seats')}>
+                  <Checkbox
+                    name="7"
+                    isChecked={displayFilters.some(item => item.name === '7')}
+                    onChange={e => handleAddFilter(e, seats, setseats, 'seats')}
+                  >
                     7 seater
                   </Checkbox>
-                  <Checkbox name="8" isChecked={seats.includes('8')} onChange={e => handleAddFilter(e, seats, setseats, 'seats')}>
+                  <Checkbox
+                    name="8"
+                    isChecked={displayFilters.some(item => item.name === '8')}
+                    onChange={e => handleAddFilter(e, seats, setseats, 'seats')}
+                  >
                     8 seater
                   </Checkbox>
                 </Stack>
@@ -489,9 +538,19 @@ function Filters({ filters, setFilters, displayFilters, setDisplayFilters, callC
   );
 }
 
+// function filterAndSetArray(inputArray, displayFilters, setStateFunction) {
+//   const filteredArray = inputArray.filter(item => displayFilters.includes(item));
+//   setStateFunction(filteredArray);
+// }
+
 function filterAndSetArray(inputArray, displayFilters, setStateFunction) {
-  const filteredArray = inputArray.filter(item => displayFilters.includes(item));
-  setStateFunction(filteredArray);
+  if (Array.isArray(displayFilters)) {
+    const filteredArray = inputArray.filter(item => displayFilters.includes(item));
+    setStateFunction(filteredArray);
+  } else {
+    // If displayFilters is not an array, set the inputArray as it is
+    setStateFunction(inputArray);
+  }
 }
 
 export default forwardRef(Filters);

@@ -1,40 +1,41 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import AdminDash from "../Components/AdminComponents/AdminDash";
-import AdminCustomer from "../Components/AdminComponents/AdminCustomer";
-import AdminVendor from "../Components/AdminComponents/AdminVendor";
-import AdminWebsite from "../Components/AdminComponents/AdminWebsite";
-import AddVendor from "../Components/AdminComponents/AdminVendor/AddVendor";
-import EditVendor from "../Components/AdminComponents/AdminVendor/EditVendor";
-import AdminCar from "../Components/AdminComponents/AdminCar";
-import AdminReport from "../Components/AdminComponents/AdminReport";
-import AdminCarComponent from "../Components/AdminComponents/AdminCarComponents/AdminCarComponent";
-import ChangePassword from "../Components/AdminComponents/AdminChangePassword";
-import UploadStuff from "../Components/Extra/UploadStuff";
-import AdminEmployees from "../Components/AdminComponents/AdminEmployees";
-import AddEmployees from "../Components/AdminComponents/AdminEmployees/AddEmployees";
-import EditEmployees from "../Components/AdminComponents/AdminEmployees/EditEmployees";
-import AdminTestdrive from "../Components/AdminComponents/AdminTestdrive";
-import AdminBookings from "../Components/AdminComponents/AdminBookings";
-import EditCar from "../Components/VendorComponents/FormComponents/EditCar";
-import AdminCarEdit from "../Components/AdminComponents/AdminCarEdit";
-import CarModelTable from "../Components/AdminComponents/AdminCarComponents/CarModel/CarModelTable";
-import BodyTypeTable from "../Components/AdminComponents/AdminCarComponents/BodyType/BodyTypeTable";
-import CarNameTable from "../Components/AdminComponents/AdminCarComponents/CarName/CarNameTable";
-import MakeTable from "../Components/AdminComponents/AdminCarComponents/Make/MakeTable";
-import LocationTable from "../Components/AdminComponents/AdminCarComponents/Location/LocationTable";
-import ColorTable from "../Components/AdminComponents/AdminCarComponents/Color/ColorTable";
-import TestimonialSection from "../Components/AdminComponents/WebsiteTabs/TestimonialSection";
-import HompageBanner from "../Components/AdminComponents/WebsiteTabs/HomepageBanner";
-import BrandSection from "../Components/AdminComponents/WebsiteTabs/BrandSection";
-import ReportTransaction from "../Components/AdminComponents/AdminReport/ReportTransaction";
-import ReportTestDrive from "../Components/AdminComponents/AdminReport/ReportTestDrive";
-import ReportBooking from "../Components/AdminComponents/AdminReport/ReportBooking";
-import ReportCustomer from "../Components/AdminComponents/AdminReport/ReportCustomer";
-import ReportVendor from "../Components/AdminComponents/AdminReport/ReportVendor";
-import ReportEmployee from "../Components/AdminComponents/AdminReport/ReportEmployee";
-import AdminTransactions from "../Components/AdminComponents/AdminTransactions";
-import ReportCar from "../Components/AdminComponents/AdminReport/ReportCar";
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import AdminDash from '../Components/AdminComponents/AdminDash';
+import AdminCustomer from '../Components/AdminComponents/AdminCustomer';
+import AdminVendor from '../Components/AdminComponents/AdminVendor';
+import AdminWebsite from '../Components/AdminComponents/AdminWebsite';
+import AddVendor from '../Components/AdminComponents/AdminVendor/AddVendor';
+import EditVendor from '../Components/AdminComponents/AdminVendor/EditVendor';
+import AdminCar from '../Components/AdminComponents/AdminCar';
+import AdminReport from '../Components/AdminComponents/AdminReport';
+import AdminCarComponent from '../Components/AdminComponents/AdminCarComponents/AdminCarComponent';
+import ChangePassword from '../Components/AdminComponents/AdminChangePassword';
+import UploadStuff from '../Components/Extra/UploadStuff';
+import AdminEmployees from '../Components/AdminComponents/AdminEmployees';
+import AddEmployees from '../Components/AdminComponents/AdminEmployees/AddEmployees';
+import EditEmployees from '../Components/AdminComponents/AdminEmployees/EditEmployees';
+import AdminTestdrive from '../Components/AdminComponents/AdminTestdrive';
+import AdminBookings from '../Components/AdminComponents/AdminBookings';
+import EditCar from '../Components/VendorComponents/FormComponents/EditCar';
+import AdminCarEdit from '../Components/AdminComponents/AdminCarEdit';
+import CarModelTable from '../Components/AdminComponents/AdminCarComponents/CarModel/CarModelTable';
+import BodyTypeTable from '../Components/AdminComponents/AdminCarComponents/BodyType/BodyTypeTable';
+import CarNameTable from '../Components/AdminComponents/AdminCarComponents/CarName/CarNameTable';
+import MakeTable from '../Components/AdminComponents/AdminCarComponents/Make/MakeTable';
+import LocationTable from '../Components/AdminComponents/AdminCarComponents/Location/LocationTable';
+import ColorTable from '../Components/AdminComponents/AdminCarComponents/Color/ColorTable';
+import FeaturesTable from '../Components/AdminComponents/AdminCarComponents/Features/FeaturesTable';
+import TestimonialSection from '../Components/AdminComponents/WebsiteTabs/TestimonialSection';
+import HompageBanner from '../Components/AdminComponents/WebsiteTabs/HomepageBanner';
+import BrandSection from '../Components/AdminComponents/WebsiteTabs/BrandSection';
+import ReportTransaction from '../Components/AdminComponents/AdminReport/ReportTransaction';
+import ReportTestDrive from '../Components/AdminComponents/AdminReport/ReportTestDrive';
+import ReportBooking from '../Components/AdminComponents/AdminReport/ReportBooking';
+import ReportCustomer from '../Components/AdminComponents/AdminReport/ReportCustomer';
+import ReportVendor from '../Components/AdminComponents/AdminReport/ReportVendor';
+import ReportEmployee from '../Components/AdminComponents/AdminReport/ReportEmployee';
+import AdminTransactions from '../Components/AdminComponents/AdminTransactions';
+import ReportCar from '../Components/AdminComponents/AdminReport/ReportCar';
 
 const AdminRoutes = () => {
   return (
@@ -57,6 +58,7 @@ const AdminRoutes = () => {
       <Route path="/components/bodytype" element={<BodyTypeTable />} />
       <Route path="/components/location" element={<LocationTable />} />
       <Route path="/components/color" element={<ColorTable />} />
+      <Route path="/components/Features" element={<FeaturesTable />} />
 
       <Route path="/booking" element={<AdminBookings />} />
       <Route path="/transaction" element={<AdminTransactions />} />

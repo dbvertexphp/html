@@ -21,6 +21,11 @@ const initState = {
   totalMakes: 0,
   allMakes: [],
 
+  featuress: [],
+  featuressByID: {},
+  totalFeatures: 0,
+  allFeaturess: [],
+
   colors: [],
   colorByID: {},
   totalColors: 0,
@@ -204,6 +209,64 @@ export const carComponentReducer = (state = initState, { type, payload }) => {
       return { ...state, loading: false, error: true };
     }
     case CarComponentTypes.MAKE_DELETE_SUCCESS: {
+      return { ...state, loading: false, error: false };
+    }
+
+    //? Get FEATURES
+    case CarComponentTypes.FEATURES_GET_LOADING: {
+      return { ...state, loading: true, error: false };
+    }
+    case CarComponentTypes.FEATURES_GET_ERROR: {
+      return { ...state, loading: false, error: true };
+    }
+    case CarComponentTypes.FEATURES_GET_SUCCESS: {
+      return {
+        ...state,
+        loading: false,
+        error: false,
+        allFeaturess: payload?.allFeaturess,
+        featuress: payload?.Featuress,
+        totalFeaturess: payload?.totalFeaturess
+      };
+    }
+
+    case CarComponentTypes.FEATURES_GET_BY_ID_LOADING: {
+      return { ...state, loading: true, error: false };
+    }
+    case CarComponentTypes.FEATURES_GET_BY_ID_ERROR: {
+      return { ...state, loading: false, error: true };
+    }
+    case CarComponentTypes.FEATURES_GET_BY_ID_SUCCESS: {
+      return { ...state, loading: false, error: false, featuressByID: payload };
+    }
+    //? Post FEATURES
+    case CarComponentTypes.FEATURES_POST_LOADING: {
+      return { ...state, loading: true, error: false };
+    }
+    case CarComponentTypes.FEATURES_POST_ERROR: {
+      return { ...state, loading: false, error: true };
+    }
+    case CarComponentTypes.FEATURES_POST_SUCCESS: {
+      return { ...state, loading: false, error: false };
+    }
+    //? Updte FEATURES
+    case CarComponentTypes.FEATURES_UPDATE_LOADING: {
+      return { ...state, loading: true, error: false };
+    }
+    case CarComponentTypes.FEATURES_UPDATE_ERROR: {
+      return { ...state, loading: false, error: true };
+    }
+    case CarComponentTypes.FEATURES_UPDATE_SUCCESS: {
+      return { ...state, loading: false, error: false };
+    }
+    //? Delete FEATURES
+    case CarComponentTypes.FEATURES_DELETE_LOADING: {
+      return { ...state, loading: true, error: false };
+    }
+    case CarComponentTypes.FEATURES_DELETE_ERROR: {
+      return { ...state, loading: false, error: true };
+    }
+    case CarComponentTypes.FEATURES_DELETE_SUCCESS: {
       return { ...state, loading: false, error: false };
     }
 

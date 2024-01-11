@@ -42,7 +42,8 @@ import { ColorSelect } from '../../Extra/CustomSelect';
 import { getLocations } from '../../../Redux/App/Actions/Admin/CarComponents/Location.action';
 import { getColors } from '../../../Redux/App/Actions/Admin/CarComponents/Color.action';
 import { getCarName } from '../../../Redux/App/Actions/Admin/CarComponents/CarName.action';
-import { featureArray, documentsArray, safetyFeatureArray } from '../../../utils/CarFeatures';
+import { documentsArray, safetyFeatureArray } from '../../../utils/CarFeatures';
+import { getFeaturess } from '../../../Redux/App/Actions/Admin/CarComponents/Features.action';
 
 const initial = {
   vendorID: '',
@@ -95,7 +96,7 @@ const EditCar = () => {
 
   const [OneCar, setOneCar] = useState(initial);
   let params = useParams();
-
+  const [page, setPage] = useState(1);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -111,7 +112,7 @@ const EditCar = () => {
 
   const toast = useToast();
 
-  const { loading, error, allLocations, allColors, allMakes, allCarNames, allBodyTypes, allCarModels } = useSelector(
+  const { loading, error, allLocations, allColors, allMakes, allCarNames, allBodyTypes, allCarModels, allFeaturess } = useSelector(
     state => state?.CarComponentManager
   );
   const { loading: CarUpdateLoading } = useSelector(state => state?.CarManager);
@@ -151,7 +152,16 @@ const EditCar = () => {
     data.mileage = +data.mileage;
 
     for (const key in data) {
-      if (key === 'VIN' || key === 'license_number' || key === 'ownership_history' || key === 'documents') {
+      if (
+        key === 'owner_name' ||
+        key === 'owner_email' ||
+        key === 'owner_mobile' ||
+        key === 'owner_location' ||
+        key === 'VIN' ||
+        key === 'license_number' ||
+        key === 'ownership_history' ||
+        key === 'documents'
+      ) {
         continue;
       }
       if (data[key] === '' || data[key] === null || data[key] === undefined) {
@@ -321,6 +331,7 @@ const EditCar = () => {
     dispatch(getLocations());
     dispatch(getColors());
     dispatch(getCarName());
+    dispatch(getFeaturess(page));
   };
   useEffect(() => {
     getData();
@@ -808,9 +819,9 @@ const EditCar = () => {
                   </FormLabel>
                   <Flex w={'100%'} gap={3} my={1} borderRadius={'5px'}>
                     <Select id="selectFeature">
-                      {featureArray.map(el => {
+                      {allFeaturess.map(el => {
                         return (
-                          <option key={el.value} value={el.value}>
+                          <option key={el._id} value={el.name}>
                             {el.label}
                           </option>
                         );

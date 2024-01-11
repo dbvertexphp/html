@@ -39,7 +39,8 @@ import InputUpload from '../Extra/InputUpload';
 import { getCarByID, UpdateAdminCarByID } from '../../Redux/App/Actions/Vendors/Car.action';
 import DocumentModal from '../Extra/DocumentModal';
 import { getCarName } from '../../Redux/App/Actions/Admin/CarComponents/CarName.action';
-import { featureArray, documentsArray, safetyFeatureArray } from '../../utils/CarFeatures';
+import { documentsArray, safetyFeatureArray } from '../../utils/CarFeatures';
+import { getFeaturess } from '../../Redux/App/Actions/Admin/CarComponents/Features.action';
 
 const initial = {
   vendorID: '',
@@ -91,7 +92,7 @@ const AdminCarEdit = () => {
   let { User_detail, token } = useSelector(store => store?.UserAuthManager);
   const user = User_detail || JSON.parse(localStorage.getItem('user_detail_carvendor'));
   let admintoken = token || JSON.parse(localStorage.getItem('admin_token_carvendor'));
-
+  const [page, setPage] = useState(1);
   const [features, setfeatures] = useState([]);
   const [safetyFeatures, setSafetyFeatures] = useState([]);
 
@@ -102,7 +103,7 @@ const AdminCarEdit = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const { loading, error, allLocations, allColors, allMakes, allCarNames, allBodyTypes, allCarModels } = useSelector(
+  const { loading, error, allLocations, allColors, allMakes, allCarNames, allBodyTypes, allCarModels, allFeaturess } = useSelector(
     state => state?.CarComponentManager
   );
   const { loading: CarUpdateLoading } = useSelector(state => state?.CarManager);
@@ -291,6 +292,7 @@ const AdminCarEdit = () => {
     dispatch(getCarName(admintoken));
     dispatch(getLocations(admintoken));
     dispatch(getColors(admintoken));
+    dispatch(getFeaturess(page));
   };
   useEffect(() => {
     getData();
@@ -780,9 +782,9 @@ const AdminCarEdit = () => {
                   </FormLabel>
                   <Flex w={'100%'} gap={3} my={1} borderRadius={'5px'}>
                     <Select id="selectFeature">
-                      {featureArray.map(el => {
+                      {allFeaturess.map(el => {
                         return (
-                          <option key={el.value} value={el.value}>
+                          <option key={el._id} value={el.name}>
                             {el.label}
                           </option>
                         );

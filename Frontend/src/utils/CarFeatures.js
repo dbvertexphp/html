@@ -104,7 +104,7 @@ export const documentsArray = [
     "Registration Certificate(RC)",
     "Insurance Documents",
     "Service Records",
-    "No Objection Certificate(NOC)",
+    "No Objection Cerificate(NOC)",
     "Road Tax Receipt",
     "Owner's Manual",
     "Spare Keys",

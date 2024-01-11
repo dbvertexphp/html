@@ -26,6 +26,13 @@ const {
   getLocations
 } = require('../Controllers/CarComponents/Location.controller');
 const { getAllMakes, getMakeByID, addMake, UpdateMakeByID, DeleteMakeByID } = require('../Controllers/CarComponents/Make.controller');
+const {
+  addFeatures,
+  getAllFeaturess,
+  getFeaturesByID,
+  UpdateFeaturesByID,
+  DeleteFeaturesByID
+} = require('../Controllers/CarComponents/FeaturesType.controller');
 const Authentication = require('../Middlewares/Authentication.middleware');
 
 const BodyTypeRouter = require('express').Router();
@@ -53,6 +60,15 @@ MakeRouter.get('/get-make/:id', getMakeByID);
 MakeRouter.post('/add-make', Authentication, addMake);
 MakeRouter.patch('/update-make/:id', Authentication, UpdateMakeByID);
 MakeRouter.delete('/delete-make/:id', Authentication, DeleteMakeByID);
+
+const FeaturesRouter = require('express').Router();
+
+FeaturesRouter.get('/', (req, res) => res.status(200).send({ message: 'Welcome to Feature Route' }));
+FeaturesRouter.post('/add-features', Authentication, addFeatures);
+FeaturesRouter.get('/get-all-features', getAllFeaturess);
+FeaturesRouter.get('/get-features/:id', getFeaturesByID);
+FeaturesRouter.patch('/update-features/:id', Authentication, UpdateFeaturesByID);
+FeaturesRouter.delete('/delete-features/:id', Authentication, DeleteFeaturesByID);
 
 const ColorRouter = require('express').Router();
 
@@ -85,4 +101,4 @@ CarNameRouter.post('/add-carname', Authentication, addCarName);
 CarNameRouter.patch('/update-carname/:id', Authentication, UpdateCarNameByID);
 CarNameRouter.delete('/delete-carname/:id', Authentication, DeleteCarNameByID);
 
-module.exports = { BodyTypeRouter, CarModelRouter, MakeRouter, ColorRouter, LocationRouter, CarNameRouter };
+module.exports = { BodyTypeRouter, CarModelRouter, MakeRouter, ColorRouter, LocationRouter, CarNameRouter, FeaturesRouter };
