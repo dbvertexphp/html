@@ -250,7 +250,7 @@ export default function ProductPage() {
       amount_to_pay: car?.price * 0.1,
       total_amount: car?.price,
       test_drive_booking_amount: 500,
-      remaining_amount: car?.price - (car?.price * 0.1 + 500),
+      remaining_amount: car?.price - car?.price * 0.1,
       status: 'paid',
       customer_id: Customer_detail?._id,
       car_id: car?._id,
@@ -262,7 +262,7 @@ export default function ProductPage() {
       amount_to_pay: car?.price * 0.1 - 500,
       total_amount: car?.price,
       test_drive_booking_amount: 500,
-      remaining_amount: car?.price - (car?.price * 0.1 + 500),
+      remaining_amount: car?.price - car?.price * 0.1,
       status: 'paid',
       customer_id: Customer_detail?._id,
       car_id: car?._id,
@@ -271,7 +271,7 @@ export default function ProductPage() {
 
     setPrevBookData(prev => ({
       ...prev,
-      amount_to_pay: car?.price - (car?.price * 0.1 + 500)
+      amount_to_pay: car?.price - (car?.price * 0.1)
     }));
   };
 
@@ -410,17 +410,25 @@ export default function ProductPage() {
         tdrive = TD;
       }
     }
+    let testDriveAmount = tdrive ? -500 : 0; // If a test drive is approved, testDriveAmount is -500, else 0
+
     let temp = {
       ...BookingData,
-      test_drive_id: tdrive._id,
-      customer_name: tdrive.name
+      test_drive_id: tdrive._id, // Set test_drive_id only if tdrive is available
+      customer_name: tdrive.name, // Set customer_name only if tdrive is available
+      advanced_amount: BookingData.advanced_amount + testDriveAmount, // Modify advanced_amount based on the logic
+      amount_to_pay: BookingData.amount_to_pay + testDriveAmount, // Modify amount_to_pay based on the logic
+      test_drive_booking_amount: tdrive ? 500 : 0 // Set test_drive_booking_amount based on the logic
     };
     setBookingData(temp);
+    temp;
+    console.log(temp);
     dispatch(createNewBooking(temp, toast, bookingSuccessFun, customertoken));
   };
+
   const UpdateBookingAndCarIsSold = obj => {
     let data = { ...PrevBookData, ...obj, car_status: 'sold' };
-
+  console.log(data);
     dispatch(UpdatebookingByID(PrevBookData?._id, data, toast, getData, onPayClose, 'You have successfully bought the car', customertoken));
   };
 
@@ -499,7 +507,7 @@ export default function ProductPage() {
             <>
               {CanUserBookNow() ? (
                 <>
-                  <Alert status="success">
+                  <Alert status="success" sx={{ width: 'fit-content', marginLeft: '15px' }}>
                     <AlertIcon />
                     <AlertTitle>Your test drive was approved!</AlertTitle>
                   </Alert>
@@ -520,7 +528,7 @@ export default function ProductPage() {
                   Book Test Drives
                 </Button>
               ) : (
-                <Alert status="warning">
+                <Alert status="warning" sx={{ width: 'fit-content', marginLeft: '15px' }}>
                   <AlertIcon />
                   <AlertTitle fontSize={'15px'} fontWeight={'500'}>
                     You have booked a test drive for this car. <br /> Please wait for its approval.
@@ -951,7 +959,14 @@ export default function ProductPage() {
                 Book
               </Button>
 
-              {CanUserBookTestDrive() ? (
+              {CanUserBookNow() ? (
+                <>
+                  <Alert status="success" sx={{ width: 'fit-content', marginLeft: '15px' }}>
+                    <AlertIcon />
+                    <AlertTitle>Your test drive was approved!</AlertTitle>
+                  </Alert>
+                </>
+              ) : CanUserBookTestDrive() ? (
                 <Button
                   color="#30829c"
                   w={{ md: '15%' }}
@@ -965,7 +980,7 @@ export default function ProductPage() {
                   Book Test Drives
                 </Button>
               ) : (
-                <Alert status="warning">
+                <Alert status="warning" sx={{ width: 'fit-content', marginLeft: '15px' }}>
                   <AlertIcon />
                   <AlertTitle fontSize={'15px'} fontWeight={'500'}>
                     You have booked a test drive for this car. <br /> Please wait for its approval.
@@ -1224,7 +1239,7 @@ export default function ProductPage() {
             <Text mb="3"> Total Price of Car : ₹ {data?.price}</Text>
             <Text mb="3"> Booking Charges : 10% of Total Price of Car (Paid)</Text>
             <Text mb="3">Booking Charges Amount : ₹ {data?.price * 0.1 || 0} (Paid)</Text>
-            <Text mb="3"> Amount Paid : ₹ {data?.price * 0.1 + 500}/- (Test Drive Charge Incl.)</Text>
+            <Text mb="3"> Amount Paid : ₹ {data?.price * 0.1}/- (Test Drive Charge Incl.)</Text>
             <Text>Amount Left to be Paid : ₹ {data?.price - (data?.price * 0.1 + 500)}</Text>
             <br />
             <FormControl isRequired>
@@ -1233,7 +1248,7 @@ export default function ProductPage() {
                 type="number"
                 bg={'gray.200'}
                 isDisabled
-                defaultValue={data?.price - (data?.price * 0.1 + 500)}
+                defaultValue={data?.price - (data?.price * 0.1)}
                 name="amount_to_pay"
                 onChange={e =>
                   setPrevBookData(prev => ({
@@ -1255,7 +1270,7 @@ export default function ProductPage() {
                   advanced_amount: data?.price * 0.1 - 500,
                   total_amount: data?.price,
                   test_drive_booking_amount: 500,
-                  remaining_amount: data?.price - (data?.price * 0.1 + 500),
+                  remaining_amount: data?.price - (data?.price * 0.1),
                   status: 'paid'
                 })
               }

@@ -98,23 +98,23 @@ exports.getBookingsByEmployeeID = async (req, res) => {
     let fromDate = req.query.fromDate || "2023-01-01";
     let toDate = req.query.toDate || "2023-12-31";
     try {
-       
+
 
         if (filterByDays) {
             let { startDate, endDate } = SetDatesFilter(filterByDays, fromDate, toDate);
             query.createdAt = { $gte: startDate, $lte: endDate };
         }
         const Vendors = await VendorModel.find({ reference: id }).select({ _id: 1 });
-  
+
       const bookings = [];
       for (const vendor of Vendors) {
         const query = { vendor_id: vendor._id };
-       
+
         const booking = await BookingModel.find(query).populate(populateArr).populate(populateObj).sort({ createdAt: -1 }).limit(limit).skip(skip);
 
-  
+
         bookings.push(...booking);
-       
+
       }
       const totalbookings = await BookingModel.find().count();
         return res.status(200).send({ message: "All Bookings", bookings, Count: bookings.length, totalbookings });
@@ -151,7 +151,7 @@ exports.getBookingByID = async (req, res) => {
 exports.UpdateBookingByID = async (req, res) => {
     const id = req?.params?.id;
     const payload = req?.body;
-    payload.booking_id = id
+    payload._id = id
     try {
         let booking = await BookingModel.findById(id)
         if (payload?.car_status == "sold") {
@@ -186,7 +186,7 @@ exports.UpdateBookingByID = async (req, res) => {
 exports.addBooking = async (req, res) => {
     let payload = req?.body;
     payload.booking_code = await getUniqueBookingCode()
-
+   console.log(payload);
 
     try {
         let newTransaction = {
