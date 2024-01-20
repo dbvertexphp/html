@@ -4,14 +4,7 @@ import TestemonialComponent from "./TestemonialComponent";
 export default function Testemonials() {
   return (
     <>
-     
-       
-        <Box
-          
-         
-        
-          p="5"
-        >
+      <Box p="5">
           <TestemonialComponent />
         </Box>
       

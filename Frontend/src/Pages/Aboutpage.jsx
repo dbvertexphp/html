@@ -58,7 +58,7 @@ export default function Aboutpage() {
           my="5"
           align={"center"}
           justifyContent={"center"}
-          gap={{ base: "5", md: "20" }}
+          gap={{ base: "5", md: "30" }}
           direction={{ base: "column", md: "row" }}
         >
           <Stack align={"center"}>

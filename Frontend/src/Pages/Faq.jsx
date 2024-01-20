@@ -20,6 +20,7 @@ export default function Faq() {
     <>
       {" "}
       <Heading
+      textAlign={'center'}
         mx={{ base: "5", md: "20" }}
         mt="10"
         fontWeight={"500"}

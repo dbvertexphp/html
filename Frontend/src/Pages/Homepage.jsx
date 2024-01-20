@@ -112,7 +112,7 @@ const Homepage = () => {
         <BuyCard />
       </Card>
 
-      <Card mx={{ base: '5', md: '10' }} mb={{ base: '5', md: '10' }} p="5">
+      <Card shadow="none" mx={{ base: '5', md: '10' }} mb={{ base: '5', md: '10' }} pb="5">
         <CardHeader>
           <Flex placeContent={'center'}>
             <Heading textAlign={'center'} size="lg" className="know_more_compontent_heading">

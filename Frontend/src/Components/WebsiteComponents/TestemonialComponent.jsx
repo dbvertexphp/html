@@ -1,5 +1,5 @@
 import Slider from "react-slick";
-import { Box } from "@chakra-ui/react";
+import { Box , useBreakpointValue} from "@chakra-ui/react";
 import TestemonialCard from "./TestemonialCard";
 import female from "../../assets/Icons/female.png";
 import male from "../../assets/Icons/male.png";
@@ -17,9 +17,35 @@ const settings = {
   autoplaySpeed: 5000,
   slidesToShow: 3,
   slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
 };
 
 const TestemonialComponent = () => {
+  const top = useBreakpointValue({ base: '50%', md: '50%' });
+  const side = useBreakpointValue({ base: '0px', md: '0px' });
+
   const dispatch = useDispatch();
   const [cards, setcards] = useState(sample);
 
@@ -32,7 +58,7 @@ const TestemonialComponent = () => {
   }, []);
 
   return (
-    <Box position={"relative"} width={"98%"}>
+    <Box position={'relative'} width={'full'} overflow={'hidden'} >
       <link
         rel="stylesheet"
         type="text/css"

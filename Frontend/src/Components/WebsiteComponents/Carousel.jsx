@@ -247,14 +247,14 @@ export default function Carousel() {
 
   return (
     <>
-      <Box position={'relative'} width={'100%'} maxHeight={{ base: '850px', md: '850px' }} overflow={'hidden'} margin="auto">
+      <Box className='slidercss'>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
 
         <Box
           zIndex={1}
           left={{ base: '10px', md: '150px' }}
-          bottom={{ base: '40px', md: '120px' }}
+          top={{ base: '40px', md: '80px' }}
           position={{ base: 'absolute', md: 'absolute' }}
           textAlign={{ base: 'left', md: 'left' }}
           width={{ base: '100%', md: 'auto' }}
@@ -301,7 +301,7 @@ export default function Carousel() {
               <Box key={index} display="flex" justifyContent="center" alignItems="center" height="100%">
                 <Image
                   width="100%"
-                  h={{ base: '250px', md: '650px' }}
+                  h={{ base: '250px', md: '450px' }}
                   objectFit="cover"
                   objectPosition="center"
                   src={image}

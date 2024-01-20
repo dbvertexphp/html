@@ -4,6 +4,7 @@ export default function ReturnPolicy() {
   return (
     <>
       <Heading
+      textAlign={'center'}
         mx={{ base: "5", md: "20" }}
         mt="10"
         fontWeight={"500"}

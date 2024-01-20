@@ -106,6 +106,8 @@ const AdminCarEdit = () => {
   const { loading, error, allLocations, allColors, allMakes, allCarNames, allBodyTypes, allCarModels, allFeaturess } = useSelector(
     state => state?.CarComponentManager
   );
+ 
+  
   const { loading: CarUpdateLoading } = useSelector(state => state?.CarManager);
   const handleSubmit = e => {
     e.preventDefault();
@@ -249,12 +251,23 @@ const AdminCarEdit = () => {
       });
     }
 
-    let newfeaarr = [...features, fea];
-    setfeatures(newfeaarr);
-    setOneCar({
-      ...OneCar,
-      features: newfeaarr
-    });
+
+    if (fea == 'all') {
+      let afeaarr = allFeaturess.map(el => el._id);
+      setfeatures(afeaarr);
+      setOneCar({
+        ...OneCar,
+        features: afeaarr
+      });
+    } else {
+      let newfeaarr = [...features, fea];
+      console.log(newfeaarr);
+      setfeatures(newfeaarr);
+      setOneCar({
+        ...OneCar,
+        features: newfeaarr
+      });
+    }
     toast({
       position: 'top',
       title: 'Added to List',
@@ -263,6 +276,9 @@ const AdminCarEdit = () => {
       isClosable: true
     });
   };
+
+
+
   const HandleUploadSomeImages = image => {
     setOneCar(prevOneCar => ({
       ...prevOneCar,
@@ -278,6 +294,7 @@ const AdminCarEdit = () => {
   };
   const SetOneCarDetails = car => {
     setOneCar(car);
+    console.log(car);
     let locats = car.location.map(el => el._id);
     setSelectedLocations(locats);
     setfeatures(car.features);
@@ -750,6 +767,7 @@ const AdminCarEdit = () => {
                     onChange={handleDetailsChange}
                   />
                 </GridItem>
+                
 
                 <GridItem as="div" colSpan={{ base: 12, md: 4 }} p="10px">
                   <FormLabel>
@@ -782,10 +800,13 @@ const AdminCarEdit = () => {
                   </FormLabel>
                   <Flex w={'100%'} gap={3} my={1} borderRadius={'5px'}>
                     <Select id="selectFeature">
-                      {allFeaturess.map(el => {
+                    <option value="">Select Features</option>
+                      <option value="all">Select all</option>
+                    {allFeaturess?.length &&
+                      allFeaturess.map(el => {
                         return (
-                          <option key={el._id} value={el.name}>
-                            {el.label}
+                          <option key={el._id} value={el.id}>
+                            {el.name}
                           </option>
                         );
                       })}
@@ -797,6 +818,7 @@ const AdminCarEdit = () => {
                   {features.length > 0 && (
                     <Flex w={'100%'} wrap={'wrap'} gap={3} bg={'#f2ffe6'} p="2" my={3} borderRadius={'5px'} border={'1px solid #ddd'}>
                       {features.map((item, index) => {
+                        
                         return (
                           <Button
                             key={item + 234}
@@ -813,6 +835,7 @@ const AdminCarEdit = () => {
                             }}
                           >
                             {item}
+                            {allFeaturess.find(el => item == el?._id)?.name}
                           </Button>
                         );
                       })}
@@ -1054,7 +1077,7 @@ const AdminCarEdit = () => {
             </Button>
           </Link>
           <Button bg="#30829c" colorScheme="blue" m="10px" type="submit" rightIcon={<FiEdit3 />} onClick={handleSubmit} isLoading={CarUpdateLoading}>
-            Update Car
+            Update Car 
           </Button>
         </Flex>
       </Container>
