@@ -6,8 +6,28 @@ body {
 .chakra-heading {
   font-family: 'Poppins', sans-serif !important;
 }
+@media screen and (max-width: 500px) {
+  .slidercss {
+    height: 700px; /* Adjust the height for smaller screens */
+  }
+
+  /* Additional mobile styles for the text box (adjust as needed) */
+  .slider-text-box {
+    left: 10px;
+    top: 20px;
+    width: 90%;
+  }
+
+  .fontcss{
+    font-size: 0.7rem !important;
+
+  }
+  .headingcss{
+    font-size: 0.9rem !important;
+  }
+}
 .slidercss{
-  height: 450px;
+  height: 500px;
 }
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
@@ -162,7 +182,7 @@ body {
   color: #000;
   text-align: center;
   font-family: 'Poppins', sans-serif;
-  font-size: 40px;
+  font-size: 1.3rem;
   font-style: normal;
   font-weight: 700;
   line-height: 135px; /* 337.5% */
@@ -250,7 +270,7 @@ body {
 .know_more_compontent_heading {
   color: #000 !important;
   font-family: Poppins !important;
-  font-size: 40px !important;
+  font-size: 1.3rem !important;
   font-style: normal !important;
   font-weight: 700 !important;
   line-height: normal !important;

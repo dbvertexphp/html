@@ -46,8 +46,9 @@ function BuyCard(props) {
                                 <Heading size={["sm", "md"]} className="know_more_heading">
                       12-Month Warranty
                     </Heading>
-                    <Text className="know_more_text">
-                    We are a multi-channel auto platform with coverage and presence across vehicle types and value-added services                    </Text>
+                    <Text className="know_more_text fontcss">
+                    We are a multi-channel auto platform with coverage and presence across vehicle types and value-added services                 
+                       </Text>
                     <ButtonGroup spacing="2" padding="3">
                     <Button variant="solid" className="know_more_button">
                       Know more
@@ -65,7 +66,7 @@ function BuyCard(props) {
                       2-Years Warranty
                     </Heading>
                     
-                    <Text className="know_more_text">
+                    <Text className="know_more_text fontcss">
                     Our platforms operate under several brands: CarWale, CarTrade, Shriram Automall, CarTradeExchange, Adroit Auto and AutoBiz   
                                      </Text>
                                      <ButtonGroup spacing="2" padding="3">
@@ -85,7 +86,7 @@ function BuyCard(props) {
            <Heading size={["sm", "md"]} className="know_more_heading">
                       6-Month Warranty
                     </Heading>
-                    <Text className="know_more_text">
+                    <Text className="know_more_text fontcss">
                       Enjoy peace of mind with our 12-month Warranty that is standard across all cars that we sell
                     </Text>
                     <ButtonGroup spacing="2" padding="3">

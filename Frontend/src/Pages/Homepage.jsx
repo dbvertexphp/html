@@ -46,7 +46,7 @@ const Homepage = () => {
       <Card shadow="none" mx={{ base: '5', md: '10' }} my={{ base: '5', md: '10' }} pb="5">
         <CardHeader>
           <Flex placeContent={'center'}>
-            <Heading textAlign={'center'} size="lg" className="know_more_compontent_heading">
+            <Heading textAlign={'center'}  className="know_more_compontent_heading">
               Recently added cars
             </Heading>
           </Flex>
@@ -82,6 +82,7 @@ const Homepage = () => {
           </Flex>
         </CardHeader>
         <SliderComponent data={featured} />
+        
         <Text
           align={'center'}
           color="#30829c"

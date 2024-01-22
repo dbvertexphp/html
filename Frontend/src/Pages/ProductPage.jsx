@@ -587,7 +587,7 @@ export default function ProductPage() {
         borderRadius="39px"
         background="#F7FCFE"
       >
-        <GridItem background="#fff" border=" 1px solid #1097B1 " borderRadius="20px" colSpan={{ base: '7', md: '4' }}>
+        <GridItem background="#fff" border=" 1px solid #1097B1 " borderRadius="20px" colSpan={{ base: '8', md: '4' }}>
           <Flex p="2" align={'center'} fontWeight={'semibold'} justifyContent="space-around">
             <Flex align={'center'} color={'#1097B1'} fontSize={'25'} gap={{ base: '1', md: '2' }}>
               {data?.name?.name}
@@ -673,7 +673,7 @@ export default function ProductPage() {
           </Card>
         </GridItem>
 
-        <GridItem colSpan={{ base: '7', md: '4' }} order={{ base: 2, md: 1 }}>
+        <GridItem colSpan={{ base: '8', md: '4' }} order={{ base: 2, md: 1 }}>
           {!isOneCarLoading ? (
             <Card border=" 1px solid #1097B1 " borderRadius="20px" mb={3} p="5">
               <Flex display={'flex'} justifyContent={'start'} gap={'0'} alignItems={'center'}>

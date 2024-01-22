@@ -258,28 +258,29 @@ export default function Carousel() {
           position={{ base: 'absolute', md: 'absolute' }}
           textAlign={{ base: 'left', md: 'left' }}
           width={{ base: '100%', md: 'auto' }}
+          
         >
-          <Heading fontWeight="bold" fontSize={{ base: '30px', md: '50px' }} whiteSpace="nowrap">
+          <Heading  className='fontcss' fontWeight="bold"  whiteSpace="nowrap">
             find your dreams
           </Heading>
-          <Heading fontWeight="bold" fontSize={{ base: '30px', md: '50px' }} whiteSpace="nowrap">
+          <Heading className='fontcss' fontWeight="bold"  whiteSpace="nowrap">
             car within a minute
           </Heading>
-          <Text
+          <Text className='fontcss'
             fontWeight="bold"
             fontSize={{ base: '16px', md: '20px' }} // Adjusted fontSize for mobile
             backdropFilter="blur(1px)"
           >
-            Lorem Ipsum is simply dummy text of the printing and
+            Lorem Ipsum is simply dummy text of the printing
           </Text>
-          <Text
+          <Text className='fontcss'
             fontWeight="bold"
             fontSize={{ base: '16px', md: '20px' }} // Adjusted fontSize for mobile
             backdropFilter="blur(1px)"
           >
-            typesetting industry. Lorem Ipsum has been
+            and typesetting industry. Lorem Ipsum has been
           </Text>
-          <Text
+          <Text className='fontcss'
             fontWeight="bold"
             fontSize={{ base: '16px', md: '20px' }} // Adjusted fontSize for mobile
             backdropFilter="blur(1px)"
@@ -314,33 +315,33 @@ export default function Carousel() {
       </Box>
 
       <Box zIndex={1} left={{ base: '10px', md: '150px' }} bottom={{ base: '40px', md: '120px' }}>
-        <Heading className="serach_heading" my="5">
+        <Heading className="serach_heading headingcss" my="5">
           Select your car brand to get started
         </Heading>
         <Box className="centered-box">
-          <InputGroup w={{ base: 'full', md: '650px' }} size="lg" justifyContent="left" height={'48px !important'}>
-            <InputLeftElement pointerEvents="none"></InputLeftElement>
-            <Async
-              loadOptions={loadOptionsSreachName}
-              styles={customStyles}
-              placeholder={'\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Search Car Name'}
-              onChange={handleSelectSreachName}
-              defaultOptions={RecantOptionsSreachName()}
-              menuIsOpen={menuIsOpen}
-            />
-          </InputGroup>
-          <InputGroup w={{ base: 'full', md: '650px' }} size="lg" justifyContent="left" marginLeft={'20px !important'} height={'48px !important'}>
-            <InputLeftElement pointerEvents="none"></InputLeftElement>
-            <Async
-              loadOptions={loadOptionsSearchID}
-              styles={customStyles}
-              placeholder={'\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Search Car ID'}
-              onChange={handleSelectSearchID}
-              defaultOptions={RecentOptionsSearchID()}
-              menuIsOpen={idmenuIsOpen}
-            />
-          </InputGroup>
-        </Box>
+      <InputGroup w={{ base: 'full', sm: '650px' }} size="lg" justifyContent={{ base: 'center', md: 'left' }} height={{ base: '48px', md: 'auto' }} marginBottom={{ base: '10px', md: '0' }}>
+        <InputLeftElement pointerEvents="none"></InputLeftElement>
+        <Async
+          loadOptions={loadOptionsSreachName}
+          styles={customStyles}
+          placeholder={'\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Search Car Name'}
+          onChange={handleSelectSreachName}
+          defaultOptions={RecantOptionsSreachName()}
+          menuIsOpen={menuIsOpen}
+        />
+      </InputGroup>
+      <InputGroup w={{ base: 'full', md: '650px' }} size="lg" justifyContent={{ base: 'center', md: 'left' }} marginLeft={{ base: '0', md: '20px' }} height={{ base: '48px', md: 'auto' }}>
+        <InputLeftElement pointerEvents="none"></InputLeftElement>
+        <Async
+          loadOptions={loadOptionsSearchID}
+          styles={customStyles}
+          placeholder={'\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Search Car ID'}
+          onChange={handleSelectSearchID}
+          defaultOptions={RecentOptionsSearchID()}
+          menuIsOpen={idmenuIsOpen}
+        />
+      </InputGroup>
+    </Box>
       </Box>
     </>
   );
