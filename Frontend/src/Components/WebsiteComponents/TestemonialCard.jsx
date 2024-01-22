@@ -33,7 +33,7 @@ export default function TestemonialCard(props) {
     
         </Flex>
 
-        <Text textAlign={"center"} color={"#656464"} maxH={{ base: "40px", md: "50px" }} overflow="hidden">
+        <Text textAlign={"center"} color={"#656464"}  overflow="hidden">
                   {description}
                 </Text>
                 <Text textAlign={"center"} color="#1097B1" fontWeight="600" maxH="20px" overflow="hidden">

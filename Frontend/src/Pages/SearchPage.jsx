@@ -401,11 +401,11 @@ const SearchPage = () => {
           </GridItem>
           <GridItem colSpan={{ base: '6', sm: '4', md: '5' }}>
             <Stack align="center" m="2">
-              <Flex justify="space-between" w="100%">
+              <Flex className="fontslidercss" justify="space-between" w="100%">
                 <Async
                   loadOptions={loadOptionsSreachName}
                   styles={customStyles}
-                  placeholder={'\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Search Car Name'}
+                  placeholder={'\u00A0\u00A0Search Car Name'}
                   onChange={handleSelectSreachName}
                   defaultOptions={RecantOptionsSreachName()}
                   menuIsOpen={menuIsOpen}
@@ -414,13 +414,13 @@ const SearchPage = () => {
                 <Async
                   loadOptions={loadOptionsSearchID}
                   styles={customStyles}
-                  placeholder={'\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Search Car ID'}
+                  placeholder={'\u00A0\u00A0Search Car ID'}
                   onChange={handleSelectSearchID}
                   defaultOptions={RecentOptionsSearchID()}
                   menuIsOpen={idmenuIsOpen}
                 />
                 <Spacer flex="1" />
-                <Button
+                <Button className='fontslidercss'
                   mx={2}
                   flexShrink={0} // Prevent the button from shrinking
                   bg="teal"
@@ -460,7 +460,7 @@ const SearchPage = () => {
               </Wrap>
             )}
             <Flex align={'center'} gap="2" m="2">
-              <Text fontWeight={'bold'} m="3" fontSize={'20'}>
+              <Text className='headingcss' fontWeight={'bold'} m="3" fontSize={'20'}>
                 {totalCars || 0} Used Cars in {location?.name || 'India'}
               </Text>{' '}
               <Spacer />

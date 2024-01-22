@@ -211,8 +211,8 @@ body {
 }
 .centered-box {
   height: 48px !important;
-  padding-left: 37px !important;
-  text-align: left;
+ 
+ 
   -webkit-text-align: center;
   display: flex;
   justify-content: center;

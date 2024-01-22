@@ -319,7 +319,7 @@ export default function Carousel() {
           Select your car brand to get started
         </Heading>
         <Box className="centered-box fontcss">
-      <InputGroup w={{ base: 'full', sm: '650px' }} size="lg" justifyContent={{ base: 'center', md: 'left' }} height={{ base: '48px', md: 'auto' }} >
+      <InputGroup padding="10px" w={{ base: 'full', sm: '650px' }} size="lg" justifyContent={{ base: 'center', md: 'left' }} height={{ base: '48px', md: 'auto' }} >
         <InputLeftElement pointerEvents="none"></InputLeftElement>
         <Async
           loadOptions={loadOptionsSreachName}
@@ -330,7 +330,7 @@ export default function Carousel() {
           menuIsOpen={menuIsOpen}
         />
       </InputGroup>
-      <InputGroup w={{ base: 'full', md: '650px' }} size="lg" justifyContent={{ base: 'center', md: 'left' }} marginLeft={{ base: '0', md: '20px' }} height={{ base: '48px', md: 'auto' }}>
+      <InputGroup padding="10px" w={{ base: 'full', md: '650px' }} size="lg" justifyContent={{ base: 'center', md: 'left' }} marginLeft={{ base: '0', md: '20px' }} height={{ base: '48px', md: 'auto' }}>
         <InputLeftElement pointerEvents="none"></InputLeftElement>
         <Async
           loadOptions={loadOptionsSearchID}
