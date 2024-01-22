@@ -266,23 +266,23 @@ export default function Carousel() {
           <Heading className='headingcss' fontWeight="bold"  whiteSpace="nowrap">
             car within a minute
           </Heading>
-          <Text className='fontcss'
+          <Text className='fontslidercss'
             fontWeight="bold"
-            fontSize={{ base: '16px', md: '20px' }} // Adjusted fontSize for mobile
+           
             backdropFilter="blur(1px)"
           >
             Lorem Ipsum is simply dummy text of the printing
           </Text>
-          <Text className='fontcss'
+          <Text className='fontslidercss'
             fontWeight="bold"
-            fontSize={{ base: '16px', md: '20px' }} // Adjusted fontSize for mobile
+          
             backdropFilter="blur(1px)"
           >
             and typesetting industry. Lorem Ipsum has been
           </Text>
-          <Text className='fontcss'
+          <Text className='fontslidercss'
             fontWeight="bold"
-            fontSize={{ base: '16px', md: '20px' }} // Adjusted fontSize for mobile
+           
             backdropFilter="blur(1px)"
           >
             the industry's standard dummy

@@ -15,7 +15,10 @@ body {
     top: 20px;
     width: 90%;
   }
+  .fontslidercss{
+    font-size: 0.5rem !important;
 
+  }
   .fontcss{
     font-size: 0.7rem !important;
 
