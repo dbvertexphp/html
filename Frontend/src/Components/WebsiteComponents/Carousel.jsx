@@ -260,10 +260,10 @@ export default function Carousel() {
           width={{ base: '100%', md: 'auto' }}
           
         >
-          <Heading  className='fontcss' fontWeight="bold"  whiteSpace="nowrap">
+          <Heading  className='headingcss' fontWeight="bold"  whiteSpace="nowrap">
             find your dreams
           </Heading>
-          <Heading className='fontcss' fontWeight="bold"  whiteSpace="nowrap">
+          <Heading className='headingcss' fontWeight="bold"  whiteSpace="nowrap">
             car within a minute
           </Heading>
           <Text className='fontcss'
@@ -288,7 +288,7 @@ export default function Carousel() {
             the industry's standard dummy
           </Text>
           <NavLink>
-            <Button style={{ backgroundColor: '#1097b1', color: '#fff', width: { base: '80%', md: '100%' } }} size={{ base: 'md', md: 'lg' }}>
+            <Button className='fontcss' style={{ backgroundColor: '#1097b1', color: '#fff' }}>
               Book Now
             </Button>
           </NavLink>
@@ -315,16 +315,16 @@ export default function Carousel() {
       </Box>
 
       <Box zIndex={1} left={{ base: '10px', md: '150px' }} bottom={{ base: '40px', md: '120px' }}>
-        <Heading className="serach_heading headingcss" my="5">
+        <Heading className="serach_heading " my="5">
           Select your car brand to get started
         </Heading>
-        <Box className="centered-box">
-      <InputGroup w={{ base: 'full', sm: '650px' }} size="lg" justifyContent={{ base: 'center', md: 'left' }} height={{ base: '48px', md: 'auto' }} marginBottom={{ base: '10px', md: '0' }}>
+        <Box className="centered-box fontcss">
+      <InputGroup w={{ base: 'full', sm: '650px' }} size="lg" justifyContent={{ base: 'center', md: 'left' }} height={{ base: '48px', md: 'auto' }} >
         <InputLeftElement pointerEvents="none"></InputLeftElement>
         <Async
           loadOptions={loadOptionsSreachName}
           styles={customStyles}
-          placeholder={'\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Search Car Name'}
+          placeholder={'\u00A0\u00A0Search Car Name'}
           onChange={handleSelectSreachName}
           defaultOptions={RecantOptionsSreachName()}
           menuIsOpen={menuIsOpen}
@@ -335,7 +335,7 @@ export default function Carousel() {
         <Async
           loadOptions={loadOptionsSearchID}
           styles={customStyles}
-          placeholder={'\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0Search Car ID'}
+          placeholder={'\u00A0\u00A0Search Car ID'}
           onChange={handleSelectSearchID}
           defaultOptions={RecentOptionsSearchID()}
           menuIsOpen={idmenuIsOpen}

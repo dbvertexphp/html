@@ -7,9 +7,7 @@ body {
   font-family: 'Poppins', sans-serif !important;
 }
 @media screen and (max-width: 500px) {
-  .slidercss {
-    height: 700px; /* Adjust the height for smaller screens */
-  }
+ 
 
   /* Additional mobile styles for the text box (adjust as needed) */
   .slider-text-box {
@@ -26,9 +24,7 @@ body {
     font-size: 0.9rem !important;
   }
 }
-.slidercss{
-  height: 500px;
-}
+
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -129,7 +125,7 @@ body {
 .home_page_car_name {
   color: #1097b1;
   font-family: 'Poppins', sans-serif;
-  font-size: 20px;
+  font-size: 20px !important;
   font-style: normal;
   font-weight: 800;
   line-height: normal;
@@ -182,7 +178,7 @@ body {
   color: #000;
   text-align: center;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.3rem !important;
   font-style: normal;
   font-weight: 700;
   line-height: 135px; /* 337.5% */
