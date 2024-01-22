@@ -23,6 +23,10 @@ body {
     font-size: 0.7rem !important;
 
   }
+  .bookcss{
+    font-size: 0.7rem !important;
+    height:auto !important;
+  }
   .headingcss{
     font-size: 0.9rem !important;
   }

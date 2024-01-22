@@ -288,7 +288,7 @@ export default function Carousel() {
             the industry's standard dummy
           </Text>
           <NavLink>
-            <Button className='fontcss' style={{ backgroundColor: '#1097b1', color: '#fff' }}>
+            <Button className='bookcss' style={{ backgroundColor: '#1097b1', color: '#fff' }}>
               Book Now
             </Button>
           </NavLink>

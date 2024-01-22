@@ -266,10 +266,10 @@ export default function Header() {
               {' '}
               Sell Cars{' '}
             </NavLink>
-            <NavLink className="navbar_option" to="/Blog">
+            {/* <NavLink className="navbar_option" to="/Blog">
               {' '}
               Blog{' '}
-            </NavLink>
+            </NavLink> */}
             <NavLink className="navbar_option" to="/contactus">
               {' '}
               Contact{' '}
