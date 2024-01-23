@@ -109,6 +109,31 @@ const AdminCarEdit = () => {
  
   
   const { loading: CarUpdateLoading } = useSelector(state => state?.CarManager);
+
+  useEffect(() => {
+    setOneCar(prevFormData => ({
+      ...prevFormData,
+      features: features
+    }));
+  }, [features]);
+
+  // Update formData when safetyFeatures state changes
+  useEffect(() => {
+    setOneCar(prevFormData => ({
+      ...prevFormData,
+      safety_features: safetyFeatures
+    }));
+  }, [safetyFeatures]);
+
+  // Update formData when selectedLocations state changes
+  useEffect(() => {
+    setOneCar(prevFormData => ({
+      ...prevFormData,
+      location: selectedLocations
+    }));
+  }, [selectedLocations]);
+
+  
   const handleSubmit = e => {
     e.preventDefault();
 

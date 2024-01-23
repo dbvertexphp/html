@@ -26,6 +26,7 @@ body {
   .bookcss{
     font-size: 0.7rem !important;
     height:auto !important;
+    padding:5px !important;
   }
   .headingcss{
     font-size: 0.9rem !important;
