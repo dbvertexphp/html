@@ -224,12 +224,23 @@ const AdminCarEdit = () => {
         isClosable: true
       });
     }
-    let newsafearr = [...safetyFeatures, safe];
-    setSafetyFeatures(newsafearr);
-    setOneCar({
-      ...OneCar,
-      safety_features: newsafearr
-    });
+    if (safe == 'all') {
+      let allSafeFeaturesArr = safetyFeatureArray.slice(2).map(el => {
+        return el.value;
+      });
+      setSafetyFeatures(allSafeFeaturesArr);
+      setFormData({
+        ...formData,
+        safety_features: allSafeFeaturesArr
+      });
+    } else {
+      let newsafearr = [...safetyFeatures, safe];
+      setSafetyFeatures(newsafearr);
+      setFormData({
+        ...formData,
+        safety_features: newsafearr
+      });
+    }
     toast({
       position: 'top',
       title: 'Added to List',
@@ -253,18 +264,19 @@ const AdminCarEdit = () => {
 
 
     if (fea == 'all') {
-      let afeaarr = allFeaturess.map(el => el._id);
-      setfeatures(afeaarr);
-      setOneCar({
-        ...OneCar,
-        features: afeaarr
+      let allFeaturesArr = allFeaturess.slice(2).map(el => {
+        return el.name;
+      });
+      setfeatures(allFeaturesArr);
+      setFormData({
+        ...formData,
+        features: allFeaturesArr
       });
     } else {
       let newfeaarr = [...features, fea];
-      console.log(newfeaarr);
       setfeatures(newfeaarr);
-      setOneCar({
-        ...OneCar,
+      setFormData({
+        ...formData,
         features: newfeaarr
       });
     }
@@ -785,7 +797,59 @@ const AdminCarEdit = () => {
                 </GridItem>
               </Grid>
             </GridItem>
+            <GridItem as="div" colSpan={{ base: 6, md: 12 }} p="10px">
+            <Text mb="2" fontWeight={'500'} fontSize="1.5rem">
+              Owner Details :
+            </Text>
+          </GridItem>
 
+          <GridItem as="div" colSpan={{ base: 12, md: 12 }} p="20px " borderRadius={'10px'} backgroundColor={'white'}>
+            <Grid templateColumns="repeat(12, 1fr)">
+              <GridItem as="div" colSpan={{ base: 12, md: 4 }} p="10px">
+                <FormLabel>Owner Name</FormLabel>
+                <Input
+                  placeholder="Enter Owner Name"
+                  type="text"
+                  name="owner_name"
+                  value={OneCar?.owner_name || ''}
+                  onChange={handleDetailsChange}
+                />
+              </GridItem>
+
+              <GridItem as="div" colSpan={{ base: 12, md: 4 }} p="10px">
+                <FormLabel>Owner Email</FormLabel>
+                <Input
+                  placeholder="Enter Owner Email"
+                  type="email"
+                  name="owner_email"
+                  value={OneCar?.owner_email || ''}
+                  onChange={handleDetailsChange}
+                />
+              </GridItem>
+
+              <GridItem as="div" colSpan={{ base: 12, md: 4 }} p="10px">
+                <FormLabel>Owner Mobile</FormLabel>
+                <Input
+                  placeholder="Enter Owner Mobile"
+                  type="number"
+                  name="owner_mobile"
+                  value={OneCar?.owner_mobile || ''}
+                  onChange={handleDetailsChange}
+                />
+              </GridItem>
+
+              <GridItem as="div" colSpan={{ base: 12, md: 4 }} p="10px">
+                <FormLabel>Owner Location</FormLabel>
+                <Input
+                  placeholder="Enter Owner Location"
+                  type="text"
+                  name="owner_location"
+                  value={OneCar?.owner_location || ''}
+                  onChange={handleDetailsChange}
+                />
+              </GridItem>
+            </Grid>
+          </GridItem>
             <GridItem as="div" colSpan={{ base: 6, md: 12 }} p="10px">
               <Text mb="2" fontWeight={'500'} fontSize="1.5rem">
                 Feature Details :
@@ -800,13 +864,12 @@ const AdminCarEdit = () => {
                   </FormLabel>
                   <Flex w={'100%'} gap={3} my={1} borderRadius={'5px'}>
                     <Select id="selectFeature">
-                    <option value="">Select Features</option>
-                      <option value="all">Select all</option>
+                   
                     {allFeaturess?.length &&
                       allFeaturess.map(el => {
                         return (
-                          <option key={el._id} value={el.id}>
-                            {el.name}
+                          <option key={el._id} value={el.name}>
+                            {el.label}
                           </option>
                         );
                       })}
@@ -835,7 +898,6 @@ const AdminCarEdit = () => {
                             }}
                           >
                             {item}
-                            {allFeaturess.find(el => item == el?._id)?.name}
                           </Button>
                         );
                       })}
