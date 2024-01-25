@@ -400,38 +400,43 @@ const SearchPage = () => {
             />
           </GridItem>
           <GridItem colSpan={{ base: '6', sm: '4', md: '5' }}>
-            <Stack align="center" m="2">
-              <Flex className="fontslidercss" justify="space-between" w="100%">
-                <Async
-                  loadOptions={loadOptionsSreachName}
-                  styles={customStyles}
-                  placeholder={'\u00A0\u00A0Search Car Name'}
-                  onChange={handleSelectSreachName}
-                  defaultOptions={RecantOptionsSreachName()}
-                  menuIsOpen={menuIsOpen}
-                />
-                <Spacer flex="1" mx={2} />
-                <Async
-                  loadOptions={loadOptionsSearchID}
-                  styles={customStyles}
-                  placeholder={'\u00A0\u00A0Search Car ID'}
-                  onChange={handleSelectSearchID}
-                  defaultOptions={RecentOptionsSearchID()}
-                  menuIsOpen={idmenuIsOpen}
-                />
-                <Spacer flex="1" />
-                <Button className='fontslidercss'
-                  mx={2}
-                  flexShrink={0} // Prevent the button from shrinking
-                  bg="teal"
-                  color="white"
-                  onClick={refresh}
-                  rightIcon={<FiRefreshCcw />}
-                >
-                  Refresh
-                </Button>
-              </Flex>
-            </Stack>
+            <Stack align="center" m="1">
+            <Flex  justify="space-between" w="100%" flexDirection={{ base: 'column', md: 'row' }}>
+  <Box mb={{ base: 2, md: 0 }} flex="1">
+    <Async
+      loadOptions={loadOptionsSreachName}
+      styles={customStyles}
+      placeholder={'\u00A0Search Car Name'}
+      onChange={handleSelectSreachName}
+      defaultOptions={RecantOptionsSreachName()}
+      menuIsOpen={menuIsOpen}
+    />
+  </Box>
+  <Spacer flex="1" mx={2} />
+  <Box mb={{ base: 2, md: 0 }} flex="1">
+    <Async
+      loadOptions={loadOptionsSearchID}
+      styles={customStyles}
+      placeholder={'\u00A0Search Car ID'}
+      onChange={handleSelectSearchID}
+      defaultOptions={RecentOptionsSearchID()}
+      menuIsOpen={idmenuIsOpen}
+    />
+  </Box>
+  <Spacer flex="1" />
+  <Button
+   
+    mx={2}
+    flexShrink={0} // Prevent the button from shrinking
+    bg="teal"
+    color="white"
+    onClick={refresh}
+    rightIcon={<FiRefreshCcw />}
+  >
+    Refresh
+  </Button>
+</Flex>
+ </Stack>
             {!!displayFilters.length && (
               <Wrap align={'start'} gap="2" m="5" width={'98%'}>
                 <Button

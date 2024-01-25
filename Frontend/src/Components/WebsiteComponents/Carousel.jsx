@@ -302,7 +302,7 @@ export default function Carousel() {
               <Box key={index} display="flex" justifyContent="center" alignItems="center" height="100%">
                 <Image
                   width="100%"
-                  h={{ base: '250px', md: '450px' }}
+                  h={{ base: '200px', md: '450px' }}
                   objectFit="cover"
                   objectPosition="center"
                   src={image}
