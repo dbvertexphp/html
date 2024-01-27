@@ -251,9 +251,9 @@ const SearchPage = () => {
       try {
         const response = await axios.post(`${BASE_URL}/api/admin/carname/get-carId-sreach`, { carId: inputValue });
 
-        if (response && response.data && response.data.carDetails) {
-          const options = response.data.carDetails.map(permission => ({
-            label: permission.Car_id,
+        if (response && response.data && response.data.cars) {
+          const options = response.data.cars.map(permission => ({
+            label: permission.name,
             value: permission._id
           }));
           return options;
@@ -406,7 +406,7 @@ const SearchPage = () => {
     <Async
       loadOptions={loadOptionsSreachName}
       styles={customStyles}
-      placeholder={'\u00A0Search Car Name'}
+      placeholder={'\u00A0Search Car Brand '}
       onChange={handleSelectSreachName}
       defaultOptions={RecantOptionsSreachName()}
       menuIsOpen={menuIsOpen}
@@ -417,7 +417,7 @@ const SearchPage = () => {
     <Async
       loadOptions={loadOptionsSearchID}
       styles={customStyles}
-      placeholder={'\u00A0Search Car ID'}
+      placeholder={'\u00A0Search Car Model'}
       onChange={handleSelectSearchID}
       defaultOptions={RecentOptionsSearchID()}
       menuIsOpen={idmenuIsOpen}
@@ -480,11 +480,11 @@ const SearchPage = () => {
                 }}
               >
                 <option value={'trending_car'}>Trending</option>
-                {/* <option value={"featured_car"}>Featured </option> */}
+                <option value={"featured_car"}>Featured </option>
                 <option value={'hotdeal_car'}>Hot Deals</option>
-                {/* <option value={"upcoming_car"}>Upcoming </option>
+                <option value={"upcoming_car"}>Upcoming </option>
                         <option value={"low_to_high"}>Low to High</option>
-                        <option value={"high_to_low"}>High to Low</option> */}
+                        <option value={"high_to_low"}>High to Low</option>
               </Select>
             </Flex>
 

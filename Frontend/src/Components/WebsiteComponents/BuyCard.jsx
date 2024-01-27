@@ -28,7 +28,7 @@ function BuyCard(props) {
 
   return (
     <>
-     <Flex
+     <Flex 
           my="5"
           align={"center"}
           justifyContent={"center"}
@@ -36,7 +36,7 @@ function BuyCard(props) {
           direction={{ base: "column", md: "row" }}
         >
           <Stack className="know_more_card" align={"center"}>
-          <Image
+          <Image p="5"
                     borderRadius="full"
                     boxSize="150px"
                     src={image}
@@ -55,7 +55,7 @@ function BuyCard(props) {
                     </Button>
                   </ButtonGroup></Stack>
           <Stack className="know_more_card" align={"center"}>
-          <Image
+          <Image p="5"
                     borderRadius="full"
                     boxSize="150px"
                     src={image2}
@@ -76,7 +76,7 @@ function BuyCard(props) {
                   </ButtonGroup>
           </Stack>
           <Stack className="know_more_card" align={"center"}>
-          <Image
+          <Image p="5"
                     borderRadius="full"
                     boxSize="150px"
                     src={image3}
@@ -87,7 +87,7 @@ function BuyCard(props) {
                       6-Month Warranty
                     </Heading>
                     <Text className="know_more_text fontcss">
-                      Enjoy peace of mind with our 12-month Warranty that is standard across all cars that we sell
+                      Enjoy peace of mind with our 12-month Warranty that is standard across all cars that we sell 6-Month Warranty
                     </Text>
                     <ButtonGroup spacing="2" padding="3">
                     <Button variant="solid" className="know_more_button">

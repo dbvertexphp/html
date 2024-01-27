@@ -14,6 +14,15 @@ const settings = {
   slidesToScroll: 1,
   initialSlide: 0,
   responsive: [
+
+    {
+      breakpoint: 1300,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1
+      }
+    },
+    
     {
       breakpoint: 1024,
       settings: {
@@ -21,6 +30,7 @@ const settings = {
         slidesToScroll: 1
       }
     },
+    
     {
       breakpoint: 600,
       settings: {

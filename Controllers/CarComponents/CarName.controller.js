@@ -1,5 +1,8 @@
 const CarNameModel = require('../../Models/CarComponents/CarName.model');
 const CarModel = require('../../Models/Car.model');
+const BrandModel = require('../../Models/CarComponents/Make.model');
+const CarmodelModel = require('../../Models/CarComponents/CarModel.model');
+
 
 exports.addCarName = async (req, res) => {
   const data = req.body;
@@ -54,7 +57,7 @@ exports.getCarsByNameSreach = async (req, res) => {
     const searchName = typeof name === 'object' ? name.name : name;
 
     // Using a regular expression to find car names that contain the provided substring
-    const cars = await CarNameModel.find({ name: { $regex: searchName, $options: 'i' } });
+    const cars = await BrandModel.find({ name: { $regex: searchName, $options: 'i' } });
 
     return res.status(200).json({ message: 'Cars found by name', cars });
   } catch (error) {
@@ -97,19 +100,11 @@ exports.getCarsByIDSreach = async (req, res) => {
     const searchCarId = typeof carId === 'object' ? carId.carId : carId;
 
     // Using a regular expression to find cars with Car_id containing the provided substring
-    const cars = await CarModel.find({ Car_id: { $regex: searchCarId, $options: 'i' } }, '_id Car_id');
+    const cars = await CarmodelModel.find({ name: { $regex: searchCarId, $options: 'i' } });
 
-    // Check if there are no cars with the provided Car_id
-    if (!cars || cars.length === 0) {
-      return res.status(404).send({ message: 'No cars with the provided Car_id found' });
-    }
+   
 
-    const carDetails = cars.map(car => ({
-      _id: car._id,
-      Car_id: car.Car_id
-    }));
-
-    return res.status(200).send({ message: 'Car details', carDetails });
+    return res.status(200).send({ message: 'Car details', cars });
   } catch (error) {
     console.error(error);
     return res.status(500).json({ message: error?.message || 'Something went wrong', error });

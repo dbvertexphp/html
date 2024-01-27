@@ -138,9 +138,9 @@ export default function Footer() {
      <Grid
        templateColumns="repeat(11, 1fr)"
        mx="5"
-       p="10"
+       p="6"
        gap={{ base: "5", md: "20" }}
-       spacing="2"
+      
      >
        
        <GridItem colSpan={{ base: "11", sm: "6", md: "4" }}>
@@ -154,12 +154,12 @@ export default function Footer() {
        </GridItem>
        <GridItem colSpan={{ base: "11", sm: "5", md: "1" }}>
          <Stack>
-         <Link to={"/terms-conditions"}>Privacy</Link>
+         <Link to={"/privacy-policy"}>Privacy</Link>
          </Stack>
        </GridItem>
        <GridItem colSpan={{ base: "11", sm: "5", md: "1" }}>
          <Stack>
-         <Link to={"/terms-conditions"}>Cookies</Link>
+         <Link to={""}>Cookies</Link>
          </Stack>
        </GridItem>
        <GridItem colSpan={{ base: "11", sm: "5", md: "2" }}>

@@ -1,7 +1,7 @@
 const CarModel = require('../Models/Car.model');
 const SendMail = require('../Config/Sendmail');
 const LocationModel = require('../Models/CarComponents/Location.model');
-
+const BrandModel = require('../Models/CarComponents/Make.model');
 const { CarAddedVendor, CarAddedAdmin } = require('../Email/CarTemplates/CarAdded');
 const EmployeeModel = require('../Models/EmployeeModel');
 const { CarApprovedEmployee, CarApprovedVendor, CarApprovedAdmin } = require('../Email/CarTemplates/CarApproved');
@@ -47,19 +47,14 @@ exports.getCarsWithPagination = async (req, res) => {
       search = { ...search, status: 'approved' };
 
       // Check if 'name' property is present in search
-      if (search.name) {
-        totalCars = await CarModel.find(search).count();
-        Cars = await CarModel.find(search).populate(populateArr).sort({ createdAt: -1 }).limit(limit).skip(skip);
-      } else if (search.carIds) {
-        // If 'carIds' property is present in search, search by 'Car_id'
-        search = {
-          Car_id: { $regex: new RegExp(search.carIds.label, 'i') },
-          status: 'approved'
-        };
-
-        totalCars = await CarModel.find(search).count();
-        Cars = await CarModel.find(search).populate(populateArr).sort({ createdAt: -1 }).limit(limit).skip(skip);
-      }
+     if(search.name){
+        totalCars = await CarModel.find({make:search.name}).count();
+        Cars = await CarModel.find({make:search.name}).populate(populateArr).sort(sortObj).limit(limit).skip(skip);
+     }else if(search.carIds){
+      totalCars = await CarModel.find({model:search.carIds.value}).count();
+      Cars = await CarModel.find({model:search.carIds.value}).populate(populateArr).sort(sortObj).limit(limit).skip(skip);
+     }
+    
     } else {
       let FilterArr = [];
       if (filters?.location) FilterArr.push({ location: { $in: [filters.location] } });

@@ -148,9 +148,9 @@ export default function Carousel() {
       try {
         const response = await axios.post(`${BASE_URL}/api/admin/carname/get-carId-sreach`, { carId: inputValue });
 
-        if (response && response.data && response.data.carDetails) {
-          const options = response.data.carDetails.map(permission => ({
-            label: permission.Car_id,
+        if (response && response.data && response.data.cars) {
+          const options = response.data.cars.map(permission => ({
+            label: permission.name,
             value: permission._id
           }));
           return options;
