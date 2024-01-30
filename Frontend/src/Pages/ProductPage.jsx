@@ -1,6 +1,6 @@
 import { CheckIcon } from '@chakra-ui/icons';
 import { FaRegHeart } from 'react-icons/fa';
-
+import { Link, NavLink } from 'react-router-dom';
 import {
   Accordion,
   AccordionButton,
@@ -462,16 +462,12 @@ export default function ProductPage() {
 
       <Box color="var(--C1-C, #A9A9A9)" display="flex" w="100%" bg="#D7F2F8" mb="20px">
         <Text p="3" ml="4">
-          Homepage /
+        <NavLink to={`/`}> Homepage / </NavLink>
+        <NavLink to={`/`}> Car / </NavLink>
+        <NavLink to={``} color="#1097B1">  
+          {data?.name?.name}{' '}</NavLink>
         </Text>
-        <Text p="3" ml="3">
-          {' '}
-          Car /
-        </Text>
-        <Text p="3" ml="3" color="#1097B1">
-          {' '}
-          {data?.name?.name}{' '}
-        </Text>
+      
       </Box>
       {/**<!--*------- <Mobile View> ----------->*/}
       {!isOneCarLoading ? (
@@ -581,21 +577,21 @@ export default function ProductPage() {
       <Grid
         templateColumns="repeat(8, 1fr)"
         mx={{ base: '3', md: '25px' }}
-        p={{ md: '10' }}
-        gap={{ base: '5', md: '10' }}
+        p={{ base: '10', md: '10' }}
+        gap={{ base: '10', md: '10' }}
         boxShadow=" 0px 4px 4px 0px rgba(0, 0, 0, 0.25)"
         borderRadius="39px"
         background="#F7FCFE"
       >
         <GridItem background="#fff" border=" 1px solid #1097B1 " borderRadius="20px" colSpan={{ base: '8', md: '4' }}>
           <Flex p="2" align={'center'} fontWeight={'semibold'} justifyContent="space-around">
-            <Flex align={'center'} color={'#1097B1'} fontSize={'25'} gap={{ base: '1', md: '2' }}>
+            <Flex className="fontcss" align={'center'} color={'#1097B1'} fontSize={'25'} gap={{ base: '1', md: '2' }}>
               {data?.name?.name}
             </Flex>
-            <Flex align={'center'} color={'#1097B1'} fontSize={'25'} gap={{ base: '1', md: '1' }}>
+            <Flex className="fontcss" align={'center'} color={'#1097B1'} fontSize={'25'} gap={{ base: '1', md: '1' }}>
               ₹ {IndianNumberSystem(data?.price)}
             </Flex>
-            <Flex align={'center'} color={'#1097B1'} fontSize={'25'} gap={{ base: '1', md: '2' }}>
+            <Flex className="fontcss" align={'center'} color={'#1097B1'} fontSize={'25'} gap={{ base: '1', md: '2' }}>
               {data?.Car_id}
             </Flex>
           </Flex>
@@ -649,7 +645,7 @@ export default function ProductPage() {
           </Card>
           <Card w="100%" p="2" mt="5" display={{ base: 'none', md: 'flex' }}>
             {!isOneCarLoading ? (
-              <Flex align={'center'} fontWeight={'semibold'} fontSize={'16'} justifyContent="space-around">
+              <Flex className="fontdetail" align={'center'} fontWeight={'semibold'}  justifyContent="space-around">
                 <Flex align={'center'} gap={{ base: '1', md: '2' }}>
                   <BsSpeedometer2 />
                   {data?.km_driven} kms
@@ -726,22 +722,22 @@ export default function ProductPage() {
             {!isOneCarLoading ? (
               <Tabs variant="line" colorScheme="blue" isLazy>
                 <TabList bg="white">
-                  <Tab w="25%">Overview</Tab>
-                  <Tab w="25%">Features</Tab>
+                  <Tab w="30%">Overview</Tab>
+                  <Tab w="30%">Features</Tab>
 
-                  <Tab w="25%" ref={galleryRef}>
+                  <Tab w="30%" ref={galleryRef}>
                     Gallery
                   </Tab>
                 </TabList>
 
                 <TabPanels w={'full'}>
                   <TabPanel>
-                    <Card w="100%" p="5" shadow="none">
+                    <Card w="100%"  shadow="none">
                       <Text fontWeight={'bold'} fontSize={'22'} mb="5">
                         Car Overview
                       </Text>
 
-                      <Flex justifyContent={'space-evenly'} fontSize={'14'} direction={{ base: 'column', md: 'row' }}>
+                      <Flex className="fontdetail" justifyContent={'space-evenly'}  direction={{ base: 'column', md: 'row' }}>
                         <TableContainer whiteSpace={'normal'}>
                           <Table variant="unstyled" size="sm">
                             <Tbody>
@@ -969,7 +965,7 @@ export default function ProductPage() {
               ) : CanUserBookTestDrive() ? (
                 <Button
                   color="#30829c"
-                  w={{ md: '15%' }}
+                  w={{ base: '60%', md: '20%' }}
                   border="2px solid #1097B1"
                   bg="#fff"
                   ml="1"
@@ -1000,7 +996,7 @@ export default function ProductPage() {
           cursor="pointer"
         />
       </Box>
-      <Card mx={{ base: '5', md: '10' }} mt="5" mb="20">
+      <Card mx={{ base: '5', md: '10' }} mt="5" mb="20" shadow="none">
         <CardHeader>
           <Flex align={'center'} justify={'space-between'}>
             <Heading size="lg">Similar cars</Heading>

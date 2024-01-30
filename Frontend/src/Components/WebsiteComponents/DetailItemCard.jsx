@@ -10,6 +10,12 @@ import { useEffect, useRef, useState } from 'react';
 import { FaHeart } from 'react-icons/fa';
 import axios from 'axios';
 import { BASE_URL } from '../../utils/config';
+import { useBreakpointValue } from '@chakra-ui/react';
+
+// ...
+
+// Inside your component function
+
 function DetailItemCard(props) {
   const dispatch = useDispatch();
   const toast = useToast();
@@ -17,7 +23,7 @@ function DetailItemCard(props) {
   const { Customer_detail, token, isAuth } = useSelector(state => state.CustomerAuthManager);
 
   const [isFavorite, setIsFavorite] = useState(like_status === 'Yes');
-
+  const isMobile = useBreakpointValue({ base: true, sm: false });
   const handleToggleFavorite = async () => {
     const login = isAuth;
     if (login == false) {
@@ -87,7 +93,24 @@ function DetailItemCard(props) {
   
     <Stack>
       <CardBody>
-        <Heading className="home_page_car_name "  size='md'> {name}</Heading>
+        <Flex><Heading className="home_page_car_name "  size='md'> {name}   
+   </Heading>
+   {isMobile && ( // Render favorite icon on mobile
+                <Box onClick={handleToggleFavorite} marginLeft={20}>
+                  {isFavorite ? (
+                    <FaHeart
+                      style={{
+                        fill: 'black', // Set the fill color to your desired color
+                        width: '20px', // Optional: Adjust the width
+                        height: '20px' // Optional: Adjust the height
+                      }}
+                    />
+                  ) : (
+                    <FaRegHeart />
+                  )}
+                </Box>
+              )}
+              </Flex>
         <Heading marginTop="10px" className="home_page_car_name "  size='md'> {Car_id ? Car_id : ''}</Heading>
         <Box marginTop="10px" className="home_page_location fontcss" display="flex" alignItems="center">
               KILOMETERS : {km}
@@ -117,7 +140,7 @@ function DetailItemCard(props) {
     </Stack>
     <Stack>
     <CardBody>
-    <Box fontSize="18" mb="4">
+    <Box className="iconhide" fontSize="18" mb="4">
               <Box onClick={handleToggleFavorite}>
                 {isFavorite ? (
                   <FaHeart

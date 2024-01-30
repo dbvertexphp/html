@@ -252,8 +252,14 @@ export default function Header() {
       </Flex>
 
       {isOpen && (
-        <Box p={3} pr="10" display={{ base: 'block', lg: 'none' }} bg="gray.50">
-          <div className="" style={{ display: 'grid' }}>
+        <Box 
+        zIndex="2"
+        position="fixed"
+       width="140%"
+        left= "70%" /* Adjust the left position as per your layout */
+        transform= "translate(-50%)"
+         p={3} pr="10" display={{ base: 'block', lg: 'none' }} bg="gray.50">
+          <div className="" style={{ display: 'grid' }} >
             <NavLink className="navbar_option" to="/">
               {' '}
               Home{' '}

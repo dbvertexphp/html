@@ -6,9 +6,17 @@ body {
 .chakra-heading {
   font-family: 'Poppins', sans-serif !important;
 }
+@media screen and (min-width:750px) and (max-width: 1050px) {
+  .fontdetail{
+    font-size: 0.5rem !important;
+
+  }
+}
 @media screen and (max-width: 500px) {
  
-
+.iconhide{
+  display: none;
+}
   /* Additional mobile styles for the text box (adjust as needed) */
   .slider-text-box {
     left: 10px;

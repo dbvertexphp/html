@@ -48,11 +48,14 @@ exports.getCarsWithPagination = async (req, res) => {
 
       // Check if 'name' property is present in search
      if(search.name){
-        totalCars = await CarModel.find({make:search.name}).count();
-        Cars = await CarModel.find({make:search.name}).populate(populateArr).sort(sortObj).limit(limit).skip(skip);
+        totalCars = await CarModel.find({name:search.name}).count();
+        Cars = await CarModel.find({name:search.name}).populate(populateArr).sort(sortObj).limit(limit).skip(skip);
      }else if(search.carIds){
       totalCars = await CarModel.find({model:search.carIds.value}).count();
       Cars = await CarModel.find({model:search.carIds.value}).populate(populateArr).sort(sortObj).limit(limit).skip(skip);
+     }else if(search.brand){
+      totalCars = await CarModel.find({make:search.brand}).count();
+      Cars = await CarModel.find({make:search.brand}).populate(populateArr).sort(sortObj).limit(limit).skip(skip);
      }
     
     } else {

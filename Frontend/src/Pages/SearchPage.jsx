@@ -245,6 +245,53 @@ const SearchPage = () => {
     }
   };
 
+  const handleSelectBrandName = selectedOption => {
+    const { value: _id } = selectedOption;
+    const storedNameSreachString = localStorage.getItem('SreachcarnameOptions');
+    const storedNameSreach = storedNameSreachString ? JSON.parse(storedNameSreachString) : [];
+    const isOptionExists = storedNameSreach.some(option => option.value === _id);
+
+    if (!isOptionExists) {
+      const updatedOptions = [...storedNameSreach, { label: selectedOption.label, value: _id }];
+      localStorage.setItem('SreachcarnameOptions', JSON.stringify(updatedOptions));
+    }
+    let data = { search: { brand: _id } };
+    setPage(1);
+    dispatch(getCars(setPageData, data));
+  };
+
+  const loadOptionsBrandName = async inputValue => {
+    // If user is typing, fetch data from the API
+    if (inputValue) {
+      try {
+        const response = await axios.post(`${BASE_URL}/api/admin/carname/get-brandname-sreach`, { name: inputValue });
+        const options = response.data.cars.map(permission => ({
+          label: permission.name,
+          value: permission._id
+        }));
+        return options;
+      } catch (error) {
+        console.error('Error fetching options:', error);
+        return [];
+      }
+    } else {
+      // If no input, display options from local storage
+      return storedNameSreach;
+    }
+  };
+
+  const RecantOptionsBrandName = () => {
+    // Use storedNameSreach state instead of reading from local storage directly
+    return storedNameSreach.map(permission => ({
+      label: (
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <span>{permission.label}</span>
+        </div>
+      ),
+      value: permission.value
+    }));
+  };
+
   const loadOptionsSearchID = async inputValue => {
     // If the user is typing, fetch data from the API
     if (inputValue) {
@@ -402,18 +449,27 @@ const SearchPage = () => {
           <GridItem colSpan={{ base: '6', sm: '4', md: '5' }}>
             <Stack align="center" m="1">
             <Flex  justify="space-between" w="100%" flexDirection={{ base: 'column', md: 'row' }}>
-  <Box mb={{ base: 2, md: 0 }} flex="1">
+  <Box p="1" mb={{ base: 2, md: 0 }} flex="1">
     <Async
       loadOptions={loadOptionsSreachName}
       styles={customStyles}
-      placeholder={'\u00A0Search Car Brand '}
+      placeholder={'\u00A0Search Car '}
       onChange={handleSelectSreachName}
       defaultOptions={RecantOptionsSreachName()}
       menuIsOpen={menuIsOpen}
     />
   </Box>
-  <Spacer flex="1" mx={2} />
-  <Box mb={{ base: 2, md: 0 }} flex="1">
+  <Box p="1" mb={{ base: 2, md: 0 }} flex="1">
+    <Async
+      loadOptions={loadOptionsBrandName}
+      styles={customStyles}
+      placeholder={'\u00A0Search Car Brand '}
+      onChange={handleSelectBrandName}
+      defaultOptions={RecantOptionsBrandName()}
+      menuIsOpen={menuIsOpen}
+    />
+  </Box>
+  <Box p="1" mb={{ base: 2, md: 0 }} flex="1">
     <Async
       loadOptions={loadOptionsSearchID}
       styles={customStyles}
@@ -423,7 +479,7 @@ const SearchPage = () => {
       menuIsOpen={idmenuIsOpen}
     />
   </Box>
-  <Spacer flex="1" />
+  
   <Button
    
     mx={2}
