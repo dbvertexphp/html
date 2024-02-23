@@ -248,6 +248,9 @@ const VendorTransactions = () => {
                         <div>
                           <b>Reason : {item?.transaction_type}</b>
                         </div>
+                        <div>
+                          <b>Admin Pay : {item?.vendor_pay_amount !== undefined ? item.vendor_pay_amount : 'null'}</b>
+                        </div>
                       </Td>
                       <Td sx={{ ...cellStyle, paddingLeft: '8px' }}>
                         <div>

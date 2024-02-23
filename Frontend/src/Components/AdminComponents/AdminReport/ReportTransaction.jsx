@@ -245,6 +245,7 @@ const ReportTransaction = () => {
                 <Th>Transaction Type</Th>
                 <Th>Payement Status</Th>
                 <Th>Amount To Pay</Th>
+                <Th>Vendor To Pay</Th>
 
                 <Th>Customer ID</Th>
                 <Th>Customer Name</Th>
@@ -283,6 +284,7 @@ const ReportTransaction = () => {
                   <Td>{item?.transaction_type}</Td>
                   <Td>{item?.status}</Td>
                   <Td>{item?.amount_to_pay}</Td>
+                  <Td>{item?.vendor_pay_amount}</Td>
 
                   <Td>{item?.customer_id?.customer_code || 'NA'}</Td>
                   <Td>{item?.customer_id?.first_name + ' ' + item?.customer_id?.last_name || 'NA'}</Td>
