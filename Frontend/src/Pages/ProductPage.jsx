@@ -271,7 +271,7 @@ export default function ProductPage() {
 
     setPrevBookData(prev => ({
       ...prev,
-      amount_to_pay: car?.price - (car?.price * 0.1)
+      amount_to_pay: car?.price - car?.price * 0.1
     }));
   };
 
@@ -428,7 +428,7 @@ export default function ProductPage() {
 
   const UpdateBookingAndCarIsSold = obj => {
     let data = { ...PrevBookData, ...obj, car_status: 'sold' };
-  console.log(data);
+    console.log(data);
     dispatch(UpdatebookingByID(PrevBookData?._id, data, toast, getData, onPayClose, 'You have successfully bought the car', customertoken));
   };
 
@@ -462,12 +462,12 @@ export default function ProductPage() {
 
       <Box color="var(--C1-C, #A9A9A9)" display="flex" w="100%" bg="#D7F2F8" mb="20px">
         <Text p="3" ml="4">
-        <NavLink to={`/`}> Homepage / </NavLink>
-        <NavLink to={`/`}> Car / </NavLink>
-        <NavLink to={``} color="#1097B1">  
-          {data?.name?.name}{' '}</NavLink>
+          <NavLink to={`/`}> Homepage / </NavLink>
+          <NavLink to={`/`}> Car / </NavLink>
+          <NavLink to={``} color="#1097B1">
+            {data?.name?.name}{' '}
+          </NavLink>
         </Text>
-      
       </Box>
       {/**<!--*------- <Mobile View> ----------->*/}
       {!isOneCarLoading ? (
@@ -645,7 +645,7 @@ export default function ProductPage() {
           </Card>
           <Card w="100%" p="2" mt="5" display={{ base: 'none', md: 'flex' }}>
             {!isOneCarLoading ? (
-              <Flex className="fontdetail" align={'center'} fontWeight={'semibold'}  justifyContent="space-around">
+              <Flex className="fontdetail" align={'center'} fontWeight={'semibold'} justifyContent="space-around">
                 <Flex align={'center'} gap={{ base: '1', md: '2' }}>
                   <BsSpeedometer2 />
                   {data?.km_driven} kms
@@ -732,12 +732,12 @@ export default function ProductPage() {
 
                 <TabPanels w={'full'}>
                   <TabPanel>
-                    <Card w="100%"  shadow="none">
+                    <Card w="100%" shadow="none">
                       <Text fontWeight={'bold'} fontSize={'22'} mb="5">
                         Car Overview
                       </Text>
 
-                      <Flex className="fontdetail" justifyContent={'space-evenly'}  direction={{ base: 'column', md: 'row' }}>
+                      <Flex className="fontdetail" justifyContent={'space-evenly'} direction={{ base: 'column', md: 'row' }}>
                         <TableContainer whiteSpace={'normal'}>
                           <Table variant="unstyled" size="sm">
                             <Tbody>
@@ -1124,7 +1124,7 @@ export default function ProductPage() {
                   <FormLabel>Payable Amount :</FormLabel>
                   <Input
                     type="number"
-                    isDisabled
+                    disabled
                     bg={'gray.200'}
                     defaultValue={500}
                     name="amount_to_pay"
@@ -1179,6 +1179,7 @@ export default function ProductPage() {
               <FormLabel>Payable Amount :</FormLabel>
               {CanUserBookTestDrive() ? (
                 <Input
+                  disabled
                   type="number"
                   bg={'gray.200'}
                   defaultValue={data?.price * 0.1}
@@ -1243,8 +1244,8 @@ export default function ProductPage() {
               <Input
                 type="number"
                 bg={'gray.200'}
-                isDisabled
-                defaultValue={data?.price - (data?.price * 0.1)}
+                disabled
+                defaultValue={data?.price - data?.price * 0.1}
                 name="amount_to_pay"
                 onChange={e =>
                   setPrevBookData(prev => ({
@@ -1266,7 +1267,7 @@ export default function ProductPage() {
                   advanced_amount: data?.price * 0.1 - 500,
                   total_amount: data?.price,
                   test_drive_booking_amount: 500,
-                  remaining_amount: data?.price - (data?.price * 0.1),
+                  remaining_amount: data?.price - data?.price * 0.1,
                   status: 'paid'
                 })
               }
