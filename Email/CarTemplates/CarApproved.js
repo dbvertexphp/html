@@ -5,7 +5,7 @@ const CarApprovedVendor = (car) => {
   let vendor_name = car?.vendorID?.vendor_name;
   return `<!DOCTYPE html>
     <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
-    
+
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -18,21 +18,21 @@ const CarApprovedVendor = (car) => {
                 margin: 0;
                 padding: 0;
             }
-    
+
             a[x-apple-data-detectors] {
                 color: inherit !important;
                 text-decoration: inherit !important;
             }
-    
+
             #MessageViewBody a {
                 color: inherit;
                 text-decoration: none;
             }
-    
+
             p {
                 line-height: inherit
             }
-    
+
             .desktop_hide,
             .desktop_hide table {
                 mso-hide: all;
@@ -40,37 +40,37 @@ const CarApprovedVendor = (car) => {
                 max-height: 0px;
                 overflow: hidden;
             }
-    
+
             .image_block img+div {
                 display: none;
             }
-    
+
             @media (max-width:520px) {
                 .desktop_hide table.icons-inner {
                     display: inline-block !important;
                 }
-    
+
                 .icons-inner {
                     text-align: center;
                 }
-    
+
                 .icons-inner td {
                     margin: 0 auto;
                 }
-    
+
                 .mobile_hide {
                     display: none;
                 }
-    
+
                 .row-content {
                     width: 100% !important;
                 }
-    
+
                 .stack .column {
                     width: 100%;
                     display: block;
                 }
-    
+
                 .mobile_hide {
                     min-height: 0;
                     max-height: 0;
@@ -78,7 +78,7 @@ const CarApprovedVendor = (car) => {
                     overflow: hidden;
                     font-size: 0px;
                 }
-    
+
                 .desktop_hide,
                 .desktop_hide table {
                     display: table !important;
@@ -87,7 +87,7 @@ const CarApprovedVendor = (car) => {
             }
         </style>
     </head>
-    
+
     <body style="margin: 0; background-color: #fff; padding: 0; -webkit-text-size-adjust: none; text-size-adjust: none;">
         <table class="nl-container" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fff;">
             <tbody>
@@ -135,7 +135,7 @@ const CarApprovedVendor = (car) => {
                                                                         Car Brand:  ${car_brand} <br>
                                                                         Car Model:  ${car_model} <br>
                                                                         </p>
-                                                                         <a href="http://13.126.25.103/vendor/cars" style="display: inline-block; padding: 10px 20px; background-color: #3182ce; color: #FFFFFF; text-decoration: none; border: 1px solid #3182ce; border-radius: 5px; text-align: center;">View Car</a>
+                                                                         <a href="https://easygocarz.com/vendor/cars" style="display: inline-block; padding: 10px 20px; background-color: #3182ce; color: #FFFFFF; text-decoration: none; border: 1px solid #3182ce; border-radius: 5px; text-align: center;">View Car</a>
 <br><br>
 <br>
                                                                        <p style="margin: 0; margin-bottom: 16px;">Please contact to Support Team.</p>
@@ -167,7 +167,7 @@ const CarApprovedVendor = (car) => {
                                                                     <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                                                         <tr>
                                                                             <td class="alignment" style="vertical-align: middle; text-align: center;"><!--[if vml]><table align="left" cellpadding="0" cellspacing="0" role="presentation" style="display:inline-block;padding-left:0px;padding-right:0px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;"><![endif]-->
-                                                                           
+
                                                                             </td>
                                                                         </tr>
                                                                     </table>
@@ -187,7 +187,7 @@ const CarApprovedVendor = (car) => {
             </tbody>
         </table><!-- End -->
     </body>
-    
+
     </html>`;
 };
 const CarApprovedAdmin = (car) => {
@@ -197,7 +197,7 @@ const CarApprovedAdmin = (car) => {
   let vendor_name = car?.vendorID?.vendor_name;
   return `<!DOCTYPE html>
     <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
-    
+
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -210,21 +210,21 @@ const CarApprovedAdmin = (car) => {
                 margin: 0;
                 padding: 0;
             }
-    
+
             a[x-apple-data-detectors] {
                 color: inherit !important;
                 text-decoration: inherit !important;
             }
-    
+
             #MessageViewBody a {
                 color: inherit;
                 text-decoration: none;
             }
-    
+
             p {
                 line-height: inherit
             }
-    
+
             .desktop_hide,
             .desktop_hide table {
                 mso-hide: all;
@@ -232,37 +232,37 @@ const CarApprovedAdmin = (car) => {
                 max-height: 0px;
                 overflow: hidden;
             }
-    
+
             .image_block img+div {
                 display: none;
             }
-    
+
             @media (max-width:520px) {
                 .desktop_hide table.icons-inner {
                     display: inline-block !important;
                 }
-    
+
                 .icons-inner {
                     text-align: center;
                 }
-    
+
                 .icons-inner td {
                     margin: 0 auto;
                 }
-    
+
                 .mobile_hide {
                     display: none;
                 }
-    
+
                 .row-content {
                     width: 100% !important;
                 }
-    
+
                 .stack .column {
                     width: 100%;
                     display: block;
                 }
-    
+
                 .mobile_hide {
                     min-height: 0;
                     max-height: 0;
@@ -270,7 +270,7 @@ const CarApprovedAdmin = (car) => {
                     overflow: hidden;
                     font-size: 0px;
                 }
-    
+
                 .desktop_hide,
                 .desktop_hide table {
                     display: table !important;
@@ -279,7 +279,7 @@ const CarApprovedAdmin = (car) => {
             }
         </style>
     </head>
-    
+
     <body style="margin: 0; background-color: #fff; padding: 0; -webkit-text-size-adjust: none; text-size-adjust: none;">
         <table class="nl-container" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fff;">
             <tbody>
@@ -359,7 +359,7 @@ const CarApprovedAdmin = (car) => {
                                                                     <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                                                         <tr>
                                                                             <td class="alignment" style="vertical-align: middle; text-align: center;"><!--[if vml]><table align="left" cellpadding="0" cellspacing="0" role="presentation" style="display:inline-block;padding-left:0px;padding-right:0px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;"><![endif]-->
-                                                                           
+
                                                                             </td>
                                                                         </tr>
                                                                     </table>
@@ -379,7 +379,7 @@ const CarApprovedAdmin = (car) => {
             </tbody>
         </table><!-- End -->
     </body>
-    
+
     </html>`;
 };
 const CarApprovedEmployee = (car, employee) => {
@@ -389,7 +389,7 @@ const CarApprovedEmployee = (car, employee) => {
   let employee_name = employee?.employee_name;
   return `<!DOCTYPE html>
     <html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
-    
+
     <head>
         <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -402,21 +402,21 @@ const CarApprovedEmployee = (car, employee) => {
                 margin: 0;
                 padding: 0;
             }
-    
+
             a[x-apple-data-detectors] {
                 color: inherit !important;
                 text-decoration: inherit !important;
             }
-    
+
             #MessageViewBody a {
                 color: inherit;
                 text-decoration: none;
             }
-    
+
             p {
                 line-height: inherit
             }
-    
+
             .desktop_hide,
             .desktop_hide table {
                 mso-hide: all;
@@ -424,37 +424,37 @@ const CarApprovedEmployee = (car, employee) => {
                 max-height: 0px;
                 overflow: hidden;
             }
-    
+
             .image_block img+div {
                 display: none;
             }
-    
+
             @media (max-width:520px) {
                 .desktop_hide table.icons-inner {
                     display: inline-block !important;
                 }
-    
+
                 .icons-inner {
                     text-align: center;
                 }
-    
+
                 .icons-inner td {
                     margin: 0 auto;
                 }
-    
+
                 .mobile_hide {
                     display: none;
                 }
-    
+
                 .row-content {
                     width: 100% !important;
                 }
-    
+
                 .stack .column {
                     width: 100%;
                     display: block;
                 }
-    
+
                 .mobile_hide {
                     min-height: 0;
                     max-height: 0;
@@ -462,7 +462,7 @@ const CarApprovedEmployee = (car, employee) => {
                     overflow: hidden;
                     font-size: 0px;
                 }
-    
+
                 .desktop_hide,
                 .desktop_hide table {
                     display: table !important;
@@ -471,7 +471,7 @@ const CarApprovedEmployee = (car, employee) => {
             }
         </style>
     </head>
-    
+
     <body style="margin: 0; background-color: #fff; padding: 0; -webkit-text-size-adjust: none; text-size-adjust: none;">
         <table class="nl-container" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #fff;">
             <tbody>
@@ -519,7 +519,7 @@ const CarApprovedEmployee = (car, employee) => {
                                                                         Car Brand:  ${car_brand} <br>
                                                                         Car Model:  ${car_model} <br>
                                                                         </p>
-                                                                         <a href="http://13.126.25.103/vendor/cars" style="display: inline-block; padding: 10px 20px; background-color: #3182ce; color: #FFFFFF; text-decoration: none; border: 1px solid #3182ce; border-radius: 5px; text-align: center;">View Car</a>
+                                                                         <a href="https://easygocarz.com/vendor/cars" style="display: inline-block; padding: 10px 20px; background-color: #3182ce; color: #FFFFFF; text-decoration: none; border: 1px solid #3182ce; border-radius: 5px; text-align: center;">View Car</a>
 <br><br>
 <br>
                                                                        <p style="margin: 0; margin-bottom: 16px;">Please contact to Support Team.</p>
@@ -551,7 +551,7 @@ const CarApprovedEmployee = (car, employee) => {
                                                                     <table width="100%" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                                                         <tr>
                                                                             <td class="alignment" style="vertical-align: middle; text-align: center;"><!--[if vml]><table align="left" cellpadding="0" cellspacing="0" role="presentation" style="display:inline-block;padding-left:0px;padding-right:0px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;"><![endif]-->
-                                                                           
+
                                                                             </td>
                                                                         </tr>
                                                                     </table>
@@ -571,7 +571,7 @@ const CarApprovedEmployee = (car, employee) => {
             </tbody>
         </table><!-- End -->
     </body>
-    
+
     </html>`;
 };
 module.exports = { CarApprovedVendor, CarApprovedAdmin, CarApprovedEmployee };
