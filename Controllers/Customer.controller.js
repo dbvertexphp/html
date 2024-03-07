@@ -380,7 +380,7 @@ exports.forgetPassword = async (req, res) => {
     }
 
     // Check if the provided OTP matches the stored OTP
-    if (customer.otp !== otp || !customer.otp_verified) {
+    if (customer.otp !== otp) {
       return res.status(401).json({ message: 'Invalid OTP' });
     }
 

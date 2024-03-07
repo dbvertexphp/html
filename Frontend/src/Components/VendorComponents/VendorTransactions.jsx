@@ -249,7 +249,16 @@ const VendorTransactions = () => {
                           <b>Reason : {item?.transaction_type}</b>
                         </div>
                         <div>
-                          <b>Admin Pay : {item?.vendor_pay_amount !== undefined ? item.vendor_pay_amount : 'null'}</b>
+                          <b>
+                            Admin Pay :{' '}
+                            {item?.status === 'PAYMENT_SUCCESS'
+                              ? item?.vendor_pay_amount !== undefined
+                                ? item.vendor_pay_amount !== null
+                                  ? item.vendor_pay_amount
+                                  : 'Not Commission Add'
+                                : 0
+                              : 0}
+                          </b>
                         </div>
                       </Td>
                       <Td sx={{ ...cellStyle, paddingLeft: '8px' }}>

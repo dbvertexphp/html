@@ -6,11 +6,30 @@ const TestDriveModel = require('../Models/TestDrive.model');
 const TransactionModel = require('../Models/Transaction.model');
 const VendorModel = require('../Models/Vendor.model');
 
+const DateConvertTimeZone = (fromDates, toDates) => {
+  let fromDate = new Date(fromDates);
+  let toDate = new Date(toDates);
+
+  fromDate = new Date(Date.UTC(fromDate.getFullYear(), fromDate.getMonth(), fromDate.getDate()));
+  toDate = new Date(Date.UTC(toDate.getFullYear(), toDate.getMonth(), toDate.getDate(), 23, 59, 59, 999));
+
+  return { fromDate, toDate };
+};
+
 exports.getTransactionReport = async (req, res) => {
-  let fromDate = req.query.fromDate || '2023-01-01';
-  let toDate = req.query.toDate || '2024-12-31';
+  // Static date range
+  let fromDates = req.query.fromDate;
+  let toDates = req.query.toDate;
+
+  const convertedDates = DateConvertTimeZone(fromDates, toDates);
+  console.log(convertedDates);
+
+  let fromDate = convertedDates.fromDate;
+  let toDate = convertedDates.toDate;
+
   let transaction_type = req.query.transactionType || '';
   let status = req.query.status;
+
   try {
     let query = {};
     if (fromDate && toDate) {
@@ -22,6 +41,7 @@ exports.getTransactionReport = async (req, res) => {
     if (status) {
       query.status = status;
     }
+
     const transactions = await TransactionModel.find(query)
       .populate(['car_id', 'test_drive_id', 'customer_id', 'car_id.vendorID'])
       .populate({
@@ -43,8 +63,14 @@ exports.getTransactionReport = async (req, res) => {
 };
 
 exports.getBookingReport = async (req, res) => {
-  let fromDate = req.query.fromDate || '2023-01-01';
-  let toDate = req.query.toDate || '2023-12-31';
+  let fromDates = req.query.fromDate;
+  let toDates = req.query.toDate;
+
+  const convertedDates = DateConvertTimeZone(fromDates, toDates);
+  console.log(convertedDates);
+
+  let fromDate = convertedDates.fromDate;
+  let toDate = convertedDates.toDate;
   try {
     let query = {};
     if (fromDate && toDate) {
@@ -70,8 +96,14 @@ exports.getBookingReport = async (req, res) => {
 };
 
 exports.getCarReport = async (req, res) => {
-  let fromDate = req.query.fromDate || '2023-01-01';
-  let toDate = req.query.toDate || '2023-12-31';
+  let fromDates = req.query.fromDate;
+  let toDates = req.query.toDate;
+
+  const convertedDates = DateConvertTimeZone(fromDates, toDates);
+  console.log(convertedDates);
+
+  let fromDate = convertedDates.fromDate;
+  let toDate = convertedDates.toDate;
   let vendorID = req.query.vendorID;
   try {
     let query = {};
@@ -88,8 +120,14 @@ exports.getCarReport = async (req, res) => {
   }
 };
 exports.getTestDriveReport = async (req, res) => {
-  let fromDate = req.query.fromDate || '2023-01-01';
-  let toDate = req.query.toDate || '2023-12-31';
+  let fromDates = req.query.fromDate;
+  let toDates = req.query.toDate;
+
+  const convertedDates = DateConvertTimeZone(fromDates, toDates);
+  console.log(convertedDates);
+
+  let fromDate = convertedDates.fromDate;
+  let toDate = convertedDates.toDate;
   try {
     let query = {};
     if (fromDate && toDate) {
@@ -123,8 +161,14 @@ exports.getTestDriveReport = async (req, res) => {
 };
 
 exports.getVendorsReport = async (req, res) => {
-  let fromDate = req.query.fromDate || '2023-01-01';
-  let toDate = req.query.toDate || '2070-12-31';
+  let fromDates = req.query.fromDate;
+  let toDates = req.query.toDate;
+
+  const convertedDates = DateConvertTimeZone(fromDates, toDates);
+  console.log(convertedDates);
+
+  let fromDate = convertedDates.fromDate;
+  let toDate = convertedDates.toDate;
   try {
     let query = {};
     if (fromDate && toDate) {
@@ -139,8 +183,14 @@ exports.getVendorsReport = async (req, res) => {
 };
 
 exports.getEmployeesReport = async (req, res) => {
-  let fromDate = req.query.fromDate || '2023-01-01';
-  let toDate = req.query.toDate || '2023-12-31';
+  let fromDates = req.query.fromDate;
+  let toDates = req.query.toDate;
+
+  const convertedDates = DateConvertTimeZone(fromDates, toDates);
+  console.log(convertedDates);
+
+  let fromDate = convertedDates.fromDate;
+  let toDate = convertedDates.toDate;
   try {
     let query = {};
     if (fromDate && toDate) {
@@ -155,8 +205,14 @@ exports.getEmployeesReport = async (req, res) => {
 };
 
 exports.getCustomersReport = async (req, res) => {
-  let fromDate = req.query.fromDate || '2023-01-01';
-  let toDate = req.query.toDate || '2023-12-31';
+  let fromDates = req.query.fromDate;
+  let toDates = req.query.toDate;
+
+  const convertedDates = DateConvertTimeZone(fromDates, toDates);
+  console.log(convertedDates);
+
+  let fromDate = convertedDates.fromDate;
+  let toDate = convertedDates.toDate;
   try {
     let query = {};
     if (fromDate && toDate) {

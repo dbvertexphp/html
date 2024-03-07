@@ -252,7 +252,22 @@ const AdminTransactions = () => {
                             <b>Reason : {item?.transaction_type}</b>
                           </div>
                           <div>
-                            <b>Vendor Pay : {item?.vendor_pay_amount !== undefined ? item.vendor_pay_amount : 'null'}</b>
+                            <b>Vendor Id :{item?.car_id.vendorID.vendor_code !== undefined ? item.car_id.vendorID.vendor_code : 'null'}</b>
+                          </div>
+                          <div>
+                            <b>Vendor Name : {item?.car_id.vendorID.vendor_name !== undefined ? item.car_id.vendorID.vendor_name : 'null'}</b>
+                          </div>
+                          <div>
+                            <b>
+                              Vendor Pay :
+                              {item?.status === 'PAYMENT_SUCCESS'
+                                ? item?.vendor_pay_amount !== undefined
+                                  ? item.vendor_pay_amount !== null
+                                    ? item.vendor_pay_amount
+                                    : 'Not Commission Add'
+                                  : 0
+                                : 0}
+                            </b>
                           </div>
                         </Td>
                         <Td sx={{ ...cellStyle, paddingLeft: '8px' }}>

@@ -164,7 +164,7 @@ exports.UpdateBookingByID = async (req, res) => {
       } else if (commissionType === 'Static_Amount' && commissionAmount) {
         transactionAmount = commissionAmount;
       } else {
-        transactionAmount = caramount;
+        transactionAmount = null;
       }
 
       let newTransaction = {
@@ -182,7 +182,7 @@ exports.UpdateBookingByID = async (req, res) => {
       const transaction = new TransactionModel(newTransaction);
       await transaction.save();
       let params = new URLSearchParams(payload);
-      await PhonepePaymentInitiater(req, res, transaction?._id, payload.customer_id, payload.amount_to_pay, params);
+      await PhonepePaymentInitiater(req, res, transaction?._id, payload.customer_id, payload.remaining_amount, params);
     } else {
       await BookingModel.findByIdAndUpdate(id, payload);
       return res.status(200).send({ message: 'Booking Updated Successfully' });

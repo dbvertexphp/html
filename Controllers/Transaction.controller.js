@@ -35,6 +35,14 @@ exports.getAllTransactions = async (req, res) => {
       .limit(limit)
       .skip(skip)
       .populate(['car_id', 'test_drive_id', 'customer_id', 'car_id.vendorID'])
+      .populate({
+        path: 'car_id',
+        populate: {
+          path: 'vendorID',
+          model: 'Vendor', // Assuming the name of your vendor model
+          select: 'vendor_code vendor_name'
+        }
+      })
       .populate(populateObj)
       .exec();
 
