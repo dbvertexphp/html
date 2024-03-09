@@ -6,30 +6,26 @@ body {
 .chakra-heading {
   font-family: 'Poppins', sans-serif !important;
 }
-@media screen and (min-width:750px) and (max-width: 1050px) {
-  .fontdetail{
+@media screen and (min-width: 750px) and (max-width: 1050px) {
+  .fontdetail {
     font-size: 0.5rem !important;
-
   }
 }
 @media screen and (max-width: 500px) {
- 
-.iconhide{
-  display: none;
-}
+  .iconhide {
+    display: none;
+  }
   /* Additional mobile styles for the text box (adjust as needed) */
   .slider-text-box {
     left: 10px;
     top: 20px;
     width: 90%;
   }
-  .fontslidercss{
+  .fontslidercss {
     font-size: 0.5rem !important;
-
   }
-  .fontcss{
+  .fontcss {
     font-size: 0.7rem !important;
-
   }
   .home_page_car_name {
     color: #1097b1;
@@ -40,20 +36,19 @@ body {
     line-height: normal;
     text-transform: capitalize;
   }
-  .bookcss{
+  .bookcss {
     font-size: 0.7rem !important;
-    height:auto !important;
-    padding:5px !important;
+    height: auto !important;
+    padding: 5px !important;
   }
-  .headingcss{
+  .headingcss {
     font-size: 0.9rem !important;
   }
   svg {
     width: 10px !important;
-   
-    margin: 0;
-}
 
+    margin: 0;
+  }
 }
 
 ::-webkit-scrollbar-thumb {
@@ -239,8 +234,7 @@ body {
 }
 .centered-box {
   height: 48px !important;
- 
- 
+
   -webkit-text-align: center;
   display: flex;
   justify-content: center;
@@ -358,4 +352,27 @@ body {
 .responsive-image {
   max-width: 100%;
   height: auto;
+}
+
+/* Vertical Scroll Bar */
+.chakra-table__container::-webkit-scrollbar {
+  width: 10px; /* Scroll bar ki width ko set karein */
+  height: 15px; /* Scroll bar ki height ko set karein */
+}
+
+/* Track - yeh scroll bar ke background ko represent karta hai */
+.chakra-table__container::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background color set karein */
+  height: 30px; /* Scroll bar ki height ko set karein */
+}
+
+/* Handle - yeh scroll bar ko drag karne ke liye use hota hai */
+.chakra-table__container::-webkit-scrollbar-thumb {
+  background: #888; /* Scroll bar handle ka background color set karein */
+  height: 30px; /* Scroll bar ki height ko set karein */
+}
+
+/* Handle on hover */
+.chakra-table__container::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Scroll bar handle ka hover background color set karein */
 }

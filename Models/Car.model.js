@@ -118,14 +118,15 @@ CarSchema.pre('save', async function (next) {
     }
 
     // Find the latest Car document to determine the next Car_id
-    const latestCar = await this.constructor.findOne({}, {}, { sort: { Car_id: -1 } });
+    const latestCar = await this.constructor.findOne({}, {}, { sort: { createdAt: -1 } });
+    console.log(latestCar);
 
     let nextCarId = 'CAR0001'; // Default starting Car_id
 
     if (latestCar && latestCar.Car_id) {
       // If there's a latest Car document, increment the number in the Car_id
-      const lastCarNumber = parseInt(latestCar.Car_id.slice(3), 10);
-      nextCarId = 'CAR' + ('000' + (lastCarNumber + 1)).slice(-4);
+      const lastCarNumber = parseInt(latestCar.Car_id.slice(3), 10) + 1;
+      nextCarId = 'CAR' + ('000' + lastCarNumber).slice(-4);
     }
 
     this.Car_id = nextCarId;

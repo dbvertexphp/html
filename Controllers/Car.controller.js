@@ -57,7 +57,7 @@ exports.getCarsWithPagination = async (req, res) => {
       totalCars = await CarModel.find({make:search.brand}).count();
       Cars = await CarModel.find({make:search.brand}).populate(populateArr).sort(sortObj).limit(limit).skip(skip);
      }
-    
+
     } else {
       let FilterArr = [];
       if (filters?.location) FilterArr.push({ location: { $in: [filters.location] } });
